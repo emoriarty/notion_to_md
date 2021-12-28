@@ -2,7 +2,7 @@
 
 require 'logger'
 
-module NotionToMarkdown
+module NotionToMd
   class Logger
     @logger = ::Logger.new(STDOUT)
 

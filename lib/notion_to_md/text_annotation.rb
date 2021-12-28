@@ -1,4 +1,4 @@
-module NotionToMarkdown
+module NotionToMd
   # Append the text type:
   # * italic: boolean,
   # * bold: boolean,

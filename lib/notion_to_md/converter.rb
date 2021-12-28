@@ -4,7 +4,7 @@ require 'notion'
 require_relative './logger'
 require_relative './text_annotation'
 
-module NotionToMarkdown
+module NotionToMd
   class Converter
     attr_reader :page_id
 
