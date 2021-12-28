@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     notion_to_md (0.0.0.alpha)
-      notion-ruby-client
+      notion-ruby-client (~> 0.0.8)
 
 GEM
   remote: https://rubygems.org/

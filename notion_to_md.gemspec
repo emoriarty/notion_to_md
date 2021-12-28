@@ -6,9 +6,13 @@ Gem::Specification.new do |s|
   s.name = 'notion_to_md'
   s.version = NotionToMd::VERSION
   s.summary = 'Notion Markdown Exporter'
-  s.authors = ['emoriarty81@gmail.com']
+  s.description = 'Notion Markdown Exporter in Ruby'
+  s.authors = ['Enrique Arias']
+  s.email = 'emoriarty81@gmail.com'
   s.files = Dir['lib/**/*.rb', 'README.md']
+  s.homepage = 'https://github.com/emoriarty/notion_to_md'
   s.required_ruby_version = ">= #{File.read('.ruby-version').chomp}"
+  s.license = 'MIT'
 
-  s.add_runtime_dependency('notion-ruby-client')
+  s.add_runtime_dependency('notion-ruby-client', '~> 0.0.8')
 end
