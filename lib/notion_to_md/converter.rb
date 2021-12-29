@@ -18,6 +18,7 @@ module NotionToMd
         next blank if block[:type] == 'paragraph' && block.dig(:paragraph, :text).empty?
 
         block_type = block[:type].to_sym
+<<<<<<< HEAD
 
         begin
           send(block_type, block[block_type])
@@ -27,6 +28,15 @@ module NotionToMd
         end
       end
       Logger.info("Notion page #{page_id} converted to markdown")
+=======
+        begin
+          send(block_type, block[block_type])
+          Logger.info("Notion page #{page_id} converted to markdown")
+        rescue
+          Logger.info("Unsupported block type: #{block_type}")
+        end
+      end
+>>>>>>> 03b5b89 (fix: Capture unsupported block type (#4))
       md.compact.join("\n\n")
     end
 
