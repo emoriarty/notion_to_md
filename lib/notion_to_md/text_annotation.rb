@@ -9,7 +9,7 @@ module NotionToMd
   class TextAnnotation
     class << self
       def italic(text)
-        "_#{text}_"
+        "*#{text}*"
       end
 
       def bold(text)
