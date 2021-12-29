@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.email = 'emoriarty81@gmail.com'
   s.files = Dir['lib/**/*.rb', 'README.md']
   s.homepage = 'https://github.com/emoriarty/notion_to_md'
-  s.required_ruby_version = ">= #{File.read('.ruby-version').chomp}"
+  s.required_ruby_version = '>= 0'
   s.license = 'MIT'
 
   s.add_runtime_dependency('notion-ruby-client', '~> 0.0.8')
