@@ -6,9 +6,12 @@ require 'yaml'
 require 'json'
 require 'hashie'
 require_relative '../../lib/notion_to_md'
+require_relative '../../lib/notion_to_md/logger'
 
 class NotionOutput < Hashie::Mash
 end
+
+NotionToMd::Logger.level = Logger::ERROR
 
 fixture = YAML.load_file("#{Dir.pwd}/test/fixtures/notion/block_children.yml")
 NOTION_PAGE_ID = 'notion_page_id'
