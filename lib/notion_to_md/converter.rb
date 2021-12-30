@@ -21,7 +21,7 @@ module NotionToMd
 
         begin
           send(block_type, block[block_type])
-        rescue
+        rescue StandardError
           Logger.info("Unsupported block type: #{block_type}")
           next nil
         end
@@ -35,7 +35,6 @@ module NotionToMd
     def page_blocks
       @page_blocks ||= @notion.block_children(id: page_id)
     end
-
 
     def paragraph(block)
       convert_text(block)
@@ -148,7 +147,7 @@ module NotionToMd
     end
 
     def add_annotations(text, content)
-      annotations = text[:annotations].select { |key, value| !!value }
+      annotations = text[:annotations].select { |_key, value| !!value }
       annotations.keys.inject(content) do |enriched_content, annotation|
         TextAnnotation.send(annotation.to_sym, enriched_content)
       end

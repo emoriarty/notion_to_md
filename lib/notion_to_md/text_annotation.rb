@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NotionToMd
   # Append the text type:
   # * italic: boolean,
