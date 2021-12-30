@@ -1,12 +1,13 @@
 PATH
   remote: .
   specs:
-    notion_to_md (0.0.0.alpha)
+    notion_to_md (0.0.2)
       notion-ruby-client (~> 0.0.8)
 
 GEM
   remote: https://rubygems.org/
   specs:
+    ast (2.4.2)
     faraday (1.8.0)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
@@ -34,14 +35,35 @@ GEM
       faraday (>= 1.0)
       faraday_middleware
       hashie
+    parallel (1.21.0)
+    parser (3.0.3.2)
+      ast (~> 2.4.1)
+    rainbow (3.0.0)
+    regexp_parser (2.2.0)
+    rexml (3.2.5)
+    rubocop (1.24.0)
+      parallel (~> 1.10)
+      parser (>= 3.0.0.0)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.8, < 3.0)
+      rexml
+      rubocop-ast (>= 1.15.0, < 2.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 1.4.0, < 3.0)
+    rubocop-ast (1.15.1)
+      parser (>= 3.0.1.1)
+    ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.5)
+    unicode-display_width (2.1.0)
 
 PLATFORMS
+  ruby
   x86_64-darwin-20
 
 DEPENDENCIES
   hashie
   notion_to_md!
+  rubocop
 
 BUNDLED WITH
    2.2.17
