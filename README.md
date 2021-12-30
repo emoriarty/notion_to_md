@@ -39,3 +39,8 @@ md = notion_converter.convert
 ```
 
 And that's all. The `md` is a string variable containing the notion page formatted in markdown.
+
+## Test
+```bash
+$ ruby -Ilib:test test/notion_to_md/converter_spec.rb
+```
