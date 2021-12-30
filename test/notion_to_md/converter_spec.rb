@@ -252,7 +252,6 @@ describe NotionToMd::Converter do
     end
   end
 
-
   describe 'when unsupported block' do
     before do
       @block_children = NotionOutput.new(JSON.parse(fixture['file']))

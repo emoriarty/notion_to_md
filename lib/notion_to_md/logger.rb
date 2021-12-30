@@ -4,7 +4,7 @@ require 'logger'
 
 module NotionToMd
   class Logger
-    @logger = ::Logger.new(STDOUT)
+    @logger = ::Logger.new($stdout)
 
     class << self
       extend Forwardable
@@ -12,5 +12,3 @@ module NotionToMd
     end
   end
 end
-
-
