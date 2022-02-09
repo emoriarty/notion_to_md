@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'logger'
-
 module NotionToMd
   class Logger
     @logger = ::Logger.new($stdout)
