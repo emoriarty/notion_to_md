@@ -37,7 +37,7 @@ module NotionToMd
     end
 
     def parse_frontmatter
-      notion_page = NotionPage.new(page: page)
+      notion_page = Page.new(page: page)
       frontmatter = notion_page.props.to_a.map { |k, v| "#{k}: #{v}" }.join("\n")
       <<~CONTENT
         ---
