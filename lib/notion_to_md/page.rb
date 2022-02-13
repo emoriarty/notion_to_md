@@ -9,7 +9,7 @@ module NotionToMd
     end
 
     def title
-      page.dig(:properties, :Name, :title).inject("") do |acc, slug|
+      page.dig(:properties, :Name, :title).inject('') do |acc, slug|
         acc + slug[:plain_text]
       end
     end
@@ -27,11 +27,11 @@ module NotionToMd
     end
 
     def created_time
-      DateTime.parse(page["created_time"])
+      DateTime.parse(page['created_time'])
     end
 
     def last_edited_time
-      DateTime.parse(page["last_edited_time"])
+      DateTime.parse(page['last_edited_time'])
     end
 
     def url
@@ -56,33 +56,33 @@ module NotionToMd
 
     def default_props
       @default_props ||= {
-        "id"           => id,
-        "title"        => title,
-        "created_time" => created_time,
-        "cover"        => cover,
-        "icon"         => icon,
-        "last_edited_time" => last_edited_time,
+        'id' => id,
+        'title' => title,
+        'created_time' => created_time,
+        'cover' => cover,
+        'icon' => icon,
+        'last_edited_time' => last_edited_time
       }
     end
 
     class CustomProperty
       class << self
         def multi_select(prop)
-          multi_select = prop.multi_select.map(&:name).join(", ")
+          multi_select = prop.multi_select.map(&:name).join(', ')
           "[#{multi_select}]"
         end
 
         def select(prop)
-          prop["select"].name
+          prop['select'].name
         end
 
         def people(prop)
-          people = prop.people.map(&:name).join(", ")
+          people = prop.people.map(&:name).join(', ')
           "[#{people}]"
         end
 
         def files(prop)
-          files = prop.files.map { |f| "\"#{f.file.url}\"" }.join(", ")
+          files = prop.files.map { |f| "\"#{f.file.url}\"" }.join(', ')
           "[#{files}]"
         end
 

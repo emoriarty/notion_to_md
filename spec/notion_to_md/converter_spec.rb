@@ -5,7 +5,7 @@ require 'spec_helper'
 describe(NotionToMd::Converter) do
   let(:notion_token) { 'secret_0987654321' }
   let(:notion_client) do
-    double('Notion::Client', block_children: NOTION_BLOCK_CHILDREN)
+    double('Notion::Client', block_children: NOTION_BLOCK_CHILDREN, page: NOTION_PAGE)
   end
 
   subject { described_class.new(page_id: 'd1535062-350e-45ec-93ba-c4b3d277f42a').convert }

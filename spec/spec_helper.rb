@@ -5,6 +5,7 @@ require File.expand_path('../lib/notion_to_md', __dir__)
 
 NotionToMd::Logger.level = Logger::ERROR
 
+NOTION_PAGE = YAML.load_file(File.expand_path('fixtures/notion_page.yml', __dir__))
 NOTION_BLOCK_CHILDREN = YAML.load_file(File.expand_path('fixtures/notion_block_children.yml', __dir__))
 
 RSpec.configure do |config|
