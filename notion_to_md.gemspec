@@ -18,4 +18,5 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency('hashie')
   s.add_development_dependency('rubocop')
+  s.add_development_dependency('rspec')
 end

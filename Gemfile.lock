@@ -8,6 +8,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.2)
+    diff-lcs (1.5.0)
     faraday (1.9.3)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
@@ -45,6 +46,19 @@ GEM
     rainbow (3.0.0)
     regexp_parser (2.2.0)
     rexml (3.2.5)
+    rspec (3.11.0)
+      rspec-core (~> 3.11.0)
+      rspec-expectations (~> 3.11.0)
+      rspec-mocks (~> 3.11.0)
+    rspec-core (3.11.0)
+      rspec-support (~> 3.11.0)
+    rspec-expectations (3.11.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.11.0)
+    rspec-mocks (3.11.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.11.0)
+    rspec-support (3.11.0)
     rubocop (1.24.0)
       parallel (~> 1.10)
       parser (>= 3.0.0.0)
@@ -67,6 +81,7 @@ PLATFORMS
 DEPENDENCIES
   hashie
   notion_to_md!
+  rspec
   rubocop
 
 BUNDLED WITH
