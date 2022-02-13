@@ -18,12 +18,12 @@ module NotionToMd
         "**#{text}**"
       end
 
-      def striketrough(text)
+      def strikethrough(text)
         "~~#{text}~~"
       end
 
       def underline(text)
-        text
+        "<u>#{text}</u>"
       end
 
       def code(text)

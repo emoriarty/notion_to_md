@@ -76,18 +76,13 @@ module NotionToMd
         '---'
       end
 
-      def equation(block)
-        equ = convert_text(block)
-        "$$ #{equ} $$"
-      end
-
       def blank
         '<br />'
       end
 
       def convert_text(block)
         block[:text].map do |text|
-          content = text[:plain_text]
+          content = Text.send(text[:type], text)
           enrich_text_content(text, content)
         end.join
       end
