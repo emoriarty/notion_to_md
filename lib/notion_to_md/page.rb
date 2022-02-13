@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module NotionToMd
-  class NotionPage
+  class Page
     attr_reader :page
 
     def initialize(page:)
