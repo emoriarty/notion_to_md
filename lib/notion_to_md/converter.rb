@@ -4,12 +4,22 @@ module NotionToMd
   class Converter
     attr_reader :page_id
 
-    def initialize(page_id:, token: nil)
+    def initialize(page_id:, token: nil, frontmatter: false)
       @notion = Notion::Client.new(token: token || ENV['NOTION_TOKEN'])
       @page_id = page_id
+      @frontmatter = frontmatter
     end
 
     def convert
+      <<~MD
+        #{parse_frontmatter if frontmatter?}
+        #{parse_content}
+      MD
+    end
+
+    private
+
+    def parse_content
       md = page_blocks[:results].map do |block|
         next Block.blank if block[:type] == 'paragraph' && block.dig(:paragraph, :text).empty?
 
@@ -26,10 +36,26 @@ module NotionToMd
       md.compact.join("\n\n")
     end
 
-    private
+    def parse_frontmatter
+      notion_page = NotionPage.new(page: page)
+      frontmatter = notion_page.props.to_a.map { |k, v| "#{k}: #{v}" }.join("\n")
+      <<~CONTENT
+        ---
+        #{frontmatter}
+        ---
+      CONTENT
+    end
+
+    def page
+      @page ||= @notion.page(id: page_id)
+    end
 
     def page_blocks
       @page_blocks ||= @notion.block_children(id: page_id)
+    end
+
+    def frontmatter?
+      @frontmatter
     end
   end
 end
