@@ -42,5 +42,5 @@ And that's all. The `md` is a string variable containing the notion page formatt
 
 ## Test
 ```bash
-$ ruby -Ilib:test test/notion_to_md/converter_spec.rb
+rspec
 ```
