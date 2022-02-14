@@ -2,8 +2,11 @@
 object: page
 id: 9dc17c9c-9d2e-469d-bbf0-f9648f3288d3
 created_time: '2022-01-23T12:31:00.000Z'
-last_edited_time: '2022-02-05T16:29:00.000Z'
-cover:
+last_edited_time: '2022-02-13T23:05:00.000Z'
+cover: !ruby/hash:Notion::Messages::Message
+  type: external
+  external: !ruby/hash:Notion::Messages::Message
+    url: https://www.notion.so/images/page-cover/met_canaletto_1720.jpg
 icon: !ruby/hash:Notion::Messages::Message
   type: emoji
   emoji: "\U0001F4A5"
@@ -42,11 +45,11 @@ properties: !ruby/hash:Notion::Messages::Message
     - !ruby/hash:Notion::Messages::Message
       object: user
       id: a4e89628-577b-404f-b62b-36abe7f65fc7
-      name: Julie Guiraud
+      name: John Rambo
       avatar_url: https://s3-us-west-2.amazonaws.com/public.notion-static.com/3e0bf8de-83a5-4579-8088-5a35021ab9cc/Foto_Perfil_Slack.jpg
       type: person
       person: !ruby/hash:Notion::Messages::Message
-        email: gjulia20@gmail.com
+        email: john.rambo@test.com
   Date: !ruby/hash:Notion::Messages::Message
     id: T~YB
     type: date
@@ -78,8 +81,8 @@ properties: !ruby/hash:Notion::Messages::Message
       name: me.jpeg
       type: file
       file: !ruby/hash:Notion::Messages::Message
-        url: https://s3.us-west-2.amazonaws.com/secure.notion-static.com/23e8b74e-86d1-4b3a-bd9a-dd0415a954e4/me.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220213%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220213T140850Z&X-Amz-Expires=3600&X-Amz-Signature=561e4f97699456c0db09d2008d8e4a3ab2f8105223ae70c2cb698a8a2873edfa&X-Amz-SignedHeaders=host&x-id=GetObject
-        expiry_time: '2022-02-13T15:08:50.572Z'
+        url: https://s3.us-west-2.amazonaws.com/secure.notion-static.com/23e8b74e-86d1-4b3a-bd9a-dd0415a954e4/me.jpeg
+        expiry_time: '2022-02-14T13:58:48.196Z'
   Email: !ruby/hash:Notion::Messages::Message
     id: x{cw
     type: email

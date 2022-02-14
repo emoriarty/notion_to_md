@@ -38,6 +38,10 @@ module NotionToMd
       page[:url]
     end
 
+    def archived
+      page[:archived]
+    end
+
     def props
       @props ||= custom_props.deep_merge(default_props)
     end
@@ -61,7 +65,8 @@ module NotionToMd
         'created_time' => created_time,
         'cover' => cover,
         'icon' => icon,
-        'last_edited_time' => last_edited_time
+        'last_edited_time' => last_edited_time,
+        'archived' => archived
       }
     end
 
