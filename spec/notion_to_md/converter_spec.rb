@@ -17,6 +17,10 @@ describe(NotionToMd::Converter) do
   end
 
   describe('convert') do
+    it 'document does not start with ---' do
+      expect(subject.split("\n").first).not_to matching(/^---$/)
+    end
+
     it 'heading_1 to #' do
       expect(subject).to matching(/^# Heading 1$/)
     end
