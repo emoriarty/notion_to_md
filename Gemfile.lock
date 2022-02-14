@@ -2,12 +2,20 @@ PATH
   remote: .
   specs:
     notion_to_md (0.1.0)
+      activesupport (~> 6)
       notion-ruby-client (~> 0.0.8)
 
 GEM
   remote: https://rubygems.org/
   specs:
+    activesupport (6.0.4.6)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 0.7, < 2)
+      minitest (~> 5.1)
+      tzinfo (~> 1.1)
+      zeitwerk (~> 2.2, >= 2.2.2)
     ast (2.4.2)
+    concurrent-ruby (1.1.9)
     diff-lcs (1.5.0)
     faraday (1.9.3)
       faraday-em_http (~> 1.0)
@@ -35,6 +43,9 @@ GEM
     faraday_middleware (1.2.0)
       faraday (~> 1.0)
     hashie (5.0.0)
+    i18n (1.9.1)
+      concurrent-ruby (~> 1.0)
+    minitest (5.15.0)
     multipart-post (2.1.1)
     notion-ruby-client (0.0.8)
       faraday (>= 1.0)
@@ -72,7 +83,11 @@ GEM
       parser (>= 3.0.1.1)
     ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.5)
+    thread_safe (0.3.6)
+    tzinfo (1.2.9)
+      thread_safe (~> 0.1)
     unicode-display_width (2.1.0)
+    zeitwerk (2.5.4)
 
 PLATFORMS
   ruby

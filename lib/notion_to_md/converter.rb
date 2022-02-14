@@ -9,7 +9,16 @@ module NotionToMd
       @page_id = page_id
     end
 
-    def convert
+    def convert(frontmatter: false)
+      <<~MD
+        #{parse_frontmatter if frontmatter}
+        #{parse_content}
+      MD
+    end
+
+    private
+
+    def parse_content
       md = page_blocks[:results].map do |block|
         next Block.blank if block[:type] == 'paragraph' && block.dig(:paragraph, :text).empty?
 
@@ -26,7 +35,19 @@ module NotionToMd
       md.compact.join("\n\n")
     end
 
-    private
+    def parse_frontmatter
+      notion_page = Page.new(page: page)
+      frontmatter = notion_page.props.to_a.map { |k, v| "#{k}: #{v}" }.join("\n")
+      <<~CONTENT
+        ---
+        #{frontmatter}
+        ---
+      CONTENT
+    end
+
+    def page
+      @page ||= @notion.page(id: page_id)
+    end
 
     def page_blocks
       @page_blocks ||= @notion.block_children(id: page_id)
