@@ -4,15 +4,14 @@ module NotionToMd
   class Converter
     attr_reader :page_id
 
-    def initialize(page_id:, token: nil, frontmatter: false)
+    def initialize(page_id:, token: nil)
       @notion = Notion::Client.new(token: token || ENV['NOTION_TOKEN'])
       @page_id = page_id
-      @frontmatter = frontmatter
     end
 
-    def convert
+    def convert(frontmatter: false)
       <<~MD
-        #{parse_frontmatter if frontmatter?}
+        #{parse_frontmatter if frontmatter}
         #{parse_content}
       MD
     end
@@ -52,10 +51,6 @@ module NotionToMd
 
     def page_blocks
       @page_blocks ||= @notion.block_children(id: page_id)
-    end
-
-    def frontmatter?
-      @frontmatter
     end
   end
 end

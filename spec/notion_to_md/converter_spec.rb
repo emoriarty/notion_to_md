@@ -4,12 +4,9 @@ require 'spec_helper'
 
 describe(NotionToMd::Converter) do
   let(:notion_token) { 'secret_0987654321' }
-  let(:frontmatter) { false }
   let(:notion_client) do
     double('Notion::Client', block_children: NOTION_BLOCK_CHILDREN, page: NOTION_PAGE)
   end
-
-  subject { described_class.new(page_id: 'd1535062-350e-45ec-93ba-c4b3d277f42a', frontmatter: frontmatter).convert }
 
   before do
     allow(ENV).to receive(:[]).with('NOTION_TOKEN').and_return(notion_token)
@@ -17,6 +14,8 @@ describe(NotionToMd::Converter) do
   end
 
   describe('convert') do
+    subject { described_class.new(page_id: 'd1535062-350e-45ec-93ba-c4b3d277f42a').convert }
+
     it 'document does not start with ---' do
       expect(subject.split("\n").first).not_to matching(/^---$/)
     end
@@ -105,10 +104,10 @@ describe(NotionToMd::Converter) do
       expect(subject).to matching(/^`inline-code`$/)
     end
 
-    context('with frontmatter set true') do
+    context('with frontmatter') do
       let(:frontmatter) { true }
 
-      subject { described_class.new(page_id: 'd1535062-350e-45ec-93ba-c4b3d277f42a', frontmatter: frontmatter).convert }
+      subject { described_class.new(page_id: 'd1535062-350e-45ec-93ba-c4b3d277f42a').convert(frontmatter: frontmatter) }
 
       it 'document starts with ---' do
         expect(subject.split("\n").first).to matching(/^---$/)
