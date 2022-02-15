@@ -66,7 +66,7 @@ archived: false
 ```
 
 In addition to default properties, custom properties are also supported.
-Custom properties are included by using the property name [parameterized](https://api.rubyonrails.org/classes/ActiveSupport/Inflector.html#method-i-parameterize) and [underscorized](https://api.rubyonrails.org/classes/ActiveSupport/Inflector.html#method-i-underscore) as key.
+Custom properties name is [parameterized](https://api.rubyonrails.org/classes/ActiveSupport/Inflector.html#method-i-parameterize) and [underscorized](https://api.rubyonrails.org/classes/ActiveSupport/Inflector.html#method-i-underscore) before added to front matter.
 For example, two properties named `Multiple Options` and `Tags` will be transformed to `multiple_options` and `tags`, respectively.
 
 ```yml
