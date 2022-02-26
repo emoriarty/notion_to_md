@@ -73,8 +73,7 @@ module NotionToMd
     class CustomProperty
       class << self
         def multi_select(prop)
-          multi_select = prop.multi_select.map(&:name).join(', ')
-          "[#{multi_select}]"
+          prop.multi_select.map(&:name)
         end
 
         def select(prop)
@@ -82,13 +81,11 @@ module NotionToMd
         end
 
         def people(prop)
-          people = prop.people.map(&:name).join(', ')
-          "[#{people}]"
+          prop.people.map(&:name)
         end
 
         def files(prop)
-          files = prop.files.map { |f| "\"#{f.file.url}\"" }.join(', ')
-          "[#{files}]"
+          prop.files.map { |f| f.file.url }
         end
 
         def phone_number(prop)
