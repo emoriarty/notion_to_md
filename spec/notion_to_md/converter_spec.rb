@@ -142,7 +142,7 @@ describe(NotionToMd::Converter) do
       end
 
       it 'sets custom property multi_select type in frontmatter' do
-        expect(subject).to matching(/^multi_select: \[mselect1, mselect2, mselect3\]$/)
+        expect(subject).to matching(/^multi_select: \["mselect1", "mselect2", "mselect3"\]$/)
       end
 
       it 'sets custom property select type in frontmatter' do
@@ -150,7 +150,7 @@ describe(NotionToMd::Converter) do
       end
 
       it 'sets custom property people type in frontmatter' do
-        expect(subject).to matching(/^person: \[John Rambo\]$/)
+        expect(subject).to matching(/^person: \["John Rambo"\]$/)
       end
 
       it 'sets custom property date type in frontmatter' do
