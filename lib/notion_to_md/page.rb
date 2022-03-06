@@ -2,10 +2,11 @@
 
 module NotionToMd
   class Page
-    attr_reader :page
+    attr_reader :page, :blocks
 
-    def initialize(page:)
+    def initialize(page:, blocks:)
       @page = page
+      @blocks = blocks
     end
 
     def title
@@ -40,6 +41,31 @@ module NotionToMd
 
     def archived
       page[:archived]
+    end
+
+    def body
+      @body ||= blocks[:results].map do |block|
+        next Block.blank if block[:type] == 'paragraph' && block.dig(:paragraph, :text).empty?
+
+        block_type = block[:type].to_sym
+
+        begin
+          Block.send(block_type, block[block_type])
+        rescue StandardError
+          Logger.info("Unsupported block type: #{block_type}")
+          next nil
+        end
+      end.compact.join("\n\n")
+    end
+
+    def frontmatter
+      @frontmatter ||= <<~CONTENT
+        ---
+        #{props.to_a.map do |k, v|
+          "#{k}: #{v}"
+        end.join("\n")}
+        ---
+      CONTENT
     end
 
     def props

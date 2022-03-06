@@ -10,42 +10,14 @@ module NotionToMd
     end
 
     def convert(frontmatter: false)
+      md_page = Page.new(page: page, blocks: page_blocks)
       <<~MD
-        #{parse_frontmatter if frontmatter}
-        #{parse_content}
+        #{md_page.frontmatter if frontmatter}
+        #{md_page.body}
       MD
     end
 
     private
-
-    def parse_content
-      md = page_blocks[:results].map do |block|
-        next Block.blank if block[:type] == 'paragraph' && block.dig(:paragraph, :text).empty?
-
-        block_type = block[:type].to_sym
-
-        begin
-          Block.send(block_type, block[block_type])
-        rescue StandardError
-          Logger.info("Unsupported block type: #{block_type}")
-          next nil
-        end
-      end
-      Logger.info("Notion page #{page_id} converted to markdown")
-      md.compact.join("\n\n")
-    end
-
-    def parse_frontmatter
-      notion_page = Page.new(page: page)
-      frontmatter = notion_page.props.to_a.map do |k, v|
-        "#{k}: #{v}"
-      end.join("\n")
-      <<~CONTENT
-        ---
-        #{frontmatter}
-        ---
-      CONTENT
-    end
 
     def page
       @page ||= @notion.page(id: page_id)
