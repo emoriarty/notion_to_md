@@ -140,6 +140,10 @@ module NotionToMd
         def url(prop)
           prop.url
         end
+
+        def rich_text(prop)
+          prop.rich_text.map(&:plain_text).join
+        end
       end
     end
   end
