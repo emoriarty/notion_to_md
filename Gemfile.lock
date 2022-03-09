@@ -1,14 +1,14 @@
 PATH
   remote: .
   specs:
-    notion_to_md (1.0.0)
+    notion_to_md (1.1.0)
       activesupport (~> 6)
       notion-ruby-client (~> 0.0.8)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (6.1.4.6)
+    activesupport (6.1.4.7)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
