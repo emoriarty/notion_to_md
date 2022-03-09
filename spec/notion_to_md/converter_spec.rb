@@ -172,6 +172,10 @@ describe(NotionToMd::Converter) do
       it 'sets custom property checkbox type in frontmatter' do
         expect(subject).to matching(/^checkbox: false$/)
       end
+
+      it 'sets custom property rich_text type in frontmatter' do
+        expect(subject).to matching(/^rich_text: This is a rich_text property. With Italics.$/)
+      end
     end
   end
 end

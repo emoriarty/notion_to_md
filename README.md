@@ -88,8 +88,9 @@ The supported property types are:
 * `url`
 * `email`
 * `phone_number`
+* `rich_text`, supported but in plain text
 
-`rich_text` as advanced types like `formula`, `relation` and `rollup` are not supported.
+Advanced types like `formula`, `relation` and `rollup` are not supported.
 
 Check notion documentation about [property values](https://developers.notion.com/reference/property-value-object#all-property-values) to know more.
 
