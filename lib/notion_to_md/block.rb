@@ -50,7 +50,7 @@ module NotionToMd
         language = block[:language]
         text = convert_text(block)
 
-        "```#{language}\n\t#{text}\n```"
+        "```#{language}\n#{text}\n```"
       end
 
       def embed(block)
