@@ -33,7 +33,6 @@ module NotionToMd
         "- #{convert_text(block)}"
       end
 
-      # TODO: numbered_list_item
       def numbered_list_item(block)
         Logger.info('numbered_list_item type not supported. Shown as bulleted_list_item.')
         bulleted_list_item(block)
