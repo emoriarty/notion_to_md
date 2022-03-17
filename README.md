@@ -40,8 +40,24 @@ md = notion_converter.convert
 
 And that's all. The `md` is a string variable containing the notion page formatted in markdown.
 
+## Blocks
 
-### Front matter
+Everything in a notion page body is a [block object](https://developers.notion.com/reference/block#block-object-keys). Therefore, not every type can be mapped to Markdown. Below there's a list of current supported blocks types.
+
+* `paragraph`
+* `heading_1`
+* `heading_2`
+* `heading_3`
+* `bulleted_list_item`
+* `numbered_list_item` as `bulleted_list_item`
+* `to_do`
+* `image`
+* `bookmark`
+* `callout`
+* `quote`
+* `divider`
+
+## Front matter
 
 From version 0.2.0, notion_to_md supports front matter in markdown files.
 
@@ -51,7 +67,7 @@ By default, the front matter section is not included to the document. To do so, 
 NotionToMd::Converter.new(page_id: 'b91d5...').convert(frontmatter: tue)
 ```
 
-Default notion properties are page `id`, `title`, `created_time`, `last_edited_time`, `icon`, `archived` and `cover`.
+Default notion [properties](https://developers.notion.com/reference/property-object) are page `id`, `title`, `created_time`, `last_edited_time`, `icon`, `archived` and `cover`.
 
 ```yml
 ---
