@@ -67,7 +67,7 @@ By default, the front matter section is not included to the document. To do so, 
 NotionToMd::Converter.new(page_id: 'b91d5...').convert(frontmatter: tue)
 ```
 
-Default notion [properties](https://developers.notion.com/reference/property-object) are page `id`, `title`, `created_time`, `last_edited_time`, `icon`, `archived` and `cover`.
+Default notion [properties](https://developers.notion.com/reference/page#all-pages) are page `id`, `title`, `created_time`, `last_edited_time`, `icon`, `archived` and `cover`.
 
 ```yml
 ---
