@@ -80,14 +80,14 @@ module NotionToMd
       end
 
       def convert_text(block)
-        block[:text].map do |text|
+        block[:rich_text].map do |text|
           content = Text.send(text[:type], text)
           enrich_text_content(text, content)
         end.join
       end
 
       def convert_caption(block)
-        convert_text(text: block[:caption])
+        convert_text(rich_text: block[:caption])
       end
 
       def get_icon(block)

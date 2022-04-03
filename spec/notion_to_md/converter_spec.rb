@@ -122,7 +122,7 @@ describe(NotionToMd::Converter) do
       end
 
       it 'sets last_edited_time in frontmatter' do
-        expect(subject).to matching(/^last_edited_time: 2022-02-13T23:05:00\+00:00$/)
+        expect(subject).to matching(/^last_edited_time: 2022-04-03T02:29:00\+00:00$/)
       end
 
       it 'sets icon in frontmatter' do

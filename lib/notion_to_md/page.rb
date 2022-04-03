@@ -45,7 +45,7 @@ module NotionToMd
 
     def body
       @body ||= blocks[:results].map do |block|
-        next Block.blank if block[:type] == 'paragraph' && block.dig(:paragraph, :text).empty?
+        next Block.blank if block[:type] == 'paragraph' && block.dig(:paragraph, :rich_text).empty?
 
         block_type = block[:type].to_sym
 

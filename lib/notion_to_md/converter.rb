@@ -20,11 +20,11 @@ module NotionToMd
     private
 
     def page
-      @page ||= @notion.page(id: page_id)
+      @page ||= @notion.page(page_id: page_id)
     end
 
     def page_blocks
-      @page_blocks ||= @notion.block_children(id: page_id)
+      @page_blocks ||= @notion.block_children(block_id: page_id)
     end
   end
 end
