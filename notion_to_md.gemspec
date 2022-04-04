@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 0'
   s.license = 'MIT'
 
-  s.add_runtime_dependency 'activesupport', '~> 6'
+  s.add_runtime_dependency 'activesupport', '~> 7'
   s.add_runtime_dependency('notion-ruby-client', '~> 1')
 
   s.add_development_dependency('hashie')
