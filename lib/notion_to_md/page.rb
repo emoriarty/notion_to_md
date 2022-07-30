@@ -20,7 +20,7 @@ module NotionToMd
     end
 
     def icon
-      page.dig(:icon, :emoji)
+      page.dig(:icon, :file, :url) || page.dig(:icon, :emoji)
     end
 
     def id
