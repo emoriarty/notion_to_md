@@ -1,4 +1,3 @@
-
 # frozen_string_literal: true
 
 require 'spec_helper'
@@ -33,7 +32,7 @@ describe(NotionToMd::Page) do
             file: {
               url: url,
               expiry_time: '2022-07-30T10:12:33.218Z'
-            } 
+            }
           }
         }
       end
