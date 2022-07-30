@@ -1,5 +1,10 @@
 # frozen_string_literal: true
 
+require 'simplecov'
+SimpleCov.start do
+  enable_coverage :branch
+end
+
 require 'yaml'
 require File.expand_path('../lib/notion_to_md', __dir__)
 
