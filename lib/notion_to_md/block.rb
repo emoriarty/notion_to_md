@@ -49,6 +49,8 @@ module NotionToMd
         language = block[:language]
         text = convert_text(block)
 
+        language = 'text' if language == 'plain text'
+
         "```#{language}\n#{text}\n```"
       end
 
