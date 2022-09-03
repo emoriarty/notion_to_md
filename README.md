@@ -57,6 +57,8 @@ Everything in a notion page body is a [block object](https://developers.notion.c
 * `quote`
 * `divider`
 
+**Note: children nested blocks are not supported.**
+
 ## Front matter
 
 From version 0.2.0, notion_to_md supports front matter in markdown files.
