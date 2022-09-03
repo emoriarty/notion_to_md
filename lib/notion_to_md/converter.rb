@@ -31,7 +31,7 @@ module NotionToMd
       blocks = fetch_blocks(block_id: block_id)
 
       blocks.results.each do |block|
-        block.children = if block.has_children
+        block.children = if permitted_children?(block: block)
                            build_blocks(block_id: block.id)
                          else
                            []
@@ -42,12 +42,11 @@ module NotionToMd
     end
 
     def fetch_blocks(block_id:)
-      puts "==> fetching blocks for #{block_id}"
       @notion.block_children(block_id: block_id)
     end
 
     def permitted_children?(block:)
-      block.has_children && Block.PERMITTED_CHILDREN.include?(block.type)
+      block.has_children && Block::PERMITTED_CHILDREN.include?(block.type.to_sym)
     end
   end
 end
