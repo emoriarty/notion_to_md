@@ -2,6 +2,8 @@
 
 module NotionToMd
   class Block
+    PERMITTED_CHILDREN = %i[bulleted_list_item numbered_list_item].freeze
+
     class << self
       def paragraph(block)
         convert_text(block)

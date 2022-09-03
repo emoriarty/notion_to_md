@@ -24,7 +24,30 @@ module NotionToMd
     end
 
     def page_blocks
-      @page_blocks ||= @notion.block_children(block_id: page_id)
+      @page_blocks ||= build_blocks(block_id: page_id)
+    end
+
+    def build_blocks(block_id:)
+      blocks = fetch_blocks(block_id: block_id)
+
+      blocks.results.each do |block|
+        block.children = if block.has_children
+                           build_blocks(block_id: block.id)
+                         else
+                           []
+                         end
+      end
+
+      blocks
+    end
+
+    def fetch_blocks(block_id:)
+      puts "==> fetching blocks for #{block_id}"
+      @notion.block_children(block_id: block_id)
+    end
+
+    def permitted_children?(block:)
+      block.has_children && Block.PERMITTED_CHILDREN.include?(block.type)
     end
   end
 end
