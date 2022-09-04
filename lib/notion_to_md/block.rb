@@ -1,11 +1,51 @@
 # frozen_string_literal: true
 
+require 'forwardable'
+
 module NotionToMd
   class Block
+    extend Forwardable
+
     PERMITTED_CHILDREN = %i[bulleted_list_item numbered_list_item].freeze
+    TAB = "\t"
+
+    attr_reader :block
+
+    def_delegators :block, :has_children, :children
+
+    def initialize(block:)
+      @block = block
+    end
+
+    def children?
+      has_children
+    end
+
+    def to_md(current_block: block, tab_width: 0)
+      block_type = current_block.type.to_sym
+      md = Block.send(block_type, current_block[block_type])
+      md += build_children(tab_width: tab_width + 1) if children?
+      md
+    rescue StandardError => e
+      Logger.info("Unsupported block type: #{block_type}")
+      nil
+    end
+
+    private
+
+    def build_children(tab_width:)
+      nested_mds = children.map do |nested_block|
+        nested_block.to_md(tab_width: tab_width)
+      end.compact
+      nested_mds.map do |nested_md|
+        "\n#{TAB * tab_width}#{nested_md}"
+      end.join
+    end
 
     class << self
       def paragraph(block)
+        return Block.blank if block.rich_text.empty?
+
         convert_text(block)
       end
 

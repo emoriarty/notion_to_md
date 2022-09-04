@@ -38,7 +38,7 @@ module NotionToMd
                          end
       end
 
-      blocks
+      blocks.results.map { |block| Block.new(block: block) }
     end
 
     def fetch_blocks(block_id:)
