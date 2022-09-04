@@ -31,22 +31,18 @@ module NotionToMd
       blocks = fetch_blocks(block_id: block_id)
 
       blocks.results.each do |block|
-        block.children = if permitted_children?(block: block)
+        block.children = if Block.permit_children?(block: block)
                            build_blocks(block_id: block.id)
                          else
                            []
                          end
       end
 
-      blocks.results.map { |block| Block.new(block: block) }
+      blocks.results.map { |block| Block::Block.new(block: block) }
     end
 
     def fetch_blocks(block_id:)
       @notion.block_children(block_id: block_id)
-    end
-
-    def permitted_children?(block:)
-      block.has_children && Block::PERMITTED_CHILDREN.include?(block.type.to_sym)
     end
   end
 end
