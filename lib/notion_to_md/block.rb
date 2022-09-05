@@ -12,7 +12,7 @@ module NotionToMd
       # A boolean indicating if the blocked passed in
       # is permitted to have children based on its type.
       #
-      def self.permit_children?(block:)
+      def self.permitted_children?(block:)
         block.has_children && PERMITTED_CHILDREN.include?(block.type.to_sym)
       end
   end

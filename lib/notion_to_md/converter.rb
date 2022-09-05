@@ -31,7 +31,7 @@ module NotionToMd
       blocks = fetch_blocks(block_id: block_id)
 
       blocks.results.each do |block|
-        block.children = if Block.permit_children?(block: block)
+        block.children = if Block.permitted_children?(block: block)
                            build_blocks(block_id: block.id)
                          else
                            []
