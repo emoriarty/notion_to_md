@@ -31,6 +31,8 @@ module NotionToMd
       blocks = fetch_blocks(block_id: block_id)
 
       blocks.results.each do |block|
+        # Add children at the block object level for convenience
+        # rather than at the block type as specified in the notion docs.
         block.children = if Block.permitted_children?(block: block)
                            build_blocks(block_id: block.id)
                          else
