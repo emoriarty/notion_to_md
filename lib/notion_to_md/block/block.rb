@@ -7,9 +7,7 @@ module NotionToMd
     class Block
       extend Forwardable
 
-      attr_reader :block
-
-      def_delegators :block, :children
+      attr_reader :block, :children
 
       # === Parameters:
       # block::
@@ -18,8 +16,9 @@ module NotionToMd
       # === Returns
       # A Block object.
       #
-      def initialize(block:)
+      def initialize(block:, children: [])
         @block = block
+        @children = children
       end
 
       # === Parameters:
@@ -33,7 +32,7 @@ module NotionToMd
         block_type = block.type.to_sym
         md = Types.send(block_type, block[block_type])
         md + build_nested_blocks(tab_width + 1)
-      rescue StandardError => e
+      rescue StandardError
         Logger.info("Unsupported block type: #{block_type}")
         nil
       end

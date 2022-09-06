@@ -30,17 +30,14 @@ module NotionToMd
     def build_blocks(block_id:)
       blocks = fetch_blocks(block_id: block_id)
 
-      blocks.results.each do |block|
-        # Add children at the block object level for convenience
-        # rather than at the block type as specified in the notion docs.
-        block.children = if Block.permitted_children?(block: block)
-                           build_blocks(block_id: block.id)
-                         else
-                           []
-                         end
+      blocks.results.map do |block|
+        children = if Block.permitted_children?(block: block)
+                     build_blocks(block_id: block.id)
+                   else
+                     []
+                   end
+        Block::Block.new(block: block, children: children)
       end
-
-      blocks.results.map { |block| Block::Block.new(block: block) }
     end
 
     def fetch_blocks(block_id:)
