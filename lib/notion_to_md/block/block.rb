@@ -12,6 +12,8 @@ module NotionToMd
       # === Parameters:
       # block::
       #   A {Notion::Messages::Message}[https://github.com/orbit-love/notion-ruby-client/blob/main/lib/notion/messages/message.rb] object.
+      # children::
+      #   An array of NotionToMd::Block::Block objects.
       #
       # === Returns
       # A Block object.
