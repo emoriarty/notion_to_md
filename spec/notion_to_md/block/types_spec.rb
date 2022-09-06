@@ -3,8 +3,6 @@
 require 'spec_helper'
 
 describe(NotionToMd::Block::Types) do
-  let(:notion_blocks) { NOTION_BLOCK_CHILDREN }
-
   describe('code') do
     context('when language is javascript') do
       let(:block_code) do
