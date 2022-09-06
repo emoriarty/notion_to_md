@@ -9,7 +9,7 @@ module NotionToMd
 
       attr_reader :block
 
-      def_delegators :block, :has_children, :children
+      def_delegators :block, :children
 
       # === Parameters:
       # block::
@@ -32,9 +32,8 @@ module NotionToMd
       def to_md(tab_width: 0)
         block_type = block.type.to_sym
         md = Types.send(block_type, block[block_type])
-        md += build_nested_blocks(tab_width + 1) if has_children
-        md
-      rescue StandardError
+        md + build_nested_blocks(tab_width + 1)
+      rescue StandardError => e
         Logger.info("Unsupported block type: #{block_type}")
         nil
       end
