@@ -32,7 +32,7 @@ module NotionToMd
         block_type = block.type.to_sym
         md = Types.send(block_type, block[block_type])
         md + build_nested_blocks(tab_width + 1)
-      rescue StandardError
+      rescue NoMethodError
         Logger.info("Unsupported block type: #{block_type}")
         nil
       end
