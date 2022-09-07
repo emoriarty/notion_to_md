@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe(NotionToMd::Block::Types) do
+describe(NotionToMd::Blocks::Types) do
   describe('code') do
     context('when language is javascript') do
       let(:block_code) do

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module NotionToMd
-  module Block
+  module Blocks
     class Types
       class << self
         def paragraph(block)

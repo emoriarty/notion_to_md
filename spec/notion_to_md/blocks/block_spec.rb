@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe(NotionToMd::Block::Block) do
+describe(NotionToMd::Blocks::Block) do
   describe('to_md') do
     let(:block_value) { 'dummy text' }
     let(:block_mash) do
@@ -13,7 +13,7 @@ describe(NotionToMd::Block::Block) do
 
     before do
       stub_const(
-        'NotionToMd::Block::Types',
+        'NotionToMd::Blocks::Types',
         instance_double('Types', dummy_type: block_value)
       )
     end
