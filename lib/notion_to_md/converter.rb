@@ -52,15 +52,7 @@ module NotionToMd
 
     def build_blocks(block_id:)
       blocks = fetch_blocks(block_id: block_id)
-
-      blocks.results.map do |block|
-        children = if Blocks.permitted_children?(block: block)
-                     build_blocks(block_id: block.id)
-                   else
-                     []
-                   end
-        Blocks::Block.new(block: block, children: children)
-      end
+      Blocks.build(blocks: blocks)
     end
 
     def fetch_blocks(block_id:)

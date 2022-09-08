@@ -9,7 +9,7 @@ module NotionToMd
   # * underline: boolean,
   # * code: boolean,
   # * color: string NOT_SUPPORTED
-  
+
   class TextAnnotation
     class << self
       def italic(text)
