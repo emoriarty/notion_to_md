@@ -57,7 +57,9 @@ Everything in a notion page body is a [block object](https://developers.notion.c
 * `quote`
 * `divider`
 
-**Note: children nested blocks are not supported.**
+### Nested blocks
+
+Starting with v2, nested blocks are supported. For now, only lists are supported, but more elements will be added.
 
 ## Front matter
 
