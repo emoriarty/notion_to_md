@@ -44,18 +44,7 @@ module NotionToMd
     end
 
     def body
-      @body ||= blocks[:results].map do |block|
-        next Block.blank if block[:type] == 'paragraph' && block.dig(:paragraph, :rich_text).empty?
-
-        block_type = block[:type].to_sym
-
-        begin
-          Block.send(block_type, block[block_type])
-        rescue StandardError
-          Logger.info("Unsupported block type: #{block_type}")
-          next nil
-        end
-      end.compact.join("\n\n")
+      @body ||= blocks.map(&:to_md).compact.join("\n\n")
     end
 
     def frontmatter

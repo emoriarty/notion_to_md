@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module NotionToMd
+  ##
   # Append the text type:
   # * italic: boolean,
   # * bold: boolean,
@@ -8,6 +9,7 @@ module NotionToMd
   # * underline: boolean,
   # * code: boolean,
   # * color: string NOT_SUPPORTED
+
   class TextAnnotation
     class << self
       def italic(text)

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    notion_to_md (1.2.2)
+    notion_to_md (2.0.0)
       activesupport (~> 7)
       notion-ruby-client (~> 1)
 
@@ -18,7 +18,7 @@ GEM
     diff-lcs (1.5.0)
     docile (1.4.0)
     dotenv (2.8.1)
-    faraday (1.10.0)
+    faraday (1.10.2)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
@@ -47,7 +47,7 @@ GEM
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     json (2.6.2)
-    minitest (5.16.2)
+    minitest (5.16.3)
     multipart-post (2.2.3)
     notion-ruby-client (1.0.0)
       activesupport (>= 6)
