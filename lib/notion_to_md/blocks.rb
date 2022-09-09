@@ -21,7 +21,7 @@ module NotionToMd
     # is permitted to have children based on its type.
     #
     def self.permitted_children?(block:)
-       PERMITTED_CHILDREN.include?(block.type.to_sym) && block.has_children
+      PERMITTED_CHILDREN.include?(block.type.to_sym) && block.has_children
     end
 
     # === Parameters

@@ -39,13 +39,13 @@ describe(NotionToMd::Blocks) do
           Hashie::Mash.new(
             type: block_type,
             has_children: has_children,
-            id: 11,
+            id: 11
           ),
           Hashie::Mash.new(
             type: block_type,
             has_children: has_children,
-            id: 11,
-          ),
+            id: 11
+          )
         ]
       )
     end
@@ -74,13 +74,13 @@ describe(NotionToMd::Blocks) do
             Hashie::Mash.new(
               type: 'dummy_type',
               has_children: false,
-              id: 111,
+              id: 111
             ),
             Hashie::Mash.new(
               type: 'dummy_type',
               has_children: false,
-              id: 111,
-            ),
+              id: 111
+            )
           ]
         )
       end
@@ -96,8 +96,8 @@ describe(NotionToMd::Blocks) do
         end
 
         expect(output).to include(an_object_having_attributes(
-          children: include(a_kind_of(NotionToMd::Blocks::Block))
-        ))
+                                    children: include(a_kind_of(NotionToMd::Blocks::Block))
+                                  ))
       end
     end
   end
