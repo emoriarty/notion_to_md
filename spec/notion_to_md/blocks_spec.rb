@@ -68,16 +68,16 @@ describe(NotionToMd::Blocks) do
       let(:block_nested_notion) do
         Hashie::Mash.new(
           type: block_type,
-          has_children: has_children,
+          has_children: true,
           id: 11,
           results: [
             Hashie::Mash.new(
-              type: 'dummy_type',
+              type: block_type,
               has_children: false,
               id: 111
             ),
             Hashie::Mash.new(
-              type: 'dummy_type',
+              type: block_type,
               has_children: false,
               id: 111
             )
@@ -98,6 +98,72 @@ describe(NotionToMd::Blocks) do
         expect(output).to include(an_object_having_attributes(
                                     children: include(a_kind_of(NotionToMd::Blocks::Block))
                                   ))
+      end
+
+      context('with children permitted to have children') do
+        let(:block_nested_notion) do
+          Hashie::Mash.new(
+            type: block_type,
+            has_children: true,
+            id: 11,
+            results: [
+              Hashie::Mash.new(
+                type: block_type,
+                has_children: true,
+                id: 111
+              ),
+              Hashie::Mash.new(
+                type: block_type,
+                has_children: true,
+                id: 111
+              )
+            ]
+          )
+        end
+        let(:block_2dn_nested_notion) do
+          Hashie::Mash.new(
+            type: block_type,
+            has_children: true,
+            id: 111,
+            results: [
+              Hashie::Mash.new(
+                type: 'dummy_type',
+                has_children: false,
+                id: 1111
+              ),
+              Hashie::Mash.new(
+                type: 'dummy_type',
+                has_children: false,
+                id: 1111
+              )
+            ]
+          )
+        end
+
+        it 'returns a list with children' do
+          output = described_class.build(block_id: 1) do |nested_block_id|
+            case nested_block_id
+            when 1
+              page_notion
+            when 11
+              block_nested_notion
+            when 111
+              block_2dn_nested_notion
+            end
+          end
+
+          expect(output).to include(
+            an_object_having_attributes(
+              children: include(
+                an_object_having_attributes(
+                  children: include(
+                    a_kind_of(NotionToMd::Blocks::Block)
+                  )
+                )
+              )
+            )
+          )
+        end
       end
     end
   end
