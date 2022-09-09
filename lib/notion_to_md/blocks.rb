@@ -31,7 +31,8 @@ module NotionToMd
     # === Returns
     # An array of NotionToMd::Blocks::Block.
     #
-    def self.build(blocks:)
+    def self.build(block_id:)
+      blocks = yield block_id
       blocks.results.map do |block|
         children = if permitted_children?(block: block)
                      build(block_id: block.id)

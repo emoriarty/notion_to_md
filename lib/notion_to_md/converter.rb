@@ -51,8 +51,9 @@ module NotionToMd
     end
 
     def build_blocks(block_id:)
-      blocks = fetch_blocks(block_id: block_id)
-      Blocks.build(blocks: blocks)
+      Blocks.build(block_id: block_id) do |nested_block_id|
+        fetch_blocks(block_id: nested_block_id)
+      end
     end
 
     def fetch_blocks(block_id:)
