@@ -9,7 +9,8 @@ module NotionToMd
     # Array containing the block types allowed to have nested blocks (children).
     PERMITTED_CHILDREN = [
       Types.method(:bulleted_list_item).name,
-      Types.method(:numbered_list_item).name
+      Types.method(:numbered_list_item).name,
+      :table
     ].freeze
 
     # === Parameters
@@ -39,7 +40,18 @@ module NotionToMd
                    else
                      []
                    end
-        Blocks::Block.new(block: block, children: children)
+        BlockFactory.build(block: block, children: children)
+      end
+    end
+
+    class BlockFactory
+      def self.build(block)
+        case block.type.to_sym
+        when :table
+          TableBlock.new(block: block, children: children)
+        else
+          Blocks::Block.new(block: block, children: children)
+        end
       end
     end
   end

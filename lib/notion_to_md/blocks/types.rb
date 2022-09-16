@@ -84,7 +84,20 @@ module NotionToMd
           '<br />'
         end
 
+        def table_row(block)
+          block[:cells].map(&convert_table_row)
+        end
+
         private
+
+        def convert_table_row(block)
+          "| #{block.map(&convert_table_cell).join(' | ')} |"
+        end
+
+        def convert_table_cell(block)
+          block_type = block[:type].to_sym
+          send(block_type, block[block_type])
+        end
 
         def convert_text(block)
           block[:rich_text].map do |text|
