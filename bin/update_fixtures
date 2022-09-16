@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+# Prepares the $LOAD_PATH by adding to it lib directories of all gems in the
+# project's bundle:
+require 'bundler/setup'
+require 'pathname'
+require 'notion'
+require 'yaml'
+
+ROOT_PATH = Pathname.new(__dir__).parent
+APP_PATH = ROOT_PATH / 'lib/notion_to_md.rb'
+PAGE_ID = '9dc17c9c9d2e469dbbf0f9648f3288d3'
+
+notion = Notion::Client.new(token: ENV['NOTION_TOKEN'])
+page_filename = File.join(ROOT_PATH, 'spec', 'fixtures', 'notion_page.yml')
+blocks_filename = File.join(ROOT_PATH, 'spec', 'fixtures', 'notion_block_children.yml')
+page = notion.page(page_id: PAGE_ID)
+blocks = notion.block_children(block_id: PAGE_ID)
+
+File.write page_filename, page.to_yaml
+File.write blocks_filename, blocks.to_yaml
