@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require_relative './blocks/block'
+require_relative './blocks/factory'
+require_relative './blocks/table_block'
 require_relative './blocks/types'
 
 module NotionToMd
@@ -41,17 +43,6 @@ module NotionToMd
                      []
                    end
         BlockFactory.build(block: block, children: children)
-      end
-    end
-
-    class BlockFactory
-      def self.build(block)
-        case block.type.to_sym
-        when :table
-          TableBlock.new(block: block, children: children)
-        else
-          Blocks::Block.new(block: block, children: children)
-        end
       end
     end
   end
