@@ -42,7 +42,7 @@ module NotionToMd
                    else
                      []
                    end
-        BlockFactory.build(block: block, children: children)
+        Factory.build(block: block, children: children)
       end
     end
   end
