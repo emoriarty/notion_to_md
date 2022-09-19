@@ -1,7 +1,7 @@
 module NotionToMd
   module Blocks
     class Factory
-      def self.build(block:, children:)
+      def self.build(block:, children: [])
         case block.type.to_sym
         when :table
           TableBlock.new(block: block, children: children)
