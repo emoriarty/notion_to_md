@@ -85,7 +85,7 @@ module NotionToMd
         end
 
         def table_row(block)
-          "| #{block[:cells].map(&method(:convert_table_row)).join(' | ')} |"
+          "|#{block[:cells].map(&method(:convert_table_row)).join('|')}|"
         end
 
         private
