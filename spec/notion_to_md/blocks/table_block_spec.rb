@@ -22,7 +22,7 @@ describe(NotionToMd::Blocks::TableBlock) do
           cells: [
             [{ plain_text: 'cell 1', type: 'text', href: nil, annotations: {} }],
             [{ plain_text: 'cell 2', type: 'text', href: nil, annotations: {} }],
-            [{ plain_text: 'cell 3', type: 'text', href: nil, annotations: {} }],
+            [{ plain_text: 'cell 3', type: 'text', href: nil, annotations: {} }]
           ]
         }
       )
@@ -32,17 +32,17 @@ describe(NotionToMd::Blocks::TableBlock) do
     it do
       table = described_class.new(block: table_block_mash, children: children)
       expected_output = "|cell 1|cell 2|cell 3|\n|cell 1|cell 2|cell 3|\n|cell 1|cell 2|cell 3|"
-      
+
       expect(table.to_md).to eq(expected_output)
     end
 
-    context "with column header" do
+    context 'with column header' do
       let(:has_column_header) { true }
 
       it do
         table = described_class.new(block: table_block_mash, children: children)
         expected_output = "|cell 1|cell 2|cell 3|\n|---|---|---|\n|cell 1|cell 2|cell 3|\n|cell 1|cell 2|cell 3|"
-        
+
         expect(table.to_md).to eq(expected_output)
       end
     end

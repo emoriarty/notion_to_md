@@ -20,9 +20,7 @@ module NotionToMd
       end
 
       def markdownify_aligment
-        if block.table.has_column_header
-          "|#{row_size.times.map { '---' }.join('|')}|"
-        end
+        "|#{row_size.times.map { '---' }.join('|')}|" if block.table.has_column_header
       end
     end
   end
