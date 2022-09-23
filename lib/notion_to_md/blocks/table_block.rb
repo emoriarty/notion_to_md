@@ -16,7 +16,7 @@ module NotionToMd
       private
 
       def row_size
-        @row_size ||= children[0].block.table_row.cells.size
+        @row_size ||= children.first.block.table_row.cells.size
       end
 
       def markdownify_aligment
