@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require_relative './blocks/block'
+require_relative './blocks/factory'
+require_relative './blocks/table_block'
 require_relative './blocks/types'
 
 module NotionToMd
@@ -9,7 +11,8 @@ module NotionToMd
     # Array containing the block types allowed to have nested blocks (children).
     PERMITTED_CHILDREN = [
       Types.method(:bulleted_list_item).name,
-      Types.method(:numbered_list_item).name
+      Types.method(:numbered_list_item).name,
+      :table
     ].freeze
 
     # === Parameters
@@ -39,7 +42,7 @@ module NotionToMd
                    else
                      []
                    end
-        Blocks::Block.new(block: block, children: children)
+        Factory.build(block: block, children: children)
       end
     end
   end

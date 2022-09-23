@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
+
 # Prepares the $LOAD_PATH by adding to it lib directories of all gems in the
 # project's bundle:
 require 'bundler/setup'
