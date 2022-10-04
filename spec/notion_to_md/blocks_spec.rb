@@ -29,7 +29,7 @@ describe(NotionToMd::Blocks) do
     end
 
     it 'returns true for permitted block' do
-      %w[bulleted_list_item numbered_list_item paragraph table].each do |type|
+      %w[bulleted_list_item numbered_list_item paragraph table to_do].each do |type|
         hashie_block = Hashie::Mash.new(type: type, has_children: true)
         expect(described_class.permitted_children?(block: hashie_block)).to be(true)
       end
