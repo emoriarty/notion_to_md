@@ -12,6 +12,7 @@ module NotionToMd
     PERMITTED_CHILDREN = [
       Types.method(:bulleted_list_item).name,
       Types.method(:numbered_list_item).name,
+      Types.method(:paragraph).name,
       :table
     ].freeze
 
