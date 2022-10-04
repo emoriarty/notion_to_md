@@ -56,11 +56,18 @@ Everything in a notion page body is a [block object](https://developers.notion.c
 * `callout`
 * `quote`
 * `divider`
-* `tables`
+* `table`
+* `embed`
+* `code`
 
 ### Nested blocks
 
-Starting with v2, nested blocks are supported. For now, only lists are supported, but more elements will be added.
+Starting with v2, nested blocks are supported. The permitted blocks to have children are:
+
+* `paragraph`
+* `bulleted_list_item`
+* `numbered_list_item`
+* `to_do`
 
 ## Front matter
 
