@@ -13,6 +13,7 @@ module NotionToMd
       Types.method(:bulleted_list_item).name,
       Types.method(:numbered_list_item).name,
       Types.method(:paragraph).name,
+      Types.method(:to_do).name,
       :table
     ].freeze
 
