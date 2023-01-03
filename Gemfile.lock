@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    notion_to_md (2.2.0)
+    notion_to_md (2.2.1)
       activesupport (~> 7)
       notion-ruby-client (~> 1)
 
@@ -47,7 +47,7 @@ GEM
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     json (2.6.2)
-    minitest (5.16.3)
+    minitest (5.17.0)
     multipart-post (2.2.3)
     notion-ruby-client (1.0.0)
       activesupport (>= 6)
