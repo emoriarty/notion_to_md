@@ -3,10 +3,10 @@
 require 'spec_helper'
 
 describe(NotionToMd::Page) do
+  subject(:page) { described_class.new(page: notion_page, blocks: notion_blocks) }
+
   let(:notion_page) { nil }
   let(:notion_blocks) { nil }
-
-  subject { described_class.new(page: notion_page, blocks: notion_blocks) }
 
   describe('#custom_props') do
     context 'with a null select prop' do
@@ -19,7 +19,7 @@ describe(NotionToMd::Page) do
       end
 
       it 'excludes the prop from the return' do
-        expect(subject.custom_props).not_to include('nil_select')
+        expect(page.custom_props).not_to include('nil_select')
       end
     end
   end
@@ -36,7 +36,7 @@ describe(NotionToMd::Page) do
         }
       end
 
-      it { expect(subject.icon).to be(emoji) }
+      it { expect(page.icon).to be(emoji) }
     end
 
     context('when is a file') do
@@ -53,7 +53,7 @@ describe(NotionToMd::Page) do
         }
       end
 
-      it { expect(subject.icon).to be(url) }
+      it { expect(page.icon).to be(url) }
     end
   end
 end
