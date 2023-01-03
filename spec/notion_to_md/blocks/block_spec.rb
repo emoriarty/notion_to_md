@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe(NotionToMd::Blocks::Block) do
-  describe('to_md') do
+  describe('#to_md') do
     let(:block_value) { 'dummy text' }
     let(:block_mash) do
       Hashie::Mash.new(

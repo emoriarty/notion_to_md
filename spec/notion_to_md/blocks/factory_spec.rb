@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe(NotionToMd::Blocks::Factory) do
-  describe('build') do
+  describe('.build') do
     context 'when using a common block' do
       let(:block_mash) do
         Hashie::Mash.new(
