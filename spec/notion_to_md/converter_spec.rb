@@ -5,7 +5,7 @@ require 'spec_helper'
 describe(NotionToMd::Converter) do
   let(:notion_token) { 'secret_0987654321' }
   let(:notion_client) do
-    double('Notion::Client', block_children: NOTION_BLOCK_CHILDREN, page: NOTION_PAGE)
+    instance_double('Notion::Client', block_children: NOTION_BLOCK_CHILDREN, page: NOTION_PAGE)
   end
 
   before do
