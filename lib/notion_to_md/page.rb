@@ -92,7 +92,7 @@ module NotionToMd
         end
 
         def select(prop)
-          prop['select'].name
+          prop['select']&.name
         end
 
         def people(prop)

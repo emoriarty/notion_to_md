@@ -8,6 +8,22 @@ describe(NotionToMd::Page) do
 
   subject { described_class.new(page: notion_page, blocks: notion_blocks) }
 
+  describe('#custom_props') do
+    context 'with a null select prop' do
+      let(:notion_page) do
+        Notion::Messages::Message.new(
+          properties: {
+            nil_select: { id: 'xxxx', type: 'select', select: nil }
+          }
+        )
+      end
+
+      it 'excludes the prop from the return' do
+        expect(subject.custom_props).not_to include('nil_select')
+      end
+    end
+  end
+
   describe('icon') do
     context('when is an emoji') do
       let(:emoji) { '\U0001F4A5' }
