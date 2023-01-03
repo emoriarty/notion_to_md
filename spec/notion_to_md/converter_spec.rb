@@ -13,7 +13,7 @@ describe(NotionToMd::Converter) do
     allow(Notion::Client).to receive(:new).and_return(notion_client)
   end
 
-  describe('convert') do
+  describe('#convert') do
     subject(:notion_converter) { described_class.new(page_id: 'd1535062-350e-45ec-93ba-c4b3d277f42a').convert }
 
     it 'document does not start with ---' do

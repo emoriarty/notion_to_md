@@ -24,7 +24,7 @@ describe(NotionToMd::Page) do
     end
   end
 
-  describe('icon') do
+  describe('#icon') do
     context('when is an emoji') do
       let(:emoji) { '\U0001F4A5' }
       let(:notion_page) do

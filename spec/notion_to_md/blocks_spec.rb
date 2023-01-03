@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe(NotionToMd::Blocks) do
-  describe('permitted_children?') do
+  describe('.permitted_children?') do
     context('when has children and is permitted') do
       let(:block_notion) { Hashie::Mash.new(has_children: true, type: 'numbered_list_item') }
 
@@ -36,7 +36,7 @@ describe(NotionToMd::Blocks) do
     end
   end
 
-  describe('build') do
+  describe('.build') do
     let(:page_notion) do
       Hashie::Mash.new(
         type: block_type,

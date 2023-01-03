@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe(NotionToMd::Blocks::TableBlock) do
-  describe('to_md') do
+  describe('#to_md') do
     let(:has_column_header) { false }
 
     let(:table_block_mash) do
