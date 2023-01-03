@@ -30,6 +30,7 @@ describe(NotionToMd::Blocks::Types) do
       end
 
       it { expect(described_class.code(block_code)).to start_with('```javascript') }
+
       it do
         output = described_class.code(block_code)
         non_wrapped_output = output.lines[1..-2].join
@@ -37,6 +38,7 @@ describe(NotionToMd::Blocks::Types) do
 
         expect(non_wrapped_output).to eq(expect_output)
       end
+
       it { expect(described_class.code(block_code)).to end_with('```') }
     end
 
@@ -66,6 +68,7 @@ describe(NotionToMd::Blocks::Types) do
       end
 
       it { expect(described_class.code(block_code)).to start_with('```text') }
+
       it do
         output = described_class.code(block_code)
         non_wrapped_output = output.lines[1..-2].join
@@ -73,6 +76,7 @@ describe(NotionToMd::Blocks::Types) do
 
         expect(non_wrapped_output).to eq(expect_output)
       end
+
       it { expect(described_class.code(block_code)).to end_with('```') }
     end
   end

@@ -105,9 +105,9 @@ describe(NotionToMd::Converter) do
     end
 
     context('with frontmatter') do
-      let(:frontmatter) { true }
-
       subject { described_class.new(page_id: 'd1535062-350e-45ec-93ba-c4b3d277f42a').convert(frontmatter: frontmatter) }
+
+      let(:frontmatter) { true }
 
       it 'document starts with ---' do
         expect(subject.split("\n").first).to matching(/^---$/)

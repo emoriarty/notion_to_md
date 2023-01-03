@@ -3,10 +3,10 @@
 require 'spec_helper'
 
 describe(NotionToMd::Page) do
+  subject { described_class.new(page: notion_page, blocks: notion_blocks) }
+
   let(:notion_page) { nil }
   let(:notion_blocks) { nil }
-
-  subject { described_class.new(page: notion_page, blocks: notion_blocks) }
 
   describe('#custom_props') do
     context 'with a null select prop' do
