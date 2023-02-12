@@ -16,11 +16,11 @@ module NotionToMd
     end
 
     def cover
-      page.dig(:cover, :external, :url)
+      Property.external(page[:cover]) || Property.file(page[:cover])
     end
 
     def icon
-      page.dig(:icon, :file, :url) || page.dig(:icon, :emoji)
+      Property.emoji(page[:icon]) || Property.external(page[:cover]) || Property.file(page[:cover])
     end
 
     def id
@@ -67,9 +67,9 @@ module NotionToMd
         value = prop.last # Notion::Messages::Message
         type = value.type
 
-        next memo unless CustomProperty.respond_to?(type.to_sym)
+        next memo unless Property.respond_to?(type.to_sym)
 
-        memo[name.parameterize.underscore] = CustomProperty.send(type, value)
+        memo[name.parameterize.underscore] = Property.send(type, value)
       end.reject { |_k, v| v.presence.nil? }
     end
 
@@ -83,57 +83,6 @@ module NotionToMd
         'last_edited_time' => last_edited_time,
         'archived' => archived
       }
-    end
-
-    class CustomProperty
-      class << self
-        def multi_select(prop)
-          prop.multi_select.map(&:name)
-        end
-
-        def select(prop)
-          prop['select']&.name
-        end
-
-        def people(prop)
-          prop.people.map(&:name)
-        end
-
-        def files(prop)
-          prop.files.map { |f| f.file.url }
-        end
-
-        def phone_number(prop)
-          prop.phone_number
-        end
-
-        def number(prop)
-          prop.number
-        end
-
-        def email(prop)
-          prop.email
-        end
-
-        def checkbox(prop)
-          prop.checkbox.to_s
-        end
-
-        # date type properties not supported:
-        # - end
-        # - time_zone
-        def date(prop)
-          prop.date.start
-        end
-
-        def url(prop)
-          prop.url
-        end
-
-        def rich_text(prop)
-          prop.rich_text.map(&:plain_text).join
-        end
-      end
     end
   end
 end
