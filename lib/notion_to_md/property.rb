@@ -57,7 +57,7 @@ module NotionToMd
       # - end
       # - time_zone
       def date(prop)
-        prop.date.start
+        prop.dig(:date, :start)
       end
 
       def url(prop)

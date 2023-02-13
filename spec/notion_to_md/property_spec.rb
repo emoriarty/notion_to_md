@@ -145,4 +145,17 @@ describe(NotionToMd::Property) do
       it { expect(described_class.checkbox(checkbox_prop)).to be_nil }
     end
   end
+
+  describe('.date') do
+    let(:date) { DateTime.now }
+    let(:date_prop) { { date: { start: date } } }
+
+    it { expect(described_class.date(date_prop)).to eq(date) }
+
+    context('when nil') do
+      let(:date_prop) { { date: nil } }
+
+      it { expect(described_class.date(date_prop)).to be_nil }
+    end
+  end
 end
