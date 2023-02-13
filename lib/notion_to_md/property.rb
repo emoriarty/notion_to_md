@@ -50,7 +50,7 @@ module NotionToMd
       end
 
       def checkbox(prop)
-        prop.checkbox.to_s
+        prop[:checkbox].nil? ? nil : prop[:checkbox].to_s
       end
 
       # date type properties not supported:

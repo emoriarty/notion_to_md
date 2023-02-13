@@ -133,4 +133,16 @@ describe(NotionToMd::Property) do
       it { expect(described_class.email(email_prop)).to be_nil }
     end
   end
+
+  describe('.checkbox') do
+    let(:checkbox_prop) { { checkbox: false } }
+
+    it { expect(described_class.checkbox(checkbox_prop)).to eq('false') }
+
+    context('when nil') do
+      let(:checkbox_prop) { { checkbox: nil } }
+
+      it { expect(described_class.checkbox(checkbox_prop)).to be_nil }
+    end
+  end
 end
