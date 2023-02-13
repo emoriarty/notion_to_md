@@ -104,7 +104,7 @@ describe(NotionToMd::Property) do
     it { expect(described_class.phone_number(phone_number_prop)).to eq('9876543210') }
 
     context('when nil') do
-      let(:phone_number_prop) { { phone_number: nil} }
+      let(:phone_number_prop) { { phone_number: nil } }
 
       it { expect(described_class.phone_number(phone_number_prop)).to be_nil }
     end
