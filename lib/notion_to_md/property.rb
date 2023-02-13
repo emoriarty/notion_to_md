@@ -42,11 +42,11 @@ module NotionToMd
       end
 
       def number(prop)
-        prop.number
+        prop[:number]
       end
 
       def email(prop)
-        prop.email
+        prop[:email]
       end
 
       def checkbox(prop)

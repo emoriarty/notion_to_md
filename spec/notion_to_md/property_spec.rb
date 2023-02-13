@@ -109,4 +109,28 @@ describe(NotionToMd::Property) do
       it { expect(described_class.phone_number(phone_number_prop)).to be_nil }
     end
   end
+
+  describe('.number') do
+    let(:number_prop) { { number: 1981 } }
+
+    it { expect(described_class.number(number_prop)).to eq(1981) }
+
+    context('when nil') do
+      let(:number_prop) { { number: nil } }
+
+      it { expect(described_class.number(number_prop)).to be_nil }
+    end
+  end
+
+  describe('.email') do
+    let(:email_prop) { { email: 'jose.garcia@example.com' } }
+
+    it { expect(described_class.email(email_prop)).to eq('jose.garcia@example.com') }
+
+    context('when nil') do
+      let(:email_prop) { { email: nil } }
+
+      it { expect(described_class.email(email_prop)).to be_nil }
+    end
+  end
 end
