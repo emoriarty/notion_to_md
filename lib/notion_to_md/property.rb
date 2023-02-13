@@ -17,6 +17,8 @@ module NotionToMd
 
       def multi_select(prop)
         prop[:multi_select].map { |sel| sel[:name] }
+      rescue NoMethodError
+        nil
       end
 
       def select(prop)
@@ -25,14 +27,18 @@ module NotionToMd
 
       def people(prop)
         prop[:people].map { |sel| sel[:name] }
+      rescue NoMethodError
+        nil
       end
 
       def files(prop)
         prop[:files].map { |f| file(f) || external(f) }
+      rescue NoMethodError
+        nil
       end
 
       def phone_number(prop)
-        prop.phone_number
+        prop[:phone_number]
       end
 
       def number(prop)
