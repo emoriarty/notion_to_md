@@ -61,11 +61,13 @@ module NotionToMd
       end
 
       def url(prop)
-        prop.url
+        prop[:url]
       end
 
       def rich_text(prop)
-        prop.rich_text.map(&:plain_text).join
+        prop[:rich_text].map { |text| text[:plain_text] }.join
+      rescue NoMethodError
+        nil
       end
     end
   end

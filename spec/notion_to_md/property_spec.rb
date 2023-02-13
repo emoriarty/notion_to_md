@@ -158,4 +158,28 @@ describe(NotionToMd::Property) do
       it { expect(described_class.date(date_prop)).to be_nil }
     end
   end
+
+  describe('.url') do
+    let(:url_prop) { { url: 'www.example.com' } }
+
+    it { expect(described_class.url(url_prop)).to eq('www.example.com') }
+
+    context('when nil') do
+      let(:url_prop) { { url: nil } }
+
+      it { expect(described_class.url(url_prop)).to be_nil }
+    end
+  end
+
+  describe('.rich_text') do
+    let(:rich_text_prop) { { rich_text: [{ plain_text: 'foo' }, { plain_text: 'bar' }] } }
+
+    it { expect(described_class.rich_text(rich_text_prop)).to eq('foobar') }
+
+    context('when nil') do
+      let(:rich_text_prop) { { rich_text: nil } }
+
+      it { expect(described_class.rich_text(rich_text_prop)).to be_nil }
+    end
+  end
 end
