@@ -44,8 +44,8 @@ describe(NotionToMd::Page) do
       let(:notion_page) do
         {
           icon: {
-            type: 'file',
-            file: {
+            type: 'external',
+            external: {
               url: url,
               expiry_time: '2022-07-30T10:12:33.218Z'
             }
