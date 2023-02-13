@@ -20,7 +20,7 @@ module NotionToMd
     end
 
     def icon
-      Property.emoji(page[:icon]) || Property.external(page[:cover]) || Property.file(page[:cover])
+      Property.emoji(page[:icon]) || Property.external(page[:icon]) || Property.file(page[:icon])
     end
 
     def id
