@@ -13,8 +13,14 @@ describe(NotionToMd::Property) do
 
     it { expect(described_class.file(file_prop)).to eq('https://example.com') }
 
-    context('when nil') do
+    context('when value is nil') do
       let(:file_prop) { { file: nil } }
+
+      it { expect(described_class.file(file_prop)).to be_nil }
+    end
+
+    context('when nil') do
+      let(:file_prop) { nil }
 
       it { expect(described_class.file(file_prop)).to be_nil }
     end
@@ -25,8 +31,14 @@ describe(NotionToMd::Property) do
 
     it { expect(described_class.external(external_prop)).to eq('https://example.com') }
 
-    context('when nil') do
+    context('when value is nil') do
       let(:external_prop) { { external: nil } }
+
+      it { expect(described_class.external(external_prop)).to be_nil }
+    end
+
+    context('when nil') do
+      let(:external_prop) { nil }
 
       it { expect(described_class.external(external_prop)).to be_nil }
     end
@@ -37,8 +49,14 @@ describe(NotionToMd::Property) do
 
     it { expect(described_class.emoji(emoji_prop)).to eq('😀') }
 
+    context('when value is nil') do
+      let(:emoji_prop) { { emoji: nil } }
+
+      it { expect(described_class.emoji(emoji_prop)).to be_nil }
+    end
+
     context('when nil') do
-      let(:emoji_prop) { {} }
+      let(:emoji_prop) { nil }
 
       it { expect(described_class.emoji(emoji_prop)).to be_nil }
     end
@@ -49,8 +67,14 @@ describe(NotionToMd::Property) do
 
     it { expect(described_class.multi_select(multi_select_prop)).to eq(%w[name_1 name_2 name_3]) }
 
-    context('when nil') do
+    context('when value is nil') do
       let(:multi_select_prop) { { multi_select: nil } }
+
+      it { expect(described_class.multi_select(multi_select_prop)).to be_nil }
+    end
+
+    context('when nil') do
+      let(:multi_select_prop) { nil }
 
       it { expect(described_class.multi_select(multi_select_prop)).to be_nil }
     end
@@ -61,8 +85,14 @@ describe(NotionToMd::Property) do
 
     it { expect(described_class.select(select_prop)).to eq('name_1') }
 
-    context('when nil') do
+    context('when value is nil') do
       let(:select_prop) { { select: nil } }
+
+      it { expect(described_class.select(select_prop)).to be_nil }
+    end
+
+    context('when nil') do
+      let(:select_prop) { nil }
 
       it { expect(described_class.select(select_prop)).to be_nil }
     end
@@ -73,8 +103,14 @@ describe(NotionToMd::Property) do
 
     it { expect(described_class.people(people_prop)).to eq(%w[name_1 name_2 name_3]) }
 
-    context('when nil') do
+    context('when value is nil') do
       let(:people_prop) { { people: nil } }
+
+      it { expect(described_class.people(people_prop)).to be_nil }
+    end
+
+    context('when nil') do
+      let(:people_prop) { nil }
 
       it { expect(described_class.people(people_prop)).to be_nil }
     end
@@ -85,8 +121,14 @@ describe(NotionToMd::Property) do
 
     it { expect(described_class.files(files_prop)).to eq(%w[https://example_1.com https://example_2.com]) }
 
-    context('when nil') do
+    context('when value is nil') do
       let(:files_prop) { { files: nil } }
+
+      it { expect(described_class.files(files_prop)).to be_nil }
+    end
+
+    context('when nil') do
+      let(:files_prop) { nil }
 
       it { expect(described_class.files(files_prop)).to be_nil }
     end
@@ -103,8 +145,14 @@ describe(NotionToMd::Property) do
 
     it { expect(described_class.phone_number(phone_number_prop)).to eq('9876543210') }
 
-    context('when nil') do
+    context('when value is nil') do
       let(:phone_number_prop) { { phone_number: nil } }
+
+      it { expect(described_class.phone_number(phone_number_prop)).to be_nil }
+    end
+
+    context('when nil') do
+      let(:phone_number_prop) { nil }
 
       it { expect(described_class.phone_number(phone_number_prop)).to be_nil }
     end
@@ -115,8 +163,14 @@ describe(NotionToMd::Property) do
 
     it { expect(described_class.number(number_prop)).to eq(1981) }
 
-    context('when nil') do
+    context('when value is nil') do
       let(:number_prop) { { number: nil } }
+
+      it { expect(described_class.number(number_prop)).to be_nil }
+    end
+
+    context('when nil') do
+      let(:number_prop) { nil }
 
       it { expect(described_class.number(number_prop)).to be_nil }
     end
@@ -127,8 +181,14 @@ describe(NotionToMd::Property) do
 
     it { expect(described_class.email(email_prop)).to eq('jose.garcia@example.com') }
 
-    context('when nil') do
+    context('when value is nil') do
       let(:email_prop) { { email: nil } }
+
+      it { expect(described_class.email(email_prop)).to be_nil }
+    end
+
+    context('when nil') do
+      let(:email_prop) { nil }
 
       it { expect(described_class.email(email_prop)).to be_nil }
     end
@@ -139,8 +199,14 @@ describe(NotionToMd::Property) do
 
     it { expect(described_class.checkbox(checkbox_prop)).to eq('false') }
 
-    context('when nil') do
+    context('when value is nil') do
       let(:checkbox_prop) { { checkbox: nil } }
+
+      it { expect(described_class.checkbox(checkbox_prop)).to be_nil }
+    end
+
+    context('when nil') do
+      let(:checkbox_prop) { nil }
 
       it { expect(described_class.checkbox(checkbox_prop)).to be_nil }
     end
@@ -152,8 +218,14 @@ describe(NotionToMd::Property) do
 
     it { expect(described_class.date(date_prop)).to eq(date) }
 
-    context('when nil') do
+    context('when value is nil') do
       let(:date_prop) { { date: nil } }
+
+      it { expect(described_class.date(date_prop)).to be_nil }
+    end
+
+    context('when nil') do
+      let(:date_prop) { nil }
 
       it { expect(described_class.date(date_prop)).to be_nil }
     end
@@ -164,8 +236,14 @@ describe(NotionToMd::Property) do
 
     it { expect(described_class.url(url_prop)).to eq('www.example.com') }
 
-    context('when nil') do
+    context('when value is nil') do
       let(:url_prop) { { url: nil } }
+
+      it { expect(described_class.url(url_prop)).to be_nil }
+    end
+
+    context('when nil') do
+      let(:url_prop) { nil }
 
       it { expect(described_class.url(url_prop)).to be_nil }
     end
@@ -176,8 +254,14 @@ describe(NotionToMd::Property) do
 
     it { expect(described_class.rich_text(rich_text_prop)).to eq('foobar') }
 
-    context('when nil') do
+    context('when value is nil') do
       let(:rich_text_prop) { { rich_text: nil } }
+
+      it { expect(described_class.rich_text(rich_text_prop)).to be_nil }
+    end
+
+    context('when nil') do
+      let(:rich_text_prop) { nil }
 
       it { expect(described_class.rich_text(rich_text_prop)).to be_nil }
     end
