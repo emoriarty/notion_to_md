@@ -10,7 +10,7 @@ module NotionToMd
     end
 
     def title
-      page.dig(:properties, :Name, :title).inject("") do |acc, slug|
+      page.dig(:properties, :Name, :title).inject('') do |acc, slug|
         acc + slug[:plain_text]
       end
     end
@@ -28,11 +28,11 @@ module NotionToMd
     end
 
     def created_time
-      DateTime.parse(page["created_time"])
+      DateTime.parse(page['created_time'])
     end
 
     def last_edited_time
-      DateTime.parse(page["last_edited_time"])
+      DateTime.parse(page['last_edited_time'])
     end
 
     def url
@@ -51,8 +51,8 @@ module NotionToMd
       @frontmatter ||= <<~CONTENT
         ---
         #{props.to_a.map do |k, v|
-        "#{k}: #{v}"
-      end.join("\n")}
+            "#{k}: #{v}"
+          end.join("\n")}
         ---
       CONTENT
     end
@@ -75,13 +75,13 @@ module NotionToMd
 
     def default_props
       @default_props ||= {
-        "id" => id,
-        "title" => title,
-        "created_time" => created_time,
-        "cover" => cover,
-        "icon" => icon,
-        "last_edited_time" => last_edited_time,
-        "archived" => archived,
+        'id' => id,
+        'title' => title,
+        'created_time' => created_time,
+        'cover' => cover,
+        'icon' => icon,
+        'last_edited_time' => last_edited_time,
+        'archived' => archived
       }
     end
 
