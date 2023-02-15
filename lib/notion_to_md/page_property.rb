@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module NotionToMd
-  class Property
+  class PageProperty
     class << self
       def file(prop)
         prop.dig(:file, :url)

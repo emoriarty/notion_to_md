@@ -10,17 +10,17 @@ module NotionToMd
     end
 
     def title
-      page.dig(:properties, :Name, :title).inject('') do |acc, slug|
+      page.dig(:properties, :Name, :title).inject("") do |acc, slug|
         acc + slug[:plain_text]
       end
     end
 
     def cover
-      Property.external(page[:cover]) || Property.file(page[:cover])
+      PageProperty.external(page[:cover]) || PageProperty.file(page[:cover])
     end
 
     def icon
-      Property.emoji(page[:icon]) || Property.external(page[:icon]) || Property.file(page[:icon])
+      PageProperty.emoji(page[:icon]) || PageProperty.external(page[:icon]) || PageProperty.file(page[:icon])
     end
 
     def id
@@ -28,11 +28,11 @@ module NotionToMd
     end
 
     def created_time
-      DateTime.parse(page['created_time'])
+      DateTime.parse(page["created_time"])
     end
 
     def last_edited_time
-      DateTime.parse(page['last_edited_time'])
+      DateTime.parse(page["last_edited_time"])
     end
 
     def url
@@ -51,8 +51,8 @@ module NotionToMd
       @frontmatter ||= <<~CONTENT
         ---
         #{props.to_a.map do |k, v|
-          "#{k}: #{v}"
-        end.join("\n")}
+        "#{k}: #{v}"
+      end.join("\n")}
         ---
       CONTENT
     end
@@ -67,22 +67,27 @@ module NotionToMd
         value = prop.last # Notion::Messages::Message
         type = value.type
 
-        next memo unless Property.respond_to?(type.to_sym)
+        next memo unless CustomProperty.respond_to?(type.to_sym)
 
-        memo[name.parameterize.underscore] = Property.send(type, value)
+        memo[name.parameterize.underscore] = CustomProperty.send(type, value)
       end.reject { |_k, v| v.presence.nil? }
     end
 
     def default_props
       @default_props ||= {
-        'id' => id,
-        'title' => title,
-        'created_time' => created_time,
-        'cover' => cover,
-        'icon' => icon,
-        'last_edited_time' => last_edited_time,
-        'archived' => archived
+        "id" => id,
+        "title" => title,
+        "created_time" => created_time,
+        "cover" => cover,
+        "icon" => icon,
+        "last_edited_time" => last_edited_time,
+        "archived" => archived,
       }
+    end
+
+    # This class is kept for retro compatibility reasons.
+    # Use instead the PageProperty class.
+    class CustomProperty < PageProperty
     end
   end
 end
