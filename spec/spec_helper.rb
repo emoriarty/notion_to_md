@@ -10,7 +10,7 @@ require File.expand_path('../lib/notion_to_md', __dir__)
 
 NotionToMd::Logger.level = Logger::ERROR
 
-if RUBY_VERSION.start_with?('3.1')
+if Gem::Version.new(RUBY_VERSION).release >= Gem::Version.new('3.1.0')
   NOTION_PAGE = YAML.load_file(
     File.expand_path('fixtures/notion_page.yml', __dir__),
     permitted_classes: [Hashie::Array, Notion::Messages::Message]
