@@ -16,11 +16,11 @@ module NotionToMd
     end
 
     def cover
-      page.dig(:cover, :external, :url)
+      PageProperty.external(page[:cover]) || PageProperty.file(page[:cover])
     end
 
     def icon
-      page.dig(:icon, :file, :url) || page.dig(:icon, :emoji)
+      PageProperty.emoji(page[:icon]) || PageProperty.external(page[:icon]) || PageProperty.file(page[:icon])
     end
 
     def id
@@ -51,8 +51,8 @@ module NotionToMd
       @frontmatter ||= <<~CONTENT
         ---
         #{props.to_a.map do |k, v|
-          "#{k}: #{v}"
-        end.join("\n")}
+            "#{k}: #{v}"
+          end.join("\n")}
         ---
       CONTENT
     end
@@ -85,55 +85,9 @@ module NotionToMd
       }
     end
 
-    class CustomProperty
-      class << self
-        def multi_select(prop)
-          prop.multi_select.map(&:name)
-        end
-
-        def select(prop)
-          prop['select']&.name
-        end
-
-        def people(prop)
-          prop.people.map(&:name)
-        end
-
-        def files(prop)
-          prop.files.map { |f| f.file.url }
-        end
-
-        def phone_number(prop)
-          prop.phone_number
-        end
-
-        def number(prop)
-          prop.number
-        end
-
-        def email(prop)
-          prop.email
-        end
-
-        def checkbox(prop)
-          prop.checkbox.to_s
-        end
-
-        # date type properties not supported:
-        # - end
-        # - time_zone
-        def date(prop)
-          prop.date.start
-        end
-
-        def url(prop)
-          prop.url
-        end
-
-        def rich_text(prop)
-          prop.rich_text.map(&:plain_text).join
-        end
-      end
+    # This class is kept for retro compatibility reasons.
+    # Use instead the PageProperty class.
+    class CustomProperty < PageProperty
     end
   end
 end

@@ -39,13 +39,13 @@ describe(NotionToMd::Page) do
       it { expect(page.icon).to be(emoji) }
     end
 
-    context('when is a file') do
+    context('when is an external file') do
       let(:url) { 'https://s3.us-west-2.amazonaws.com/secure.notion-static.com/X3f70b1X-2331-4012-99bc-24gcbd1c85sb/test.jpeg' }
       let(:notion_page) do
         {
           icon: {
-            type: 'file',
-            file: {
+            type: 'external',
+            external: {
               url: url,
               expiry_time: '2022-07-30T10:12:33.218Z'
             }
