@@ -10,7 +10,8 @@ module NotionToMd
     end
 
     def title
-      page.dig(:properties, :Name, :title).inject('') do |acc, slug|
+      title_list = page.dig(:properties, :Name, :title) || page.dig(:properties, :title, :title)
+      title_list.inject('') do |acc, slug|
         acc + slug[:plain_text]
       end
     end
