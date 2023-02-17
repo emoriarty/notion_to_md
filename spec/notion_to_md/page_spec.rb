@@ -56,4 +56,42 @@ describe(NotionToMd::Page) do
       it { expect(page.icon).to be(url) }
     end
   end
+
+  describe('#title') do
+    let(:title) { 'Dummy title' }
+
+    context('when the title is in the Name property') do
+      let(:notion_page) do
+        {
+          properties: {
+            Name: {
+              type: 'title',
+              title: [
+                { plain_text: title }
+              ]
+            }
+          }
+        }
+      end
+
+      it { expect(page.title).to eq(title) }
+    end
+
+    context('when the title is in the title property') do
+      let(:notion_page) do
+        {
+          properties: {
+            title: {
+              type: 'text',
+              title: [
+                { plain_text: title }
+              ]
+            }
+          }
+        }
+      end
+
+      it { expect(page.title).to eq(title) }
+    end
+  end
 end
