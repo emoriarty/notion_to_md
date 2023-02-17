@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    notion_to_md (2.2.2)
+    notion_to_md (2.2.3)
       activesupport (~> 7)
       notion-ruby-client (~> 1)
 
@@ -113,4 +113,4 @@ DEPENDENCIES
   simplecov
 
 BUNDLED WITH
-   2.3.1
+   2.4.7
