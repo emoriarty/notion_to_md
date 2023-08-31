@@ -22,6 +22,40 @@ describe(NotionToMd::Page) do
         expect(page.custom_props).not_to include('nil_select')
       end
     end
+
+    context 'when "created_time" is a default property' do
+      let(:default_date) { '2023-08-24' }
+      let(:notion_page) do
+        Notion::Messages::Message.new({
+          created_time: default_date,
+          last_edited_time: default_date,
+          properties: {}
+        })
+      end
+
+      it { expect(page.created_time).to eq(DateTime.parse(default_date)) }
+    end
+
+    context 'when "created_time" is overwritten by properties' do
+      let(:default_date) { '2023-08-24' }
+      let(:overwritten_date) { '2020-12-08' }
+      let(:notion_page) do
+        Notion::Messages::Message.new({
+          created_time: default_date,
+          last_edited_time: default_date,
+          properties: {
+            "Created time": {
+              type: 'date',
+              date: {
+                start: overwritten_date
+              }
+            }
+          }
+        })
+      end
+
+      it { expect(page.created_time).to eq(DateTime.parse(overwritten_date)) }
+    end
   end
 
   describe('#icon') do

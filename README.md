@@ -104,6 +104,8 @@ multiple_options: option1, option2
 ---
 ```
 
+If custom property name intersects with default properties, then default value will be used. Two exceptions are `created_time` and `last_edited_time`, you can overwrite them by creating corresponding custom properties.
+
 The supported property types are:
 
 * `number`

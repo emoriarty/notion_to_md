@@ -13,7 +13,7 @@ module NotionToMd
       title_list = page.dig(:properties, :Name, :title) || page.dig(:properties, :title, :title)
       title_list.inject('') do |acc, slug|
         acc + slug[:plain_text]
-      end
+      end if title_list
     end
 
     def cover
@@ -29,11 +29,19 @@ module NotionToMd
     end
 
     def created_time
-      DateTime.parse(page['created_time'])
+      if custom_props['created_time']
+        DateTime.parse(custom_props['created_time'])
+      else
+        DateTime.parse(page['created_time'])
+      end
     end
 
     def last_edited_time
-      DateTime.parse(page['last_edited_time'])
+      if custom_props['last_edited_time']
+        DateTime.parse(custom_props['last_edited_time'])
+      else
+        DateTime.parse(page['last_edited_time'])
+      end
     end
 
     def url
