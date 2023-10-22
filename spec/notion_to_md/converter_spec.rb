@@ -33,7 +33,7 @@ describe(NotionToMd::Converter) do
     end
 
     it 'callout to emoji+text' do
-      expect(notion_converter).to matching(/^💡 Callout/)
+      expect(notion_converter).to matching(/^> 💡 Callout/)
     end
 
     it 'quote to >' do
