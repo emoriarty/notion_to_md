@@ -25,7 +25,7 @@ module NotionToMd
         def callout(block)
           icon = get_icon(block[:icon])
           text = convert_text(block)
-          "#{icon} #{text}"
+          "> #{icon} #{text}"
         end
 
         def quote(block)
