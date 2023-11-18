@@ -3,6 +3,8 @@
 require_relative './blocks/block'
 require_relative './blocks/factory'
 require_relative './blocks/table_block'
+require_relative './blocks/table_row_block'
+require_relative './blocks/bulleted_list_item_block'
 require_relative './blocks/types'
 
 module NotionToMd

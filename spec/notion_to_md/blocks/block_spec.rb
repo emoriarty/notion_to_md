@@ -24,7 +24,7 @@ describe(NotionToMd::Blocks::Block) do
       it 'returns the markdown string' do
         block = described_class.new(block: block_mash, children: block_children)
 
-        expect(block.to_md).to eq(block_value)
+        expect(block.to_md).to eq(block_value + "\n\n")
       end
     end
 
@@ -38,7 +38,7 @@ describe(NotionToMd::Blocks::Block) do
       it 'returns the markdown string with nested child indented' do
         block = described_class.new(block: block_mash, children: block_children)
 
-        expect(block.to_md).to eq("#{block_value}\n\n\t#{block_value}")
+        expect(block.to_md).to eq("#{block_value}\n\n\t#{block_value}\n\n")
       end
     end
 
@@ -54,7 +54,7 @@ describe(NotionToMd::Blocks::Block) do
 
       it 'returns the markdown string with nested child indented' do
         block = described_class.new(block: block_mash, children: block_children)
-        expected_output = "#{block_value}\n\n\t#{block_value}\n\n\t#{block_value}"
+        expected_output = "#{block_value}\n\n\t#{block_value}\n\n\t#{block_value}\n\n"
 
         expect(block.to_md).to eq(expected_output)
       end
@@ -74,7 +74,7 @@ describe(NotionToMd::Blocks::Block) do
 
       it 'returns the markdown string with nested child indented' do
         block = described_class.new(block: block_mash, children: block_children)
-        expected_output = "#{block_value}\n\n\t#{block_value}\n\n\t\t#{block_value}"
+        expected_output = "#{block_value}\n\n\t#{block_value}\n\n\t\t#{block_value}\n\n"
 
         expect(block.to_md).to eq(expected_output)
       end
@@ -102,7 +102,7 @@ describe(NotionToMd::Blocks::Block) do
 
       it 'returns the markdown string with nested child indented' do
         block = described_class.new(block: block_mash, children: block_children)
-        expected_output = "#{block_value}\n\n\t#{block_value}\n\n\t\t#{block_value}\n\n\t#{block_value}\n\n\t\t#{block_value}"
+        expected_output = "#{block_value}\n\n\t#{block_value}\n\n\t\t#{block_value}\n\n\t#{block_value}\n\n\t\t#{block_value}\n\n"
 
         expect(block.to_md).to eq(expected_output)
       end

@@ -45,7 +45,7 @@ module NotionToMd
     end
 
     def body
-      @body ||= blocks.map(&:to_md).compact.join("\n\n")
+      @body ||= blocks.map(&:to_md).compact.join
     end
 
     def frontmatter

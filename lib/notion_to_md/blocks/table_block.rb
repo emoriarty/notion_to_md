@@ -10,7 +10,7 @@ module NotionToMd
         table_aligment = markdownify_aligment
         table_body = table[1..table.size]
 
-        [table_header, table_aligment, table_body.join("\n")].compact.join("\n")
+        [table_header, table_aligment, table_body].compact.join
       end
 
       private
@@ -20,7 +20,7 @@ module NotionToMd
       end
 
       def markdownify_aligment
-        "|#{row_size.times.map { '---' }.join('|')}|" if block.table.has_column_header
+        "|#{row_size.times.map { '---' }.join('|')}|\n" if block.table.has_column_header
       end
     end
   end

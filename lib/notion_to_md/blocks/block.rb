@@ -32,7 +32,7 @@ module NotionToMd
       #
       def to_md(tab_width: 0)
         block_type = block.type.to_sym
-        md = Types.send(block_type, block[block_type])
+        md = Types.send(block_type, block[block_type]) + newline
         md + build_nested_blocks(tab_width + 1)
       rescue NoMethodError
         Logger.info("Unsupported block type: #{block_type}")
@@ -54,8 +54,12 @@ module NotionToMd
 
       def indent_children(mds, tab_width)
         mds.map do |md|
-          "\n\n#{"\t" * tab_width}#{md}"
+          "#{"\t" * tab_width}#{md}"
         end
+      end
+
+      def newline
+        "\n\n"
       end
     end
   end
