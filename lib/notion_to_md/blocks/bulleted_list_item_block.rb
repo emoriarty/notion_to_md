@@ -4,7 +4,7 @@ module NotionToMd
   module Blocks
     class BulletedListItemBlock < Block
       def newline
-        "\n"
+        @newline || "\n"
       end
     end
   end

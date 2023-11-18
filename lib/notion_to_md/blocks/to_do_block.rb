@@ -4,7 +4,7 @@ module NotionToMd
   module Blocks
     class ToDoRowBlock < Block
       def newline
-        "\n"
+        @newline || "\n"
       end
     end
   end

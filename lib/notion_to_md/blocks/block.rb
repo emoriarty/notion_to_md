@@ -9,6 +9,8 @@ module NotionToMd
 
       attr_reader :block, :children
 
+      def_delegators :@block, :type # block.type
+
       # === Parameters:
       # block::
       #   A {Notion::Messages::Message}[https://github.com/orbit-love/notion-ruby-client/blob/main/lib/notion/messages/message.rb] object.
@@ -37,6 +39,10 @@ module NotionToMd
       rescue NoMethodError
         Logger.info("Unsupported block type: #{block_type}")
         nil
+      end
+
+      def update_newline(newline)
+        @newline = newline
       end
 
       private

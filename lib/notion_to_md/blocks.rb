@@ -20,6 +20,8 @@ module NotionToMd
       :table
     ].freeze
 
+    ONE_NEW_LINE_BLOCKS = [:bulleted_list_item, :numbered_list_item, :to_do].freeze
+
     # === Parameters
     # block::
     #   A {Notion::Messages::Message}[https://github.com/orbit-love/notion-ruby-client/blob/main/lib/notion/messages/message.rb] object.
@@ -30,6 +32,10 @@ module NotionToMd
     #
     def self.permitted_children?(block:)
       PERMITTED_CHILDREN.include?(block.type.to_sym) && block.has_children
+    end
+
+    def self.one_new_line_block?(block:)
+      ONE_NEW_LINE_BLOCKS.include?(block.type.to_sym)
     end
 
     # === Parameters
@@ -48,6 +54,11 @@ module NotionToMd
                      []
                    end
         Factory.build(block: block, children: children)
+      end.map.with_index do |block, index|
+        if one_new_line_block?(block: block) && blocks.results.size - 1 > index && blocks.results[index + 1].type.to_sym != block.type.to_sym
+          block.update_newline("\n\n")
+        end
+        block
       end
     end
   end
