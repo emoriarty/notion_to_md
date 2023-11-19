@@ -3,6 +3,9 @@
 module NotionToMd
   module Blocks
     class NumberedListBlock < BulletedListBlock
+      def type
+        "numbered_list"
+      end
     end
   end
 end

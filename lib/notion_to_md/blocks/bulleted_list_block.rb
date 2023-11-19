@@ -17,6 +17,10 @@ module NotionToMd
       def to_md(tab_width: 0)
         build_nested_blocks(tab_width)
       end
+
+      def type
+        "bulleted_list"
+      end
     end
   end
 end
