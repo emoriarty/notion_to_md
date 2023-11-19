@@ -36,15 +36,26 @@ module NotionToMd
           if block.type.to_sym == type
             blocks_to_normalize << block
           else
-            if blocks_to_normalize.any?
-              new_blocks << new_block_for(type, children: blocks_to_normalize)
-              reset_blocks_to_normalize
-            end
+            # When we encounter a block that is not of the provided type,
+            # we need to normalize the blocks we've collected so far.
+            # Then we add the current block to the new blocks array.
+            # This is because we want to keep the order of the blocks.
+            new_blocks << new_block_and_reset(type, blocks_to_normalize) if !blocks_to_normalize.empty?
             new_blocks << block
           end
         end
 
-        normalized_blocks = new_blocks
+        # If no new blocks were added, then all blocks are of the same provided type.
+        # In this case, we need to normalize the blocks we've collected so far.
+        new_blocks << new_block_and_reset(type, blocks_to_normalize) if new_blocks.empty?
+
+        @normalized_blocks = new_blocks
+      end
+
+      def new_block_and_reset(type, children)
+        new_block = new_block_for(type, children)
+        reset_blocks_to_normalize
+        new_block
       end
 
       def blocks_to_normalize
@@ -55,7 +66,7 @@ module NotionToMd
         @blocks_to_normalize = []
       end
 
-      def new_block_for(type, children:)
+      def new_block_for(type, children)
         case type
         when :bulleted_list_item
           BulletedListBlock.new(children: children)
