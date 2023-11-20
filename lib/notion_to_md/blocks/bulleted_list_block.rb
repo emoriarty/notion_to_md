@@ -15,11 +15,15 @@ module NotionToMd
       # The current block (and its children) converted to a markdown string.
       #
       def to_md(tab_width: 0)
-        build_nested_blocks(tab_width)
+        build_nested_blocks(tab_width) + newline
       end
 
       def type
         'bulleted_list'
+      end
+
+      def newline
+        "\n"
       end
     end
   end
