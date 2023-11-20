@@ -88,6 +88,36 @@ module NotionToMd
           "|#{block[:cells].map(&method(:convert_table_row)).join('|')}|"
         end
 
+        def toggle(block)
+          '<br />'
+          "-------------------------"
+          "Unsupported Toggle Block"
+          "-------------------------"
+          "Content needs to be imported manually."
+          "This is the toggle title to help you find it in the orignal notion page:"
+          "-------------------------"
+          "<br />"
+          convert_text(block)
+          "<br />"
+          "-------------------------"
+          "br />"
+        end
+
+        def toggle(block)
+          '<br />'
+          "-------------------------"
+          "Unsupported Synced Block"
+          "-------------------------"
+          "Content needs to be imported manually."
+          "This is the synced block title help you find it in the orignal notion page:"
+          "-------------------------"
+          "<br />"
+          convert_text(block)
+          "<br />"
+          "-------------------------"
+          "br />"
+        end
+
         private
 
         def convert_table_row(cells)
