@@ -19,7 +19,7 @@ module NotionToMd
       end
 
       def type
-        "bulleted_list"
+        'bulleted_list'
       end
     end
   end

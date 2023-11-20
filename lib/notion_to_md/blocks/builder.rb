@@ -5,12 +5,12 @@ module NotionToMd
     class Builder
       ##
       # Array containing the block types allowed to have nested blocks (children).
-      BLOCKS_WITH_PERMITTED_CHILDREN = [
-        :bulleted_list_item,
-        :numbered_list_item,
-        :paragraph,
-        :to_do,
-        :table
+      BLOCKS_WITH_PERMITTED_CHILDREN = %i[
+        bulleted_list_item
+        numbered_list_item
+        paragraph
+        to_do
+        table
       ].freeze
 
       # === Parameters

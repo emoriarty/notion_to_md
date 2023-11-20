@@ -40,7 +40,7 @@ module NotionToMd
             # we need to normalize the blocks we've collected so far.
             # Then we add the current block to the new blocks array.
             # This is because we want to keep the order of the blocks.
-            new_blocks << new_block_and_reset(type, blocks_to_normalize) if !blocks_to_normalize.empty?
+            new_blocks << new_block_and_reset(type, blocks_to_normalize) unless blocks_to_normalize.empty?
             new_blocks << block
           end
         end
