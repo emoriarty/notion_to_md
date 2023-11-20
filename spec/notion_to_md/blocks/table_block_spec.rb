@@ -29,7 +29,7 @@ describe(NotionToMd::Blocks::TableBlock) do
       3.times.map { NotionToMd::Blocks::TableRowBlock.new(block: table_row) }
     end
 
-    it "" do
+    it do
       table = described_class.new(block: table_block_mash, children: children)
       expected_output = "|cell 1|cell 2|cell 3|\n|cell 1|cell 2|cell 3|\n|cell 1|cell 2|cell 3|\n\n"
 
