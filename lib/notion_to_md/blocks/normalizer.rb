@@ -11,22 +11,17 @@ module NotionToMd
         new(blocks: blocks).normalize
       end
 
-      attr_reader :blocks
+      attr_reader :blocks, :normalized_blocks
 
       def initialize(blocks:)
         @blocks = blocks
+        @normalized_blocks = blocks
       end
 
       def normalize
         normalize_for :bulleted_list_item
         normalize_for :numbered_list_item
         normalize_for :to_do
-      end
-
-      private
-
-      def normalized_blocks
-        @normalized_blocks ||= blocks.clone
       end
 
       def normalize_for(type)
@@ -49,8 +44,10 @@ module NotionToMd
         # So, we need to normalize the blocks we've collected so far.
         new_blocks << new_block_and_reset(type, blocks_to_normalize) unless blocks_to_normalize.empty?
 
-        @normalized_blocks = new_blocks
+        normalized_blocks.replace(new_blocks)
       end
+
+      private
 
       def new_block_and_reset(type, children)
         new_block = new_block_for(type, children)
