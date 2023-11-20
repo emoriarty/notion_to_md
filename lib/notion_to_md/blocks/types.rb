@@ -103,7 +103,7 @@ module NotionToMd
           "br />"
         end
 
-        def toggle(block)
+        def synced_block(block)
           '<br />'
           "-------------------------"
           "Unsupported Synced Block"
