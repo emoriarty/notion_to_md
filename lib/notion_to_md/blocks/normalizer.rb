@@ -45,9 +45,9 @@ module NotionToMd
           end
         end
 
-        # If no new blocks were added, then all blocks are of the same provided type.
-        # In this case, we need to normalize the blocks we've collected so far.
-        new_blocks << new_block_and_reset(type, blocks_to_normalize) if new_blocks.empty?
+        # If the last block is of the provided type, it won't be added to the new blocks array.
+        # So, we need to normalize the blocks we've collected so far.
+        new_blocks << new_block_and_reset(type, blocks_to_normalize) unless blocks_to_normalize.empty?
 
         @normalized_blocks = new_blocks
       end
