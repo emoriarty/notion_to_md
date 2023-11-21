@@ -89,33 +89,35 @@ module NotionToMd
         end
 
         def toggle(block)
-          '<br />'
-          "-------------------------"
-          "Unsupported Toggle Block"
-          "-------------------------"
-          "Content needs to be imported manually."
-          "This is the toggle title to help you find it in the orignal notion page:"
-          "-------------------------"
-          "<br />"
-          convert_text(block)
-          "<br />"
-          "-------------------------"
-          "br />"
+          result = []
+          result << '<br />'
+          result << "-------------------------"
+          result << "Unsupported Toggle Block"
+          result << "-------------------------"
+          result << "Content needs to be imported manually."
+          result << "This is the toggle title to help you find it in the original Notion page:"
+          result << "-------------------------"
+          result << '<br />'
+          result << convert_text(block)
+          result << '<br />'
+          result << "-------------------------"
+          result.join("\n")
         end
 
         def synced_block(block)
-          '<br />'
-          "-------------------------"
-          "Unsupported Synced Block"
-          "-------------------------"
-          "Content needs to be imported manually."
-          "This is the synced block title help you find it in the orignal notion page:"
-          "-------------------------"
-          "<br />"
-          convert_text(block)
-          "<br />"
-          "-------------------------"
-          "br />"
+          result = []
+          result << '<br />'
+          result << "-------------------------"
+          result << "Unsupported Synced Block"
+          result << "-------------------------"
+          result << "Content needs to be imported manually."
+          result << "This is the synced block title to help you find it in the original Notion page:"
+          result << "-------------------------"
+          result << '<br />'
+          result << convert_text(block)
+          result << '<br />'
+          result << "-------------------------"
+          result.join("\n")
         end
 
         private
