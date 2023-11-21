@@ -49,7 +49,7 @@ Everything in a notion page body is a [block object](https://developers.notion.c
 * `heading_2`
 * `heading_3`
 * `bulleted_list_item`
-* `numbered_list_item` as `bulleted_list_item`
+* `numbered_list_item` (supported since v3, in previous versions is displayed as `bulleted_list_item`)
 * `to_do`
 * `image`
 * `bookmark`
