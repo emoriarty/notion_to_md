@@ -8,6 +8,8 @@ module NotionToMd
       # === Parameters:
       # tab_width::
       #  The number of tabs used to indent the block.
+      # index::
+      #  The index of the block in its parent's children array used to number the item.
       #
       # === Returns
       # The current block (and its children) converted to a markdown string.
