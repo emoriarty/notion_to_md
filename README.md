@@ -21,8 +21,17 @@ Pass the page id and secret token to the constructor and execute the `convert` m
 ```ruby
 require 'notion_to_md'
 
-notion_converter = NotionToMd::Converter.new(page_id: 'b91d5...', token: 'secret_...')
+# or
+notion_converter = NotionToMd.convert(page_id: 'b91d5...', token: 'secret_...')
 md = notion_converter.convert
+```
+
+Since v3 you can also use the convenient `convert` method from the root module.
+
+```ruby
+require 'notion_to_md'
+
+md = NotionToMd.convert(page_id: 'b91d5...', token: 'secret_...')
 ```
 
 If the secret token is provided as an environment variable —`NOTION_TOKEN`—, there's no need to pass it as an argument to the constructor.
@@ -34,6 +43,7 @@ $ export NOTION_TOKEN=<secret_...>
 ```ruby
 require 'notion_to_md'
 
+# or
 notion_converter = NotionToMd::Converter.new(page_id: 'b91d5...')
 md = notion_converter.convert
 ```
@@ -77,6 +87,8 @@ By default, the front matter section is not included to the document. To do so, 
 
 ```ruby
 NotionToMd::Converter.new(page_id: 'b91d5...').convert(frontmatter: tue)
+# or
+NotionToMd.convert(page_id: 'b91d5...', frontmatter: true) # Since v3
 ```
 
 Default notion [properties](https://developers.notion.com/reference/page#all-pages) are page `id`, `title`, `created_time`, `last_edited_time`, `icon`, `archived` and `cover`.
