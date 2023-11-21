@@ -17,6 +17,7 @@ describe(NotionToMd::Converter) do
     subject(:notion_converter) { described_class.new(page_id: 'd1535062-350e-45ec-93ba-c4b3d277f42a').convert }
 
     it 'document does not start with ---' do
+      puts notion_converter
       expect(notion_converter.split("\n").first).not_to matching(/^---$/)
     end
 

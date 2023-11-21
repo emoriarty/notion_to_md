@@ -15,7 +15,11 @@ module NotionToMd
       # The current block (and its children) converted to a markdown string.
       #
       def to_md(tab_width: 0)
-        build_nested_blocks(tab_width) + newline
+        if tab_width.zero?
+          build_nested_blocks(tab_width) + newline
+        else
+          build_nested_blocks(tab_width)
+        end
       end
 
       def type

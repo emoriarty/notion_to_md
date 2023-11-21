@@ -6,6 +6,10 @@ module NotionToMd
       def newline
         "\n"
       end
+
+      def indent_children(mds, _tab_width)
+        mds
+      end
     end
   end
 end
