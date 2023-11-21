@@ -13,7 +13,7 @@ module NotionToMd
       # The current block (and its children) converted to a markdown string.
       #
       def to_md(tab_width: 0, index: nil)
-        md = Types.numbered_list_item(block, index) + newline
+        md = Types.numbered_list_item(block[block.type.to_sym], index) + newline
         md + build_nested_blocks(tab_width + 1)
       rescue NoMethodError
         Logger.info("Unsupported block type: #{block.type}")

@@ -8,7 +8,9 @@ describe(NotionToMd::Blocks::NumberedListBlock) do
       create_item = lambda do |index|
         list_item = Hashie::Mash.new(
           type: 'numbered_list_item',
-          rich_text: [{ plain_text: "item #{index}", type: 'text', href: nil, annotations: {} }]
+          numbered_list_item: {
+            rich_text: [{ plain_text: "item #{index}", type: 'text', href: nil, annotations: {} }]
+          }
         )
       end
       3.times.map { |index| NotionToMd::Blocks::NumberedListItemBlock.new(block: create_item.call(index)) }
@@ -25,7 +27,9 @@ describe(NotionToMd::Blocks::NumberedListBlock) do
       let(:parent_list) do
         raw_list_item = Hashie::Mash.new(
           type: 'numbered_list_item',
-          rich_text: [{ plain_text: 'item A', type: 'text', href: nil, annotations: {} }]
+          numbered_list_item: {
+            rich_text: [{ plain_text: 'item A', type: 'text', href: nil, annotations: {} }]
+          }
         )
         [
           NotionToMd::Blocks::NumberedListItemBlock.new(
