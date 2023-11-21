@@ -98,7 +98,7 @@ module NotionToMd
           result << "This is the toggle title to help you find it in the original Notion page:"
           result << "-------------------------"
           result << '<br />'
-          result << block
+          result << convert_text(block)
           result << '<br />'
           result << "-------------------------"
           result.join("\n")
