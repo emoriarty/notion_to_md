@@ -2,11 +2,11 @@
 
 require 'spec_helper'
 
-describe(NotionToMd::Blocks::BulletedListBlock) do
+describe(NotionToMd::Blocks::NumberedListBlock) do
   def create_mash(index)
      Hashie::Mash.new(
-        type: 'bulleted_list_item',
-        bulleted_list_item: {
+        type: 'numbered_list_item',
+        numbered_list_item: {
           rich_text: [{ plain_text: "item #{index}", type: 'text', href: nil, annotations: {} }]
         }
       )
@@ -14,12 +14,12 @@ describe(NotionToMd::Blocks::BulletedListBlock) do
 
   describe('#to_md') do
     let(:children) do
-      3.times.map { |index| NotionToMd::Blocks::BulletedListItemBlock.new(block: create_mash(index)) }
+      3.times.map { |index| NotionToMd::Blocks::NumberedListItemBlock.new(block: create_mash(index)) }
     end
 
     it do
       table = described_class.new(children: children)
-      expected_output = "- item 0\n- item 1\n- item 2\n\n"
+      expected_output = "1. item 0\n2. item 1\n3. item 2\n\n"
 
       expect(table.to_md).to eq(expected_output)
     end
@@ -27,7 +27,7 @@ describe(NotionToMd::Blocks::BulletedListBlock) do
     context 'with a nested list' do
       let(:parent) do
         [
-          NotionToMd::Blocks::BulletedListItemBlock.new(
+          NotionToMd::Blocks::NumberedListItemBlock.new(
             block: create_mash('A'),
             children: [described_class.new(children: children)]
           )
@@ -36,7 +36,7 @@ describe(NotionToMd::Blocks::BulletedListBlock) do
 
       it do
         table = described_class.new(children: parent)
-        expected_output = "- item A\n\t- item 0\n\t- item 1\n\t- item 2\n\n"
+        expected_output = "1. item A\n\t1. item 0\n\t2. item 1\n\t3. item 2\n\n"
 
         expect(table.to_md).to eq(expected_output)
       end
@@ -44,18 +44,18 @@ describe(NotionToMd::Blocks::BulletedListBlock) do
 
     context 'with a second nested level' do
       let(:nested_children) do
-        3.times.map { |index| NotionToMd::Blocks::BulletedListItemBlock.new(
+        3.times.map { |index| NotionToMd::Blocks::NumberedListItemBlock.new(
           block: create_mash("#{index}0"),
           children: [described_class.new(children: children)]
         ) }
       end
       let(:parent) do
         [
-          NotionToMd::Blocks::BulletedListItemBlock.new(
+          NotionToMd::Blocks::NumberedListItemBlock.new(
             block: create_mash('A'),
             children: [described_class.new(children: nested_children)]
           ),
-          NotionToMd::Blocks::BulletedListItemBlock.new(
+          NotionToMd::Blocks::NumberedListItemBlock.new(
             block: create_mash('α'),
             children: [described_class.new(children: nested_children)]
           )
@@ -64,7 +64,7 @@ describe(NotionToMd::Blocks::BulletedListBlock) do
 
       it do
         table = described_class.new(children: parent)
-        expected_output = "- item A\n\t- item 00\n\t\t- item 0\n\t\t- item 1\n\t\t- item 2\n\t- item 10\n\t\t- item 0\n\t\t- item 1\n\t\t- item 2\n\t- item 20\n\t\t- item 0\n\t\t- item 1\n\t\t- item 2\n- item α\n\t- item 00\n\t\t- item 0\n\t\t- item 1\n\t\t- item 2\n\t- item 10\n\t\t- item 0\n\t\t- item 1\n\t\t- item 2\n\t- item 20\n\t\t- item 0\n\t\t- item 1\n\t\t- item 2\n\n"
+        expected_output = "1. item A\n\t1. item 00\n\t\t1. item 0\n\t\t2. item 1\n\t\t3. item 2\n\t2. item 10\n\t\t1. item 0\n\t\t2. item 1\n\t\t3. item 2\n\t3. item 20\n\t\t1. item 0\n\t\t2. item 1\n\t\t3. item 2\n2. item α\n\t1. item 00\n\t\t1. item 0\n\t\t2. item 1\n\t\t3. item 2\n\t2. item 10\n\t\t1. item 0\n\t\t2. item 1\n\t\t3. item 2\n\t3. item 20\n\t\t1. item 0\n\t\t2. item 1\n\t\t3. item 2\n\n"
 
         expect(table.to_md).to eq(expected_output)
       end
