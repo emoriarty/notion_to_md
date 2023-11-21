@@ -46,18 +46,18 @@ describe(NotionToMd::Blocks::BulletedListBlock) do
       let(:nested_children) do
         3.times.map { |index| NotionToMd::Blocks::BulletedListItemBlock.new(
           block: create_mash("#{index}0"),
-          children: [NotionToMd::Blocks::BulletedListBlock.new(children: children)]
+          children: [described_class.new(children: children)]
         ) }
       end
       let(:parent) do
         [
           NotionToMd::Blocks::BulletedListItemBlock.new(
             block: create_mash('A'),
-            children: [NotionToMd::Blocks::BulletedListBlock.new(children: nested_children)]
+            children: [described_class.new(children: nested_children)]
           ),
           NotionToMd::Blocks::BulletedListItemBlock.new(
             block: create_mash('α'),
-            children: [NotionToMd::Blocks::BulletedListBlock.new(children: nested_children)]
+            children: [described_class.new(children: nested_children)]
           )
         ]
       end
