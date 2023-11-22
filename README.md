@@ -21,7 +21,7 @@ Pass the page id and secret token to the constructor and execute the `convert` m
 ```ruby
 require 'notion_to_md'
 
-notion_converter = NotionToMd.convert(page_id: 'b91d5...', token: 'secret_...')
+notion_converter = NotionToMd::Converter.new(page_id: 'b91d5...', token: 'secret_...')
 md = notion_converter.convert
 ```
 
