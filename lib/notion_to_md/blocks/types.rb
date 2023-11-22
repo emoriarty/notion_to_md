@@ -184,7 +184,7 @@ module NotionToMd
         def link_to_page(block)
           result = []
           result << "> [!CAUTION]"
-          result << "> Unsupported Link to Page Block"
+          result << "> **Unsupported Link to Page Block**"
           result << "> <br />"
           result << "> Content needs to be imported manually."
           result << "> <br />"
@@ -199,7 +199,7 @@ module NotionToMd
         def synced_block(block)
           result = []
           result << "> [!CAUTION]"
-          result << "> Unsupported Synced Block"
+          result << "> **Unsupported Synced Block**"
           result << "> <br />"
           result << "> Content needs to be imported manually."
           result << "> <br />"
