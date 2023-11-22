@@ -6,23 +6,36 @@ SimpleCov.start do
 end
 
 require 'yaml'
+require "vcr"
 require File.expand_path('../lib/notion_to_md', __dir__)
 
-NotionToMd::Logger.level = Logger::ERROR
+VCR.configure do |config|
+  config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+  config.hook_into :faraday
 
-if Gem::Version.new(RUBY_VERSION).release >= Gem::Version.new('3.1.0')
-  NOTION_PAGE = YAML.load_file(
-    File.expand_path('fixtures/notion_page.yml', __dir__),
-    permitted_classes: [Hashie::Array, Notion::Messages::Message]
-  )
-  NOTION_BLOCK_CHILDREN = YAML.load_file(
-    File.expand_path('fixtures/notion_block_children.yml', __dir__),
-    permitted_classes: [Hashie::Array, Notion::Messages::Message]
-  )
-else
-  NOTION_PAGE = YAML.load_file(File.expand_path('fixtures/notion_page.yml', __dir__))
-  NOTION_BLOCK_CHILDREN = YAML.load_file(File.expand_path('fixtures/notion_block_children.yml', __dir__))
+  # Redact the Notion token from the VCR cassettes
+  config.before_record do |interaction|
+    to_be_redacted = interaction.request.headers["Authorization"]
+
+    to_be_redacted.each do |redacted_text|
+      interaction.filter!(redacted_text, "<REDACTED>")
+    end
+
+    sensitive_values = (ENV["NOTION_SENSITIVE_VALUES"] || "").split("|")
+    replacement_values = (ENV["NOTION_SENSITIVE_REPLACEMENTS"] || "").split("|")
+    sensitive_values.each_with_index do |sensitive_value, index|
+      interaction.filter!(sensitive_value, replacement_values[index])
+    end
+  end
+
+
+  config.default_cassette_options = {
+    :allow_playback_repeats => true,
+    :record                 => :new_episodes,
+  }
 end
+
+NotionToMd::Logger.level = Logger::ERROR
 
 RSpec.configure do |config|
   config.run_all_when_everything_filtered = true
