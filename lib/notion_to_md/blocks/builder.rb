@@ -5,12 +5,12 @@ module NotionToMd
     class Builder
       ##
       # Array containing the block types allowed to have nested blocks (children).
-      BLOCKS_WITH_PERMITTED_CHILDREN = [
-        :bulleted_list_item,
-        :numbered_list_item,
-        :paragraph,
-        :to_do,
-        :table
+      BLOCKS_WITH_PERMITTED_CHILDREN = %i[
+        bulleted_list_item
+        numbered_list_item
+        paragraph
+        to_do
+        table
       ].freeze
 
       # === Parameters
@@ -47,8 +47,8 @@ module NotionToMd
       # An array of NotionToMd::Blocks::Block.
       #
       def build
-        blocks = fetch_blocks.call(block_id)
-        blocks.results.map do |block|
+        notion_messages = fetch_blocks.call(block_id)
+        blocks = notion_messages.results.map do |block|
           children = if Builder.permitted_children_for?(block: block)
                        Builder.new(block_id: block.id, &fetch_blocks).build
                      else
@@ -56,6 +56,8 @@ module NotionToMd
                      end
           Factory.build(block: block, children: children)
         end
+
+        Normalizer.normalize(blocks: blocks)
       end
     end
   end

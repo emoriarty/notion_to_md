@@ -9,6 +9,8 @@ module NotionToMd
 
       attr_reader :block, :children
 
+      def_delegators :block, :type
+
       # === Parameters:
       # block::
       #   A {Notion::Messages::Message}[https://github.com/orbit-love/notion-ruby-client/blob/main/lib/notion/messages/message.rb] object.
@@ -32,14 +34,18 @@ module NotionToMd
       #
       def to_md(tab_width: 0)
         block_type = block.type.to_sym
-        md = Types.send(block_type, block[block_type])
+        md = Types.send(block_type, block[block_type]) + newline
         md + build_nested_blocks(tab_width + 1)
       rescue NoMethodError
         Logger.info("Unsupported block type: #{block_type}")
         nil
       end
 
-      private
+      protected
+
+      def newline
+        "\n\n"
+      end
 
       def build_nested_blocks(tab_width)
         mds = markdownify_children(tab_width).compact
@@ -54,7 +60,7 @@ module NotionToMd
 
       def indent_children(mds, tab_width)
         mds.map do |md|
-          "\n\n#{"\t" * tab_width}#{md}"
+          "#{"\t" * tab_width}#{md}"
         end
       end
     end

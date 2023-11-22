@@ -103,6 +103,7 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.5.0)
+    vcr (6.2.0)
 
 PLATFORMS
   ruby
@@ -115,6 +116,7 @@ DEPENDENCIES
   rubocop
   rubocop-rspec
   simplecov
+  vcr
 
 BUNDLED WITH
    2.4.20

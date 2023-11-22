@@ -21,8 +21,16 @@ Pass the page id and secret token to the constructor and execute the `convert` m
 ```ruby
 require 'notion_to_md'
 
-notion_converter = NotionToMd::Converter.new(page_id: 'b91d5...', token: 'secret_...')
+notion_converter = NotionToMd.convert(page_id: 'b91d5...', token: 'secret_...')
 md = notion_converter.convert
+```
+
+Since v2.3 you can also use the convenient `convert` method from the root module.
+
+```ruby
+require 'notion_to_md'
+
+md = NotionToMd.convert(page_id: 'b91d5...', token: 'secret_...')
 ```
 
 If the secret token is provided as an environment variable —`NOTION_TOKEN`—, there's no need to pass it as an argument to the constructor.
@@ -36,6 +44,8 @@ require 'notion_to_md'
 
 notion_converter = NotionToMd::Converter.new(page_id: 'b91d5...')
 md = notion_converter.convert
+# or
+md = NotionToMd.convert(page_id: 'b91d5...')
 ```
 
 And that's all. The `md` is a string variable containing the notion page formatted in markdown.
@@ -49,7 +59,7 @@ Everything in a notion page body is a [block object](https://developers.notion.c
 * `heading_2`
 * `heading_3`
 * `bulleted_list_item`
-* `numbered_list_item` as `bulleted_list_item`
+* `numbered_list_item` (supported since v2.3, in previous versions is displayed as `bulleted_list_item`)
 * `to_do`
 * `image`
 * `bookmark`
@@ -77,6 +87,8 @@ By default, the front matter section is not included to the document. To do so, 
 
 ```ruby
 NotionToMd::Converter.new(page_id: 'b91d5...').convert(frontmatter: tue)
+# or
+NotionToMd.convert(page_id: 'b91d5...', frontmatter: true) # Since v2.3
 ```
 
 Default notion [properties](https://developers.notion.com/reference/page#all-pages) are page `id`, `title`, `created_time`, `last_edited_time`, `icon`, `archived` and `cover`.

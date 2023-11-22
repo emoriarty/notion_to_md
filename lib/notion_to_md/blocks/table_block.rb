@@ -10,17 +10,21 @@ module NotionToMd
         table_aligment = markdownify_aligment
         table_body = table[1..table.size]
 
-        [table_header, table_aligment, table_body.join("\n")].compact.join("\n")
+        [table_header, table_aligment, table_body].compact.join + newline
       end
 
-      private
+      protected
 
       def row_size
         @row_size ||= children.first.block.table_row.cells.size
       end
 
       def markdownify_aligment
-        "|#{row_size.times.map { '---' }.join('|')}|" if block.table.has_column_header
+        "|#{row_size.times.map { '---' }.join('|')}|\n" if block.table.has_column_header
+      end
+
+      def newline
+        "\n"
       end
     end
   end
