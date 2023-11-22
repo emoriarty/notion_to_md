@@ -3,18 +3,12 @@
 require 'spec_helper'
 
 describe(NotionToMd) do
-  let(:notion_token) { 'secret_0987654321' }
-  let(:notion_client) do
-    instance_double('Notion::Client', block_children: NOTION_BLOCK_CHILDREN, page: NOTION_PAGE)
-  end
-
-  before do
-    allow(ENV).to receive(:[]).with('NOTION_TOKEN').and_return(notion_token)
-    allow(Notion::Client).to receive(:new).and_return(notion_client)
-  end
-
   describe('#convert') do
-    subject(:md) { described_class.convert(page_id: 'd1535062-350e-45ec-93ba-c4b3d277f42a') }
+    subject(:md) do
+      VCR.use_cassette("notion_page") do
+        described_class.convert(page_id: '9dc17c9c9d2e469dbbf0f9648f3288d3')
+      end
+    end
 
     it 'document does not start with ---' do
       expect(md.split("\n").first).not_to matching(/^---$/)
@@ -45,11 +39,11 @@ describe(NotionToMd) do
     end
 
     it 'bulleted_list_item to - ' do
-      expect(md).to matching(/^- /)
+      expect(md).to matching(/- item 1\n- item 2\n- item 3/)
     end
 
     it 'numbered_list_item to - ' do
-      expect(md).to matching(/^- /)
+      expect(md).to matching(/1. item 1\n2. item 2\n3. item 3/)
     end
 
     it 'to_do checked to - [x]' do
@@ -106,7 +100,9 @@ describe(NotionToMd) do
 
     context('with frontmatter') do
       subject(:md) do
-        described_class.convert(page_id: 'd1535062-350e-45ec-93ba-c4b3d277f42a', frontmatter: frontmatter)
+        VCR.use_cassette("notion_page") do
+          described_class.convert(page_id: '9dc17c9c9d2e469dbbf0f9648f3288d3', frontmatter: frontmatter)
+        end
       end
 
       let(:frontmatter) { true }
@@ -124,7 +120,7 @@ describe(NotionToMd) do
       end
 
       it 'sets last_edited_time in frontmatter' do
-        expect(md).to matching(/^last_edited_time: 2022-04-03T02:29:00\+00:00$/)
+        expect(md).to matching(/^last_edited_time: 2023-11-22T06:30:00\+00:00$/)
       end
 
       it 'sets icon in frontmatter' do
@@ -156,7 +152,7 @@ describe(NotionToMd) do
       end
 
       it 'sets custom property date type in frontmatter' do
-        expect(md).to matching(/^date: 2022-01-28$/)
+        expect(md).to matching(/^date: 2021-12-30$/)
       end
 
       it 'sets custom property number type in frontmatter' do
@@ -164,7 +160,7 @@ describe(NotionToMd) do
       end
 
       it 'sets custom property files type in frontmatter' do
-        expect(md).to matching(%r{^file: \["https://s3.us-west-2.amazonaws.com/secure.notion-static.com/23e8b74e-86d1-4b3a-bd9a-dd0415a954e4/me.jpeg"\]$})
+        expect(md).to matching(%r{^file: \["https://prod-files-secure.s3.us-west-2.amazonaws.com/4783548e-2442-4bf3-bb3d-ed4ddd2dcdf0/23e8b74e-86d1-4b3a-bd9a-dd0415a954e4/me.jpeg.*\]$})
       end
 
       it 'sets custom property email type in frontmatter' do
