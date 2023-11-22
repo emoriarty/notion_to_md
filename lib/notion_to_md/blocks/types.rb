@@ -107,116 +107,111 @@ module NotionToMd
           "|#{block[:cells].map(&method(:convert_table_row)).join('|')}|"
         end
 
-        def equation(block)
+        def toggle(block)
           result = []
-          result << '<br />'
-          result << "-------------------------"
-          result << "Unsupported Equation Block"
-          result << "-------------------------"
-          result << "Content needs to be imported manually."
-          result << "This is the equation to help you find it in the original Notion page:"
-          result << "-------------------------"
-          result << '<br />'
-          result << block[:expression] # Returns ruby code with the equation at least
-          result << '<br />'
-          result << "-------------------------"
+          result << "> [!CAUTION]"
+          result << "> **Unsupported Toggle Block**"
+          result << "> <br />"
+          result << "> Content needs to be imported manually."
+          result << "> <br />"
+          result << "> <br />"
+          result << "> This is the toggle title to help you find it in the original Notion page:"
+          result << "> <br />"
+          title = block[:rich_text].map {|text| Text.send(text[:type], text)}.join
+          result << "> **#{title}**"
+          result << "> <br />"
           result.join("\n")
         end
 
-        def toggle(block)
+        def equation(block)
           result = []
-          result << '<br />'
-          result << "-------------------------"
-          result << "Unsupported Toggle Block"
-          result << "-------------------------"
-          result << "Content needs to be imported manually."
-          result << "This is the toggle title to help you find it in the original Notion page:"
-          result << "-------------------------"
-          result << '<br />'
-          result << convert_text(block)
-          result << '<br />'
-          result << "-------------------------"
+          result << "> [!CAUTION]"
+          result << "> **Unsupported Equation Block**"
+          result << "> <br />"
+          result << "> Content needs to be imported manually."
+          result << "> <br />"
+          result << "> <br />"
+          result << "> This is the equation to help you find it in the original Notion page:"
+          result << "> <br />"
+          result << "> **#{block[:expression]}**" # Returns ruby code with the equation at least
+          result << "> <br />"
           result.join("\n")
         end
 
         def column_list(block)
           result = []
-          result << '<br />'
-          result << "-------------------------"
-          result << "Unsupported Column List Block"
-          result << "-------------------------"
-          result << "Content needs to be imported manually."
-          result << "This exercise contains a column list. The content of each column needs to be imported manually. Unfortunately, Notion does not provide a way to access the content of each column."
-          result << "-------------------------"
-          result << '<br />'
+          result << "> [!CAUTION]"
+          result << "> **Unsupported Column List Block**"
+          result << "> <br />"
+          result << "> Content needs to be imported manually."
+          result << "> <br />"
+          result << "> <br />"
+          result << "> This exercise contains a column list. The content of each column needs to be imported manually. Unfortunately, Notion does not provide a way to access the content of each column."
+          result << "> <br />"
           result.join("\n")
         end
 
         def child_database(block)
-          results = []
-          results << '<br />'
-          results << "-------------------------"
-          results << "Unsupported Child Database Block"
-          results << "-------------------------"
-          results << "Content needs to be imported manually."
-          results << "This is the child database title to help you find it in the original Notion page:"
-          results << "-------------------------"
-          results << '<br />'
-          results << block[:title]
-          results << '<br />'
-          results << "-------------------------"
-          results.join("\n")
+          result = []
+          result << "> [!CAUTION]"
+          result << "> **Unsupported Child Database Block**"
+          result << "> <br />"
+          result << "> Content needs to be imported manually."
+          result << "> <br />"
+          result << "> <br />"
+          result << "> This is the child database title to help you find it in the original Notion page:"
+          result << "> <br />"
+          result << "> **#{block[:title]}**"
+          result << "> <br />"
+          result.join("\n")
         end
 
         def child_page(block)
-          results = []
-          results << '<br />'
-          results << "-------------------------"
-          results << "Unsupported Child Page Block"
-          results << "-------------------------"
-          results << "Content needs to be imported manually."
-          results << "This is the child page title to help you find it in the original Notion page:"
-          results << "-------------------------"
-          results << '<br />'
-          results << block[:title]
-          results << '<br />'
-          results << "-------------------------"
-          results.join("\n")
+          result = []
+          result << "> [!CAUTION]"
+          result << "> **Unsupported Child Page Block**"
+          result << "> <br />"
+          result << "> Content needs to be imported manually."
+          result << "> <br />"
+          result << "> <br />"
+          result << "> This is the child page title to help you find it in the original Notion page:"
+          result << "> <br />"
+          result << "> **#{block[:title]}**"
+          result << "> <br />"
+          result.join("\n")
         end
 
         def link_to_page(block)
-          results = []
-          results << '<br />'
-          results << "-------------------------"
-          results << "Unsupported Link to Page Block"
-          results << "-------------------------"
-          results << "Content needs to be imported manually."
-          results << "This is the link_id to page title to help you find it in the original Notion page:"
-          results << "-------------------------"
-          results << '<br />'
-          results << block[:page_id]
-          results << '<br />'
-          results << "-------------------------"
-          results.join("\n")
+          result = []
+          result << "> [!CAUTION]"
+          result << "> Unsupported Link to Page Block"
+          result << "> <br />"
+          result << "> Content needs to be imported manually."
+          result << "> <br />"
+          result << "> <br />"
+          result << "> This is the link_id to page title to help you find it in the original Notion page:"
+          result << "> <br />"
+          result << "> **#{block[:page_id]}**"
+          result << "> <br />"
+          result.join("\n")
         end
 
         def synced_block(block)
           result = []
-          result << '<br />'
-          result << "-------------------------"
-          result << "Unsupported Synced Block"
-          result << "-------------------------"
-          result << "Content needs to be imported manually."
-          result << "This is the synced block title to help you find it in the original Notion page:"
-          result << "-------------------------"
-          result << '<br />'
+          result << "> [!CAUTION]"
+          result << "> Unsupported Synced Block"
+          result << "> <br />"
+          result << "> Content needs to be imported manually."
+          result << "> <br />"
+          result << "> <br />"
+          result << "> This is the synced block title to help you find it in the original Notion page:"
+          result << "> <br />"
           if block[:synced_from]
-            result << block[:synced_from]
+            result <<"> **#{block[:synced_from]}**"
           else
-            "Synced block has no synced_from attribute."
+            "> **Synced block has no synced_from attribute.**"
           end
-          result << '<br />'
-          result << "-------------------------"
+          result << "> <br />"
           result.join("\n")
         end
 
