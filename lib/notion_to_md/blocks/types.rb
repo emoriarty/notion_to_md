@@ -207,7 +207,7 @@ module NotionToMd
           result << "> This is the synced block title to help you find it in the original Notion page:"
           result << "> <br />"
           if block[:synced_from]
-            result <<"> **#{block[:synced_from]}**"
+            result <<"> **#{block[:synced_from][:block_id]}**"
           else
             "> **Synced block has no synced_from attribute.**"
           end
