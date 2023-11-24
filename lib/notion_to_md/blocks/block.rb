@@ -32,8 +32,12 @@ module NotionToMd
       #
       def to_md(tab_width: 0)
         block_type = block.type.to_sym
-        md = Types.send(block_type, block[block_type])
-        md + build_nested_blocks(tab_width + 1)
+        if block_type == :toggle
+          Types.send(block_type, self)
+        else
+          md = Types.send(block_type, block[block_type])
+          md + build_nested_blocks(tab_width + 1)
+        end
       rescue NoMethodError
         Logger.info("Unsupported block type: #{block_type}")
         nil

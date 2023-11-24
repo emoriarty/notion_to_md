@@ -14,6 +14,7 @@ module NotionToMd
       Types.method(:numbered_list_item).name,
       Types.method(:paragraph).name,
       Types.method(:to_do).name,
+      Types.method(:toggle).name,
       :table
     ].freeze
 

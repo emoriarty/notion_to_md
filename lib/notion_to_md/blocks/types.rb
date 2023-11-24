@@ -108,18 +108,12 @@ module NotionToMd
         end
 
         def toggle(block)
-          result = []
-          result << "> [!CAUTION]"
-          result << "> **Unsupported Toggle Block**"
-          result << "> <br />"
-          result << "> Content needs to be imported manually."
-          result << "> <br />"
-          result << "> <br />"
-          result << "> This is the toggle title to help you find it in the original Notion page:"
-          result << "> <br />"
-          title = block[:rich_text].map {|text| Text.send(text[:type], text)}.join
-          result << "> **#{title}**"
-          result << "> <br />"
+          result = <<-TEXT
+            <details>
+              <summary>#{block.block.toggle["rich_text"].map { |text| Text.send(text[:type], text) }.join}</summary>
+              #{block.children.map(&:to_md).join}
+            </details>
+          TEXT
           result.join("\n")
         end
 
