@@ -116,11 +116,11 @@ describe(NotionToMd) do
       end
 
       it 'sets created_time in frontmatter' do
-        expect(md).to matching(/^created_time: 2022-01-23T12:31:00\+00:00/)
+        expect(md).to matching(/^created_time: 2022-01-23T12:31:00.000Z$/)
       end
 
       it 'sets last_edited_time in frontmatter' do
-        expect(md).to matching(/^last_edited_time: 2023-11-22T06:30:00\+00:00$/)
+        expect(md).to matching(/^last_edited_time: 2023-12-02T07:19:00.000Z$/)
       end
 
       it 'sets icon in frontmatter' do
@@ -132,7 +132,7 @@ describe(NotionToMd) do
       end
 
       it 'sets title in frontmatter' do
-        expect(md).to matching(/^title: Page 1$/)
+        expect(md).to matching(/^title: "Page 1"$/)
       end
 
       it 'sets archived in frontmatter' do
@@ -144,7 +144,7 @@ describe(NotionToMd) do
       end
 
       it 'sets custom property select type in frontmatter' do
-        expect(md).to matching(/^select: select1$/)
+        expect(md).to matching(/^select: "select1"$/)
       end
 
       it 'sets custom property people type in frontmatter' do
@@ -172,7 +172,11 @@ describe(NotionToMd) do
       end
 
       it 'sets custom property rich_text type in frontmatter' do
-        expect(md).to matching(/^rich_text: This is a rich_text property. With Italics.$/)
+        expect(md).to matching(/^rich_text: "This is a rich_text property. With Italics."$/)
+      end
+
+      it 'does not set empty rich text property in frontmatter' do
+        expect(md).not_to matching(/^empty_rich_text: ""$/)
       end
     end
   end
