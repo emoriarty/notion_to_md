@@ -120,7 +120,7 @@ describe(NotionToMd) do
       end
 
       it 'sets last_edited_time in frontmatter' do
-        expect(md).to matching(/^last_edited_time: "2023-11-22T06:30:00\+00:00"$/)
+        expect(md).to matching(/^last_edited_time: "2023-12-02T07:19:00\+00:00"$/)
       end
 
       it 'sets icon in frontmatter' do
@@ -173,6 +173,10 @@ describe(NotionToMd) do
 
       it 'sets custom property rich_text type in frontmatter' do
         expect(md).to matching(/^rich_text: "This is a rich_text property. With Italics."$/)
+      end
+
+      it 'does not set empty rich text property in frontmatter' do
+        expect(md).not_to matching(/^empty_rich_text: ""$/)
       end
     end
   end
