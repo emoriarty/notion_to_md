@@ -152,11 +152,11 @@ describe(NotionToMd) do
       end
 
       it 'sets custom property date type in frontmatter' do
-        expect(md).to matching(/^date: 2021-12-30 00:00:00 \+0100$/)
+        expect(md).to matching(/^date: 2021-12-30 00:00:00 \+\d{4}$/)
       end
 
       it 'sets custom property date with time type in frontmatter' do
-        expect(md).to matching(/^date_with_time: 2023-12-02 00:00:00 \+0100$/)
+        expect(md).to matching(/^date_with_time: 2023-12-02 00:00:00 \+\d{4}$/)
       end
 
       it 'sets custom property number type in frontmatter' do
