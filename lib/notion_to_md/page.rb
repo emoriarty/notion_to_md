@@ -29,11 +29,11 @@ module NotionToMd
     end
 
     def created_time
-      DateTime.parse(page['created_time'])
+      page['created_time']
     end
 
     def last_edited_time
-      DateTime.parse(page['last_edited_time'])
+      page['last_edited_time']
     end
 
     def url
@@ -78,10 +78,10 @@ module NotionToMd
       @default_props ||= {
         'id' => id,
         'title' => title.dump,
-        'created_time' => created_time.to_s.dump,
+        'created_time' => created_time,
         'cover' => cover,
         'icon' => icon,
-        'last_edited_time' => last_edited_time.to_s.dump,
+        'last_edited_time' => last_edited_time,
         'archived' => archived
       }
     end

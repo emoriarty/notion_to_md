@@ -116,11 +116,11 @@ describe(NotionToMd) do
       end
 
       it 'sets created_time in frontmatter' do
-        expect(md).to matching(/^created_time: "2022-01-23T12:31:00\+00:00"$/)
+        expect(md).to matching(/^created_time: 2022-01-23T12:31:00.000Z$/)
       end
 
       it 'sets last_edited_time in frontmatter' do
-        expect(md).to matching(/^last_edited_time: "2023-12-02T07:19:00\+00:00"$/)
+        expect(md).to matching(/^last_edited_time: 2023-12-02T07:19:00.000Z$/)
       end
 
       it 'sets icon in frontmatter' do

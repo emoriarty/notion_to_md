@@ -110,8 +110,8 @@ describe(NotionToMd::Page) do
           type: 'emoji',
           emoji: '\U0001F4A5'
         },
-        created_time: DateTime.now.to_s,
-        last_edited_time: DateTime.now.to_s,
+        created_time: DateTime.now,
+        last_edited_time: DateTime.now,
         archived: false,
         properties: {
           title: {
@@ -145,7 +145,31 @@ describe(NotionToMd::Page) do
     end
 
     it 'validates frontmatter' do
-      expect { YAML.safe_load(page.frontmatter) }.not_to raise_error
+      expect { YAML.safe_load(page.frontmatter, permitted_classes: [Time]) }.not_to raise_error
+    end
+
+    it 'includes the title' do
+      expect(YAML.safe_load(page.frontmatter, permitted_classes: [Time])['title']).to eq('Title with "double quotes" and \'single quotes\' and: :colons:')
+    end
+
+    it 'includes the cover' do
+      expect(YAML.safe_load(page.frontmatter, permitted_classes: [Time])['cover']).to eq('https://s3.us-west-2.amazonaws.com/secure.notion-static.com/X3f70b1X-2331-4012-99bc-24gcbd1c85sb/test.jpeg')
+    end
+
+    it 'includes the icon' do
+      expect(YAML.safe_load(page.frontmatter, permitted_classes: [Time])['icon']).to eq('\U0001F4A5')
+    end
+
+    it 'includes the created_time' do
+      expect(YAML.safe_load(page.frontmatter, permitted_classes: [Time])['created_time']).to be_within(1).of(Time.now)
+    end
+
+    it 'includes the last_edited_time' do
+      expect(YAML.safe_load(page.frontmatter, permitted_classes: [Time])['last_edited_time']).to be_within(1).of(Time.now)
+    end
+
+    it 'includes the archived' do
+      expect(YAML.safe_load(page.frontmatter, permitted_classes: [Time])['archived']).to eq(false)
     end
   end
 end
