@@ -110,8 +110,8 @@ describe(NotionToMd::Page) do
           type: 'emoji',
           emoji: '\U0001F4A5'
         },
-        created_time: DateTime.now,
-        last_edited_time: DateTime.now,
+        created_time: Time.now,
+        last_edited_time: Time.now,
         archived: false,
         properties: {
           title: {
