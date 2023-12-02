@@ -83,7 +83,7 @@ describe(NotionToMd::PageProperty) do
   describe('.select') do
     let(:select_prop) { { select: { name: 'name_1' } } }
 
-    it { expect(described_class.select(select_prop)).to eq('name_1') }
+    it { expect(described_class.select(select_prop)).to eq('"name_1"') }
 
     context('when value is nil') do
       let(:select_prop) { { select: nil } }
@@ -250,9 +250,9 @@ describe(NotionToMd::PageProperty) do
   end
 
   describe('.rich_text') do
-    let(:rich_text_prop) { { rich_text: [{ plain_text: 'foo' }, { plain_text: 'bar' }] } }
+    let(:rich_text_prop) { { rich_text: [{ plain_text: 'foo: ' }, { plain_text: 'bar' }] } }
 
-    it { expect(described_class.rich_text(rich_text_prop)).to eq('foobar') }
+    it { expect(described_class.rich_text(rich_text_prop)).to eq('"foo: bar"') }
 
     context('when value is nil') do
       let(:rich_text_prop) { { rich_text: nil } }

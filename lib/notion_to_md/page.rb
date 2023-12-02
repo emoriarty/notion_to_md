@@ -77,11 +77,11 @@ module NotionToMd
     def default_props
       @default_props ||= {
         'id' => id,
-        'title' => title,
-        'created_time' => created_time,
+        'title' => title.dump,
+        'created_time' => created_time.to_s.dump,
         'cover' => cover,
         'icon' => icon,
-        'last_edited_time' => last_edited_time,
+        'last_edited_time' => last_edited_time.to_s.dump,
         'archived' => archived
       }
     end

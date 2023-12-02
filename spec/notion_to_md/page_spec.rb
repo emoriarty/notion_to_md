@@ -94,4 +94,58 @@ describe(NotionToMd::Page) do
       it { expect(page.title).to eq(title) }
     end
   end
+
+  describe("#frontmatter") do
+    let(:notion_page) do
+      Notion::Messages::Message.new(
+        id: 'xxxx',
+        cover: {
+          type: 'external',
+          external: {
+            url: 'https://s3.us-west-2.amazonaws.com/secure.notion-static.com/X3f70b1X-2331-4012-99bc-24gcbd1c85sb/test.jpeg',
+            expiry_time: '2022-07-30T10:12:33.218Z'
+          }
+        },
+        icon: {
+          type: 'emoji',
+          emoji: '\U0001F4A5'
+        },
+        created_time: DateTime.now.to_s,
+        last_edited_time: DateTime.now.to_s,
+        archived: false,
+        properties: {
+          title: {
+            type: 'text',
+            title: [
+              { plain_text: 'Title with "double quotes" and \'single quotes\' and: :colons:' }
+            ]
+          },
+          rich_text: {
+            type: 'rich_text',
+            rich_text: [
+              { plain_text: 'Rich text with "double quotes" and \'single quotes\' and: :colons:' }
+            ]
+          },
+          select: {
+            type: 'select',
+            select: {
+              name: 'Select with "double quotes" and \'single quotes\' and: :colons:'
+            }
+          },
+          multi_select: {
+            type: 'multi_select',
+            multi_select: [
+              {
+                name: 'Multi select with "double quotes" and \'single quotes\' and: :colons:'
+              }
+            ]
+          }
+        }
+      )
+    end
+
+    it 'validates frontmatter' do
+      expect { YAML.safe_load(page.frontmatter) }.not_to raise_error
+    end
+  end
 end
