@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Sat, 02 Dec 2023 07:19:15 GMT
+      - Sat, 02 Dec 2023 22:44:44 GMT
       content-type:
       - application/json; charset=utf-8
       transfer-encoding:
@@ -31,9 +31,9 @@ http_interactions:
       x-powered-by:
       - Express
       x-notion-request-id:
-      - 354f80cf-b385-4b1e-b076-615138ad94bf
+      - 6d56a57f-5d02-49f6-bedc-0f7700e355e5
       etag:
-      - W/"fc9-2/Ea47P4VoP7+Bm3Lzak5rgDONo"
+      - W/"107c-RGAmp+SxZU3vQp32DCXJk+E4ZeM"
       vary:
       - Accept-Encoding
       content-encoding:
@@ -41,27 +41,28 @@ http_interactions:
       cf-cache-status:
       - DYNAMIC
       set-cookie:
-      - __cf_bm=GCmxx_iJXNe_NpfXWTMtO.UIF3Cm2hA.77GIUVDlZM8-1701501555-0-AYI2zMZOrv1i/o/d18IA+mskgFLDDcgaH6wkjg5GN3ZSXYv7EP6TXc1r9f7O2oP0GoyvaAkZQmQX+M1sf4IZpqo=;
-        path=/; expires=Sat, 02-Dec-23 07:49:15 GMT; domain=.notion.com; HttpOnly;
+      - __cf_bm=O.NX_VC_eK_hmzUGQRuky0KX_zHu.cgsIRBk9lOji4c-1701557084-0-AY/dR13y+RZjgP6HMA+Q2iiHUnzy17sKJGiBP4oK7kBkVuT0XfPxqJXIDBUJJdY2GDQpbamuwu0WeLYnRdRcNz8=;
+        path=/; expires=Sat, 02-Dec-23 23:14:44 GMT; domain=.notion.com; HttpOnly;
         Secure; SameSite=None
       server:
       - cloudflare
       cf-ray:
-      - 82f1ccf1497f00a8-CDG
+      - 82f7189ed82b2a77-CDG
     body:
       encoding: UTF-8
-      string: "{\"object\":\"page\",\"id\":\"9dc17c9c-9d2e-469d-bbf0-f9648f3288d3\",\"created_time\":\"2022-01-23T12:31:00.000Z\",\"last_edited_time\":\"2023-12-02T07:19:00.000Z\",\"created_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"last_edited_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"cover\":{\"type\":\"external\",\"external\":{\"url\":\"https://www.notion.so/images/page-cover/met_canaletto_1720.jpg\"}},\"icon\":{\"type\":\"emoji\",\"emoji\":\"\U0001F4A5\"},\"parent\":{\"type\":\"database_id\",\"database_id\":\"1ae33dd5-f331-4402-9480-69517fa40ae2\"},\"archived\":false,\"properties\":{\"Multi
-        Select\":{\"id\":\"%3C%7Bn%7B\",\"type\":\"multi_select\",\"multi_select\":[{\"id\":\"ddf5e30e-fde6-4023-98a4-864674e8ae87\",\"name\":\"mselect1\",\"color\":\"gray\"},{\"id\":\"1be80fca-a275-4384-8268-6bb2f6a21616\",\"name\":\"mselect2\",\"color\":\"pink\"},{\"id\":\"32e731fc-3fee-41d8-83f5-398b2981f1ac\",\"name\":\"mselect3\",\"color\":\"blue\"}]},\"Select\":{\"id\":\"%3EzjF\",\"type\":\"select\",\"select\":{\"id\":\"fa788fbc-176b-49cb-be2e-552cc985cf7c\",\"name\":\"select1\",\"color\":\"yellow\"}},\"Person\":{\"id\":\"TFSp\",\"type\":\"people\",\"people\":[{\"object\":\"user\",\"id\":\"a4e89628-577b-404f-b62b-36abe7f65fc7\",\"name\":\"John
+      string: "{\"object\":\"page\",\"id\":\"9dc17c9c-9d2e-469d-bbf0-f9648f3288d3\",\"created_time\":\"2022-01-23T12:31:00.000Z\",\"last_edited_time\":\"2023-12-02T22:09:00.000Z\",\"created_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"last_edited_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"cover\":{\"type\":\"external\",\"external\":{\"url\":\"https://www.notion.so/images/page-cover/met_canaletto_1720.jpg\"}},\"icon\":{\"type\":\"emoji\",\"emoji\":\"\U0001F4A5\"},\"parent\":{\"type\":\"database_id\",\"database_id\":\"1ae33dd5-f331-4402-9480-69517fa40ae2\"},\"archived\":false,\"properties\":{\"empty
+        date\":{\"id\":\"%3A%7BfH\",\"type\":\"date\",\"date\":null},\"Multi Select\":{\"id\":\"%3C%7Bn%7B\",\"type\":\"multi_select\",\"multi_select\":[{\"id\":\"ddf5e30e-fde6-4023-98a4-864674e8ae87\",\"name\":\"mselect1\",\"color\":\"gray\"},{\"id\":\"1be80fca-a275-4384-8268-6bb2f6a21616\",\"name\":\"mselect2\",\"color\":\"pink\"},{\"id\":\"32e731fc-3fee-41d8-83f5-398b2981f1ac\",\"name\":\"mselect3\",\"color\":\"blue\"}]},\"Select\":{\"id\":\"%3EzjF\",\"type\":\"select\",\"select\":{\"id\":\"fa788fbc-176b-49cb-be2e-552cc985cf7c\",\"name\":\"select1\",\"color\":\"yellow\"}},\"date
+        with time\":{\"id\":\"CUEj\",\"type\":\"date\",\"date\":{\"start\":\"2023-12-02T00:00:00.000+01:00\",\"end\":null,\"time_zone\":null}},\"Person\":{\"id\":\"TFSp\",\"type\":\"people\",\"people\":[{\"object\":\"user\",\"id\":\"a4e89628-577b-404f-b62b-36abe7f65fc7\",\"name\":\"John
         Rambo\",\"avatar_url\":\"https://s3-us-west-2.amazonaws.com/public.notion-static.com/3e0bf8de-83a5-4579-8088-5a35021ab9cc/Foto_Perfil_Slack.jpg\",\"type\":\"person\",\"person\":{\"email\":\"gjulia20@gmail.com\"}}]},\"Date\":{\"id\":\"T~YB\",\"type\":\"date\",\"date\":{\"start\":\"2021-12-30\",\"end\":null,\"time_zone\":null}},\"Tags\":{\"id\":\"UT%3Fx\",\"type\":\"multi_select\",\"multi_select\":[{\"id\":\"be6ae2f6-5ae4-496b-b413-f5e7dbeff2a8\",\"name\":\"tag1\",\"color\":\"green\"}]},\"Numbers\":{\"id\":\"a~dg\",\"type\":\"number\",\"number\":12},\"Rich
         Text\":{\"id\":\"jJWo\",\"type\":\"rich_text\",\"rich_text\":[{\"type\":\"text\",\"text\":{\"content\":\"This
         is a \",\"link\":null},\"annotations\":{\"bold\":false,\"italic\":false,\"strikethrough\":false,\"underline\":false,\"code\":false,\"color\":\"default\"},\"plain_text\":\"This
         is a \",\"href\":null},{\"type\":\"text\",\"text\":{\"content\":\"rich_text\",\"link\":null},\"annotations\":{\"bold\":true,\"italic\":false,\"strikethrough\":false,\"underline\":false,\"code\":false,\"color\":\"default\"},\"plain_text\":\"rich_text\",\"href\":null},{\"type\":\"text\",\"text\":{\"content\":\"
         property. With \",\"link\":null},\"annotations\":{\"bold\":false,\"italic\":false,\"strikethrough\":false,\"underline\":false,\"code\":false,\"color\":\"default\"},\"plain_text\":\"
-        property. With \",\"href\":null},{\"type\":\"text\",\"text\":{\"content\":\"Italics\",\"link\":null},\"annotations\":{\"bold\":false,\"italic\":true,\"strikethrough\":false,\"underline\":false,\"code\":false,\"color\":\"default\"},\"plain_text\":\"Italics\",\"href\":null},{\"type\":\"text\",\"text\":{\"content\":\".\",\"link\":null},\"annotations\":{\"bold\":false,\"italic\":false,\"strikethrough\":false,\"underline\":false,\"code\":false,\"color\":\"default\"},\"plain_text\":\".\",\"href\":null}]},\"Phone\":{\"id\":\"k%5DEi\",\"type\":\"phone_number\",\"phone_number\":\"983788379\"},\"File\":{\"id\":\"x%60rF\",\"type\":\"files\",\"files\":[{\"name\":\"me.jpeg\",\"type\":\"file\",\"file\":{\"url\":\"https://prod-files-secure.s3.us-west-2.amazonaws.com/4783548e-2442-4bf3-bb3d-ed4ddd2dcdf0/23e8b74e-86d1-4b3a-bd9a-dd0415a954e4/me.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20231202%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20231202T071915Z&X-Amz-Expires=3600&X-Amz-Signature=21a005e01fad3435c665b475ad1fc4aee90224a8573ef0f60b36b4bf1105f582&X-Amz-SignedHeaders=host&x-id=GetObject\",\"expiry_time\":\"2023-12-02T08:19:15.519Z\"}}]},\"empty
+        property. With \",\"href\":null},{\"type\":\"text\",\"text\":{\"content\":\"Italics\",\"link\":null},\"annotations\":{\"bold\":false,\"italic\":true,\"strikethrough\":false,\"underline\":false,\"code\":false,\"color\":\"default\"},\"plain_text\":\"Italics\",\"href\":null},{\"type\":\"text\",\"text\":{\"content\":\".\",\"link\":null},\"annotations\":{\"bold\":false,\"italic\":false,\"strikethrough\":false,\"underline\":false,\"code\":false,\"color\":\"default\"},\"plain_text\":\".\",\"href\":null}]},\"Phone\":{\"id\":\"k%5DEi\",\"type\":\"phone_number\",\"phone_number\":\"983788379\"},\"File\":{\"id\":\"x%60rF\",\"type\":\"files\",\"files\":[{\"name\":\"me.jpeg\",\"type\":\"file\",\"file\":{\"url\":\"https://prod-files-secure.s3.us-west-2.amazonaws.com/4783548e-2442-4bf3-bb3d-ed4ddd2dcdf0/23e8b74e-86d1-4b3a-bd9a-dd0415a954e4/me.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20231202%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20231202T224444Z&X-Amz-Expires=3600&X-Amz-Signature=7ec0b3d66f8db47aab10974b46dbc4a8793bb67dcfeb0abbbf2db57666f76fb2&X-Amz-SignedHeaders=host&x-id=GetObject\",\"expiry_time\":\"2023-12-02T23:44:44.092Z\"}}]},\"empty
         rich text\":{\"id\":\"xtDO\",\"type\":\"rich_text\",\"rich_text\":[]},\"Email\":{\"id\":\"x%7Bcw\",\"type\":\"email\",\"email\":\"hola@test.com\"},\"Checkbox\":{\"id\":\"%7CMPu\",\"type\":\"checkbox\",\"checkbox\":false},\"empty_select\":{\"id\":\"%7DSr%3F\",\"type\":\"select\",\"select\":null},\"Name\":{\"id\":\"title\",\"type\":\"title\",\"title\":[{\"type\":\"text\",\"text\":{\"content\":\"Page
         1\",\"link\":null},\"annotations\":{\"bold\":false,\"italic\":false,\"strikethrough\":false,\"underline\":false,\"code\":false,\"color\":\"default\"},\"plain_text\":\"Page
-        1\",\"href\":null}]}},\"url\":\"https://www.notion.so/Page-1-9dc17c9c9d2e469dbbf0f9648f3288d3\",\"public_url\":null,\"request_id\":\"354f80cf-b385-4b1e-b076-615138ad94bf\"}"
-  recorded_at: Sat, 02 Dec 2023 07:19:15 GMT
+        1\",\"href\":null}]}},\"url\":\"https://www.notion.so/Page-1-9dc17c9c9d2e469dbbf0f9648f3288d3\",\"public_url\":null,\"request_id\":\"6d56a57f-5d02-49f6-bedc-0f7700e355e5\"}"
+  recorded_at: Sat, 02 Dec 2023 22:44:44 GMT
 - request:
     method: get
     uri: https://api.notion.com/v1/blocks/9dc17c9c9d2e469dbbf0f9648f3288d3/children
@@ -83,7 +84,7 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Sat, 02 Dec 2023 07:19:16 GMT
+      - Sat, 02 Dec 2023 22:44:44 GMT
       content-type:
       - application/json; charset=utf-8
       transfer-encoding:
@@ -93,9 +94,9 @@ http_interactions:
       x-powered-by:
       - Express
       x-notion-request-id:
-      - 9d88a0e9-e953-4b2d-a857-0fb5cda57605
+      - bab87ea9-0adf-451c-abf1-149265198421
       etag:
-      - W/"9639-pnhOmLDz9IN8ryLd2PU7KYFSXrc"
+      - W/"9639-DnyBFdK5DVyO9mrX4CWULJteu9M"
       vary:
       - Accept-Encoding
       content-encoding:
@@ -103,13 +104,13 @@ http_interactions:
       cf-cache-status:
       - DYNAMIC
       set-cookie:
-      - __cf_bm=Keajx4wg8PBkJpOEjqNyraO472Yy13cXilBNql05LcM-1701501556-0-ARjec14YATkdlA+aEqu7y6MISuCZaE9EgSch1OABUGzFj3cV92Q0tNZMLCYmyag1nsPfD/NM1lKAcRpFdN4zIpY=;
-        path=/; expires=Sat, 02-Dec-23 07:49:16 GMT; domain=.notion.com; HttpOnly;
+      - __cf_bm=Mf.ifhvM3da._AXhXCFPePp6wFZ9muYLYh8p7os71k4-1701557084-0-ARy5b7CYhxee/5S8mt5hNetf66ItKUfhbG+IzQM9rruUZnVyjBj9yoXqDOGRzP1ue1IDQPJT8dArHQaK+KoB04g=;
+        path=/; expires=Sat, 02-Dec-23 23:14:44 GMT; domain=.notion.com; HttpOnly;
         Secure; SameSite=None
       server:
       - cloudflare
       cf-ray:
-      - 82f1ccf30f826f09-CDG
+      - 82f718a0db042a16-CDG
     body:
       encoding: UTF-8
       string: "{\"object\":\"list\",\"results\":[{\"object\":\"block\",\"id\":\"2c3c3f04-448f-4921-aed9-880094afe981\",\"parent\":{\"type\":\"page_id\",\"page_id\":\"9dc17c9c-9d2e-469d-bbf0-f9648f3288d3\"},\"created_time\":\"2022-02-13T14:12:00.000Z\",\"last_edited_time\":\"2022-02-13T14:12:00.000Z\",\"created_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"last_edited_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"has_children\":false,\"archived\":false,\"type\":\"image\",\"image\":{\"caption\":[{\"type\":\"text\",\"text\":{\"content\":\"John
@@ -231,8 +232,8 @@ http_interactions:
         \",\"href\":null},{\"type\":\"text\",\"text\":{\"content\":\"bold \",\"link\":null},\"annotations\":{\"bold\":true,\"italic\":false,\"strikethrough\":false,\"underline\":false,\"code\":false,\"color\":\"default\"},\"plain_text\":\"bold
         \",\"href\":null},{\"type\":\"text\",\"text\":{\"content\":\"strike \",\"link\":null},\"annotations\":{\"bold\":false,\"italic\":false,\"strikethrough\":true,\"underline\":false,\"code\":false,\"color\":\"default\"},\"plain_text\":\"strike
         \",\"href\":null},{\"type\":\"text\",\"text\":{\"content\":\"inline-code \",\"link\":null},\"annotations\":{\"bold\":false,\"italic\":false,\"strikethrough\":false,\"underline\":false,\"code\":true,\"color\":\"default\"},\"plain_text\":\"inline-code
-        \",\"href\":null},{\"type\":\"text\",\"text\":{\"content\":\"underline\",\"link\":null},\"annotations\":{\"bold\":false,\"italic\":false,\"strikethrough\":false,\"underline\":true,\"code\":false,\"color\":\"default\"},\"plain_text\":\"underline\",\"href\":null}],\"color\":\"default\"}},{\"object\":\"block\",\"id\":\"fe993569-504e-49b6-8252-00120b69253b\",\"parent\":{\"type\":\"page_id\",\"page_id\":\"9dc17c9c-9d2e-469d-bbf0-f9648f3288d3\"},\"created_time\":\"2022-03-18T10:13:00.000Z\",\"last_edited_time\":\"2022-03-18T10:13:00.000Z\",\"created_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"last_edited_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"has_children\":false,\"archived\":false,\"type\":\"paragraph\",\"paragraph\":{\"rich_text\":[],\"color\":\"default\"}},{\"object\":\"block\",\"id\":\"6c48a070-7a58-4a73-a971-6cc72bed0860\",\"parent\":{\"type\":\"page_id\",\"page_id\":\"9dc17c9c-9d2e-469d-bbf0-f9648f3288d3\"},\"created_time\":\"2022-03-18T10:13:00.000Z\",\"last_edited_time\":\"2022-03-18T10:13:00.000Z\",\"created_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"last_edited_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"has_children\":false,\"archived\":false,\"type\":\"paragraph\",\"paragraph\":{\"rich_text\":[{\"type\":\"text\",\"text\":{\"content\":\"italic\",\"link\":null},\"annotations\":{\"bold\":false,\"italic\":true,\"strikethrough\":false,\"underline\":false,\"code\":false,\"color\":\"default\"},\"plain_text\":\"italic\",\"href\":null}],\"color\":\"default\"}},{\"object\":\"block\",\"id\":\"173c6135-47dc-4341-933e-4ee39aa020d8\",\"parent\":{\"type\":\"page_id\",\"page_id\":\"9dc17c9c-9d2e-469d-bbf0-f9648f3288d3\"},\"created_time\":\"2022-03-18T10:13:00.000Z\",\"last_edited_time\":\"2022-03-18T10:13:00.000Z\",\"created_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"last_edited_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"has_children\":false,\"archived\":false,\"type\":\"paragraph\",\"paragraph\":{\"rich_text\":[{\"type\":\"text\",\"text\":{\"content\":\"bold\",\"link\":null},\"annotations\":{\"bold\":true,\"italic\":false,\"strikethrough\":false,\"underline\":false,\"code\":false,\"color\":\"default\"},\"plain_text\":\"bold\",\"href\":null}],\"color\":\"default\"}},{\"object\":\"block\",\"id\":\"120525d0-794f-413c-9c6e-78a57ed50a5d\",\"parent\":{\"type\":\"page_id\",\"page_id\":\"9dc17c9c-9d2e-469d-bbf0-f9648f3288d3\"},\"created_time\":\"2022-03-18T10:13:00.000Z\",\"last_edited_time\":\"2022-03-18T10:13:00.000Z\",\"created_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"last_edited_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"has_children\":false,\"archived\":false,\"type\":\"paragraph\",\"paragraph\":{\"rich_text\":[{\"type\":\"text\",\"text\":{\"content\":\"strike-trough\",\"link\":null},\"annotations\":{\"bold\":false,\"italic\":false,\"strikethrough\":true,\"underline\":false,\"code\":false,\"color\":\"default\"},\"plain_text\":\"strike-trough\",\"href\":null}],\"color\":\"default\"}},{\"object\":\"block\",\"id\":\"524e6f1f-6461-4858-a6e0-be80d1c55847\",\"parent\":{\"type\":\"page_id\",\"page_id\":\"9dc17c9c-9d2e-469d-bbf0-f9648f3288d3\"},\"created_time\":\"2022-03-18T10:13:00.000Z\",\"last_edited_time\":\"2022-03-18T10:13:00.000Z\",\"created_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"last_edited_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"has_children\":false,\"archived\":false,\"type\":\"paragraph\",\"paragraph\":{\"rich_text\":[{\"type\":\"text\",\"text\":{\"content\":\"underline\",\"link\":null},\"annotations\":{\"bold\":false,\"italic\":false,\"strikethrough\":false,\"underline\":true,\"code\":false,\"color\":\"default\"},\"plain_text\":\"underline\",\"href\":null}],\"color\":\"default\"}},{\"object\":\"block\",\"id\":\"6f903eac-0704-4f2f-958d-402d4612c369\",\"parent\":{\"type\":\"page_id\",\"page_id\":\"9dc17c9c-9d2e-469d-bbf0-f9648f3288d3\"},\"created_time\":\"2022-03-18T10:13:00.000Z\",\"last_edited_time\":\"2022-10-04T20:23:00.000Z\",\"created_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"last_edited_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"has_children\":false,\"archived\":false,\"type\":\"paragraph\",\"paragraph\":{\"rich_text\":[{\"type\":\"text\",\"text\":{\"content\":\"inline-code\",\"link\":null},\"annotations\":{\"bold\":false,\"italic\":false,\"strikethrough\":false,\"underline\":false,\"code\":true,\"color\":\"default\"},\"plain_text\":\"inline-code\",\"href\":null}],\"color\":\"default\"}},{\"object\":\"block\",\"id\":\"bc6fa4ec-7edf-468b-b436-59d9379f0b41\",\"parent\":{\"type\":\"page_id\",\"page_id\":\"9dc17c9c-9d2e-469d-bbf0-f9648f3288d3\"},\"created_time\":\"2022-09-16T03:45:00.000Z\",\"last_edited_time\":\"2022-09-16T16:14:00.000Z\",\"created_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"last_edited_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"has_children\":false,\"archived\":false,\"type\":\"heading_3\",\"heading_3\":{\"rich_text\":[{\"type\":\"text\",\"text\":{\"content\":\"Tables\",\"link\":null},\"annotations\":{\"bold\":false,\"italic\":false,\"strikethrough\":false,\"underline\":false,\"code\":false,\"color\":\"default\"},\"plain_text\":\"Tables\",\"href\":null}],\"is_toggleable\":false,\"color\":\"default\"}},{\"object\":\"block\",\"id\":\"fffe8b14-de13-420e-af3b-c000cc73fb89\",\"parent\":{\"type\":\"page_id\",\"page_id\":\"9dc17c9c-9d2e-469d-bbf0-f9648f3288d3\"},\"created_time\":\"2022-09-16T03:46:00.000Z\",\"last_edited_time\":\"2022-10-04T20:23:00.000Z\",\"created_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"last_edited_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"has_children\":true,\"archived\":false,\"type\":\"table\",\"table\":{\"table_width\":3,\"has_column_header\":true,\"has_row_header\":false}}],\"next_cursor\":null,\"has_more\":false,\"type\":\"block\",\"block\":{},\"request_id\":\"9d88a0e9-e953-4b2d-a857-0fb5cda57605\"}"
-  recorded_at: Sat, 02 Dec 2023 07:19:16 GMT
+        \",\"href\":null},{\"type\":\"text\",\"text\":{\"content\":\"underline\",\"link\":null},\"annotations\":{\"bold\":false,\"italic\":false,\"strikethrough\":false,\"underline\":true,\"code\":false,\"color\":\"default\"},\"plain_text\":\"underline\",\"href\":null}],\"color\":\"default\"}},{\"object\":\"block\",\"id\":\"fe993569-504e-49b6-8252-00120b69253b\",\"parent\":{\"type\":\"page_id\",\"page_id\":\"9dc17c9c-9d2e-469d-bbf0-f9648f3288d3\"},\"created_time\":\"2022-03-18T10:13:00.000Z\",\"last_edited_time\":\"2022-03-18T10:13:00.000Z\",\"created_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"last_edited_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"has_children\":false,\"archived\":false,\"type\":\"paragraph\",\"paragraph\":{\"rich_text\":[],\"color\":\"default\"}},{\"object\":\"block\",\"id\":\"6c48a070-7a58-4a73-a971-6cc72bed0860\",\"parent\":{\"type\":\"page_id\",\"page_id\":\"9dc17c9c-9d2e-469d-bbf0-f9648f3288d3\"},\"created_time\":\"2022-03-18T10:13:00.000Z\",\"last_edited_time\":\"2022-03-18T10:13:00.000Z\",\"created_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"last_edited_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"has_children\":false,\"archived\":false,\"type\":\"paragraph\",\"paragraph\":{\"rich_text\":[{\"type\":\"text\",\"text\":{\"content\":\"italic\",\"link\":null},\"annotations\":{\"bold\":false,\"italic\":true,\"strikethrough\":false,\"underline\":false,\"code\":false,\"color\":\"default\"},\"plain_text\":\"italic\",\"href\":null}],\"color\":\"default\"}},{\"object\":\"block\",\"id\":\"173c6135-47dc-4341-933e-4ee39aa020d8\",\"parent\":{\"type\":\"page_id\",\"page_id\":\"9dc17c9c-9d2e-469d-bbf0-f9648f3288d3\"},\"created_time\":\"2022-03-18T10:13:00.000Z\",\"last_edited_time\":\"2022-03-18T10:13:00.000Z\",\"created_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"last_edited_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"has_children\":false,\"archived\":false,\"type\":\"paragraph\",\"paragraph\":{\"rich_text\":[{\"type\":\"text\",\"text\":{\"content\":\"bold\",\"link\":null},\"annotations\":{\"bold\":true,\"italic\":false,\"strikethrough\":false,\"underline\":false,\"code\":false,\"color\":\"default\"},\"plain_text\":\"bold\",\"href\":null}],\"color\":\"default\"}},{\"object\":\"block\",\"id\":\"120525d0-794f-413c-9c6e-78a57ed50a5d\",\"parent\":{\"type\":\"page_id\",\"page_id\":\"9dc17c9c-9d2e-469d-bbf0-f9648f3288d3\"},\"created_time\":\"2022-03-18T10:13:00.000Z\",\"last_edited_time\":\"2022-03-18T10:13:00.000Z\",\"created_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"last_edited_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"has_children\":false,\"archived\":false,\"type\":\"paragraph\",\"paragraph\":{\"rich_text\":[{\"type\":\"text\",\"text\":{\"content\":\"strike-trough\",\"link\":null},\"annotations\":{\"bold\":false,\"italic\":false,\"strikethrough\":true,\"underline\":false,\"code\":false,\"color\":\"default\"},\"plain_text\":\"strike-trough\",\"href\":null}],\"color\":\"default\"}},{\"object\":\"block\",\"id\":\"524e6f1f-6461-4858-a6e0-be80d1c55847\",\"parent\":{\"type\":\"page_id\",\"page_id\":\"9dc17c9c-9d2e-469d-bbf0-f9648f3288d3\"},\"created_time\":\"2022-03-18T10:13:00.000Z\",\"last_edited_time\":\"2022-03-18T10:13:00.000Z\",\"created_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"last_edited_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"has_children\":false,\"archived\":false,\"type\":\"paragraph\",\"paragraph\":{\"rich_text\":[{\"type\":\"text\",\"text\":{\"content\":\"underline\",\"link\":null},\"annotations\":{\"bold\":false,\"italic\":false,\"strikethrough\":false,\"underline\":true,\"code\":false,\"color\":\"default\"},\"plain_text\":\"underline\",\"href\":null}],\"color\":\"default\"}},{\"object\":\"block\",\"id\":\"6f903eac-0704-4f2f-958d-402d4612c369\",\"parent\":{\"type\":\"page_id\",\"page_id\":\"9dc17c9c-9d2e-469d-bbf0-f9648f3288d3\"},\"created_time\":\"2022-03-18T10:13:00.000Z\",\"last_edited_time\":\"2022-10-04T20:23:00.000Z\",\"created_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"last_edited_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"has_children\":false,\"archived\":false,\"type\":\"paragraph\",\"paragraph\":{\"rich_text\":[{\"type\":\"text\",\"text\":{\"content\":\"inline-code\",\"link\":null},\"annotations\":{\"bold\":false,\"italic\":false,\"strikethrough\":false,\"underline\":false,\"code\":true,\"color\":\"default\"},\"plain_text\":\"inline-code\",\"href\":null}],\"color\":\"default\"}},{\"object\":\"block\",\"id\":\"bc6fa4ec-7edf-468b-b436-59d9379f0b41\",\"parent\":{\"type\":\"page_id\",\"page_id\":\"9dc17c9c-9d2e-469d-bbf0-f9648f3288d3\"},\"created_time\":\"2022-09-16T03:45:00.000Z\",\"last_edited_time\":\"2022-09-16T16:14:00.000Z\",\"created_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"last_edited_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"has_children\":false,\"archived\":false,\"type\":\"heading_3\",\"heading_3\":{\"rich_text\":[{\"type\":\"text\",\"text\":{\"content\":\"Tables\",\"link\":null},\"annotations\":{\"bold\":false,\"italic\":false,\"strikethrough\":false,\"underline\":false,\"code\":false,\"color\":\"default\"},\"plain_text\":\"Tables\",\"href\":null}],\"is_toggleable\":false,\"color\":\"default\"}},{\"object\":\"block\",\"id\":\"fffe8b14-de13-420e-af3b-c000cc73fb89\",\"parent\":{\"type\":\"page_id\",\"page_id\":\"9dc17c9c-9d2e-469d-bbf0-f9648f3288d3\"},\"created_time\":\"2022-09-16T03:46:00.000Z\",\"last_edited_time\":\"2022-10-04T20:23:00.000Z\",\"created_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"last_edited_by\":{\"object\":\"user\",\"id\":\"db313571-0280-411f-a6de-70e826421d12\"},\"has_children\":true,\"archived\":false,\"type\":\"table\",\"table\":{\"table_width\":3,\"has_column_header\":true,\"has_row_header\":false}}],\"next_cursor\":null,\"has_more\":false,\"type\":\"block\",\"block\":{},\"request_id\":\"bab87ea9-0adf-451c-abf1-149265198421\"}"
+  recorded_at: Sat, 02 Dec 2023 22:44:44 GMT
 - request:
     method: get
     uri: https://api.notion.com/v1/blocks/5db39f27-3de4-4469-94b8-3cf512f812e8/children
@@ -254,7 +255,7 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Sat, 02 Dec 2023 07:19:16 GMT
+      - Sat, 02 Dec 2023 22:44:45 GMT
       content-type:
       - application/json; charset=utf-8
       transfer-encoding:
@@ -264,9 +265,9 @@ http_interactions:
       x-powered-by:
       - Express
       x-notion-request-id:
-      - b26fee3c-375a-442b-a655-7645b21645da
+      - 72276fcd-94b5-45e1-bfce-d958dd959c10
       etag:
-      - W/"61a-j5t+9FBDrkVyPT7Wt9opYS7by0w"
+      - W/"61a-AVqhHZrjNFfzaVvfxxkrrQuOtnU"
       vary:
       - Accept-Encoding
       content-encoding:
@@ -274,21 +275,21 @@ http_interactions:
       cf-cache-status:
       - DYNAMIC
       set-cookie:
-      - __cf_bm=0zGy0dH2A9wdanMhTNlAV7Y0vrtiqRo80.1Mj.2hpEs-1701501556-0-AStBk7PpStnEfybkG5ykHVWdZVeb8JiRoQdTMynUMA3gCdDQAc8be7FJii7vf2OxuR9SeSMTnZlCopdJij7Mnhg=;
-        path=/; expires=Sat, 02-Dec-23 07:49:16 GMT; domain=.notion.com; HttpOnly;
+      - __cf_bm=qjRXtxQjDPrT4gRHPvfLJj7Un1z08H11EQfmbLZ36AQ-1701557085-0-AbFZfp+PWLDUi0+VXNtWqHESR7B7pbsLHMDDVyT/WMm4tSAbQuXkXn6cFMaDByYIDnDlViohu0nKLaWHs7wAMJQ=;
+        path=/; expires=Sat, 02-Dec-23 23:14:45 GMT; domain=.notion.com; HttpOnly;
         Secure; SameSite=None
       server:
       - cloudflare
       cf-ray:
-      - 82f1ccf70f073d13-CDG
+      - 82f718a3593e02bd-CDG
     body:
       encoding: UTF-8
       string: '{"object":"list","results":[{"object":"block","id":"a7084141-6cc5-42a4-add6-f29f8b74d8e8","parent":{"type":"block_id","block_id":"5db39f27-3de4-4469-94b8-3cf512f812e8"},"created_time":"2022-09-03T12:45:00.000Z","last_edited_time":"2022-09-03T12:45:00.000Z","created_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"last_edited_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"has_children":true,"archived":false,"type":"bulleted_list_item","bulleted_list_item":{"rich_text":[{"type":"text","text":{"content":"item
         2","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"item
         2","href":null}],"color":"default"}},{"object":"block","id":"b9f715d0-9b99-4519-8e55-72d099e3f455","parent":{"type":"block_id","block_id":"5db39f27-3de4-4469-94b8-3cf512f812e8"},"created_time":"2022-09-03T12:45:00.000Z","last_edited_time":"2023-11-22T06:30:00.000Z","created_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"last_edited_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"has_children":false,"archived":false,"type":"bulleted_list_item","bulleted_list_item":{"rich_text":[{"type":"text","text":{"content":"item
         4","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"item
-        4","href":null}],"color":"default"}}],"next_cursor":null,"has_more":false,"type":"block","block":{},"request_id":"b26fee3c-375a-442b-a655-7645b21645da"}'
-  recorded_at: Sat, 02 Dec 2023 07:19:16 GMT
+        4","href":null}],"color":"default"}}],"next_cursor":null,"has_more":false,"type":"block","block":{},"request_id":"72276fcd-94b5-45e1-bfce-d958dd959c10"}'
+  recorded_at: Sat, 02 Dec 2023 22:44:45 GMT
 - request:
     method: get
     uri: https://api.notion.com/v1/blocks/a7084141-6cc5-42a4-add6-f29f8b74d8e8/children
@@ -310,7 +311,7 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Sat, 02 Dec 2023 07:19:16 GMT
+      - Sat, 02 Dec 2023 22:44:45 GMT
       content-type:
       - application/json; charset=utf-8
       transfer-encoding:
@@ -320,29 +321,29 @@ http_interactions:
       x-powered-by:
       - Express
       x-notion-request-id:
-      - e55cbde8-e39a-48c5-9948-837cb433d395
+      - 9e224e25-0d7b-462c-8b8f-9fb299ee7444
       etag:
-      - W/"355-EG12x4qXLagG/pkvwcXSdSugwyM"
+      - W/"355-q/pI+lLXPHfKVSkbhEOgvw+GOIg"
       vary:
       - Accept-Encoding
       cf-cache-status:
       - DYNAMIC
       set-cookie:
-      - __cf_bm=HI2P_wrBF0L3XgpOP8e6ekmj9HrfyojQRoBpYvhUzzE-1701501556-0-ARBQZwTBiRPfwlJsy2vtEDEBWGK7MgrPiLfKfnIWEzZ9pZ0FJ7lmxFBq/yj2VFnF5CPuuYosKUsva0y+T/6B0oY=;
-        path=/; expires=Sat, 02-Dec-23 07:49:16 GMT; domain=.notion.com; HttpOnly;
+      - __cf_bm=z1Y5lr4Xrfwev24Z8Z1oxy_758yBYt3SrB6PFE6GUE8-1701557085-0-AdS4y6DsO1+Ax6DE2BeKTfyVzfUhVmvaORlTKBl2h42fJCdcy4CBDJQq0cdcwgRSl8F+/M21HgHrFOMR6QXfIvw=;
+        path=/; expires=Sat, 02-Dec-23 23:14:45 GMT; domain=.notion.com; HttpOnly;
         Secure; SameSite=None
       server:
       - cloudflare
       cf-ray:
-      - 82f1ccf89896f110-CDG
+      - 82f718a77e0bf135-CDG
       content-encoding:
       - gzip
     body:
       encoding: UTF-8
       string: '{"object":"list","results":[{"object":"block","id":"540bd8c0-200e-4630-b87a-7827bcd311b0","parent":{"type":"block_id","block_id":"a7084141-6cc5-42a4-add6-f29f8b74d8e8"},"created_time":"2022-09-03T12:45:00.000Z","last_edited_time":"2022-09-03T12:45:00.000Z","created_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"last_edited_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"has_children":false,"archived":false,"type":"bulleted_list_item","bulleted_list_item":{"rich_text":[{"type":"text","text":{"content":"item
         3","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"item
-        3","href":null}],"color":"default"}}],"next_cursor":null,"has_more":false,"type":"block","block":{},"request_id":"e55cbde8-e39a-48c5-9948-837cb433d395"}'
-  recorded_at: Sat, 02 Dec 2023 07:19:16 GMT
+        3","href":null}],"color":"default"}}],"next_cursor":null,"has_more":false,"type":"block","block":{},"request_id":"9e224e25-0d7b-462c-8b8f-9fb299ee7444"}'
+  recorded_at: Sat, 02 Dec 2023 22:44:45 GMT
 - request:
     method: get
     uri: https://api.notion.com/v1/blocks/49fcc456-2bec-43af-81ba-962dc4cf9465/children
@@ -364,7 +365,7 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Sat, 02 Dec 2023 07:19:17 GMT
+      - Sat, 02 Dec 2023 22:44:45 GMT
       content-type:
       - application/json; charset=utf-8
       transfer-encoding:
@@ -374,9 +375,9 @@ http_interactions:
       x-powered-by:
       - Express
       x-notion-request-id:
-      - e5887573-0bbb-4a92-88f0-167ebcf03f67
+      - d7cb72a7-4693-474c-9bab-82d7c69c3184
       etag:
-      - W/"61a-ynd2t3bNBRmRP/Gah2NKyykTqZI"
+      - W/"61a-MZhh4SVn9Qagtdgy1tPNTl4D8xo"
       vary:
       - Accept-Encoding
       content-encoding:
@@ -384,21 +385,21 @@ http_interactions:
       cf-cache-status:
       - DYNAMIC
       set-cookie:
-      - __cf_bm=I1b_xyi7Y6mWCRKqRTRR2buKtcPmEWdEdqYg102F4Go-1701501557-0-AZOQeQwLRNCu7FPjKJZdgjvvvebgmCU5JTfcFEU5cV9q/inolzq68923YKmyh+jqDA4msNCOPUu4Z6TzTzFP3fw=;
-        path=/; expires=Sat, 02-Dec-23 07:49:17 GMT; domain=.notion.com; HttpOnly;
+      - __cf_bm=26jz3XsrIUj2HJHDkJ3hLfOjq66uRDD4QP29K8_XNbE-1701557085-0-Aa8HWOBEK2jnsYjZ5iGDg6Tur/uZ6wbexA8DAy/dYBMj1qZXmflCKnH0UDGt7ZJeXtemBv8FOiEqY3wiZyNX5ug=;
+        path=/; expires=Sat, 02-Dec-23 23:14:45 GMT; domain=.notion.com; HttpOnly;
         Secure; SameSite=None
       server:
       - cloudflare
       cf-ray:
-      - 82f1ccfadf9a0088-CDG
+      - 82f718a92a0f2a3f-CDG
     body:
       encoding: UTF-8
       string: '{"object":"list","results":[{"object":"block","id":"9134a99f-b20a-4ba0-adfb-253a4da8ae10","parent":{"type":"block_id","block_id":"49fcc456-2bec-43af-81ba-962dc4cf9465"},"created_time":"2022-09-03T12:45:00.000Z","last_edited_time":"2022-09-03T12:45:00.000Z","created_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"last_edited_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"has_children":true,"archived":false,"type":"numbered_list_item","numbered_list_item":{"rich_text":[{"type":"text","text":{"content":"item
         2","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"item
         2","href":null}],"color":"default"}},{"object":"block","id":"a2e61f44-22d9-4454-aba9-0b34dc5d8b73","parent":{"type":"block_id","block_id":"49fcc456-2bec-43af-81ba-962dc4cf9465"},"created_time":"2022-09-03T12:45:00.000Z","last_edited_time":"2023-11-22T06:30:00.000Z","created_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"last_edited_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"has_children":false,"archived":false,"type":"numbered_list_item","numbered_list_item":{"rich_text":[{"type":"text","text":{"content":"item
         4","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"item
-        4","href":null}],"color":"default"}}],"next_cursor":null,"has_more":false,"type":"block","block":{},"request_id":"e5887573-0bbb-4a92-88f0-167ebcf03f67"}'
-  recorded_at: Sat, 02 Dec 2023 07:19:17 GMT
+        4","href":null}],"color":"default"}}],"next_cursor":null,"has_more":false,"type":"block","block":{},"request_id":"d7cb72a7-4693-474c-9bab-82d7c69c3184"}'
+  recorded_at: Sat, 02 Dec 2023 22:44:45 GMT
 - request:
     method: get
     uri: https://api.notion.com/v1/blocks/9134a99f-b20a-4ba0-adfb-253a4da8ae10/children
@@ -420,7 +421,7 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Sat, 02 Dec 2023 07:19:18 GMT
+      - Sat, 02 Dec 2023 22:44:46 GMT
       content-type:
       - application/json; charset=utf-8
       transfer-encoding:
@@ -430,29 +431,29 @@ http_interactions:
       x-powered-by:
       - Express
       x-notion-request-id:
-      - 0c5ba978-d958-4ef0-a6c8-f85be8f87eba
+      - fc70f3ff-ee44-4de2-a4e6-26b9ba79e49f
       etag:
-      - W/"355-daOCp1Aqj698eGCwTiNj9VoqveY"
+      - W/"355-mkEe4nSNUzBOkyNn0wDxLq8YPrk"
       vary:
       - Accept-Encoding
       cf-cache-status:
       - DYNAMIC
       set-cookie:
-      - __cf_bm=cdm77bGg85umAP9BxpYVPNM6l.X4Ewts.th_WwfAr1I-1701501558-0-ATaNdFJEqI3FDfo0xFton+5JXxCUmzSX/iptKkYF8S9hG8AI9cu2nYadJ9T3aWop+X1PD7PfRPSnSUUqdf5vuz4=;
-        path=/; expires=Sat, 02-Dec-23 07:49:18 GMT; domain=.notion.com; HttpOnly;
+      - __cf_bm=7oBoDdlFbhisfAVGMdWXi6EwSMN1CF916p2dS_iO1xo-1701557086-0-AeZnIS6W16d2T34V1dxsLoGnUQVIbUquKu4K7xL8OG9ohvP26TiJzInlD/ngBZO1YwCXaXHcjGAgHan1GjN9hYE=;
+        path=/; expires=Sat, 02-Dec-23 23:14:46 GMT; domain=.notion.com; HttpOnly;
         Secure; SameSite=None
       server:
       - cloudflare
       cf-ray:
-      - 82f1cd002823d6c2-CDG
+      - 82f718aae9326eb5-CDG
       content-encoding:
       - gzip
     body:
       encoding: UTF-8
       string: '{"object":"list","results":[{"object":"block","id":"32a9f186-d1ae-496c-98f6-f56df912ec18","parent":{"type":"block_id","block_id":"9134a99f-b20a-4ba0-adfb-253a4da8ae10"},"created_time":"2022-09-03T12:45:00.000Z","last_edited_time":"2023-11-22T06:30:00.000Z","created_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"last_edited_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"has_children":false,"archived":false,"type":"numbered_list_item","numbered_list_item":{"rich_text":[{"type":"text","text":{"content":"item
         3","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"item
-        3","href":null}],"color":"default"}}],"next_cursor":null,"has_more":false,"type":"block","block":{},"request_id":"0c5ba978-d958-4ef0-a6c8-f85be8f87eba"}'
-  recorded_at: Sat, 02 Dec 2023 07:19:18 GMT
+        3","href":null}],"color":"default"}}],"next_cursor":null,"has_more":false,"type":"block","block":{},"request_id":"fc70f3ff-ee44-4de2-a4e6-26b9ba79e49f"}'
+  recorded_at: Sat, 02 Dec 2023 22:44:46 GMT
 - request:
     method: get
     uri: https://api.notion.com/v1/blocks/fffe8b14-de13-420e-af3b-c000cc73fb89/children
@@ -474,7 +475,7 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Sat, 02 Dec 2023 07:19:19 GMT
+      - Sat, 02 Dec 2023 22:44:47 GMT
       content-type:
       - application/json; charset=utf-8
       transfer-encoding:
@@ -484,9 +485,9 @@ http_interactions:
       x-powered-by:
       - Express
       x-notion-request-id:
-      - a4053433-b7e0-4079-9736-6221bfadb945
+      - 30fc5d9e-d51f-4f8c-893c-16886de3b61c
       etag:
-      - W/"c85-9nknRyB8d83G1KxzFUQBQ5JsgEE"
+      - W/"c85-fncjzXdNNd4lt4Uns7CF3kiPY6M"
       vary:
       - Accept-Encoding
       content-encoding:
@@ -494,13 +495,13 @@ http_interactions:
       cf-cache-status:
       - DYNAMIC
       set-cookie:
-      - __cf_bm=tr1mqMzVbCrLQYwDYQpK5GwQThnu2DpKfsE894ZS6Hs-1701501559-0-AXgZWNEfxRfzz8Ru6Qqk70U0Ig7HbMsIt3dBKmXQj/zZTm4MWPyFw6oLf4X5d2HBMQnM5ub5zpQhrhtMGrL4BYM=;
-        path=/; expires=Sat, 02-Dec-23 07:49:19 GMT; domain=.notion.com; HttpOnly;
+      - __cf_bm=wN_nmXfFIomI0fFLh7uBK4anLGSZr93n5Xup48UMz14-1701557087-0-AT9YUJ3WZFEbdRZzDgghbzZbBV71aLyvIr1Q9OfKRm1jhfG//xB8A+YIenY5IvEept/PaJsX4Vd0I0MzBJ4xVxY=;
+        path=/; expires=Sat, 02-Dec-23 23:14:47 GMT; domain=.notion.com; HttpOnly;
         Secure; SameSite=None
       server:
       - cloudflare
       cf-ray:
-      - 82f1cd032f6b0192-CDG
+      - 82f718ad6a1e99b4-CDG
     body:
       encoding: UTF-8
       string: '{"object":"list","results":[{"object":"block","id":"9446a67d-ec5e-4738-85e7-7f3f028c5f4e","parent":{"type":"block_id","block_id":"fffe8b14-de13-420e-af3b-c000cc73fb89"},"created_time":"2022-09-16T03:46:00.000Z","last_edited_time":"2022-09-16T03:47:00.000Z","created_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"last_edited_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"has_children":false,"archived":false,"type":"table_row","table_row":{"cells":[[],[{"type":"text","text":{"content":"Column
@@ -510,6 +511,6 @@ http_interactions:
         1","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Row
         1","href":null}],[{"type":"text","text":{"content":"ñaña","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"ñaña","href":null}],[{"type":"text","text":{"content":"blabla","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"blabla","href":null}]]}},{"object":"block","id":"5f0644ce-d674-476d-8182-b2985abc8a87","parent":{"type":"block_id","block_id":"fffe8b14-de13-420e-af3b-c000cc73fb89"},"created_time":"2022-09-16T03:46:00.000Z","last_edited_time":"2022-09-16T03:47:00.000Z","created_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"last_edited_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"has_children":false,"archived":false,"type":"table_row","table_row":{"cells":[[{"type":"text","text":{"content":"Row
         2","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Row
-        2","href":null}],[{"type":"text","text":{"content":"prupru","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"prupru","href":null}],[{"type":"text","text":{"content":"tinonino","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"tinonino","href":null}]]}}],"next_cursor":null,"has_more":false,"type":"block","block":{},"request_id":"a4053433-b7e0-4079-9736-6221bfadb945"}'
-  recorded_at: Sat, 02 Dec 2023 07:19:19 GMT
+        2","href":null}],[{"type":"text","text":{"content":"prupru","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"prupru","href":null}],[{"type":"text","text":{"content":"tinonino","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"tinonino","href":null}]]}}],"next_cursor":null,"has_more":false,"type":"block","block":{},"request_id":"30fc5d9e-d51f-4f8c-893c-16886de3b61c"}'
+  recorded_at: Sat, 02 Dec 2023 22:44:47 GMT
 recorded_with: VCR 6.2.0

@@ -73,7 +73,16 @@ module NotionToMd
       # - end
       # - time_zone
       def date(prop)
-        prop.dig(:date, :start)
+        date = prop.dig(:date, :start)
+
+        case date
+        when Date
+          date.to_time
+        when String
+          Time.parse(date)
+        else
+          date # Time or nil
+        end
       rescue NoMethodError
         nil
       end

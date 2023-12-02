@@ -213,10 +213,11 @@ describe(NotionToMd::PageProperty) do
   end
 
   describe('.date') do
-    let(:date) { DateTime.now }
+    let(:date) { Time.now }
     let(:date_prop) { { date: { start: date } } }
 
     it { expect(described_class.date(date_prop)).to eq(date) }
+    it { expect(described_class.date(date_prop)).to be_a(Time) }
 
     context('when value is nil') do
       let(:date_prop) { { date: nil } }
@@ -228,6 +229,20 @@ describe(NotionToMd::PageProperty) do
       let(:date_prop) { nil }
 
       it { expect(described_class.date(date_prop)).to be_nil }
+    end
+
+    context('when date is a Date class') do
+      let(:date) { Date.today }
+
+      it { expect(described_class.date(date_prop)).to eq(date.to_time) }
+      it { expect(described_class.date(date_prop)).to be_a(Time) }
+    end
+
+    context('when date is a String class') do
+      let(:date) { '2021-01-01' }
+
+      it { expect(described_class.date(date_prop)).to eq(Time.parse(date)) }
+      it { expect(described_class.date(date_prop)).to be_a(Time) }
     end
   end
 
