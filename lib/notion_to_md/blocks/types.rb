@@ -5,7 +5,7 @@ module NotionToMd
     class Types
       class << self
         def paragraph(block)
-          return blank if block.rich_text.empty?
+          return blank if block[:rich_text].empty?
 
           convert_text(block)
         end
@@ -124,7 +124,7 @@ module NotionToMd
           href = text[:href]
           return content if href.nil?
 
-          "[#{content}](#{href})"
+          "[#{content}](#{CGI.unescape(href)})"
         end
 
         def add_annotations(text, content)

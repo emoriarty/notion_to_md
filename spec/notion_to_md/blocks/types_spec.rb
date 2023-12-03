@@ -80,4 +80,98 @@ describe(NotionToMd::Blocks::Types) do
       it { expect(described_class.code(block_code)).to end_with('```') }
     end
   end
+
+  describe('.paragraph') do
+    context('when rich_text is empty') do
+      let(:block_paragraph) do
+        {
+          rich_text: []
+        }
+      end
+
+      it { expect(described_class.paragraph(block_paragraph)).to eq('<br />') }
+    end
+
+    context('when rich_text is not empty') do
+      let(:block_paragraph) do
+        {
+          rich_text: [{
+            type: 'text',
+            plain_text: 'This is a paragraph',
+            href: nil,
+            text: {
+              content: 'This is a paragraph',
+              link: nil
+            },
+            annotations: {
+              bold: false,
+              italic: false,
+              strikethrough: false,
+              underline: false,
+              code: false,
+              color: 'default'
+            }
+          }]
+        }
+      end
+
+      it { expect(described_class.paragraph(block_paragraph)).to eq("#{block_paragraph[:rich_text][0][:plain_text]}") }
+    end
+
+    context('when rich_text is not empty and has a link') do
+      let(:block_paragraph) do
+        {
+          rich_text: [{
+            type: 'text',
+            plain_text: 'This is a paragraph',
+            href: 'https://www.google.com',
+            text: {
+              content: 'This is a paragraph',
+              link: {
+                url: 'https://www.google.com'
+              }
+            },
+            annotations: {
+              bold: false,
+              italic: false,
+              strikethrough: false,
+              underline: false,
+              code: false,
+              color: 'default'
+            }
+          }]
+        }
+      end
+
+      it { expect(described_class.paragraph(block_paragraph)).to eq("[#{block_paragraph[:rich_text][0][:plain_text]}](#{block_paragraph[:rich_text][0][:href]})") }
+    end
+
+    context('when rich_text is not empty and has a encoded link') do
+      let(:block_paragraph) do
+        {
+          rich_text: [{
+            type: 'text',
+            plain_text: 'This is a paragraph',
+            href: 'https://git.postgresql.org/gitweb/?p=postgresql.git%3Ba%3Dblob%3Bf%3Dsrc%2Fbin%2Finitdb%2Finitdb.c%3Bh%3Dc854221a30602c5a1e5abf73b0942b263859d715%3Bhb%3DHEAD#l3193',
+            text: {
+              content: 'This is a paragraph',
+              link: {
+                url: 'https://git.postgresql.org/gitweb/?p=postgresql.git%3Ba%3Dblob%3Bf%3Dsrc%2Fbin%2Finitdb%2Finitdb.c%3Bh%3Dc854221a30602c5a1e5abf73b0942b263859d715%3Bhb%3DHEAD#l3193'
+              }
+            },
+            annotations: {
+              bold: false,
+              italic: false,
+              strikethrough: false,
+              underline: false,
+              code: false,
+              color: 'default'
+            }
+          }]
+        }
+      end
+
+      it { expect(described_class.paragraph(block_paragraph)).to eq("[#{block_paragraph[:rich_text][0][:plain_text]}](https://git.postgresql.org/gitweb/?p=postgresql.git;a=blob;f=src/bin/initdb/initdb.c;h=c854221a30602c5a1e5abf73b0942b263859d715;hb=HEAD#l3193)") }
+    end
+  end
 end
