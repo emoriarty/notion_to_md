@@ -98,6 +98,12 @@ describe(NotionToMd) do
       expect(md).to matching(/^`inline-code`$/)
     end
 
+    it 'sets links in markdown' do
+      expect(md).to matching(%r{\[Lorem ipsum dolor sit amet\]\(https://google.fr/\)})
+      expect(md).to matching(%r{\[Nulla quis neque vel odio\]\(https://git.postgresql.org/gitweb/\?p=postgresql.git;a=blob;f=src/bin/initdb/initdb.c;h=c854221a30602c5a1e5abf73b0942b263859d715;hb=HEAD#l3193\)})
+      expect(md).to matching(%r{\[Nulla tempus, massa a cursus porta, risus leo varius urna, euismod tristique ante metus vitae lacus\]\(https://swile.co/\)})
+    end
+
     context('with frontmatter') do
       subject(:md) do
         VCR.use_cassette("notion_page") do
@@ -120,7 +126,7 @@ describe(NotionToMd) do
       end
 
       it 'sets last_edited_time in frontmatter' do
-        expect(md).to matching(/^last_edited_time: 2023-12-02T22:09:00.000Z$/)
+        expect(md).to matching(/^last_edited_time: 2023-12-03T14:27:00.000Z$/)
       end
 
       it 'sets icon in frontmatter' do
