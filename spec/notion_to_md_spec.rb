@@ -188,6 +188,22 @@ describe(NotionToMd) do
       it 'does not set empty rich text property in frontmatter' do
         expect(md).not_to matching(/^empty_rich_text: ""$/)
       end
+
+      it 'sets created_by object in frontmatter' do
+        expect(md).to matching(/^created_by_object: user$/)
+      end
+
+      it 'sets last_edited_by ibject in frontmatter' do
+        expect(md).to matching(/^last_edited_by_object: user$/)
+      end
+
+      it 'sets created_by id in frontmatter' do
+        expect(md).to matching(/^created_by_id: db313571-0280-411f-a6de-70e826421d12$/)
+      end
+
+      it 'sets last_edited_by id in frontmatter' do
+        expect(md).to matching(/^last_edited_by_id: db313571-0280-411f-a6de-70e826421d12$/)
+      end
     end
   end
 end

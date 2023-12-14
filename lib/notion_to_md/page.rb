@@ -32,8 +32,24 @@ module NotionToMd
       page['created_time']
     end
 
+    def created_by_object
+      page.dig(:created_by, :object)
+    end
+
+    def created_by_id
+      page.dig(:created_by, :id)
+    end
+
     def last_edited_time
       page['last_edited_time']
+    end
+
+    def last_edited_by_object
+      page.dig(:last_edited_by, :object)
+    end
+
+    def last_edited_by_id
+      page.dig(:last_edited_by, :id)
     end
 
     def url
@@ -82,7 +98,11 @@ module NotionToMd
         'cover' => cover,
         'icon' => icon,
         'last_edited_time' => last_edited_time,
-        'archived' => archived
+        'archived' => archived,
+        'created_by_object' => created_by_object,
+        'created_by_id' => created_by_id,
+        'last_edited_by_object' => last_edited_by_object,
+        'last_edited_by_id' => last_edited_by_id
       }
     end
 
