@@ -102,6 +102,10 @@ created_time: 2022-01-23T12:31:00.000Z
 last_edited_time: 2022-01-23T12:31:00.000Z
 icon: 💥
 archived: false
+created_by_id: db313571-0280-411f-a6de-70e826421d16
+created_by_object: user
+last_edited_by_id: db313571-0280-411f-a6de-70e826421d16
+last_edited_by_object: user
 ---
 ```
 
