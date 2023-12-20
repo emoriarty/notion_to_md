@@ -88,9 +88,6 @@ module NotionToMd
       }
     end
 
-    private
-
-
     # This class is kept for retro compatibility reasons.
     # Use instead the PageProperty class.
     class CustomProperty < PageProperty
