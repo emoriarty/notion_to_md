@@ -77,13 +77,27 @@ module NotionToMd
     def default_props
       @default_props ||= {
         'id' => id,
-        'title' => title.dump,
-        'created_time' => created_time.to_s.dump,
+        'title' => escape_frontmatter_value(title),
+        'created_time' => created_time,
         'cover' => cover,
         'icon' => icon,
         'last_edited_time' => last_edited_time.to_s.dump,
         'archived' => archived
       }
+    end
+
+    private
+
+    # Escape the frontmatter value if it contains a colon or a dash followed by a space
+    # @param value [String] the value to escape
+    # @return [String] the escaped value
+    def escape_frontmatter_value(value)
+      if value.match?(/: |-\s/)
+        # Escape the double quotes inside the string
+        "\"#{value.gsub('"', '\"')}\""
+      else
+        value
+      end
     end
 
     # This class is kept for retro compatibility reasons.
