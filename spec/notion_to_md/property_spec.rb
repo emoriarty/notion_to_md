@@ -83,7 +83,7 @@ describe(NotionToMd::PageProperty) do
   describe('.select') do
     let(:select_prop) { { select: { name: 'name_1' } } }
 
-    it { expect(described_class.select(select_prop)).to eq('"name_1"') }
+    it { expect(described_class.select(select_prop)).to eq('name_1') }
 
     context('when value is nil') do
       let(:select_prop) { { select: nil } }

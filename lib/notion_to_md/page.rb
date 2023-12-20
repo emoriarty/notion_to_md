@@ -2,6 +2,8 @@
 
 module NotionToMd
   class Page
+    include Helpers::YamlSanitizer
+
     attr_reader :page, :blocks
 
     def initialize(page:, blocks:)
@@ -108,17 +110,6 @@ module NotionToMd
 
     private
 
-    # Escape the frontmatter value if it contains a colon or a dash followed by a space
-    # @param value [String] the value to escape
-    # @return [String] the escaped value
-    def escape_frontmatter_value(value)
-      if value.match?(/: |-\s/)
-        # Escape the double quotes inside the string
-        "\"#{value.gsub('"', '\"')}\""
-      else
-        value
-      end
-    end
 
     # This class is kept for retro compatibility reasons.
     # Use instead the PageProperty class.
