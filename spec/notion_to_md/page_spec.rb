@@ -117,7 +117,7 @@ describe(NotionToMd::Page) do
           title: {
             type: 'text',
             title: [
-              { plain_text: 'Title with "double quotes" and \'single quotes\' and: :colons:' }
+              { plain_text: 'Title: with "double quotes" and \'single quotes\' and: :colons:' }
             ]
           },
           rich_text: {
@@ -149,7 +149,7 @@ describe(NotionToMd::Page) do
     end
 
     it 'includes the title' do
-      expect(YAML.safe_load(page.frontmatter, permitted_classes: [Time])['title']).to eq('Title with "double quotes" and \'single quotes\' and: :colons:')
+      expect(YAML.safe_load(page.frontmatter, permitted_classes: [Time])['title']).to eq('Title: with "double quotes" and \'single quotes\' and: :colons:')
     end
 
     it 'includes the cover' do
@@ -170,6 +170,82 @@ describe(NotionToMd::Page) do
 
     it 'includes the archived' do
       expect(YAML.safe_load(page.frontmatter, permitted_classes: [Time])['archived']).to eq(false)
+    end
+
+    context 'when the title contains colons' do
+      let(:notion_page) do
+        Notion::Messages::Message.new(
+          properties: {
+            title: {
+              type: 'text',
+              title: [
+                { plain_text: 'Title: with: :colons : :' }
+              ]
+            }
+          }
+        )
+      end
+
+      it 'escapes the colons' do
+        expect(YAML.safe_load(page.frontmatter, permitted_classes: [Time])['title']).to eq('Title: with: :colons : :')
+      end
+    end
+
+    context 'when the title contains double quotes' do
+      let(:notion_page) do
+        Notion::Messages::Message.new(
+          properties: {
+            title: {
+              type: 'text',
+              title: [
+                { plain_text: 'Title with "double quotes"' }
+              ]
+            }
+          }
+        )
+      end
+
+      it 'escapes the double quotes' do
+        expect(YAML.safe_load(page.frontmatter, permitted_classes: [Time])['title']).to eq('Title with "double quotes"')
+      end
+    end
+
+    context 'when the title contains hyphens' do
+      let(:notion_page) do
+        Notion::Messages::Message.new(
+          properties: {
+            title: {
+              type: 'text',
+              title: [
+                { plain_text: '- Title with -hyphens- -' }
+              ]
+            }
+          }
+        )
+      end
+
+      it 'does not escape the hyphens' do
+        expect(YAML.safe_load(page.frontmatter, permitted_classes: [Time])['title']).to eq('- Title with -hyphens- -')
+      end
+    end
+
+    context 'when the title contains diacritics' do
+      let(:notion_page) do
+        Notion::Messages::Message.new(
+          properties: {
+            title: {
+              type: 'text',
+              title: [
+                { plain_text: 'Title with diacritics àáâãäāăȧǎȁȃ' }
+              ]
+            }
+          }
+        )
+      end
+
+      it 'does not escape the diacritics' do
+        expect(YAML.safe_load(page.frontmatter, permitted_classes: [Time])['title']).to eq('Title with diacritics àáâãäāăȧǎȁȃ')
+      end
     end
   end
 end

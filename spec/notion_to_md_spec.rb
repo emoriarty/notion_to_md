@@ -126,7 +126,7 @@ describe(NotionToMd) do
       end
 
       it 'sets last_edited_time in frontmatter' do
-        expect(md).to matching(/^last_edited_time: 2023-12-03T14:27:00.000Z$/)
+        expect(md).to matching(/^last_edited_time: 2023-12-20T05:48:00.000Z$/)
       end
 
       it 'sets icon in frontmatter' do
@@ -138,7 +138,7 @@ describe(NotionToMd) do
       end
 
       it 'sets title in frontmatter' do
-        expect(md).to matching(/^title: "Page 1"$/)
+        expect(md).to matching(/^title: Page 1$/)
       end
 
       it 'sets archived in frontmatter' do
@@ -203,6 +203,18 @@ describe(NotionToMd) do
 
       it 'sets last_edited_by id in frontmatter' do
         expect(md).to matching(/^last_edited_by_id: db313571-0280-411f-a6de-70e826421d12$/)
+      end
+
+      context 'with conflicting properties' do
+        subject(:md) do
+          VCR.use_cassette("notion_page_with_conflicting_properties") do
+            described_class.convert(page_id: '9349e5108c0e4c0ea772b187d63ecfe1', frontmatter: frontmatter)
+          end
+        end
+
+        it 'sets title in frontmatter' do
+          expect(md).to matching(/^title: "Title: with “double quotes” and ‘single quotes’ and :colons: but forget àccénts: àáâãäāăȧǎȁȃ"$/)
+        end
       end
     end
   end
