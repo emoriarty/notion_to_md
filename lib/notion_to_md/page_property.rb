@@ -97,7 +97,7 @@ module NotionToMd
 
       def rich_text(prop)
         text = prop[:rich_text].map { |text| text[:plain_text] }.join
-        text.blank? ? nil : text.dump
+        text.blank? ? nil : escape_frontmatter_value(text)
       rescue NoMethodError
         nil
       end
