@@ -2,6 +2,8 @@
 
 module NotionToMd
   class Page
+    include Helpers::YamlSanitizer
+
     attr_reader :page, :blocks
 
     def initialize(page:, blocks:)
@@ -93,7 +95,7 @@ module NotionToMd
     def default_props
       @default_props ||= {
         'id' => id,
-        'title' => title.dump,
+        'title' => escape_frontmatter_value(title),
         'created_time' => created_time,
         'cover' => cover,
         'icon' => icon,

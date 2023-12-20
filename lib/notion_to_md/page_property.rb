@@ -3,6 +3,8 @@
 module NotionToMd
   class PageProperty
     class << self
+      include Helpers::YamlSanitizer
+
       def file(prop)
         prop.dig(:file, :url)
       rescue NoMethodError
@@ -28,7 +30,7 @@ module NotionToMd
       end
 
       def select(prop)
-        prop.dig(:select, :name).dump
+        escape_frontmatter_value(prop.dig(:select, :name))
       rescue NoMethodError
         nil
       end
@@ -95,7 +97,7 @@ module NotionToMd
 
       def rich_text(prop)
         text = prop[:rich_text].map { |text| text[:plain_text] }.join
-        text.blank? ? nil : text.dump
+        text.blank? ? nil : escape_frontmatter_value(text)
       rescue NoMethodError
         nil
       end
