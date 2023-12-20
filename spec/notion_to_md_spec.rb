@@ -172,7 +172,7 @@ describe(NotionToMd) do
       end
 
       it 'sets custom property rich_text type in frontmatter' do
-        expect(md).to matching(/^rich_text: "This is a rich_text property. With Italics."$/)
+        expect(md).to matching(/^rich_text: This is a rich_text property. With Italics.$/)
       end
 
       it 'does not set empty rich text property in frontmatter' do
