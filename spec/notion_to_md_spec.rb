@@ -144,7 +144,7 @@ describe(NotionToMd) do
       end
 
       it 'sets custom property select type in frontmatter' do
-        expect(md).to matching(/^select: "select1"$/)
+        expect(md).to matching(/^select: select1$/)
       end
 
       it 'sets custom property people type in frontmatter' do
