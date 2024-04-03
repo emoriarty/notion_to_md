@@ -1,6 +1,8 @@
 # notion_to_md
 Notion Markdown Exporter in Ruby.
 
+The generated string is compatible with the Github Flavored Markdown (GFM) specification.
+
 ## Installation
 Use gem to install.
 ```bash
