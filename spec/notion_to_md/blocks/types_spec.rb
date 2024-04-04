@@ -174,4 +174,16 @@ describe(NotionToMd::Blocks::Types) do
       it { expect(described_class.paragraph(block_paragraph)).to eq("[#{block_paragraph[:rich_text][0][:plain_text]}](https://git.postgresql.org/gitweb/?p=postgresql.git;a=blob;f=src/bin/initdb/initdb.c;h=c854221a30602c5a1e5abf73b0942b263859d715;hb=HEAD#l3193)") }
     end
   end
+
+  describe('.link_preview') do
+    context('when rich_text is present') do
+      let(:block_link_preview) do
+        {
+          url: 'https://www.example.com',
+        }
+      end
+
+      it { expect(described_class.link_preview(block_link_preview)).to eq("[#{block_link_preview[:url]}](#{block_link_preview[:url]})") }
+    end
+  end
 end

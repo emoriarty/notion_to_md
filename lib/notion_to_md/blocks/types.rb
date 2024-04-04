@@ -89,6 +89,12 @@ module NotionToMd
           "|#{block[:cells].map(&method(:convert_table_row)).join('|')}|"
         end
 
+        def link_preview(block)
+          url = block[:url]
+
+          "[#{url}](#{url})"
+        end
+
         private
 
         def convert_table_row(cells)
