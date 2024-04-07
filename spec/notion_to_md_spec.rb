@@ -104,6 +104,10 @@ describe(NotionToMd) do
       expect(md).to matching(%r{\[Nulla tempus, massa a cursus porta, risus leo varius urna, euismod tristique ante metus vitae lacus\]\(https://swile.co/\)})
     end
 
+    it 'sets link previews' do
+      expect(md).to matching(%r{^\[https://github.com/emoriarty/notion_to_md/pull/74\]\(https://github.com/emoriarty/notion_to_md/pull/74\)$})
+    end
+
     context('with frontmatter') do
       subject(:md) do
         VCR.use_cassette("notion_page") do
@@ -126,7 +130,7 @@ describe(NotionToMd) do
       end
 
       it 'sets last_edited_time in frontmatter' do
-        expect(md).to matching(/^last_edited_time: 2023-12-20T05:48:00.000Z$/)
+        expect(md).to matching(/^last_edited_time: 2024-04-07T05:53:00.000Z$/)
       end
 
       it 'sets icon in frontmatter' do
