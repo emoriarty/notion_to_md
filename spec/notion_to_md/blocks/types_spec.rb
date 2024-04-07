@@ -176,7 +176,7 @@ describe(NotionToMd::Blocks::Types) do
   end
 
   describe('.link_preview') do
-    context('when rich_text is present') do
+    context('when link preview is present') do
       let(:block_link_preview) do
         {
           url: 'https://www.example.com',
