@@ -222,4 +222,16 @@ describe(NotionToMd) do
       end
     end
   end
+
+  describe('.call') do
+    subject(:md) do
+      VCR.use_cassette("notion_page") do
+        described_class.call(page_id: '9dc17c9c9d2e469dbbf0f9648f3288d3')
+      end
+    end
+
+    it 'returns the markdown document' do
+      expect(md).to be_a(String)
+    end
+  end
 end
