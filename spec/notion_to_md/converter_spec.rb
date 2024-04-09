@@ -33,4 +33,14 @@ describe(NotionToMd::Converter) do
       expect(converter.convert).to eq("\nbody\n")
     end
   end
+
+  describe('.call') do
+    it 'returns the markdown document' do
+      expect(described_class.call(page_id: page_id)).to eq("\nbody\n")
+    end
+
+    it 'returns the markdown document with frontmatter' do
+      expect(described_class.call(page_id: page_id, frontmatter: true)).to eq("frontmatter\nbody\n")
+    end
+  end
 end
