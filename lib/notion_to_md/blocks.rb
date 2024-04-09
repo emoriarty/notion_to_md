@@ -14,7 +14,7 @@ require_relative './blocks/numbered_list_item_block'
 require_relative './blocks/to_do_list_block'
 require_relative './blocks/to_do_list_item_block'
 
-module NotionToMd
+class NotionToMd
   module Blocks
     # === Parameters
     # block_id::

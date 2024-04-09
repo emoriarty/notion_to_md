@@ -2,7 +2,7 @@
 
 require_relative './bulleted_list_item_block'
 
-module NotionToMd
+class NotionToMd
   module Blocks
     class ToDoListItemBlock < BulletedListItemBlock
       def newline

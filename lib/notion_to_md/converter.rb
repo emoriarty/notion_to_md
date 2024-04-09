@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module NotionToMd
+class NotionToMd
   ##
   # The Converter class allows to transform notion pages to markdown documents.
   # Just create a new Converter instance by providing the page_id:

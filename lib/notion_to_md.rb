@@ -15,7 +15,17 @@ require_relative './notion_to_md/blocks'
 require_relative './notion_to_md/text'
 require_relative './notion_to_md/text_annotation'
 
-module NotionToMd
+class NotionToMd
+  include Callee
+
+  attr_reader :page_id, :token, :frontmatter
+
+  def initialize(page_id:, token: nil, frontmatter: false)
+    @page_id = page_id
+    @token = token || ENV['NOTION_TOKEN']
+    @frontmatter = frontmatter
+  end
+
   # === Parameters
   # page_id::
   #   A string representing the notion page id.
@@ -29,5 +39,9 @@ module NotionToMd
   #
   def self.convert(page_id:, token: nil, frontmatter: false)
     Converter.new(page_id: page_id, token: token).convert(frontmatter: frontmatter)
+  end
+
+  def call
+    self.class.convert(page_id: page_id, token: token, frontmatter: frontmatter)
   end
 end
