@@ -1,18 +1,15 @@
 # frozen_string_literal: true
 
 class NotionToMd
-  ##
   # The Converter class allows to transform notion pages to markdown documents.
   # Just create a new Converter instance by providing the page_id:
   #   page_converter = NotionToMd::Converter.new(page_id: '9dc17c9c9d2e469dbbf0f9648f3288d3')
   # Then, call for convert to obtain the markdown document:
   #   page_converter.convert
-
   class Converter
     include Callee
 
-    attr_reader :page_id
-    attr_reader :frontmatter
+    attr_reader :page_id, :frontmatter
 
     # === Parameters
     # page_id::

@@ -5,7 +5,7 @@ require 'spec_helper'
 describe(NotionToMd) do
   describe('#convert') do
     subject(:md) do
-      VCR.use_cassette("notion_page") do
+      VCR.use_cassette('notion_page') do
         described_class.convert(page_id: '9dc17c9c9d2e469dbbf0f9648f3288d3')
       end
     end
@@ -110,7 +110,7 @@ describe(NotionToMd) do
 
     context('with frontmatter') do
       subject(:md) do
-        VCR.use_cassette("notion_page") do
+        VCR.use_cassette('notion_page') do
           described_class.convert(page_id: '9dc17c9c9d2e469dbbf0f9648f3288d3', frontmatter: frontmatter)
         end
       end
@@ -211,7 +211,7 @@ describe(NotionToMd) do
 
       context 'with conflicting properties' do
         subject(:md) do
-          VCR.use_cassette("notion_page_with_conflicting_properties") do
+          VCR.use_cassette('notion_page_with_conflicting_properties') do
             described_class.convert(page_id: '9349e5108c0e4c0ea772b187d63ecfe1', frontmatter: frontmatter)
           end
         end
@@ -225,7 +225,7 @@ describe(NotionToMd) do
 
   describe('.call') do
     it 'returns the markdown document' do
-      VCR.use_cassette("notion_page") do
+      VCR.use_cassette('notion_page') do
         md = described_class.call(page_id: '9dc17c9c9d2e469dbbf0f9648f3288d3')
         expect(md).to be_a(String)
       end
@@ -235,7 +235,7 @@ describe(NotionToMd) do
       it 'returns the markdown document' do
         output = nil
 
-        VCR.use_cassette("notion_page") do
+        VCR.use_cassette('notion_page') do
           described_class.call(page_id: '9dc17c9c9d2e469dbbf0f9648f3288d3') { output = _1 }
         end
 

@@ -15,6 +15,7 @@ require_relative './notion_to_md/blocks'
 require_relative './notion_to_md/text'
 require_relative './notion_to_md/text_annotation'
 
+# The NotionToMd class allows to transform notion pages to markdown documents.
 class NotionToMd
   include Callee
 

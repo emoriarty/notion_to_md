@@ -14,8 +14,8 @@ describe(NotionToMd::Converter) do
     allow(notion_client).to receive(:page).with(page_id: page_id).and_return(page)
     allow(NotionToMd::Blocks).to receive(:build).and_return(page_blocks)
     allow(NotionToMd::Page).to receive(:new).with(page: page, blocks: page_blocks).and_return(page)
-    allow(page).to receive(:frontmatter).and_return("frontmatter")
-    allow(page).to receive(:body).and_return("body")
+    allow(page).to receive(:frontmatter).and_return('frontmatter')
+    allow(page).to receive(:body).and_return('body')
   end
 
   describe('#new') do
@@ -27,10 +27,8 @@ describe(NotionToMd::Converter) do
   end
 
   describe('#convert') do
-    let(:converter) { described_class.new(page_id: page_id) }
-
     it 'returns the markdown document' do
-      expect(converter.convert).to eq("\nbody\n")
+      expect(described_class.new(page_id: page_id)).to eq("\nbody\n")
     end
   end
 
