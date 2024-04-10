@@ -30,8 +30,6 @@ md = notion_converter.convert
 Since v2.3 you can also use the convenient `convert` method from the root module.
 
 ```ruby
-require 'notion_to_md'
-
 md = NotionToMd.convert(page_id: 'b91d5...', token: 'secret_...')
 ```
 
@@ -42,15 +40,27 @@ $ export NOTION_TOKEN=<secret_...>
 ```
 
 ```ruby
-require 'notion_to_md'
-
 notion_converter = NotionToMd::Converter.new(page_id: 'b91d5...')
 md = notion_converter.convert
 # or
 md = NotionToMd.convert(page_id: 'b91d5...')
 ```
 
-And that's all. The `md` is a string variable containing the notion page formatted in markdown.
+And that's all. The `md` is a string variable containing the notion document formatted in markdown.
+
+### Callable
+
+From version 2.5.0, the `call` method is also available. It's an alias for `convert`.
+
+```ruby
+md = NotionToMd.call(page_id: 'b91d5...')
+```
+
+The `call` method also supports the passing of a block.
+
+```ruby
+NotionToMd.call(page_id: 'b91d5...') { puts _1 }
+```
 
 ## Blocks
 
