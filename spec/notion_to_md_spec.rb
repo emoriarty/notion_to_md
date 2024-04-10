@@ -113,6 +113,11 @@ describe(NotionToMd) do
       expect(md).to matching(%r{^\[https://prod-files-secure.s3.us-west-2.amazonaws.com/.*/sample_file.zip.*\]\(https://prod-files-secure.s3.us-west-2.amazonaws.com/.*/sample_file.zip.*\)$})
     end
 
+    it 'sets pdfs in markdown' do
+      expect(md).to matching(%r{^\[https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf]\(https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf\)$})
+      expect(md).to matching(%r{^\[https://prod-files-secure.s3.us-west-2.amazonaws.com/.*/dummy.pdf.*\]\(https://prod-files-secure.s3.us-west-2.amazonaws.com/.*/dummy.pdf.*\)$})
+    end
+
     context('with frontmatter') do
       subject(:md) do
         VCR.use_cassette('notion_page') do
@@ -135,7 +140,7 @@ describe(NotionToMd) do
       end
 
       it 'sets last_edited_time in frontmatter' do
-        expect(md).to matching(/^last_edited_time: 2024-04-10T10:19:00.000Z$/)
+        expect(md).to matching(/^last_edited_time: 2024-04-10T11:50:00.000Z$/)
       end
 
       it 'sets icon in frontmatter' do
