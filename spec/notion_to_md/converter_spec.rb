@@ -42,5 +42,23 @@ describe(NotionToMd::Converter) do
     it 'returns the markdown document with frontmatter' do
       expect(described_class.call(page_id: page_id, frontmatter: true)).to eq("frontmatter\nbody\n")
     end
+
+    context('with a block') do
+      it 'returns the markdown document' do
+        output = nil
+
+        described_class.call(page_id: page_id) { output = _1 }
+
+        expect(output).to eq("\nbody\n")
+      end
+
+      it 'returns the markdown document with frontmatter' do
+        output = nil
+
+        described_class.call(page_id: page_id, frontmatter: true) { output = _1 }
+
+        expect(output).to eq("frontmatter\nbody\n")
+      end
+    end
   end
 end

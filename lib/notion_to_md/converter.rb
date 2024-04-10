@@ -45,7 +45,11 @@ class NotionToMd
     end
 
     def call
-      convert frontmatter: frontmatter
+      md = convert frontmatter: frontmatter
+
+      yield md if block_given?
+
+      md
     end
 
     private

@@ -42,6 +42,10 @@ class NotionToMd
   end
 
   def call
-    self.class.convert(page_id: page_id, token: token, frontmatter: frontmatter)
+    md = self.class.convert(page_id: page_id, token: token, frontmatter: frontmatter)
+
+    yield md if block_given?
+
+    md
   end
 end
