@@ -82,6 +82,7 @@ Everything in a notion page body is a [block object](https://developers.notion.c
 * `embed`
 * `code`
 * `link_preview`
+* `file`
 
 ### Nested blocks
 
