@@ -95,6 +95,14 @@ class NotionToMd
           "[#{url}](#{url})"
         end
 
+        def file(block)
+          type = block[:type].to_sym
+          url = block.dig(type, :url)
+          caption = convert_caption(block)
+
+          "[#{url}](#{url})\n\n#{caption}"
+        end
+
         private
 
         def convert_table_row(cells)

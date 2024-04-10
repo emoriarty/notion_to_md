@@ -186,4 +186,36 @@ describe(NotionToMd::Blocks::Types) do
       it { expect(described_class.link_preview(block_link_preview)).to eq("[#{block_link_preview[:url]}](#{block_link_preview[:url]})") }
     end
   end
+
+  describe('.file') do
+    context('when file is present') do
+      let(:block_file) do
+        {
+          type: 'file',
+          file: {
+            url: 'https://www.example.com',
+          },
+          caption: [{
+            type: 'text',
+            plain_text: 'This is a caption',
+            href: nil,
+            text: {
+              content: 'This is a caption',
+              link: nil
+            },
+            annotations: {
+              bold: false,
+              italic: false,
+              strikethrough: false,
+              underline: false,
+              code: false,
+              color: 'default'
+            }
+          }]
+        }
+      end
+
+      it { expect(described_class.file(block_file)).to eq("[#{block_file[:file][:url]}](#{block_file[:file][:url]})\n\n#{block_file[:caption][0][:plain_text]}") }
+    end
+  end
 end

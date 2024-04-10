@@ -108,6 +108,11 @@ describe(NotionToMd) do
       expect(md).to matching(%r{^\[https://github.com/emoriarty/notion_to_md/pull/74\]\(https://github.com/emoriarty/notion_to_md/pull/74\)$})
     end
 
+    it 'sets files in markdown' do
+      expect(md).to matching(%r{^\[https://prod-files-secure.s3.us-west-2.amazonaws.com/.*/sample_file.txt.*\]\(https://prod-files-secure.s3.us-west-2.amazonaws.com/.*/sample_file.txt.*\)$})
+      expect(md).to matching(%r{^\[https://prod-files-secure.s3.us-west-2.amazonaws.com/.*/sample_file.zip.*\]\(https://prod-files-secure.s3.us-west-2.amazonaws.com/.*/sample_file.zip.*\)$})
+    end
+
     context('with frontmatter') do
       subject(:md) do
         VCR.use_cassette('notion_page') do
@@ -130,7 +135,7 @@ describe(NotionToMd) do
       end
 
       it 'sets last_edited_time in frontmatter' do
-        expect(md).to matching(/^last_edited_time: 2024-04-07T05:53:00.000Z$/)
+        expect(md).to matching(/^last_edited_time: 2024-04-10T10:19:00.000Z$/)
       end
 
       it 'sets icon in frontmatter' do
