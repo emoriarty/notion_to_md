@@ -107,6 +107,10 @@ class NotionToMd
           file(block)
         end
 
+        def video(block)
+          file(block)
+        end
+
         private
 
         def convert_table_row(cells)

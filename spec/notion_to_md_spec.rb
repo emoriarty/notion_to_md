@@ -118,6 +118,11 @@ describe(NotionToMd) do
       expect(md).to matching(%r{^\[https://prod-files-secure.s3.us-west-2.amazonaws.com/.*/dummy.pdf.*\]\(https://prod-files-secure.s3.us-west-2.amazonaws.com/.*/dummy.pdf.*\)$})
     end
 
+    it 'sets videos in markdown' do
+      expect(md).to matching(%r{^\[https://prod-files-secure.s3.us-west-2.amazonaws.com/.*/file_example_MP4_480_1_5MG.mp4.*\]\(https://prod-files-secure.s3.us-west-2.amazonaws.com/.*/file_example_MP4_480_1_5MG.mp4.*\)$})
+      expect(md).to matching(%r{^\[https://www.youtube.com/watch\?v=V2PRhxphH2w\]\(https://www.youtube.com/watch\?v=V2PRhxphH2w\)$})
+    end
+
     context('with frontmatter') do
       subject(:md) do
         VCR.use_cassette('notion_page') do
@@ -140,7 +145,7 @@ describe(NotionToMd) do
       end
 
       it 'sets last_edited_time in frontmatter' do
-        expect(md).to matching(/^last_edited_time: 2024-04-10T11:50:00.000Z$/)
+        expect(md).to matching(/^last_edited_time: 2024-04-10T14:03:00.000Z$/)
       end
 
       it 'sets icon in frontmatter' do

@@ -280,4 +280,67 @@ describe(NotionToMd::Blocks::Types) do
       it { expect(described_class.pdf(block_pdf)).to eq("[#{block_pdf[:external][:url]}](#{block_pdf[:external][:url]})\n\n#{block_pdf[:caption][0][:plain_text]}") }
     end
   end
+
+  describe('.video') do
+    context('when video is external') do
+      let(:block_video) do
+        {
+          type: 'external',
+          external: {
+            url: 'https://www.example.com/video.mp4',
+          },
+          caption: [{
+            type: 'text',
+            plain_text: 'This is a caption',
+            href: nil,
+            text: {
+              content: 'This is a caption',
+              link: nil
+            },
+            annotations: {
+              bold: false,
+              italic: false,
+              strikethrough: false,
+              underline: false,
+              code: false,
+              color: 'default'
+            }
+          }]
+        }
+      end
+
+      it { expect(described_class.pdf(block_video)).to eq("[#{block_video[:external][:url]}](#{block_video[:external][:url]})\n\n#{block_video[:caption][0][:plain_text]}") }
+    end
+
+    context('when video is internal') do
+      let(:block_video) do
+        {
+          type: 'file',
+          file: {
+            url: 'https://www.example.com/video.mp4',
+            expiry_time: '2021-09-01T00:00:00.000Z'
+          },
+          caption: [{
+            type: 'text',
+            plain_text: 'This is a caption',
+            href: nil,
+            text: {
+              content: 'This is a caption',
+              link: nil
+            },
+            annotations: {
+              bold: false,
+              italic: false,
+              strikethrough: false,
+              underline: false,
+              code: false,
+              color: 'default'
+            }
+          }]
+        }
+      end
+
+      it { expect(described_class.pdf(block_video)).to eq("[#{block_video[:file][:url]}](#{block_video[:file][:url]})\n\n#{block_video[:caption][0][:plain_text]}") }
+    end
+  end
 end
