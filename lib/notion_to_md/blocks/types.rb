@@ -103,6 +103,10 @@ class NotionToMd
           "[#{url}](#{url})\n\n#{caption}"
         end
 
+        def pdf(block)
+          file(block)
+        end
+
         private
 
         def convert_table_row(cells)
