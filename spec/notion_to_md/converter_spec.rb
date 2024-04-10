@@ -28,7 +28,7 @@ describe(NotionToMd::Converter) do
 
   describe('#convert') do
     it 'returns the markdown document' do
-      expect(described_class.new(page_id: page_id)).to eq("\nbody\n")
+      expect(described_class.new(page_id: page_id).convert).to eq("\nbody\n")
     end
   end
 
