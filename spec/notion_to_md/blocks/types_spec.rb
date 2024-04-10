@@ -218,4 +218,66 @@ describe(NotionToMd::Blocks::Types) do
       it { expect(described_class.file(block_file)).to eq("[#{block_file[:file][:url]}](#{block_file[:file][:url]})\n\n#{block_file[:caption][0][:plain_text]}") }
     end
   end
+
+  describe('.pdf') do
+    context('with a internal file') do
+      let(:block_pdf) do
+        {
+          type: 'file',
+          file: {
+            url: 'https://www.example.com',
+          },
+          caption: [{
+            type: 'text',
+            plain_text: 'This is a caption',
+            href: nil,
+            text: {
+              content: 'This is a caption',
+              link: nil
+            },
+            annotations: {
+              bold: false,
+              italic: false,
+              strikethrough: false,
+              underline: false,
+              code: false,
+              color: 'default'
+            }
+          }]
+        }
+      end
+
+      it { expect(described_class.pdf(block_pdf)).to eq("[#{block_pdf[:file][:url]}](#{block_pdf[:file][:url]})\n\n#{block_pdf[:caption][0][:plain_text]}") }
+    end
+
+    context('with a external file') do
+      let(:block_pdf) do
+        {
+          type: 'external',
+          external: {
+            url: 'https://www.example.com',
+          },
+          caption: [{
+            type: 'text',
+            plain_text: 'This is a caption',
+            href: nil,
+            text: {
+              content: 'This is a caption',
+              link: nil
+            },
+            annotations: {
+              bold: false,
+              italic: false,
+              strikethrough: false,
+              underline: false,
+              code: false,
+              color: 'default'
+            }
+          }]
+        }
+      end
+
+      it { expect(described_class.pdf(block_pdf)).to eq("[#{block_pdf[:external][:url]}](#{block_pdf[:external][:url]})\n\n#{block_pdf[:caption][0][:plain_text]}") }
+    end
+  end
 end
