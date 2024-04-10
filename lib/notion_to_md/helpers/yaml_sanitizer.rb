@@ -1,4 +1,4 @@
-module NotionToMd
+class NotionToMd
   module Helpers
     module YamlSanitizer
       # Escape the frontmatter value if it contains a colon or a dash followed by a space

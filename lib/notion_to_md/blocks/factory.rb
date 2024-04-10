@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module NotionToMd
+class NotionToMd
   module Blocks
     class Factory
       def self.build(block:, children: [])

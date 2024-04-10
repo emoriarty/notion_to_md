@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module NotionToMd
+class NotionToMd
   module Blocks
     class TableRowBlock < Block
       def newline

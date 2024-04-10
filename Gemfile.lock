@@ -3,6 +3,7 @@ PATH
   specs:
     notion_to_md (2.4.1)
       activesupport (~> 7)
+      callee (~> 0.3.6)
       notion-ruby-client (~> 1)
 
 GEM
@@ -21,12 +22,15 @@ GEM
     ast (2.4.2)
     base64 (0.2.0)
     bigdecimal (3.1.4)
+    callee (0.3.6)
+      dry-initializer (>= 2.5)
     concurrent-ruby (1.2.2)
     connection_pool (2.4.1)
     diff-lcs (1.5.0)
     docile (1.4.0)
     drb (2.2.0)
       ruby2_keywords
+    dry-initializer (3.1.1)
     faraday (2.7.12)
       base64
       faraday-net_http (>= 2.0, < 3.1)
