@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module NotionToMd
+class NotionToMd
   class Page
     include Helpers::YamlSanitizer
 

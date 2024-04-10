@@ -1,4 +1,4 @@
-module NotionToMd
+class NotionToMd
   class Text
     class << self
       def text(text)

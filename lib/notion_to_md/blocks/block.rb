@@ -2,7 +2,7 @@
 
 require 'forwardable'
 
-module NotionToMd
+class NotionToMd
   module Blocks
     class Block
       extend Forwardable
