@@ -74,8 +74,8 @@ describe(NotionToMd) do
       expect(md).to matching(%r{^<br />})
     end
 
-    it 'equation to $$ equ $$' do
-      expect(md).to matching(/\$\$ \S+ \$\$/)
+    it 'equation to $`E=mc^2`$' do
+      expect(md).to matching(/\$`E\=mc\^2`\$/)
     end
 
     it 'italic to *text*' do
