@@ -78,6 +78,10 @@ describe(NotionToMd) do
       expect(md).to matching(/This is an equation: \$`E\=mc\^2`\$/)
     end
 
+    it 'block equation to $$e=mc^2$$' do
+      expect(md).to matching(/\$\$e=mc\^2\$\$/)
+    end
+
     it 'italic to *text*' do
       expect(md).to matching(/^\*italic\*$/)
     end
