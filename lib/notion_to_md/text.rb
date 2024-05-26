@@ -6,7 +6,7 @@ class NotionToMd
       end
 
       def equation(text)
-        "$$ #{text[:plain_text]} $$"
+        "$`#{text[:plain_text]}`$"
       end
     end
   end
