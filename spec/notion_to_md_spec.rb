@@ -118,7 +118,7 @@ describe(NotionToMd) do
     end
 
     it 'sets pdfs in markdown' do
-      expect(md).to matching(%r{^\[https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf]\(https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf\)$})
+      expect(md).to matching(%r{^\[https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf\]\(https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf\)$})
       expect(md).to matching(%r{^\[https://prod-files-secure.s3.us-west-2.amazonaws.com/.*/dummy.pdf.*\]\(https://prod-files-secure.s3.us-west-2.amazonaws.com/.*/dummy.pdf.*\)$})
     end
 
