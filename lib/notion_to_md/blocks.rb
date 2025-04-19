@@ -15,6 +15,9 @@ require_relative './blocks/to_do_list_block'
 require_relative './blocks/to_do_list_item_block'
 
 class NotionToMd
+  # === NotionToMd::Blocks
+  #
+  # This module is responsible for building Notion blocks.
   module Blocks
     # === Parameters
     # block_id::
