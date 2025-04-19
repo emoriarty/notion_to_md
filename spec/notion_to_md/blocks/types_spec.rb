@@ -343,4 +343,19 @@ describe(NotionToMd::Blocks::Types) do
       it { expect(described_class.pdf(block_video)).to eq("[#{block_video[:file][:url]}](#{block_video[:file][:url]})\n\n#{block_video[:caption][0][:plain_text]}") }
     end
   end
+
+  describe('.equation') do
+    context('when equation is present') do
+      let(:block_equation) do
+        {
+          type: 'equation',
+          equation: {
+            expression: 'e=mc^2'
+          }
+        }
+      end
+
+      it { expect(described_class.equation(block_equation)).to eq("$$#{block_equation[:expression]}$$") }
+    end
+  end
 end

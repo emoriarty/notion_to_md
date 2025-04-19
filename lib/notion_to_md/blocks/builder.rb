@@ -2,6 +2,9 @@
 
 class NotionToMd
   module Blocks
+    # === NotionToMd::Blocks::Builder
+    #
+    # This class is responsible for building a tree of blocks from the Notion API.
     class Builder
       ##
       # Array containing the block types allowed to have nested blocks (children).

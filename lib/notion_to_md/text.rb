@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class NotionToMd
   class Text
     class << self
@@ -6,7 +8,7 @@ class NotionToMd
       end
 
       def equation(text)
-        "$$ #{text[:plain_text]} $$"
+        "$`#{text[:plain_text]}`$"
       end
     end
   end

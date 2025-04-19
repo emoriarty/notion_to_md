@@ -74,8 +74,12 @@ describe(NotionToMd) do
       expect(md).to matching(%r{^<br />})
     end
 
-    it 'equation to $$ equ $$' do
-      expect(md).to matching(/\$\$ \S+ \$\$/)
+    it 'inline equation to $`E=mc^2`$' do
+      expect(md).to matching(/This is an equation: \$`E\=mc\^2`\$/)
+    end
+
+    it 'block equation to $$e=mc^2$$' do
+      expect(md).to matching(/^\$\$e=mc\^2\$\$$/)
     end
 
     it 'italic to *text*' do
@@ -114,7 +118,7 @@ describe(NotionToMd) do
     end
 
     it 'sets pdfs in markdown' do
-      expect(md).to matching(%r{^\[https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf]\(https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf\)$})
+      expect(md).to matching(%r{^\[https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf\]\(https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf\)$})
       expect(md).to matching(%r{^\[https://prod-files-secure.s3.us-west-2.amazonaws.com/.*/dummy.pdf.*\]\(https://prod-files-secure.s3.us-west-2.amazonaws.com/.*/dummy.pdf.*\)$})
     end
 
@@ -145,7 +149,7 @@ describe(NotionToMd) do
       end
 
       it 'sets last_edited_time in frontmatter' do
-        expect(md).to matching(/^last_edited_time: 2024-04-10T14:03:00.000Z$/)
+        expect(md).to matching(/^last_edited_time: 2024-05-25T15:34:00.000Z$/)
       end
 
       it 'sets icon in frontmatter' do

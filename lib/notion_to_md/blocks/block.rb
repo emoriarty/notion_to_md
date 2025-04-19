@@ -4,6 +4,9 @@ require 'forwardable'
 
 class NotionToMd
   module Blocks
+    # === NotionToMd::Blocks::Block
+    #
+    # This class is responsible for converting Notion blocks to markdown.
     class Block
       extend Forwardable
 

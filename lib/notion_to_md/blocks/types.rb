@@ -111,6 +111,10 @@ class NotionToMd
           file(block)
         end
 
+        def equation(block)
+          "$$#{block['expression']}$$"
+        end
+
         private
 
         def convert_table_row(cells)

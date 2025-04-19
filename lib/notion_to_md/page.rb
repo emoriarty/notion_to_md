@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class NotionToMd
+  # === NotionToMd::Page
+  #
+  # This class is responsible for representing a Notion page.
   class Page
     include Helpers::YamlSanitizer
 
@@ -81,17 +84,10 @@ class NotionToMd
     end
 
     def custom_props
-      @custom_props ||= page.properties.each_with_object({}) do |prop, memo|
-        name = prop.first
-        value = prop.last # Notion::Messages::Message
-        type = value.type
-
-        next memo unless CustomProperty.respond_to?(type.to_sym)
-
-        memo[name.parameterize.underscore] = CustomProperty.send(type, value)
-      end.reject { |_k, v| v.presence.nil? }
+      @custom_props ||= filtered_custom_properties
     end
 
+    # rubocop:disable Metrics/MethodLength
     def default_props
       @default_props ||= {
         'id' => id,
@@ -107,10 +103,35 @@ class NotionToMd
         'last_edited_by_id' => last_edited_by_id
       }
     end
+    # rubocop:enable Metrics/MethodLength
 
     # This class is kept for retro compatibility reasons.
     # Use instead the PageProperty class.
     class CustomProperty < PageProperty
+    end
+
+    private
+
+    def filtered_custom_properties
+      build_custom_properties.reject { |_k, v| v.presence.nil? }
+    end
+
+    def build_custom_properties
+      page.properties.each_with_object({}) do |(name, value), memo|
+        type = value.type
+        next unless valid_custom_property_type?(type)
+
+        key = name.parameterize.underscore
+        memo[key] = build_custom_property(type, value)
+      end
+    end
+
+    def valid_custom_property_type?(type)
+      CustomProperty.respond_to?(type.to_sym)
+    end
+
+    def build_custom_property(type, value)
+      CustomProperty.send(type, value)
     end
   end
 end
