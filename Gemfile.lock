@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    notion_to_md (2.5.0)
+    notion_to_md (2.5.1)
       activesupport (~> 7)
       callee (~> 0.3.6)
       notion-ruby-client (~> 1)
