@@ -66,7 +66,7 @@ class NotionToMd
       end
 
       def checkbox(prop)
-        prop[:checkbox].nil? ? nil : prop[:checkbox].to_s
+        prop[:checkbox]&.to_s
       rescue NoMethodError
         nil
       end

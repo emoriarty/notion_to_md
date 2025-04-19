@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class NotionToMd
   class Text
     class << self

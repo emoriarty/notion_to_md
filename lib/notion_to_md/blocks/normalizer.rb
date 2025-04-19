@@ -2,6 +2,9 @@
 
 class NotionToMd
   module Blocks
+    # === NotionToMd::Blocks::Normalizer
+    #
+    # This class is responsible for normalizing blocks of the same type
     class Normalizer
       # === Parameters
       # blocks::
@@ -27,26 +30,36 @@ class NotionToMd
         new_blocks = []
 
         normalized_blocks.each do |block|
-          if block.type.to_sym == type
+          if block_of_type?(block, type)
             blocks_to_normalize << block
           else
             # When we encounter a block that is not of the provided type,
             # we need to normalize the blocks we've collected so far.
             # Then we add the current block to the new blocks array.
-            # This is because we want to keep the order of the blocks.
-            new_blocks << new_block_and_reset_blocks_to_normalize(type) unless blocks_to_normalize.empty?
+            # This is to keep the order of the blocks as they are in the original array.
+            flush_blocks_to_normalize_into(new_blocks, type)
             new_blocks << block
           end
         end
 
         # If the last block is the provided type, it won't be added to the new blocks array.
         # So, we need to normalize the blocks we've collected so far.
-        new_blocks << new_block_and_reset_blocks_to_normalize(type) unless blocks_to_normalize.empty?
+        flush_blocks_to_normalize_into(new_blocks, type)
 
         normalized_blocks.replace(new_blocks)
       end
 
       private
+
+      def block_of_type?(block, type)
+        block.type.to_sym == type
+      end
+
+      def flush_blocks_to_normalize_into(new_blocks, type)
+        return if blocks_to_normalize.empty?
+
+        new_blocks << new_block_and_reset_blocks_to_normalize(type)
+      end
 
       def new_block_and_reset_blocks_to_normalize(type)
         new_block = new_block_for(type, blocks_to_normalize)
