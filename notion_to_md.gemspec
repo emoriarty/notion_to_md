@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency('activesupport', '~> 7')
   s.add_runtime_dependency('callee', '~> 0.3.6')
   s.add_runtime_dependency('notion-ruby-client', '~> 1')
+  s.add_runtime_dependency('zeitwerk', '~> 2.6')
 
   s.add_development_dependency('hashie')
   s.add_development_dependency('rspec')

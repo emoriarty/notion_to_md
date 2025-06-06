@@ -1,3 +1,8 @@
 # frozen_string_literal: true
 
-require_relative './helpers/yaml_sanitizer'
+class NotionToMd
+  # === NotionToMd::Helpers
+  #
+  # This module provides helper methods for NotionToMd.
+  module Helpers; end
+end
