@@ -5,15 +5,11 @@ require 'logger'
 require 'active_support/inflector'
 require 'active_support/core_ext/object/blank'
 require 'callee'
-require_relative './notion_to_md/helpers'
-require_relative './notion_to_md/version'
-require_relative './notion_to_md/converter'
-require_relative './notion_to_md/logger'
-require_relative './notion_to_md/page_property'
-require_relative './notion_to_md/page'
-require_relative './notion_to_md/blocks'
-require_relative './notion_to_md/text'
-require_relative './notion_to_md/text_annotation'
+require 'zeitwerk'
+
+# Load the NotionToMd classes using Zeitwerk
+loader = Zeitwerk::Loader.for_gem
+loader.setup
 
 # The NotionToMd class allows to transform notion pages to markdown documents.
 class NotionToMd

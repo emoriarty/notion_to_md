@@ -5,6 +5,7 @@ PATH
       activesupport (~> 7)
       callee (~> 0.3.6)
       notion-ruby-client (~> 1)
+      zeitwerk (~> 2.6)
 
 GEM
   remote: https://rubygems.org/
@@ -113,6 +114,7 @@ GEM
     unicode-emoji (4.0.4)
     vcr (6.3.1)
       base64
+    zeitwerk (2.6.18)
 
 PLATFORMS
   ruby
