@@ -46,12 +46,6 @@ RSpec/NestedGroups:
   Max: 4
 
 # Offense count: 2
-# This cop supports unsafe autocorrection (--autocorrect-all).
-RSpec/ReceiveMessages:
-  Exclude:
-    - 'spec/notion_to_md/converter_spec.rb'
-
-# Offense count: 2
 RSpec/RepeatedExample:
   Exclude:
     - 'spec/notion_to_md_spec.rb'

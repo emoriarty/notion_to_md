@@ -14,8 +14,7 @@ describe(NotionToMd::Converter) do
     allow(notion_client).to receive(:page).with(page_id: page_id).and_return(page)
     allow(NotionToMd::Blocks).to receive(:build).and_return(page_blocks)
     allow(NotionToMd::Page).to receive(:new).with(page: page, blocks: page_blocks).and_return(page)
-    allow(page).to receive(:frontmatter).and_return('frontmatter')
-    allow(page).to receive(:body).and_return('body')
+    allow(page).to receive_messages(frontmatter: 'frontmatter', body: 'body')
   end
 
   describe('#new') do
