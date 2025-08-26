@@ -95,7 +95,7 @@ describe(NotionToMd::Page) do
     end
   end
 
-  describe("#frontmatter") do
+  describe('#frontmatter') do
     let(:notion_page) do
       Notion::Messages::Message.new(
         id: 'xxxx',
