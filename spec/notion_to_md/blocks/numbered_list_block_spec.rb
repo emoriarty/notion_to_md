@@ -4,12 +4,12 @@ require 'spec_helper'
 
 describe(NotionToMd::Blocks::NumberedListBlock) do
   def create_mash(index)
-     Hashie::Mash.new(
-        type: 'numbered_list_item',
-        numbered_list_item: {
-          rich_text: [{ plain_text: "item #{index}", type: 'text', href: nil, annotations: {} }]
-        }
-      )
+    Hashie::Mash.new(
+      type: 'numbered_list_item',
+      numbered_list_item: {
+        rich_text: [{ plain_text: "item #{index}", type: 'text', href: nil, annotations: {} }]
+      }
+    )
   end
 
   describe('#to_md') do
@@ -44,10 +44,12 @@ describe(NotionToMd::Blocks::NumberedListBlock) do
 
     context 'with a second nested level' do
       let(:nested_children) do
-        3.times.map { |index| NotionToMd::Blocks::NumberedListItemBlock.new(
-          block: create_mash("#{index}0"),
-          children: [described_class.new(children: children)]
-        ) }
+        3.times.map do |index|
+          NotionToMd::Blocks::NumberedListItemBlock.new(
+            block: create_mash("#{index}0"),
+            children: [described_class.new(children: children)]
+          )
+        end
       end
       let(:parent) do
         [

@@ -38,11 +38,11 @@ describe(NotionToMd) do
       expect(md).to matching(/^```$/)
     end
 
-    it 'bulleted_list_item to - ' do
+    it 'bulleted_list_item to -' do
       expect(md).to matching(/- item 1\n- item 2\n- item 3/)
     end
 
-    it 'numbered_list_item to - ' do
+    it 'numbered_list_item to -' do
       expect(md).to matching(/1. item 1\n2. item 2\n3. item 3/)
     end
 
@@ -75,7 +75,7 @@ describe(NotionToMd) do
     end
 
     it 'inline equation to $`E=mc^2`$' do
-      expect(md).to matching(/This is an equation: \$`E\=mc\^2`\$/)
+      expect(md).to matching(/This is an equation: \$`E=mc\^2`\$/)
     end
 
     it 'block equation to $$e=mc^2$$' do

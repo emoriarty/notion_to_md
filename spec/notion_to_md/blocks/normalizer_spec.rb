@@ -12,7 +12,7 @@ describe(NotionToMd::Blocks::Normalizer) do
       end
 
       it 'returns bulleted_list_item' do
-        expect(described_class.normalize(blocks: blocks)).to contain_exactly(be_a_kind_of(NotionToMd::Blocks::BulletedListBlock))
+        expect(described_class.normalize(blocks: blocks)).to contain_exactly(be_a(NotionToMd::Blocks::BulletedListBlock))
       end
     end
 
@@ -26,7 +26,7 @@ describe(NotionToMd::Blocks::Normalizer) do
       end
 
       it 'returns numbered_list_item' do
-        expect(described_class.normalize(blocks: blocks)).to contain_exactly(be_a_kind_of(NotionToMd::Blocks::NumberedListBlock))
+        expect(described_class.normalize(blocks: blocks)).to contain_exactly(be_a(NotionToMd::Blocks::NumberedListBlock))
       end
     end
 
@@ -39,7 +39,7 @@ describe(NotionToMd::Blocks::Normalizer) do
       end
 
       it 'returns to_do' do
-        expect(described_class.normalize(blocks: blocks)).to contain_exactly(be_a_kind_of(NotionToMd::Blocks::ToDoListBlock))
+        expect(described_class.normalize(blocks: blocks)).to contain_exactly(be_a(NotionToMd::Blocks::ToDoListBlock))
       end
     end
 
@@ -54,9 +54,9 @@ describe(NotionToMd::Blocks::Normalizer) do
 
       it 'returns bulleted_list_item, numbered_list_item, to_do' do
         expect(described_class.normalize(blocks: blocks))
-          .to contain_exactly(be_a_kind_of(NotionToMd::Blocks::BulletedListBlock),
-                              be_a_kind_of(NotionToMd::Blocks::NumberedListBlock),
-                              be_a_kind_of(NotionToMd::Blocks::ToDoListBlock))
+          .to contain_exactly(be_a(NotionToMd::Blocks::BulletedListBlock),
+                              be_a(NotionToMd::Blocks::NumberedListBlock),
+                              be_a(NotionToMd::Blocks::ToDoListBlock))
       end
     end
 
@@ -74,11 +74,11 @@ describe(NotionToMd::Blocks::Normalizer) do
       it 'returns to_do_list, paragraph, numbered_list, paragraph, bulleted_list' do
         expect(described_class.normalize(blocks: blocks))
           .to contain_exactly(
-            be_a_kind_of(NotionToMd::Blocks::ToDoListBlock),
-            be_a_kind_of(RSpec::Mocks::InstanceVerifyingDouble), # paragraph
-            be_a_kind_of(NotionToMd::Blocks::NumberedListBlock),
-            be_a_kind_of(RSpec::Mocks::InstanceVerifyingDouble), # paragraph
-            be_a_kind_of(NotionToMd::Blocks::BulletedListBlock)
+            be_a(NotionToMd::Blocks::ToDoListBlock),
+            be_a(RSpec::Mocks::InstanceVerifyingDouble), # paragraph
+            be_a(NotionToMd::Blocks::NumberedListBlock),
+            be_a(RSpec::Mocks::InstanceVerifyingDouble), # paragraph
+            be_a(NotionToMd::Blocks::BulletedListBlock)
           )
       end
     end
