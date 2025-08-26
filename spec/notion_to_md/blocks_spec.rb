@@ -5,23 +5,18 @@ require 'spec_helper'
 describe(NotionToMd::Blocks) do
   describe('.build') do
     let(:page_notion) do
-      Hashie::Mash.new(
-        type: block_type,
-        has_children: true,
-        id: 1,
-        results: [
-          Hashie::Mash.new(
-            type: block_type,
-            has_children: has_children,
-            id: 11
-          ),
-          Hashie::Mash.new(
-            type: block_type,
-            has_children: has_children,
-            id: 11
-          )
-        ]
-      )
+      [
+        Hashie::Mash.new(
+          type: block_type,
+          has_children: has_children,
+          id: 11
+        ),
+        Hashie::Mash.new(
+          type: block_type,
+          has_children: has_children,
+          id: 11
+        )
+      ]
     end
     let(:block_type) { 'dummy_type' }
     let(:has_children) { false }
@@ -40,23 +35,18 @@ describe(NotionToMd::Blocks) do
       let(:block_type) { 'bulleted_list_item' }
       let(:has_children) { true }
       let(:block_nested_notion) do
-        Hashie::Mash.new(
-          type: block_type,
-          has_children: true,
-          id: 11,
-          results: [
-            Hashie::Mash.new(
-              type: block_type,
-              has_children: false,
-              id: 111
-            ),
-            Hashie::Mash.new(
-              type: block_type,
-              has_children: false,
-              id: 111
-            )
-          ]
-        )
+        [
+          Hashie::Mash.new(
+            type: block_type,
+            has_children: false,
+            id: 111
+          ),
+          Hashie::Mash.new(
+            type: block_type,
+            has_children: false,
+            id: 111
+          )
+        ]
       end
 
       it 'returns a list with children' do
@@ -76,42 +66,32 @@ describe(NotionToMd::Blocks) do
 
       context('with children permitted to have children') do
         let(:block_nested_notion) do
-          Hashie::Mash.new(
-            type: block_type,
-            has_children: true,
-            id: 11,
-            results: [
-              Hashie::Mash.new(
-                type: block_type,
-                has_children: true,
-                id: 111
-              ),
-              Hashie::Mash.new(
-                type: block_type,
-                has_children: true,
-                id: 111
-              )
-            ]
-          )
+          [
+            Hashie::Mash.new(
+              type: block_type,
+              has_children: true,
+              id: 111
+            ),
+            Hashie::Mash.new(
+              type: block_type,
+              has_children: true,
+              id: 111
+            )
+          ]
         end
         let(:block_2dn_nested_notion) do
-          Hashie::Mash.new(
-            type: block_type,
-            has_children: true,
-            id: 111,
-            results: [
-              Hashie::Mash.new(
-                type: 'dummy_type',
-                has_children: false,
-                id: 1111
-              ),
-              Hashie::Mash.new(
-                type: 'dummy_type',
-                has_children: false,
-                id: 1111
-              )
-            ]
-          )
+          [
+            Hashie::Mash.new(
+              type: 'dummy_type',
+              has_children: false,
+              id: 1111
+            ),
+            Hashie::Mash.new(
+              type: 'dummy_type',
+              has_children: false,
+              id: 1111
+            )
+          ]
         end
 
         it 'returns a list with children' do
