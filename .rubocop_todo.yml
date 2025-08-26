@@ -13,14 +13,6 @@ Gemspec/RequiredRubyVersion:
   Exclude:
     - 'notion_to_md.gemspec'
 
-# Offense count: 3
-# This cop supports safe autocorrection (--autocorrect).
-Layout/BlockEndNewline:
-  Exclude:
-    - 'spec/notion_to_md/blocks/bulleted_list_block_spec.rb'
-    - 'spec/notion_to_md/blocks/numbered_list_block_spec.rb'
-    - 'spec/notion_to_md/blocks/to_do_list_block_spec.rb'
-
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
 Layout/EmptyLines:

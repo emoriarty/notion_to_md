@@ -47,7 +47,8 @@ describe(NotionToMd::Blocks::BulletedListBlock) do
         3.times.map { |index| NotionToMd::Blocks::BulletedListItemBlock.new(
           block: create_mash("#{index}0"),
           children: [described_class.new(children: children)]
-        ) }
+        )
+        }
       end
       let(:parent) do
         [

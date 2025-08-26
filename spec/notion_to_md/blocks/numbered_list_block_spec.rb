@@ -47,7 +47,8 @@ describe(NotionToMd::Blocks::NumberedListBlock) do
         3.times.map { |index| NotionToMd::Blocks::NumberedListItemBlock.new(
           block: create_mash("#{index}0"),
           children: [described_class.new(children: children)]
-        ) }
+        )
+        }
       end
       let(:parent) do
         [
