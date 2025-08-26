@@ -149,7 +149,8 @@ describe(NotionToMd::Page) do
     end
 
     it 'includes the title' do
-      expect(YAML.safe_load(page.frontmatter, permitted_classes: [Time])['title']).to eq('Title: with "double quotes" and \'single quotes\' and: :colons:')
+      expect(YAML.safe_load(page.frontmatter,
+                            permitted_classes: [Time])['title']).to eq('Title: with "double quotes" and \'single quotes\' and: :colons:')
     end
 
     it 'includes the cover' do
@@ -165,7 +166,8 @@ describe(NotionToMd::Page) do
     end
 
     it 'includes the last_edited_time' do
-      expect(YAML.safe_load(page.frontmatter, permitted_classes: [Time])['last_edited_time']).to be_within(1).of(Time.now)
+      expect(YAML.safe_load(page.frontmatter,
+                            permitted_classes: [Time])['last_edited_time']).to be_within(1).of(Time.now)
     end
 
     it 'includes the archived' do
@@ -244,7 +246,8 @@ describe(NotionToMd::Page) do
       end
 
       it 'does not escape the diacritics' do
-        expect(YAML.safe_load(page.frontmatter, permitted_classes: [Time])['title']).to eq('Title with diacritics àáâãäāăȧǎȁȃ')
+        expect(YAML.safe_load(page.frontmatter,
+                              permitted_classes: [Time])['title']).to eq('Title with diacritics àáâãäāăȧǎȁȃ')
       end
     end
   end

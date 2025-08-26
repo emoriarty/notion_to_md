@@ -143,7 +143,9 @@ describe(NotionToMd::Blocks::Types) do
         }
       end
 
-      it { expect(described_class.paragraph(block_paragraph)).to eq("[#{block_paragraph[:rich_text][0][:plain_text]}](#{block_paragraph[:rich_text][0][:href]})") }
+      it {
+        expect(described_class.paragraph(block_paragraph)).to eq("[#{block_paragraph[:rich_text][0][:plain_text]}](#{block_paragraph[:rich_text][0][:href]})")
+      }
     end
 
     context('when rich_text is not empty and has a encoded link') do
@@ -183,7 +185,9 @@ describe(NotionToMd::Blocks::Types) do
         }
       end
 
-      it { expect(described_class.link_preview(block_link_preview)).to eq("[#{block_link_preview[:url]}](#{block_link_preview[:url]})") }
+      it {
+        expect(described_class.link_preview(block_link_preview)).to eq("[#{block_link_preview[:url]}](#{block_link_preview[:url]})")
+      }
     end
   end
 
@@ -215,7 +219,9 @@ describe(NotionToMd::Blocks::Types) do
         }
       end
 
-      it { expect(described_class.file(block_file)).to eq("[#{block_file[:file][:url]}](#{block_file[:file][:url]})\n\n#{block_file[:caption][0][:plain_text]}") }
+      it {
+        expect(described_class.file(block_file)).to eq("[#{block_file[:file][:url]}](#{block_file[:file][:url]})\n\n#{block_file[:caption][0][:plain_text]}")
+      }
     end
   end
 
@@ -247,7 +253,9 @@ describe(NotionToMd::Blocks::Types) do
         }
       end
 
-      it { expect(described_class.pdf(block_pdf)).to eq("[#{block_pdf[:file][:url]}](#{block_pdf[:file][:url]})\n\n#{block_pdf[:caption][0][:plain_text]}") }
+      it {
+        expect(described_class.pdf(block_pdf)).to eq("[#{block_pdf[:file][:url]}](#{block_pdf[:file][:url]})\n\n#{block_pdf[:caption][0][:plain_text]}")
+      }
     end
 
     context('with a external file') do
@@ -277,7 +285,9 @@ describe(NotionToMd::Blocks::Types) do
         }
       end
 
-      it { expect(described_class.pdf(block_pdf)).to eq("[#{block_pdf[:external][:url]}](#{block_pdf[:external][:url]})\n\n#{block_pdf[:caption][0][:plain_text]}") }
+      it {
+        expect(described_class.pdf(block_pdf)).to eq("[#{block_pdf[:external][:url]}](#{block_pdf[:external][:url]})\n\n#{block_pdf[:caption][0][:plain_text]}")
+      }
     end
   end
 
@@ -309,7 +319,9 @@ describe(NotionToMd::Blocks::Types) do
         }
       end
 
-      it { expect(described_class.pdf(block_video)).to eq("[#{block_video[:external][:url]}](#{block_video[:external][:url]})\n\n#{block_video[:caption][0][:plain_text]}") }
+      it {
+        expect(described_class.pdf(block_video)).to eq("[#{block_video[:external][:url]}](#{block_video[:external][:url]})\n\n#{block_video[:caption][0][:plain_text]}")
+      }
     end
 
     context('when video is internal') do
@@ -340,7 +352,9 @@ describe(NotionToMd::Blocks::Types) do
         }
       end
 
-      it { expect(described_class.pdf(block_video)).to eq("[#{block_video[:file][:url]}](#{block_video[:file][:url]})\n\n#{block_video[:caption][0][:plain_text]}") }
+      it {
+        expect(described_class.pdf(block_video)).to eq("[#{block_video[:file][:url]}](#{block_video[:file][:url]})\n\n#{block_video[:caption][0][:plain_text]}")
+      }
     end
   end
 
