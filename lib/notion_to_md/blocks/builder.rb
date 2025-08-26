@@ -50,8 +50,8 @@ class NotionToMd
       # An array of NotionToMd::Blocks::Block.
       #
       def build
-        notion_messages = fetch_blocks.call(block_id)
-        blocks = notion_messages.results.map do |block|
+        notion_blocks = fetch_blocks.call(block_id)
+        blocks = notion_blocks.map do |block|
           children = if Builder.permitted_children_for?(block: block)
                        Builder.new(block_id: block.id, &fetch_blocks).build
                      else
