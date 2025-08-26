@@ -19,7 +19,7 @@ class NotionToMd
 
   def initialize(page_id:, token: nil, frontmatter: false)
     @page_id = page_id
-    @token = token || ENV['NOTION_TOKEN']
+    @token = token || ENV.fetch('NOTION_TOKEN', nil)
     @frontmatter = frontmatter
   end
 

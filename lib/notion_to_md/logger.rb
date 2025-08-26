@@ -6,6 +6,7 @@ class NotionToMd
 
     class << self
       extend Forwardable
+
       def_delegators :@logger, :debug, :info, :warn, :error, :fatal, :level, :level=
     end
   end
