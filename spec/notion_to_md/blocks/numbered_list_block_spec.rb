@@ -44,10 +44,11 @@ describe(NotionToMd::Blocks::NumberedListBlock) do
 
     context 'with a second nested level' do
       let(:nested_children) do
-        3.times.map { |index| NotionToMd::Blocks::NumberedListItemBlock.new(
-          block: create_mash("#{index}0"),
-          children: [described_class.new(children: children)]
-        )
+        3.times.map { |index|
+          NotionToMd::Blocks::NumberedListItemBlock.new(
+            block: create_mash("#{index}0"),
+            children: [described_class.new(children: children)]
+          )
         }
       end
       let(:parent) do
