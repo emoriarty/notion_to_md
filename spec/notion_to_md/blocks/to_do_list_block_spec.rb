@@ -44,12 +44,12 @@ describe(NotionToMd::Blocks::ToDoListBlock) do
 
     context 'with a second nested level' do
       let(:nested_children) do
-        3.times.map { |index|
+        3.times.map do |index|
           NotionToMd::Blocks::ToDoListItemBlock.new(
             block: create_mash("#{index}0"),
             children: [described_class.new(children: children)]
           )
-        }
+        end
       end
       let(:parent) do
         [
