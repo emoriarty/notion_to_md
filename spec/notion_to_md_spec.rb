@@ -240,6 +240,15 @@ describe(NotionToMd) do
         end
       end
     end
+
+    context('with a very long page') do
+      it 'paginates the blocks' do
+        VCR.use_cassette('a_very_long_notion_page') do
+          md = described_class.call(page_id: '25adb135281c80828cb1dc59437ae243')
+          expect(md).to matching(/Nunc mi enim, aliquam eu vehicula eu, tempor nec odio.$/)
+        end
+      end
+    end
   end
 
   describe('.call') do
