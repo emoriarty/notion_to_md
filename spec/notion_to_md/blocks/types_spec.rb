@@ -179,7 +179,7 @@ describe(NotionToMd::Blocks::Types) do
     context('when link preview is present') do
       let(:block_link_preview) do
         {
-          url: 'https://www.example.com',
+          url: 'https://www.example.com'
         }
       end
 
@@ -193,7 +193,7 @@ describe(NotionToMd::Blocks::Types) do
         {
           type: 'file',
           file: {
-            url: 'https://www.example.com',
+            url: 'https://www.example.com'
           },
           caption: [{
             type: 'text',
@@ -225,7 +225,7 @@ describe(NotionToMd::Blocks::Types) do
         {
           type: 'file',
           file: {
-            url: 'https://www.example.com',
+            url: 'https://www.example.com'
           },
           caption: [{
             type: 'text',
@@ -255,7 +255,7 @@ describe(NotionToMd::Blocks::Types) do
         {
           type: 'external',
           external: {
-            url: 'https://www.example.com',
+            url: 'https://www.example.com'
           },
           caption: [{
             type: 'text',
@@ -287,7 +287,7 @@ describe(NotionToMd::Blocks::Types) do
         {
           type: 'external',
           external: {
-            url: 'https://www.example.com/video.mp4',
+            url: 'https://www.example.com/video.mp4'
           },
           caption: [{
             type: 'text',

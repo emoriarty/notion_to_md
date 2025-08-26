@@ -30,7 +30,7 @@ VCR.configure do |config|
 
   config.default_cassette_options = {
     allow_playback_repeats: true,
-    record: :new_episodes,
+    record: :new_episodes
   }
 end
 
