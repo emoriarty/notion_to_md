@@ -115,7 +115,7 @@ describe(NotionToMd::Blocks::Types) do
         }
       end
 
-      it { expect(described_class.paragraph(block_paragraph)).to eq("#{block_paragraph[:rich_text][0][:plain_text]}") }
+      it { expect(described_class.paragraph(block_paragraph)).to eq(block_paragraph[:rich_text][0][:plain_text].to_s) }
     end
 
     context('when rich_text is not empty and has a link') do

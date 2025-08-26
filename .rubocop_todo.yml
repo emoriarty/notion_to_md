@@ -92,11 +92,6 @@ Style/InverseMethods:
   Exclude:
     - 'lib/notion_to_md/blocks/types.rb'
 
-# Offense count: 1
-# This cop supports unsafe autocorrection (--autocorrect-all).
-Style/RedundantInterpolation:
-  Exclude:
-    - 'spec/notion_to_md/blocks/types_spec.rb'
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
