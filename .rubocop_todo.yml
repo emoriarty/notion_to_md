@@ -51,14 +51,6 @@ RSpec/RepeatedExample:
     - 'spec/notion_to_md_spec.rb'
 
 # Offense count: 1
-# Configuration parameters: Include, CustomTransform, IgnoreMethods, IgnoreMetadata.
-# Include: **/*_spec.rb
-RSpec/SpecFilePathFormat:
-  Exclude:
-    - '**/spec/routing/**/*'
-    - 'spec/notion_to_md/property_spec.rb'
-
-# Offense count: 1
 # This cop supports unsafe autocorrection (--autocorrect-all).
 RSpec/VerifiedDoubleReference:
   Exclude:
