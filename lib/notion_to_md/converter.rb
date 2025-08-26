@@ -21,7 +21,7 @@ class NotionToMd
     # A NotionToMd::Converter object.
     #
     def initialize(page_id:, token: nil, frontmatter: false)
-      @notion = Notion::Client.new(token: token || ENV['NOTION_TOKEN'])
+      @notion = Notion::Client.new(token: token || ENV.fetch('NOTION_TOKEN', nil))
       @page_id = page_id
       @frontmatter = frontmatter
     end

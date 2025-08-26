@@ -12,7 +12,7 @@ ROOT_PATH = Pathname.new(__dir__).parent
 APP_PATH = ROOT_PATH / 'lib/notion_to_md.rb'
 PAGE_ID = '9dc17c9c9d2e469dbbf0f9648f3288d3'
 
-notion = Notion::Client.new(token: ENV['NOTION_TOKEN'])
+notion = Notion::Client.new(token: ENV.fetch('NOTION_TOKEN', nil))
 page_filename = File.join(ROOT_PATH, 'spec', 'fixtures', 'notion_page.yml')
 blocks_filename = File.join(ROOT_PATH, 'spec', 'fixtures', 'notion_block_children.yml')
 page = notion.page(page_id: PAGE_ID)
