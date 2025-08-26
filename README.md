@@ -1,4 +1,7 @@
 # notion_to_md
+
+![notion_to_md_logo](https://ik.imagekit.io/gxidvqvc9/notion_to_md_logo_r2NHGJDgl8.png?updatedAt=1756204233742)
+
 A Ruby library to export Notion pages to Markdown.
 
 The generated Markdown is fully compliant with the [GitHub Flavored Markdown specification](https://github.github.com/gfm/).
