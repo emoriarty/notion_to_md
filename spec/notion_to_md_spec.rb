@@ -38,11 +38,11 @@ describe(NotionToMd) do
       expect(md).to matching(/^```$/)
     end
 
-    it 'bulleted_list_item to - ' do
+    it 'bulleted_list_item to -' do
       expect(md).to matching(/- item 1\n- item 2\n- item 3/)
     end
 
-    it 'numbered_list_item to - ' do
+    it 'numbered_list_item to -' do
       expect(md).to matching(/1. item 1\n2. item 2\n3. item 3/)
     end
 

@@ -36,12 +36,6 @@ Naming/VariableNumber:
 RSpec/ExampleLength:
   Max: 21
 
-# Offense count: 2
-# This cop supports safe autocorrection (--autocorrect).
-RSpec/ExcessiveDocstringSpacing:
-  Exclude:
-    - 'spec/notion_to_md_spec.rb'
-
 # Offense count: 4
 RSpec/MultipleExpectations:
   Max: 3
