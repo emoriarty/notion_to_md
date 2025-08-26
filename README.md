@@ -1,6 +1,6 @@
-# notion_to_md
+<img src="https://ik.imagekit.io/gxidvqvc9/noiton_to_md_logo_white_bg_-OiZSEkqY.png?updatedAt=1756209770491" width="250">
 
-![notion_to_md_logo](https://ik.imagekit.io/gxidvqvc9/noiton_to_md_logo_white_bg_-OiZSEkqY.png?updatedAt=1756209770491){width=300}
+# notion_to_md
 
 A Ruby library to export Notion pages to Markdown.
 
