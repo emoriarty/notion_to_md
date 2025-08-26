@@ -1,4 +1,4 @@
-<img src="https://ik.imagekit.io/gxidvqvc9/noiton_to_md_logo_white_bg_-OiZSEkqY.png?updatedAt=1756209770491" width="250">
+<img src="https://ik.imagekit.io/gxidvqvc9/noiton_to_md_logo_white_bg_-OiZSEkqY.png?updatedAt=1756209770491" width="150">
 
 # notion_to_md
 
