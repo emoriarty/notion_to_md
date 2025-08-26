@@ -75,7 +75,7 @@ describe(NotionToMd) do
     end
 
     it 'inline equation to $`E=mc^2`$' do
-      expect(md).to matching(/This is an equation: \$`E\=mc\^2`\$/)
+      expect(md).to matching(/This is an equation: \$`E=mc\^2`\$/)
     end
 
     it 'block equation to $$e=mc^2$$' do
