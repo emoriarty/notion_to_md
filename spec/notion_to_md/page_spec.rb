@@ -169,7 +169,7 @@ describe(NotionToMd::Page) do
     end
 
     it 'includes the archived' do
-      expect(YAML.safe_load(page.frontmatter, permitted_classes: [Time])['archived']).to eq(false)
+      expect(YAML.safe_load(page.frontmatter, permitted_classes: [Time])['archived']).to be(false)
     end
 
     context 'when the title contains colons' do
