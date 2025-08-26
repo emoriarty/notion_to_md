@@ -8,15 +8,6 @@
 
 # Offense count: 3
 # This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: Width, AllowedPatterns.
-Layout/IndentationWidth:
-  Exclude:
-    - 'spec/notion_to_md/blocks/bulleted_list_block_spec.rb'
-    - 'spec/notion_to_md/blocks/numbered_list_block_spec.rb'
-    - 'spec/notion_to_md/blocks/to_do_list_block_spec.rb'
-
-# Offense count: 3
-# This cop supports safe autocorrection (--autocorrect).
 Layout/MultilineBlockLayout:
   Exclude:
     - 'spec/notion_to_md/blocks/bulleted_list_block_spec.rb'

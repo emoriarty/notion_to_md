@@ -4,12 +4,12 @@ require 'spec_helper'
 
 describe(NotionToMd::Blocks::BulletedListBlock) do
   def create_mash(index)
-     Hashie::Mash.new(
-       type: 'bulleted_list_item',
-       bulleted_list_item: {
-         rich_text: [{ plain_text: "item #{index}", type: 'text', href: nil, annotations: {} }]
-       }
-     )
+    Hashie::Mash.new(
+      type: 'bulleted_list_item',
+      bulleted_list_item: {
+        rich_text: [{ plain_text: "item #{index}", type: 'text', href: nil, annotations: {} }]
+      }
+    )
   end
 
   describe('#to_md') do

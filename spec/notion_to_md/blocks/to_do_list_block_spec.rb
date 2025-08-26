@@ -4,12 +4,12 @@ require 'spec_helper'
 
 describe(NotionToMd::Blocks::ToDoListBlock) do
   def create_mash(index)
-     Hashie::Mash.new(
-       type: 'to_do',
-       to_do: {
-         rich_text: [{ plain_text: "item #{index}", type: 'text', href: nil, annotations: {} }]
-       }
-     )
+    Hashie::Mash.new(
+      type: 'to_do',
+      to_do: {
+        rich_text: [{ plain_text: "item #{index}", type: 'text', href: nil, annotations: {} }]
+      }
+    )
   end
 
   describe('#to_md') do
