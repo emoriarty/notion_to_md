@@ -13,16 +13,6 @@ Gemspec/RequiredRubyVersion:
   Exclude:
     - 'notion_to_md.gemspec'
 
-# Offense count: 3
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle, IndentationWidth.
-# SupportedStyles: consistent, consistent_relative_to_receiver, special_for_inner_method_call, special_for_inner_method_call_in_parentheses
-Layout/FirstArgumentIndentation:
-  Exclude:
-    - 'spec/notion_to_md/blocks/bulleted_list_block_spec.rb'
-    - 'spec/notion_to_md/blocks/numbered_list_block_spec.rb'
-    - 'spec/notion_to_md/blocks/to_do_list_block_spec.rb'
-
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: AllowMultipleStyles, EnforcedHashRocketStyle, EnforcedColonStyle, EnforcedLastArgumentHashStyle.

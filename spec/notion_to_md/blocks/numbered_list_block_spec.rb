@@ -5,11 +5,11 @@ require 'spec_helper'
 describe(NotionToMd::Blocks::NumberedListBlock) do
   def create_mash(index)
      Hashie::Mash.new(
-        type: 'numbered_list_item',
-        numbered_list_item: {
-          rich_text: [{ plain_text: "item #{index}", type: 'text', href: nil, annotations: {} }]
-        }
-      )
+       type: 'numbered_list_item',
+       numbered_list_item: {
+         rich_text: [{ plain_text: "item #{index}", type: 'text', href: nil, annotations: {} }]
+       }
+     )
   end
 
   describe('#to_md') do
