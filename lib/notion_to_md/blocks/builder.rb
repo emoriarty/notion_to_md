@@ -28,20 +28,33 @@ class NotionToMd
         BLOCKS_WITH_PERMITTED_CHILDREN.include?(block.type.to_sym) && block.has_children
       end
 
-      attr_reader :block_id, :fetch_blocks
-
       # === Parameters
       # block_id::
       #   A string representing a notion block id .
-      # fetch_blocks::
-      #   A block that fetches the blocks from the Notion API.
+      # notion_client::
+      #   An Notion::Client object
       #
       # === Returns
       # An array of NotionToMd::Blocks::Block.
       #
-      def initialize(block_id:, &fetch_blocks)
+      def self.call(block_id:, notion_client:)
+        new(block_id: block_id, notion_client: notion_client).call
+      end
+
+      attr_reader :block_id, :notion_client
+
+      # === Parameters
+      # block_id::
+      #   A string representing a notion block id .
+      # notion_client::
+      #   An Notion::Client object
+      #
+      # === Returns
+      # An array of NotionToMd::Blocks::Block.
+      #
+      def initialize(block_id:, notion_client:)
         @block_id = block_id
-        @fetch_blocks = fetch_blocks
+        @notion_client = notion_client
       end
 
       # === Parameters
@@ -49,8 +62,8 @@ class NotionToMd
       # === Returns
       # An array of NotionToMd::Blocks::Block.
       #
-      def build
-        notion_blocks = fetch_blocks.call(block_id)
+      def call
+        notion_blocks = fetch_blocks
         blocks = notion_blocks.map do |block|
           children = if Builder.permitted_children_for?(block: block)
                        Builder.new(block_id: block.id, &fetch_blocks).build
@@ -61,6 +74,33 @@ class NotionToMd
         end
 
         Normalizer.normalize(blocks: blocks)
+      end
+
+      # === Parameters
+      # block_id::
+      #   A string representing a notion block id.
+      #
+      # === Returns
+      # An array of Notion::Messages::Message.
+      #
+      def fetch_blocks
+        all_results  = []
+        start_cursor = nil
+
+        loop do
+          params = { block_id: block_id }
+          params[:start_cursor] = start_cursor if start_cursor
+
+          resp = notion_client.block_children(params)
+
+          all_results.concat(resp.results)
+
+          break unless resp.has_more && resp.next_cursor
+
+          start_cursor = resp.next_cursor
+        end
+
+        all_results
       end
     end
   end

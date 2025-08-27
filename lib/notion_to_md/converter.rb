@@ -60,36 +60,7 @@ class NotionToMd
     end
 
     def build_blocks(block_id:)
-      Blocks.build(block_id: block_id) do |nested_block_id|
-        fetch_blocks(block_id: nested_block_id)
-      end
-    end
-
-    # === Parameters
-    # block_id::
-    #   A string representing a notion block id.
-    #
-    # === Returns
-    # An array of Notion::Messages::Message.
-    #
-    def fetch_blocks(block_id:)
-      all_results  = []
-      start_cursor = nil
-
-      loop do
-        params = { block_id: block_id }
-        params[:start_cursor] = start_cursor if start_cursor
-
-        resp = @notion.block_children(params)
-
-        all_results.concat(resp.results)
-
-        break unless resp.has_more && resp.next_cursor
-
-        start_cursor = resp.next_cursor
-      end
-
-      all_results
+      Blocks::Builder.call(block_id: block_id, notion_client: @notion)
     end
   end
 end

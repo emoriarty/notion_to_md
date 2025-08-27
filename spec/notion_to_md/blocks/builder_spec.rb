@@ -35,4 +35,27 @@ describe(NotionToMd::Blocks::Builder) do
       end
     end
   end
+
+  describe('.call') do
+    let(:notion_client) { Notion::Client.new(token: ENV.fetch('NOTION_TOKEN', nil)) }
+    let(:page_id) { '25adb135281c80828cb1dc59437ae243' }
+
+    before do
+      VCR.insert_cassette('a_very_long_notion_page')
+    end
+
+    after do
+      VCR.eject_cassette('a_very_long_notion_page')
+    end
+
+    it 'returns a list of NotionToMd::Blocks::Block' do
+      output = described_class.call(block_id: page_id, notion_client: notion_client)
+      expect(output).to all(be_an(NotionToMd::Blocks::Block))
+    end
+
+    it 'returned list with no children' do
+      output = described_class.call(block_id: page_id, notion_client: notion_client)
+      expect(output).to include(an_object_having_attributes(children: []))
+    end
+  end
 end
