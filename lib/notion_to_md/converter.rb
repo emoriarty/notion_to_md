@@ -5,11 +5,21 @@ class NotionToMd
   # Just create a new Converter instance by providing the page_id:
   #   page_converter = NotionToMd::Converter.new(page_id: '9dc17c9c9d2e469dbbf0f9648f3288d3')
   # Then, call for convert to obtain the markdown document:
-  #   page_converter.convert
+  #   page_converter.call
   class Converter
-    include Callee
+    class << self
+      def call(page_id:, token: nil, frontmatter: false)
+        md = new(page_id: page_id, token: token, frontmatter: frontmatter).call
 
-    attr_reader :page_id, :frontmatter
+        yield md if block_given?
+
+        md
+      end
+
+      alias convert call
+    end
+
+    attr_reader :page_id, :frontmatter, :notion_client
 
     # === Parameters
     # page_id::
@@ -21,7 +31,7 @@ class NotionToMd
     # A NotionToMd::Converter object.
     #
     def initialize(page_id:, token: nil, frontmatter: false)
-      @notion = Notion::Client.new(token: token || ENV.fetch('NOTION_TOKEN', nil))
+      @notion_client = Notion::Client.new(token: token || ENV.fetch('NOTION_TOKEN', nil))
       @page_id = page_id
       @frontmatter = frontmatter
     end
@@ -33,34 +43,14 @@ class NotionToMd
     # === Returns
     # The string that represent the markdown document.
     #
-    def convert(frontmatter: false)
-      md_page = Page.new(page: page, blocks: page_blocks)
+    def call
+      md_page = Page.build(page_id: page_id, notion_client: notion_client)
       <<~MD
         #{md_page.frontmatter if frontmatter}
         #{md_page.body}
       MD
     end
 
-    def call
-      md = convert frontmatter: frontmatter
-
-      yield md if block_given?
-
-      md
-    end
-
-    private
-
-    def page
-      @page ||= @notion.page(page_id: page_id)
-    end
-
-    def page_blocks
-      @page_blocks ||= build_blocks(block_id: page_id)
-    end
-
-    def build_blocks(block_id:)
-      Blocks::Builder.call(block_id: block_id, notion_client: @notion)
-    end
+    alias convert call
   end
 end

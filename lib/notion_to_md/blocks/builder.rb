@@ -16,29 +16,21 @@ class NotionToMd
         table
       ].freeze
 
-      # === Parameters
-      # block::
-      #   A {Notion::Messages::Message}[https://github.com/orbit-love/notion-ruby-client/blob/main/lib/notion/messages/message.rb] object.
-      #
-      # === Returns
-      # A boolean indicating if the blocked passed in
-      # is permitted to have children based on its type.
-      #
-      def self.permitted_children_for?(block:)
-        BLOCKS_WITH_PERMITTED_CHILDREN.include?(block.type.to_sym) && block.has_children
-      end
+      class << self
+        # === Parameters
+        # block_id::
+        #   A string representing a notion block id .
+        # notion_client::
+        #   An Notion::Client object
+        #
+        # === Returns
+        # An array of NotionToMd::Blocks::Block.
+        #
+        def call(block_id:, notion_client:)
+          new(block_id: block_id, notion_client: notion_client).call
+        end
 
-      # === Parameters
-      # block_id::
-      #   A string representing a notion block id .
-      # notion_client::
-      #   An Notion::Client object
-      #
-      # === Returns
-      # An array of NotionToMd::Blocks::Block.
-      #
-      def self.call(block_id:, notion_client:)
-        new(block_id: block_id, notion_client: notion_client).call
+        alias build call
       end
 
       attr_reader :block_id, :notion_client
@@ -65,8 +57,8 @@ class NotionToMd
       def call
         notion_blocks = fetch_blocks
         blocks = notion_blocks.map do |block|
-          children = if Builder.permitted_children_for?(block: block)
-                       Builder.new(block_id: block.id, &fetch_blocks).build
+          children = if permitted_children_for?(block: block)
+                       self.class.call(block_id: block.id, notion_client: notion_client)
                      else
                        []
                      end
@@ -74,6 +66,18 @@ class NotionToMd
         end
 
         Normalizer.normalize(blocks: blocks)
+      end
+
+      # === Parameters
+      # block::
+      #   A {Notion::Messages::Message}[https://github.com/orbit-love/notion-ruby-client/blob/main/lib/notion/messages/message.rb] object.
+      #
+      # === Returns
+      # A boolean indicating if the blocked passed in
+      # is permitted to have children based on its type.
+      #
+      def permitted_children_for?(block:)
+        BLOCKS_WITH_PERMITTED_CHILDREN.include?(block.type.to_sym) && block.has_children
       end
 
       # === Parameters

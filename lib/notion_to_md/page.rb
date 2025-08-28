@@ -5,64 +5,78 @@ class NotionToMd
   #
   # This class is responsible for representing a Notion page.
   class Page
+    extend Forwardable
     include Helpers::YamlSanitizer
 
-    attr_reader :page, :blocks
+    class << self
+      def call(page_id:, notion_client:)
+        metadata ||= notion_client.page(page_id: page_id)
+        blocks ||= Blocks::Builder.call(block_id: page_id, notion_client: notion_client)
 
-    def initialize(page:, blocks:)
-      @page = page
+        new(metadata: metadata, blocks: blocks)
+      end
+
+      alias build call
+    end
+
+    attr_reader :metadata, :blocks
+
+    def_delegators :@metadata, :properties
+
+    def initialize(metadata:, blocks:)
+      @metadata = metadata
       @blocks = blocks
     end
 
     def title
-      title_list = page.dig(:properties, :Name, :title) || page.dig(:properties, :title, :title)
+      title_list = metadata.dig(:properties, :Name, :title) || metadata.dig(:properties, :title, :title)
       title_list.inject('') do |acc, slug|
         acc + slug[:plain_text]
       end
     end
 
     def cover
-      PageProperty.external(page[:cover]) || PageProperty.file(page[:cover])
+      PageProperty.external(metadata[:cover]) || PageProperty.file(metadata[:cover])
     end
 
     def icon
-      PageProperty.emoji(page[:icon]) || PageProperty.external(page[:icon]) || PageProperty.file(page[:icon])
+      PageProperty.emoji(metadata[:icon]) || PageProperty.external(metadata[:icon]) || PageProperty.file(metadata[:icon])
     end
 
     def id
-      page[:id]
+      metadata[:id]
     end
 
     def created_time
-      page['created_time']
+      metadata['created_time']
     end
 
     def created_by_object
-      page.dig(:created_by, :object)
+      metadata.dig(:created_by, :object)
     end
 
     def created_by_id
-      page.dig(:created_by, :id)
+      metadata.dig(:created_by, :id)
     end
 
     def last_edited_time
-      page['last_edited_time']
+      metadata['last_edited_time']
     end
 
     def last_edited_by_object
-      page.dig(:last_edited_by, :object)
+      metadata.dig(:last_edited_by, :object)
     end
 
     def last_edited_by_id
-      page.dig(:last_edited_by, :id)
+      metadata.dig(:last_edited_by, :id)
     end
 
     def url
-      page[:url]
+      metadata[:url]
     end
 
     def archived
-      page[:archived]
+      metadata[:archived]
     end
 
     def body
@@ -117,7 +131,7 @@ class NotionToMd
     end
 
     def build_custom_properties
-      page.properties.each_with_object({}) do |(name, value), memo|
+      properties.each_with_object({}) do |(name, value), memo|
         type = value.type
         next unless valid_custom_property_type?(type)
 
