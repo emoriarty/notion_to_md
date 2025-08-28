@@ -3,41 +3,36 @@
 require 'spec_helper'
 
 describe(NotionToMd::Converter) do
-  let(:notion_client) { instance_double(Notion::Client) }
-  let(:token) { 'secret_token' }
-  let(:page_id) { 'page_id' }
-  let(:page) { instance_double(NotionToMd::Page, id: page_id) }
-  let(:page_blocks) { instance_double(NotionToMd::Blocks) }
+  let(:token) { ENV.fetch('NOTION_TOKEN', nil) }
+  let(:page_id) { '25adb135281c80828cb1dc59437ae243' }
 
   before do
-    allow(Notion::Client).to receive(:new).and_return(notion_client)
-    allow(notion_client).to receive(:page).with(page_id: page_id).and_return(page)
-    allow(NotionToMd::Blocks).to receive(:build).and_return(page_blocks)
-    allow(NotionToMd::Page).to receive(:new).with(page: page, blocks: page_blocks).and_return(page)
-    allow(page).to receive_messages(frontmatter: 'frontmatter', body: 'body')
+    VCR.insert_cassette('a_very_long_notion_page')
   end
 
-  describe('#new') do
-    it 'creates a new instance of Notion::Client' do
-      described_class.new(page_id: page_id, token: token)
-
-      expect(Notion::Client).to have_received(:new).with(token: token)
-    end
+  after do
+    VCR.eject_cassette('a_very_long_notion_page')
   end
 
   describe('#convert') do
     it 'returns the markdown document' do
-      expect(described_class.new(page_id: page_id).convert).to eq("\nbody\n")
+      expect(described_class.new(page_id: page_id).convert)
+        .to start_with("\nLorem ipsum dolor sit amet")
+        .and end_with("tempor nec odio.\n\n\n")
     end
   end
 
   describe('.call') do
     it 'returns the markdown document' do
-      expect(described_class.call(page_id: page_id)).to eq("\nbody\n")
+      expect(described_class.call(page_id: page_id))
+        .to start_with("\nLorem ipsum dolor sit amet")
+        .and end_with("tempor nec odio.\n\n\n")
     end
 
     it 'returns the markdown document with frontmatter' do
-      expect(described_class.call(page_id: page_id, frontmatter: true)).to eq("frontmatter\nbody\n")
+      expect(described_class.call(page_id: page_id, frontmatter: true))
+        .to start_with("---\n")
+        .and end_with("tempor nec odio.\n\n\n")
     end
 
     context('with a block') do
@@ -46,7 +41,9 @@ describe(NotionToMd::Converter) do
 
         described_class.call(page_id: page_id) { output = _1 }
 
-        expect(output).to eq("\nbody\n")
+        expect(output)
+          .to start_with("\nLorem ipsum dolor sit amet")
+          .and end_with("tempor nec odio.\n\n\n")
       end
 
       it 'returns the markdown document with frontmatter' do
@@ -54,7 +51,9 @@ describe(NotionToMd::Converter) do
 
         described_class.call(page_id: page_id, frontmatter: true) { output = _1 }
 
-        expect(output).to eq("frontmatter\nbody\n")
+        expect(output)
+          .to start_with("---\n")
+          .and end_with("tempor nec odio.\n\n\n")
       end
     end
   end
