@@ -3,14 +3,14 @@
 require 'spec_helper'
 
 describe(NotionToMd::Page) do
-  subject(:page) { described_class.new(page: notion_page, blocks: notion_blocks) }
+  subject(:page) { described_class.new(metadata: metadata, blocks: blocks) }
 
-  let(:notion_page) { nil }
-  let(:notion_blocks) { nil }
+  let(:metadata) { nil }
+  let(:blocks) { nil }
 
   describe('#custom_props') do
     context 'with a null select prop' do
-      let(:notion_page) do
+      let(:metadata) do
         Notion::Messages::Message.new(
           properties: {
             nil_select: { id: 'xxxx', type: 'select', select: nil }
@@ -27,7 +27,7 @@ describe(NotionToMd::Page) do
   describe('#icon') do
     context('when is an emoji') do
       let(:emoji) { '\U0001F4A5' }
-      let(:notion_page) do
+      let(:metadata) do
         {
           icon: {
             type: 'emoji',
@@ -41,7 +41,7 @@ describe(NotionToMd::Page) do
 
     context('when is an external file') do
       let(:url) { 'https://s3.us-west-2.amazonaws.com/secure.notion-static.com/X3f70b1X-2331-4012-99bc-24gcbd1c85sb/test.jpeg' }
-      let(:notion_page) do
+      let(:metadata) do
         {
           icon: {
             type: 'external',
@@ -61,7 +61,7 @@ describe(NotionToMd::Page) do
     let(:title) { 'Dummy title' }
 
     context('when the title is in the Name property') do
-      let(:notion_page) do
+      let(:metadata) do
         {
           properties: {
             Name: {
@@ -78,7 +78,7 @@ describe(NotionToMd::Page) do
     end
 
     context('when the title is in the title property') do
-      let(:notion_page) do
+      let(:metadata) do
         {
           properties: {
             title: {
@@ -96,7 +96,7 @@ describe(NotionToMd::Page) do
   end
 
   describe('#frontmatter') do
-    let(:notion_page) do
+    let(:metadata) do
       Notion::Messages::Message.new(
         id: 'xxxx',
         cover: {
@@ -175,7 +175,7 @@ describe(NotionToMd::Page) do
     end
 
     context 'when the title contains colons' do
-      let(:notion_page) do
+      let(:metadata) do
         Notion::Messages::Message.new(
           properties: {
             title: {
@@ -194,7 +194,7 @@ describe(NotionToMd::Page) do
     end
 
     context 'when the title contains double quotes' do
-      let(:notion_page) do
+      let(:metadata) do
         Notion::Messages::Message.new(
           properties: {
             title: {
@@ -213,7 +213,7 @@ describe(NotionToMd::Page) do
     end
 
     context 'when the title contains hyphens' do
-      let(:notion_page) do
+      let(:metadata) do
         Notion::Messages::Message.new(
           properties: {
             title: {
@@ -232,7 +232,7 @@ describe(NotionToMd::Page) do
     end
 
     context 'when the title contains diacritics' do
-      let(:notion_page) do
+      let(:metadata) do
         Notion::Messages::Message.new(
           properties: {
             title: {
