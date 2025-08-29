@@ -8,9 +8,9 @@ class NotionToMd
     extend Forwardable
 
     class << self
-      def call(database_id:, notion_client:)
+      def call(database_id:, notion_client:, filter: nil, sorts: [])
         metadata = notion_client.database(database_id: database_id)
-        pages = Builder.call(database_id: database_id, notion_client: notion_client)
+        pages = Builder.call(database_id: database_id, notion_client: notion_client, filter: filter, sorts: sorts)
 
         new(metadata: metadata, pages: pages)
       end

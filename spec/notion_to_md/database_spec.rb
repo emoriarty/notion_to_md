@@ -3,10 +3,11 @@
 require 'spec_helper'
 
 RSpec.describe NotionToMd::Database do
-  subject(:db) { described_class.call(database_id: database_id, notion_client: notion_client) }
+  subject(:db) { described_class.call(database_id: database_id, notion_client: notion_client, filter: filter) }
 
   let(:database_id) { '1ae33dd5f3314402948069517fa40ae2' }
   let(:notion_client) { Notion::Client.new(token: ENV.fetch('NOTION_TOKEN', nil)) }
+  let(:filter) { nil }
 
   before { VCR.insert_cassette('a_database') }
   after  { VCR.eject_cassette('a_database') }
@@ -42,7 +43,7 @@ RSpec.describe NotionToMd::Database do
   end
 
   describe 'delegated methods' do
-    describe '.properties' do
+    describe '#properties' do
       it 'is delegated and responds to #properties' do
         expect(db).to respond_to(:properties)
       end
@@ -89,6 +90,29 @@ RSpec.describe NotionToMd::Database do
 
     it 'raises a Notion API error' do
       expect { db }.to raise_error(Notion::Api::Errors::ObjectNotFound)
+    end
+  end
+
+  context 'with filter argument' do
+    let(:database_id) { 'b264f9dd76fd45e3a014d7e7e069a5dc' }
+    let(:filter) do
+      {
+        property: 'director',
+        rich_text: { equals: 'Sergio Leone' }
+      }
+    end
+
+    before { VCR.insert_cassette('filtered_database') }
+    after  { VCR.eject_cassette('filtered_database') }
+
+    it 'returns 3 pages' do
+      expect(db.pages.count).to eq(3)
+    end
+
+    it 'only returns pages containing the filtered property' do
+      expect(db.pages).to all(
+        satisfy { |page| page.properties.keys.map(&:downcase).include?(filter[:property].downcase) }
+      )
     end
   end
 end
