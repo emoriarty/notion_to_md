@@ -1,0 +1,76 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.notion.com/v1/databases/unknown
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - Notion Ruby Client/1.2.2
+      Authorization:
+      - "<REDACTED>"
+      Notion-Version:
+      - '2022-02-22'
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      date:
+      - Fri, 29 Aug 2025 11:00:18 GMT
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      content-encoding:
+      - gzip
+      cf-ray:
+      - 976b8b3ced77c84f-MRS
+      cf-cache-status:
+      - DYNAMIC
+      etag:
+      - W/"f4-UiOsk+uF2cch4ya85Oc3TyG/qRE"
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      vary:
+      - Accept-Encoding
+      content-security-policy:
+      - default-src 'none'
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      x-content-type-options:
+      - nosniff
+      x-dns-prefetch-control:
+      - 'off'
+      x-download-options:
+      - noopen
+      x-frame-options:
+      - SAMEORIGIN
+      x-notion-request-id:
+      - 9dce693a-86a4-42fe-af65-9cbfa26d080e
+      x-permitted-cross-domain-policies:
+      - none
+      x-xss-protection:
+      - '0'
+      set-cookie:
+      - __cf_bm=6gAXG4G9CbRbVsC.DTc_lAABvncxfxNL7XYFbUd4tIo-1756465218-1.0.1.1-ue5g7U4_7_zVmJ2hgOCOgUBKmCPS73juEJsUYV75DIkBu1UQxf4jOp74e911OGS6lFAfBruqgD..OVsTA1vf7IKzZ_03RgH0MRV2laabzOE;
+        path=/; expires=Fri, 29-Aug-25 11:30:18 GMT; domain=.notion.com; HttpOnly;
+        Secure; SameSite=None, _cfuvid=p0IomqbhqVZGWUa5UW3uH8G6Jn3cndlblKnqmQt4.Gk-1756465218652-0.0.1.1-604800000;
+        path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None
+      server:
+      - cloudflare
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: '{"object":"error","status":404,"code":"object_not_found","message":"Could
+        not find database with ID: unknown----. Make sure the relevant pages and databases
+        are shared with your integration.","request_id":"9dce693a-86a4-42fe-af65-9cbfa26d080e"}'
+  recorded_at: Fri, 29 Aug 2025 11:00:02 GMT
+recorded_with: VCR 6.3.1
