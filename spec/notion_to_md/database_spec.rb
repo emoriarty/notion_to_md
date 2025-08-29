@@ -71,6 +71,38 @@ RSpec.describe NotionToMd::Database do
     describe '#id' do
       it { expect(db.id).to eq('1ae33dd5-f331-4402-9480-69517fa40ae2') }
     end
+
+    describe '#created_time' do
+      it { expect(db.created_time).to eq('2022-01-23T12:31:00.000Z') }
+    end
+
+    describe '#url' do
+      it { expect(db.url).to eq('https://www.notion.so/1ae33dd5f3314402948069517fa40ae2') }
+    end
+
+    describe '#archived' do
+      it { expect(db.archived).to be(false) }
+    end
+
+    describe '#cover' do
+      it { expect(db.cover).to eq('https://www.notion.so/images/page-cover/met_silk_kashan_carpet.jpg') }
+    end
+
+    describe '#icon' do
+      it { expect(db.icon).to eq('🗡️') }
+    end
+
+    describe '#last_edited_time' do
+      it { expect(db.last_edited_time).to eq('2025-08-29T14:54:00.000Z') }
+    end
+
+    describe '#last_edited_by_object' do
+      it { expect(db.last_edited_by_object).to eq('user') }
+    end
+
+    describe '#last_edited_by_id' do
+      it { expect(db.last_edited_by_id).to eq('db313571-0280-411f-a6de-70e826421d12') }
+    end
   end
 
   context 'with an empty database' do

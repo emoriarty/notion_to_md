@@ -39,7 +39,4 @@ NotionToMd::Logger.level = Logger::ERROR
 RSpec.configure do |config|
   config.run_all_when_everything_filtered = true
   config.filter_run :focus
-
-  # Load support files
-  Dir[File.join(__dir__, 'support/**/*.rb')].sort.each { |f| require f }
 end
