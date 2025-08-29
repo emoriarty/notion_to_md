@@ -3,12 +3,10 @@
 require 'spec_helper'
 
 describe(NotionToMd::Page) do
-  subject(:page) { described_class.new(metadata: metadata, children: blocks) }
+  subject(:page) { described_class.new(metadata: metadata, blocks: blocks) }
 
   let(:metadata) { nil }
   let(:blocks) { nil }
-
-  it_behaves_like 'metadata container'
 
   describe('#custom_props') do
     context 'with a null select prop' do
@@ -23,6 +21,44 @@ describe(NotionToMd::Page) do
       it 'excludes the prop from the return' do
         expect(page.custom_props).not_to include('nil_select')
       end
+    end
+  end
+
+  describe('#title') do
+    let(:title) { 'Dummy title' }
+
+    context('when the title is in the Name property') do
+      let(:metadata) do
+        {
+          properties: {
+            Name: {
+              type: 'title',
+              title: [
+                { plain_text: title }
+              ]
+            }
+          }
+        }
+      end
+
+      it { expect(page.title).to eq(title) }
+    end
+
+    context('when the title is in the title property') do
+      let(:metadata) do
+        {
+          properties: {
+            title: {
+              type: 'text',
+              title: [
+                { plain_text: title }
+              ]
+            }
+          }
+        }
+      end
+
+      it { expect(page.title).to eq(title) }
     end
   end
 

@@ -13,8 +13,6 @@ RSpec.describe NotionToMd::Database do
   before { VCR.insert_cassette('a_database') }
   after  { VCR.eject_cassette('a_database') }
 
-  it_behaves_like 'metadata container'
-
   describe '.call' do
     it 'returns a NotionToMd::Database' do
       expect(db).to be_a(described_class)
