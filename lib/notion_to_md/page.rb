@@ -10,8 +10,8 @@ class NotionToMd
 
     class << self
       def call(page_id:, notion_client:)
-        metadata ||= notion_client.page(page_id: page_id)
-        blocks ||= Blocks::Builder.call(block_id: page_id, notion_client: notion_client)
+        metadata = notion_client.page(page_id: page_id)
+        blocks = Blocks::Builder.call(block_id: page_id, notion_client: notion_client)
 
         new(metadata: metadata, blocks: blocks)
       end
