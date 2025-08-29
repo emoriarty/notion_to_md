@@ -91,5 +91,4 @@ RSpec.describe NotionToMd::Database do
       expect { db }.to raise_error(Notion::Api::Errors::ObjectNotFound)
     end
   end
-
 end
