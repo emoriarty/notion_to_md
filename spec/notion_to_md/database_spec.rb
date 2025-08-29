@@ -3,11 +3,12 @@
 require 'spec_helper'
 
 RSpec.describe NotionToMd::Database do
-  subject(:db) { described_class.call(database_id: database_id, notion_client: notion_client, filter: filter) }
+  subject(:db) { described_class.call(database_id: database_id, notion_client: notion_client, filter: filter, sorts: sorts) }
 
   let(:database_id) { '1ae33dd5f3314402948069517fa40ae2' }
   let(:notion_client) { Notion::Client.new(token: ENV.fetch('NOTION_TOKEN', nil)) }
   let(:filter) { nil }
+  let(:sorts) { nil }
 
   before { VCR.insert_cassette('a_database') }
   after  { VCR.eject_cassette('a_database') }
@@ -113,6 +114,30 @@ RSpec.describe NotionToMd::Database do
       expect(db.pages).to all(
         satisfy { |page| page.properties.keys.map(&:downcase).include?(filter[:property].downcase) }
       )
+    end
+  end
+
+  context 'with sorts argument' do
+    let(:database_id) { 'b264f9dd76fd45e3a014d7e7e069a5dc' }
+    let(:sorts) do
+      [
+        {
+          property: 'year',
+          direction: 'ascending'
+        }
+      ]
+    end
+
+    before { VCR.insert_cassette('sorted_database') }
+    after  { VCR.eject_cassette('sorted_database') }
+
+    it 'returns 6 pages' do
+      expect(db.pages.count).to eq(6)
+    end
+
+    it 'orders pages by year ascending' do
+      years = db.pages.map { |page| page.properties['year'].number }
+      expect(years).to eq(years.sort)
     end
   end
 end

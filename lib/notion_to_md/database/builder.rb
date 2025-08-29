@@ -4,7 +4,7 @@ class NotionToMd
   class Database
     class Builder
       class << self
-        def call(database_id:, notion_client:, filter: nil, sorts: {})
+        def call(database_id:, notion_client:, filter: nil, sorts: nil)
           new(database_id: database_id, notion_client: notion_client, filter: filter, sorts: sorts).call
         end
 
@@ -13,7 +13,7 @@ class NotionToMd
 
       attr_reader :database_id, :notion_client, :filter, :sorts
 
-      def initialize(database_id:, notion_client:, filter: nil, sorts: {})
+      def initialize(database_id:, notion_client:, filter: nil, sorts: nil)
         @database_id = database_id
         @notion_client = notion_client
         @filter = filter
@@ -31,7 +31,7 @@ class NotionToMd
         start_cursor = nil
 
         loop do
-          params = { database_id: database_id, filter: filter, sorts: sorts }
+          params = { database_id: database_id, filter: filter, sorts: sorts }.compact
           params[:start_cursor] = start_cursor if start_cursor
 
           resp = notion_client.database_query(params)

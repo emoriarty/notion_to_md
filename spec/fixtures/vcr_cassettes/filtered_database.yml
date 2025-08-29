@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Fri, 29 Aug 2025 13:13:55 GMT
+      - Fri, 29 Aug 2025 13:28:14 GMT
       content-type:
       - application/json; charset=utf-8
       transfer-encoding:
@@ -31,13 +31,13 @@ http_interactions:
       server:
       - cloudflare
       cf-ray:
-      - 976c4ef8e8f9e20c-MRS
+      - 976c63ee5f1be28a-MRS
       cf-cache-status:
       - DYNAMIC
       content-encoding:
       - gzip
       etag:
-      - W/"561-4KcFdmjaCnZqVCYse71RdUpNO2k"
+      - W/"561-c0yf9jQCj9i9eVeZIANxyXCwtoM"
       strict-transport-security:
       - max-age=31536000; includeSubDomains; preload
       vary:
@@ -55,15 +55,15 @@ http_interactions:
       x-frame-options:
       - SAMEORIGIN
       x-notion-request-id:
-      - 47fd457a-363b-46ff-b747-74b4f28d1a2f
+      - 9842eda5-ef21-4a3f-9534-59930c9983dd
       x-permitted-cross-domain-policies:
       - none
       x-xss-protection:
       - '0'
       set-cookie:
-      - __cf_bm=uxIjvB.TyRH6wSmHkQy3b59szT.TBMYDW_ujanU3sqo-1756473235-1.0.1.1-JLu_Q8F5s7oflpWvysCf32IHjr653b9M6D_LKQl3sXuM_s6eqkkbqW9rgWdOYmaWghUdhFcVCJOr3EKdta9iOBdUh1QYmaN.KpJl7VTspys;
-        path=/; expires=Fri, 29-Aug-25 13:43:55 GMT; domain=.notion.com; HttpOnly;
-        Secure; SameSite=None, _cfuvid=ypdL5H49EKh.KV1IbxkZe1DJ4VvabSqPtON_T8RlOvM-1756473235613-0.0.1.1-604800000;
+      - __cf_bm=Ppe.ONKcNZfGkSpkmilpIveN0toQraUy12AajswsxTA-1756474094-1.0.1.1-2Az.ha4I1eDxWhni1DH6s3FJUqs0CyH_BTayTOeEq_NR_z9n2Nk0ZbbVjgU9CLqONip73QvZaNgkjvYcgri6tr1rN5Njik2FTNUhUfFp0qg;
+        path=/; expires=Fri, 29-Aug-25 13:58:14 GMT; domain=.notion.com; HttpOnly;
+        Secure; SameSite=None, _cfuvid=IHbKeiLHIcCoKHAcxcvKuHHvsO9mpQVUIBfkymCFVGk-1756474094202-0.0.1.1-604800000;
         path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None
       alt-svc:
       - h3=":443"; ma=86400
@@ -71,14 +71,14 @@ http_interactions:
       encoding: UTF-8
       string: '{"object":"database","id":"b264f9dd-76fd-45e3-a014-d7e7e069a5dc","cover":null,"icon":null,"created_time":"2022-02-05T16:31:00.000Z","created_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"last_edited_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"last_edited_time":"2025-08-29T12:51:00.000Z","title":[{"type":"text","text":{"content":"jekyll-notion
         works","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"jekyll-notion
-        works","href":null}],"description":[],"is_inline":false,"properties":{"files":{"id":"CooI","name":"files","description":null,"type":"files","files":{}},"Created":{"id":"OoEJ","name":"Created","description":null,"type":"created_time","created_time":{}},"year":{"id":"QhPM","name":"year","description":null,"type":"number","number":{"format":"number"}},"poster":{"id":"SZe%3B","name":"poster","description":null,"type":"url","url":{}},"director":{"id":"nGgM","name":"director","description":null,"type":"rich_text","rich_text":{}},"Name":{"id":"title","name":"Name","description":null,"type":"title","title":{}}},"parent":{"type":"workspace","workspace":true},"url":"https://www.notion.so/b264f9dd76fd45e3a014d7e7e069a5dc","public_url":null,"archived":false,"in_trash":false,"request_id":"47fd457a-363b-46ff-b747-74b4f28d1a2f"}'
-  recorded_at: Fri, 29 Aug 2025 13:13:39 GMT
+        works","href":null}],"description":[],"is_inline":false,"properties":{"files":{"id":"CooI","name":"files","description":null,"type":"files","files":{}},"Created":{"id":"OoEJ","name":"Created","description":null,"type":"created_time","created_time":{}},"year":{"id":"QhPM","name":"year","description":null,"type":"number","number":{"format":"number"}},"poster":{"id":"SZe%3B","name":"poster","description":null,"type":"url","url":{}},"director":{"id":"nGgM","name":"director","description":null,"type":"rich_text","rich_text":{}},"Name":{"id":"title","name":"Name","description":null,"type":"title","title":{}}},"parent":{"type":"workspace","workspace":true},"url":"https://www.notion.so/b264f9dd76fd45e3a014d7e7e069a5dc","public_url":null,"archived":false,"in_trash":false,"request_id":"9842eda5-ef21-4a3f-9534-59930c9983dd"}'
+  recorded_at: Fri, 29 Aug 2025 13:27:58 GMT
 - request:
     method: post
     uri: https://api.notion.com/v1/databases/b264f9dd76fd45e3a014d7e7e069a5dc/query
     body:
       encoding: UTF-8
-      string: '{"filter":{"property":"director","rich_text":{"equals":"Sergio Leone"}},"sorts":[]}'
+      string: '{"filter":{"property":"director","rich_text":{"equals":"Sergio Leone"}}}'
     headers:
       Accept:
       - application/json; charset=utf-8
@@ -96,7 +96,7 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Fri, 29 Aug 2025 13:13:56 GMT
+      - Fri, 29 Aug 2025 13:28:51 GMT
       content-type:
       - application/json; charset=utf-8
       transfer-encoding:
@@ -106,13 +106,13 @@ http_interactions:
       server:
       - cloudflare
       cf-ray:
-      - 976c4efb0f2e8ca3-MRS
+      - 976c64bfbf1a11b5-MRS
       cf-cache-status:
       - DYNAMIC
       content-encoding:
       - gzip
       etag:
-      - W/"25fb-KoMj++ndk2C9S6+p4ogPNmb6Nis"
+      - W/"25fb-gVI1tF+pJOZSjm6+10Lc7NZS1wM"
       strict-transport-security:
       - max-age=31536000; includeSubDomains; preload
       vary:
@@ -130,34 +130,34 @@ http_interactions:
       x-frame-options:
       - SAMEORIGIN
       x-notion-request-id:
-      - 25ea2088-35f8-43d2-b5f4-3e85bcfe95d8
+      - 256e36d1-8b31-4b3a-9c5d-b5fdcef8d2a8
       x-permitted-cross-domain-policies:
       - none
       x-xss-protection:
       - '0'
       set-cookie:
-      - __cf_bm=kHVdVK3LGgd1GZKrUzQAreu5lp9trm9ZeygqC9XcLB4-1756473236-1.0.1.1-2pQukE2Lx9TGCxyZ5eHkhMUdJpJJVFOA1IpKS8ojngR2FgdLSDdsa2MNntGREqDWeD7EgNYdfn7TKV1kHqLk3YxNMs23zEOrsUTlDCKIVHU;
-        path=/; expires=Fri, 29-Aug-25 13:43:56 GMT; domain=.notion.com; HttpOnly;
-        Secure; SameSite=None, _cfuvid=ZGJiuOdRxpE7XB4.zG565hY_8gyWrCh8AWV5ON5xLf0-1756473236470-0.0.1.1-604800000;
+      - __cf_bm=7Wuc.ndbGmMWfcbLkkhrakZg33_KcpNaoVvhy3aJ0i8-1756474131-1.0.1.1-ouOl8FPL0LODYWvg.R8TEppO1WHLV2jjP5lNwPcO0O1ojQOKivtq9SPN2apUz1FL3ag9_Cw1O9RQOZaK4DtRpSk39n9y_wkn58bwHYXg2qI;
+        path=/; expires=Fri, 29-Aug-25 13:58:51 GMT; domain=.notion.com; HttpOnly;
+        Secure; SameSite=None, _cfuvid=Q3KKHJFS4S4OoZLbPWZoeSudCgQaC2JeazWDzZB.up4-1756474131835-0.0.1.1-604800000;
         path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None
       alt-svc:
       - h3=":443"; ma=86400
     body:
       encoding: UTF-8
-      string: '{"object":"list","results":[{"object":"page","id":"8f2264ad-4a9a-4ff3-afef-c69f5626c440","created_time":"2022-02-19T23:29:00.000Z","last_edited_time":"2025-08-29T13:13:00.000Z","created_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"last_edited_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"cover":null,"icon":null,"parent":{"type":"database_id","database_id":"b264f9dd-76fd-45e3-a014-d7e7e069a5dc"},"archived":false,"in_trash":false,"properties":{"files":{"id":"CooI","type":"files","files":[{"name":"cattivo.md","type":"file","file":{"url":"https://prod-files-secure.s3.us-west-2.amazonaws.com/4783548e-2442-4bf3-bb3d-ed4ddd2dcdf0/3522723c-7b57-4b41-ab43-c344d86f86f4/cattivo.md?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB4665HTCQU4W%2F20250829%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250829T131356Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCXVzLXdlc3QtMiJIMEYCIQCt57dhxjgljCo%2FlyEHctkicl08OPSNwt18phnhzvC4KQIhAP8Iy0VvQFJvTZAOWVSmcoSQEqgP3FMVGXzkkHsA%2BvYXKogECL3%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMNjM3NDIzMTgzODA1Igyacg1VtEPomlaB7GMq3ANmQkm8aOrPkgyV3otlFTYY3LnzyXvFKd6Ty5bJt1moF5iGESnODCuhtpWmOFl0IJOwZTod3SZLVh1GGobiCIzOtmr98nK%2FIuVilVnlaYI5ZSr1kWR3xLFs%2Bd0rOgDM2LXKBukD1SY9PdG2ggniZgqaelM7bg1yiI13xMIm8KRI1R%2BakSmIEMwiBDJK%2Fv4G4U7snw%2F17NSPrWv8U5DwS98Z9M6vaK2JJY3u6FXrX2kcftYcl4u14KlOeeq7ElZEzO9j8oO7PaFDRmGv59Rh%2BlFqlb5LP5R8%2FzpM8MIbgUE2VEh%2FMy4mkhkX73%2BYP5E%2BU5VBqWchuvb4D3GAk4UAqP6CX%2F2eFkucF%2Fos6vAmmU78vRLqw4NwPfSRDH2BYUi1QgZSn1dAi4s0hKXkVleE%2BMIcHlZ98Hpxl0Oh8%2BKrV5%2FVqlGzhcbLjR4gXFuyYuAkVDLGb2zcXjB123fnx7B98Lj178IF1EpiIeZyXco1DrR725Mfxd8TV%2F9vQdX9dsgS2ImX0twXNsRXDLlU%2BtPkW4yVvNwwfVMpTuV%2Fm387iagts3DVzc4DIVImOPx8lYxXZNvrVDoBtQ32AG4Bes3ilODHTlF7N%2B8pjVFBlSB1Pamdmok%2FJOvyw9VqHe%2FY3DDpqcbFBjqkAWgc%2BoJHvOVBPNtkcTE2xaxeody2l2BpDCaDLMSuLCf%2BdGuJdItyNDlLdfZYBQCTX46pPDo527yzYbuOnmMBzGojXOc5Joap6FuIsVZQbWPPQWG0czkXXQY6UNXHuTfv0mjJUUqnZQlLwOlljPs81HwumXdF0LiAeRrbQ9%2FHjfyKfETh11Kvq%2FLrXhNcwFtfL94u5kYPGELb276pjg1s7NWSDiPU&X-Amz-Signature=3f75e6f9f380a7fa72d312b2646120b91199dc301c8dac0fbf56ed0d62bfe4cc&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject","expiry_time":"2025-08-29T14:13:56.379Z"}}]},"Created":{"id":"OoEJ","type":"created_time","created_time":"2022-02-19T23:29:00.000Z"},"year":{"id":"QhPM","type":"number","number":1966},"poster":{"id":"SZe%3B","type":"url","url":"https://upload.wikimedia.org/wikipedia/en/4/45/Good_the_bad_and_the_ugly_poster.jpg"},"director":{"id":"nGgM","type":"rich_text","rich_text":[{"type":"text","text":{"content":"Sergio
+      string: '{"object":"list","results":[{"object":"page","id":"8f2264ad-4a9a-4ff3-afef-c69f5626c440","created_time":"2022-02-19T23:29:00.000Z","last_edited_time":"2025-08-29T13:13:00.000Z","created_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"last_edited_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"cover":null,"icon":null,"parent":{"type":"database_id","database_id":"b264f9dd-76fd-45e3-a014-d7e7e069a5dc"},"archived":false,"in_trash":false,"properties":{"files":{"id":"CooI","type":"files","files":[{"name":"cattivo.md","type":"file","file":{"url":"https://prod-files-secure.s3.us-west-2.amazonaws.com/4783548e-2442-4bf3-bb3d-ed4ddd2dcdf0/3522723c-7b57-4b41-ab43-c344d86f86f4/cattivo.md?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466QPPKABYG%2F20250829%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250829T132851Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGYaCXVzLXdlc3QtMiJHMEUCIAjMOOebChI1pmNeEUnJG38zS0cdXbX4ja0awb2uwYxwAiEAm4MHks7wi0gjJH2EbHhU2ja9LCMtVall6yG4AyiHhI4qiAQIvv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw2Mzc0MjMxODM4MDUiDIkkb7EJh2mCe%2FqgrircA9wIIxYmDw2T5QTDtCs0W6YcYGG7yBgmP68qhO7Iw9S5UiaVo5nfZhxUsCqhRCJz6JzFMIKxWPRWa4DjS%2BgO5WCQHfnXAnbFRCyxMMg9Ff5%2FUpuL%2Ba1h6ai9GehIQZDWa1dGXEOckymuOSXBKKHcSZh62iZ4URS3L7a8dtGQcI%2BKJgbueHySovfxll4Jk9uPK9RrC0GfWULnuShfHZHST8Lg8f8Ntnkxc%2FOm26ohu75DLs%2BHJJXgandxl9pPPNwkZl%2F5AY9Uy%2B%2FGHCwbZQz1n7CcMp0GD6DX8qZSWIZNB6abITR3EplwEvalJ0zvXiaUjB68EdN%2F0aAkLzjSd95WefAWqmtlwT6UllrBIAnoCWLm%2BxAUKbKINWRWUslgL2CSKu9dSlmLEfPQh2vwD6fVFme0cp6HewydVnbxC0fKrLRLfltIIAkezfS%2BAsyvFlWljWnhYiw0zPMC7XVi%2B5Ziv1HIW75vUX%2Ft4yAPcFH8VPZyziyxtRoo3U3%2FMD6IX%2B5FuCjaBs8MKg5CAab1HYoRG8nrBxENDrWbbYmnUZWXWX6VbLaF%2FlvhZXMLtBcxiD4DKhTcZtEmx4eVMXDv82VF37CtLmnht67QKeqKKIRrpDcRAhXmC00nn2f%2BEkf3MKTRxsUGOqUBDS7YamM53%2Fd55pXpLmjHwXq5BOkVMsi7jd7OWFH8pjpKbyDb8I%2FyIrcyeMgtgyFf1UiJ0yBImsOcMbYZWOPkuC96EAHBiR6bW9OTOdM9Dna0q0GBsfcN84tf9x%2FW%2BT6aaYBB%2BtVYkf12C5vk3%2BTM1%2FuRtdmDbFNCuDtXXoeVpIjacKVNJt9tndvj%2BqrUsqkMhBSL2R2cUjxi1cwGCAMX6IA4rZyW&X-Amz-Signature=62a8059cfa1b1d5a73b372feb2d949db599738cfd800e3a22acea75ca3e382f5&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject","expiry_time":"2025-08-29T14:28:51.042Z"}}]},"Created":{"id":"OoEJ","type":"created_time","created_time":"2022-02-19T23:29:00.000Z"},"year":{"id":"QhPM","type":"number","number":1966},"poster":{"id":"SZe%3B","type":"url","url":"https://upload.wikimedia.org/wikipedia/en/4/45/Good_the_bad_and_the_ugly_poster.jpg"},"director":{"id":"nGgM","type":"rich_text","rich_text":[{"type":"text","text":{"content":"Sergio
         Leone","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Sergio
         Leone","href":null}]},"Name":{"id":"title","type":"title","title":[{"type":"text","text":{"content":"Il
         buono, il brutto, il cattivo","link":null},"annotations":{"bold":false,"italic":true,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Il
-        buono, il brutto, il cattivo","href":null}]}},"url":"https://www.notion.so/Il-buono-il-brutto-il-cattivo-8f2264ad4a9a4ff3afefc69f5626c440","public_url":null},{"object":"page","id":"0ace4cc3-4974-4c5f-a3b2-b4338a19b678","created_time":"2022-02-19T23:29:00.000Z","last_edited_time":"2025-08-29T13:13:00.000Z","created_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"last_edited_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"cover":null,"icon":null,"parent":{"type":"database_id","database_id":"b264f9dd-76fd-45e3-a014-d7e7e069a5dc"},"archived":false,"in_trash":false,"properties":{"files":{"id":"CooI","type":"files","files":[{"name":"piu.md","type":"file","file":{"url":"https://prod-files-secure.s3.us-west-2.amazonaws.com/4783548e-2442-4bf3-bb3d-ed4ddd2dcdf0/fef232a6-8266-4c05-b00a-dc92327b9eb9/piu.md?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB4665HTCQU4W%2F20250829%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250829T131356Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCXVzLXdlc3QtMiJIMEYCIQCt57dhxjgljCo%2FlyEHctkicl08OPSNwt18phnhzvC4KQIhAP8Iy0VvQFJvTZAOWVSmcoSQEqgP3FMVGXzkkHsA%2BvYXKogECL3%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMNjM3NDIzMTgzODA1Igyacg1VtEPomlaB7GMq3ANmQkm8aOrPkgyV3otlFTYY3LnzyXvFKd6Ty5bJt1moF5iGESnODCuhtpWmOFl0IJOwZTod3SZLVh1GGobiCIzOtmr98nK%2FIuVilVnlaYI5ZSr1kWR3xLFs%2Bd0rOgDM2LXKBukD1SY9PdG2ggniZgqaelM7bg1yiI13xMIm8KRI1R%2BakSmIEMwiBDJK%2Fv4G4U7snw%2F17NSPrWv8U5DwS98Z9M6vaK2JJY3u6FXrX2kcftYcl4u14KlOeeq7ElZEzO9j8oO7PaFDRmGv59Rh%2BlFqlb5LP5R8%2FzpM8MIbgUE2VEh%2FMy4mkhkX73%2BYP5E%2BU5VBqWchuvb4D3GAk4UAqP6CX%2F2eFkucF%2Fos6vAmmU78vRLqw4NwPfSRDH2BYUi1QgZSn1dAi4s0hKXkVleE%2BMIcHlZ98Hpxl0Oh8%2BKrV5%2FVqlGzhcbLjR4gXFuyYuAkVDLGb2zcXjB123fnx7B98Lj178IF1EpiIeZyXco1DrR725Mfxd8TV%2F9vQdX9dsgS2ImX0twXNsRXDLlU%2BtPkW4yVvNwwfVMpTuV%2Fm387iagts3DVzc4DIVImOPx8lYxXZNvrVDoBtQ32AG4Bes3ilODHTlF7N%2B8pjVFBlSB1Pamdmok%2FJOvyw9VqHe%2FY3DDpqcbFBjqkAWgc%2BoJHvOVBPNtkcTE2xaxeody2l2BpDCaDLMSuLCf%2BdGuJdItyNDlLdfZYBQCTX46pPDo527yzYbuOnmMBzGojXOc5Joap6FuIsVZQbWPPQWG0czkXXQY6UNXHuTfv0mjJUUqnZQlLwOlljPs81HwumXdF0LiAeRrbQ9%2FHjfyKfETh11Kvq%2FLrXhNcwFtfL94u5kYPGELb276pjg1s7NWSDiPU&X-Amz-Signature=4a3d5a9d98951be3d58c61d9ae6b18e2e432e52622b50f31e9e7e383c0cf5b08&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject","expiry_time":"2025-08-29T14:13:56.379Z"}}]},"Created":{"id":"OoEJ","type":"created_time","created_time":"2022-02-19T23:29:00.000Z"},"year":{"id":"QhPM","type":"number","number":1965},"poster":{"id":"SZe%3B","type":"url","url":"https://upload.wikimedia.org/wikipedia/en/0/09/For_a_Few_Dollars_More-ita-poster.jpg"},"director":{"id":"nGgM","type":"rich_text","rich_text":[{"type":"text","text":{"content":"Sergio
+        buono, il brutto, il cattivo","href":null}]}},"url":"https://www.notion.so/Il-buono-il-brutto-il-cattivo-8f2264ad4a9a4ff3afefc69f5626c440","public_url":null},{"object":"page","id":"0ace4cc3-4974-4c5f-a3b2-b4338a19b678","created_time":"2022-02-19T23:29:00.000Z","last_edited_time":"2025-08-29T13:13:00.000Z","created_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"last_edited_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"cover":null,"icon":null,"parent":{"type":"database_id","database_id":"b264f9dd-76fd-45e3-a014-d7e7e069a5dc"},"archived":false,"in_trash":false,"properties":{"files":{"id":"CooI","type":"files","files":[{"name":"piu.md","type":"file","file":{"url":"https://prod-files-secure.s3.us-west-2.amazonaws.com/4783548e-2442-4bf3-bb3d-ed4ddd2dcdf0/fef232a6-8266-4c05-b00a-dc92327b9eb9/piu.md?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466QPPKABYG%2F20250829%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250829T132851Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGYaCXVzLXdlc3QtMiJHMEUCIAjMOOebChI1pmNeEUnJG38zS0cdXbX4ja0awb2uwYxwAiEAm4MHks7wi0gjJH2EbHhU2ja9LCMtVall6yG4AyiHhI4qiAQIvv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw2Mzc0MjMxODM4MDUiDIkkb7EJh2mCe%2FqgrircA9wIIxYmDw2T5QTDtCs0W6YcYGG7yBgmP68qhO7Iw9S5UiaVo5nfZhxUsCqhRCJz6JzFMIKxWPRWa4DjS%2BgO5WCQHfnXAnbFRCyxMMg9Ff5%2FUpuL%2Ba1h6ai9GehIQZDWa1dGXEOckymuOSXBKKHcSZh62iZ4URS3L7a8dtGQcI%2BKJgbueHySovfxll4Jk9uPK9RrC0GfWULnuShfHZHST8Lg8f8Ntnkxc%2FOm26ohu75DLs%2BHJJXgandxl9pPPNwkZl%2F5AY9Uy%2B%2FGHCwbZQz1n7CcMp0GD6DX8qZSWIZNB6abITR3EplwEvalJ0zvXiaUjB68EdN%2F0aAkLzjSd95WefAWqmtlwT6UllrBIAnoCWLm%2BxAUKbKINWRWUslgL2CSKu9dSlmLEfPQh2vwD6fVFme0cp6HewydVnbxC0fKrLRLfltIIAkezfS%2BAsyvFlWljWnhYiw0zPMC7XVi%2B5Ziv1HIW75vUX%2Ft4yAPcFH8VPZyziyxtRoo3U3%2FMD6IX%2B5FuCjaBs8MKg5CAab1HYoRG8nrBxENDrWbbYmnUZWXWX6VbLaF%2FlvhZXMLtBcxiD4DKhTcZtEmx4eVMXDv82VF37CtLmnht67QKeqKKIRrpDcRAhXmC00nn2f%2BEkf3MKTRxsUGOqUBDS7YamM53%2Fd55pXpLmjHwXq5BOkVMsi7jd7OWFH8pjpKbyDb8I%2FyIrcyeMgtgyFf1UiJ0yBImsOcMbYZWOPkuC96EAHBiR6bW9OTOdM9Dna0q0GBsfcN84tf9x%2FW%2BT6aaYBB%2BtVYkf12C5vk3%2BTM1%2FuRtdmDbFNCuDtXXoeVpIjacKVNJt9tndvj%2BqrUsqkMhBSL2R2cUjxi1cwGCAMX6IA4rZyW&X-Amz-Signature=cae81e1535ee06f02981ee3c40f588b0a0e1a1449175a6a361e8f95bfebd0c3d&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject","expiry_time":"2025-08-29T14:28:51.042Z"}}]},"Created":{"id":"OoEJ","type":"created_time","created_time":"2022-02-19T23:29:00.000Z"},"year":{"id":"QhPM","type":"number","number":1965},"poster":{"id":"SZe%3B","type":"url","url":"https://upload.wikimedia.org/wikipedia/en/0/09/For_a_Few_Dollars_More-ita-poster.jpg"},"director":{"id":"nGgM","type":"rich_text","rich_text":[{"type":"text","text":{"content":"Sergio
         Leone","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Sergio
         Leone","href":null}]},"Name":{"id":"title","type":"title","title":[{"type":"text","text":{"content":"Per
         qualche dollaro in più","link":null},"annotations":{"bold":false,"italic":true,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Per
-        qualche dollaro in più","href":null}]}},"url":"https://www.notion.so/Per-qualche-dollaro-in-pi-0ace4cc349744c5fa3b2b4338a19b678","public_url":null},{"object":"page","id":"5cfed4de-3bdc-4f43-ae8b-a653a7a2219b","created_time":"2022-02-05T16:31:00.000Z","last_edited_time":"2025-08-29T13:13:00.000Z","created_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"last_edited_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"cover":null,"icon":null,"parent":{"type":"database_id","database_id":"b264f9dd-76fd-45e3-a014-d7e7e069a5dc"},"archived":false,"in_trash":false,"properties":{"files":{"id":"CooI","type":"files","files":[{"name":"dollari.md","type":"file","file":{"url":"https://prod-files-secure.s3.us-west-2.amazonaws.com/4783548e-2442-4bf3-bb3d-ed4ddd2dcdf0/46c827d0-603d-4edd-9a46-b703f5b7efc7/dollari.md?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB4665HTCQU4W%2F20250829%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250829T131356Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCXVzLXdlc3QtMiJIMEYCIQCt57dhxjgljCo%2FlyEHctkicl08OPSNwt18phnhzvC4KQIhAP8Iy0VvQFJvTZAOWVSmcoSQEqgP3FMVGXzkkHsA%2BvYXKogECL3%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMNjM3NDIzMTgzODA1Igyacg1VtEPomlaB7GMq3ANmQkm8aOrPkgyV3otlFTYY3LnzyXvFKd6Ty5bJt1moF5iGESnODCuhtpWmOFl0IJOwZTod3SZLVh1GGobiCIzOtmr98nK%2FIuVilVnlaYI5ZSr1kWR3xLFs%2Bd0rOgDM2LXKBukD1SY9PdG2ggniZgqaelM7bg1yiI13xMIm8KRI1R%2BakSmIEMwiBDJK%2Fv4G4U7snw%2F17NSPrWv8U5DwS98Z9M6vaK2JJY3u6FXrX2kcftYcl4u14KlOeeq7ElZEzO9j8oO7PaFDRmGv59Rh%2BlFqlb5LP5R8%2FzpM8MIbgUE2VEh%2FMy4mkhkX73%2BYP5E%2BU5VBqWchuvb4D3GAk4UAqP6CX%2F2eFkucF%2Fos6vAmmU78vRLqw4NwPfSRDH2BYUi1QgZSn1dAi4s0hKXkVleE%2BMIcHlZ98Hpxl0Oh8%2BKrV5%2FVqlGzhcbLjR4gXFuyYuAkVDLGb2zcXjB123fnx7B98Lj178IF1EpiIeZyXco1DrR725Mfxd8TV%2F9vQdX9dsgS2ImX0twXNsRXDLlU%2BtPkW4yVvNwwfVMpTuV%2Fm387iagts3DVzc4DIVImOPx8lYxXZNvrVDoBtQ32AG4Bes3ilODHTlF7N%2B8pjVFBlSB1Pamdmok%2FJOvyw9VqHe%2FY3DDpqcbFBjqkAWgc%2BoJHvOVBPNtkcTE2xaxeody2l2BpDCaDLMSuLCf%2BdGuJdItyNDlLdfZYBQCTX46pPDo527yzYbuOnmMBzGojXOc5Joap6FuIsVZQbWPPQWG0czkXXQY6UNXHuTfv0mjJUUqnZQlLwOlljPs81HwumXdF0LiAeRrbQ9%2FHjfyKfETh11Kvq%2FLrXhNcwFtfL94u5kYPGELb276pjg1s7NWSDiPU&X-Amz-Signature=67ac827d6831a6e384aad1c65379876a61569e810270ca839e215ef530e4554e&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject","expiry_time":"2025-08-29T14:13:56.379Z"}}]},"Created":{"id":"OoEJ","type":"created_time","created_time":"2022-02-05T16:31:00.000Z"},"year":{"id":"QhPM","type":"number","number":1964},"poster":{"id":"SZe%3B","type":"url","url":"https://upload.wikimedia.org/wikipedia/en/f/f0/Fistful-of-Dollars-poster.jpg"},"director":{"id":"nGgM","type":"rich_text","rich_text":[{"type":"text","text":{"content":"Sergio
+        qualche dollaro in più","href":null}]}},"url":"https://www.notion.so/Per-qualche-dollaro-in-pi-0ace4cc349744c5fa3b2b4338a19b678","public_url":null},{"object":"page","id":"5cfed4de-3bdc-4f43-ae8b-a653a7a2219b","created_time":"2022-02-05T16:31:00.000Z","last_edited_time":"2025-08-29T13:13:00.000Z","created_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"last_edited_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"cover":null,"icon":null,"parent":{"type":"database_id","database_id":"b264f9dd-76fd-45e3-a014-d7e7e069a5dc"},"archived":false,"in_trash":false,"properties":{"files":{"id":"CooI","type":"files","files":[{"name":"dollari.md","type":"file","file":{"url":"https://prod-files-secure.s3.us-west-2.amazonaws.com/4783548e-2442-4bf3-bb3d-ed4ddd2dcdf0/46c827d0-603d-4edd-9a46-b703f5b7efc7/dollari.md?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466QPPKABYG%2F20250829%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250829T132851Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGYaCXVzLXdlc3QtMiJHMEUCIAjMOOebChI1pmNeEUnJG38zS0cdXbX4ja0awb2uwYxwAiEAm4MHks7wi0gjJH2EbHhU2ja9LCMtVall6yG4AyiHhI4qiAQIvv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw2Mzc0MjMxODM4MDUiDIkkb7EJh2mCe%2FqgrircA9wIIxYmDw2T5QTDtCs0W6YcYGG7yBgmP68qhO7Iw9S5UiaVo5nfZhxUsCqhRCJz6JzFMIKxWPRWa4DjS%2BgO5WCQHfnXAnbFRCyxMMg9Ff5%2FUpuL%2Ba1h6ai9GehIQZDWa1dGXEOckymuOSXBKKHcSZh62iZ4URS3L7a8dtGQcI%2BKJgbueHySovfxll4Jk9uPK9RrC0GfWULnuShfHZHST8Lg8f8Ntnkxc%2FOm26ohu75DLs%2BHJJXgandxl9pPPNwkZl%2F5AY9Uy%2B%2FGHCwbZQz1n7CcMp0GD6DX8qZSWIZNB6abITR3EplwEvalJ0zvXiaUjB68EdN%2F0aAkLzjSd95WefAWqmtlwT6UllrBIAnoCWLm%2BxAUKbKINWRWUslgL2CSKu9dSlmLEfPQh2vwD6fVFme0cp6HewydVnbxC0fKrLRLfltIIAkezfS%2BAsyvFlWljWnhYiw0zPMC7XVi%2B5Ziv1HIW75vUX%2Ft4yAPcFH8VPZyziyxtRoo3U3%2FMD6IX%2B5FuCjaBs8MKg5CAab1HYoRG8nrBxENDrWbbYmnUZWXWX6VbLaF%2FlvhZXMLtBcxiD4DKhTcZtEmx4eVMXDv82VF37CtLmnht67QKeqKKIRrpDcRAhXmC00nn2f%2BEkf3MKTRxsUGOqUBDS7YamM53%2Fd55pXpLmjHwXq5BOkVMsi7jd7OWFH8pjpKbyDb8I%2FyIrcyeMgtgyFf1UiJ0yBImsOcMbYZWOPkuC96EAHBiR6bW9OTOdM9Dna0q0GBsfcN84tf9x%2FW%2BT6aaYBB%2BtVYkf12C5vk3%2BTM1%2FuRtdmDbFNCuDtXXoeVpIjacKVNJt9tndvj%2BqrUsqkMhBSL2R2cUjxi1cwGCAMX6IA4rZyW&X-Amz-Signature=eeda036fcc1282cd61fc9941265eeaf76ae1345b148da9a2c632ec70382905c8&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject","expiry_time":"2025-08-29T14:28:51.042Z"}}]},"Created":{"id":"OoEJ","type":"created_time","created_time":"2022-02-05T16:31:00.000Z"},"year":{"id":"QhPM","type":"number","number":1964},"poster":{"id":"SZe%3B","type":"url","url":"https://upload.wikimedia.org/wikipedia/en/f/f0/Fistful-of-Dollars-poster.jpg"},"director":{"id":"nGgM","type":"rich_text","rich_text":[{"type":"text","text":{"content":"Sergio
         Leone","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Sergio
         Leone","href":null}]},"Name":{"id":"title","type":"title","title":[{"type":"text","text":{"content":"Per
         un pugno di dollari","link":null},"annotations":{"bold":true,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Per
-        un pugno di dollari","href":null}]}},"url":"https://www.notion.so/Per-un-pugno-di-dollari-5cfed4de3bdc4f43ae8ba653a7a2219b","public_url":null}],"next_cursor":null,"has_more":false,"type":"page_or_database","page_or_database":{},"request_id":"25ea2088-35f8-43d2-b5f4-3e85bcfe95d8"}'
-  recorded_at: Fri, 29 Aug 2025 13:13:40 GMT
+        un pugno di dollari","href":null}]}},"url":"https://www.notion.so/Per-un-pugno-di-dollari-5cfed4de3bdc4f43ae8ba653a7a2219b","public_url":null}],"next_cursor":null,"has_more":false,"type":"page_or_database","page_or_database":{},"request_id":"256e36d1-8b31-4b3a-9c5d-b5fdcef8d2a8"}'
+  recorded_at: Fri, 29 Aug 2025 13:28:35 GMT
 - request:
     method: get
     uri: https://api.notion.com/v1/pages/8f2264ad-4a9a-4ff3-afef-c69f5626c440
@@ -179,7 +179,7 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Fri, 29 Aug 2025 13:13:56 GMT
+      - Fri, 29 Aug 2025 13:28:53 GMT
       content-type:
       - application/json; charset=utf-8
       transfer-encoding:
@@ -189,13 +189,13 @@ http_interactions:
       server:
       - cloudflare
       cf-ray:
-      - 976c4f009837e177-MRS
+      - 976c64dc6fa5e237-MRS
       cf-cache-status:
       - DYNAMIC
       content-encoding:
       - gzip
       etag:
-      - W/"cb7-/pNMqLAF84s/V+Fp1jM0ygi/aK8"
+      - W/"cb1-gin0CCi+AMWJLLlIdydjQw5NltQ"
       strict-transport-security:
       - max-age=31536000; includeSubDomains; preload
       vary:
@@ -213,26 +213,26 @@ http_interactions:
       x-frame-options:
       - SAMEORIGIN
       x-notion-request-id:
-      - 857b5704-36df-40d1-89cc-713096c69411
+      - 42fe14da-fb47-4139-8ae3-ec0214af6330
       x-permitted-cross-domain-policies:
       - none
       x-xss-protection:
       - '0'
       set-cookie:
-      - __cf_bm=DT0D_qUgR4259bcUJ8M54OmweYvqjxn4kyeUSR33GIA-1756473236-1.0.1.1-A.bIDC8xrkVH9Uvdi_NqYQf5yExcBT4qhkkOtB2x8ZO_Ka8Wy9Cn8NCKnKDLR7N22mm7MRUCwslS7AQ5xNAQX9n.IVu1QYpBb9fNbJagtHg;
-        path=/; expires=Fri, 29-Aug-25 13:43:56 GMT; domain=.notion.com; HttpOnly;
-        Secure; SameSite=None, _cfuvid=ihJqqt4ZaUh6lA7dmSwvFTLhsSRB_XA25WGQzrMf_M8-1756473236831-0.0.1.1-604800000;
+      - __cf_bm=XWGLvQVXy4d9T63QFwgpbX3UuAw6MfhlCz66j5fEo9o-1756474133-1.0.1.1-Qtqj_tXDWAEeM_mVFpQsiDpHgCDhreK.bvAMZGKiUooLc05y5h3NI2WYO.ERdQ2W.DoI_Zkhc8fVgOVwuUbmtuce78h507ADB6Pqgxz6aa8;
+        path=/; expires=Fri, 29-Aug-25 13:58:53 GMT; domain=.notion.com; HttpOnly;
+        Secure; SameSite=None, _cfuvid=crlq.EjAYhXKY6lvL_1MVHfwkDraRH1PAV1ZWW1Hn.Q-1756474133104-0.0.1.1-604800000;
         path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None
       alt-svc:
       - h3=":443"; ma=86400
     body:
       encoding: UTF-8
-      string: '{"object":"page","id":"8f2264ad-4a9a-4ff3-afef-c69f5626c440","created_time":"2022-02-19T23:29:00.000Z","last_edited_time":"2025-08-29T13:13:00.000Z","created_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"last_edited_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"cover":null,"icon":null,"parent":{"type":"database_id","database_id":"b264f9dd-76fd-45e3-a014-d7e7e069a5dc"},"archived":false,"in_trash":false,"properties":{"files":{"id":"CooI","type":"files","files":[{"name":"cattivo.md","type":"file","file":{"url":"https://prod-files-secure.s3.us-west-2.amazonaws.com/4783548e-2442-4bf3-bb3d-ed4ddd2dcdf0/3522723c-7b57-4b41-ab43-c344d86f86f4/cattivo.md?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB4667ZEIZ2QM%2F20250829%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250829T131356Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCXVzLXdlc3QtMiJHMEUCIA8MZkEhOGfl5UA33HP8YLBC4mI1MmAMm77I4wJbUy0aAiEAq1hBugOsJmL8V%2By9976elb1ou%2FGwZU9G63bHfUHD9lUqiAQIvf%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw2Mzc0MjMxODM4MDUiDI85hrodxkRQeOtLtyrcA4DpyDF9yqTaKLr1gV1KO86N5cvKU6F4QPxWXPfjQDmH86bnlg9RuXkHr%2FMzMNDsoyMXl6Yom%2FOV0HHZpnhYx%2BBiTmjrHzR%2FWiZQ%2B4s0nQDMBpZwcVvLsxOYjiidpb94FChndhR%2FD6fL%2B23Ocf%2B1B9vo9JlabVw5YpmLpD23OfSGSQKtID4gvikKPKh%2BocMWsvyWRBat7kMWekTry%2Fs2%2F6u217Ra0tJKkvZ0mgdBtQ1CixiCxAwaieSXvkr77dCHq1QBLhFgEodWqc3A2ezjjfRtU%2BrkRl0t623fYw3DMBAAtAmFISHVpoQciC7QZlkF4nstH3RV7oCiiAMGOMvoubITcLY%2FTIMjG1CpnO27XcIFLofI0zTuX6mX4254bjn%2BBEQ9TvKaCBcaCA3lI27W9tyZcWDaOywJYDWo3TCliDLc6kboZ6ig%2FnUvCqyOFgPy0x8lhhOXi7IEIh68CMXhECD4h%2Be0WbDSxmDfS7tqyI%2BncyTZbf8zVb9HZQdsC2f6veh66jh7uBLIfYJ2Cg3cKgZM9Ie4JtCeaJLGL6DwV98IHU1LVB7Hwfr5i2LtPJ1Bwp2l%2By%2F5uTnVDdpm5haOuYeEdqklKpXHZMbc3pWGOB%2FeY016fUG7kQCKckprMLapxsUGOqUBbfbsTyKSN5fld8KWD%2BncEO%2F1lI3Y2FjGMRtyWlgUuWOic8WSzP%2FzpC0zmCBXNX963lkat4hkt24ZebqHoI0wjh3Gb6d7H0mtlnTpUiatqdwFggqQu%2FGnPpO7vjjZty71msJ3aLUV8%2BNcLrmWrBES0cdMXNackqPGDM6xt5GMe6ket65yLxderYnECVqHzpwMmk%2Bm6X6j5qd7Lv1OL4qLXmhTpfDI&X-Amz-Signature=52df448f0be28e786d891de31462c6333a8b372258433b93f9b749c13bba70c3&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject","expiry_time":"2025-08-29T14:13:56.745Z"}}]},"Created":{"id":"OoEJ","type":"created_time","created_time":"2022-02-19T23:29:00.000Z"},"year":{"id":"QhPM","type":"number","number":1966},"poster":{"id":"SZe%3B","type":"url","url":"https://upload.wikimedia.org/wikipedia/en/4/45/Good_the_bad_and_the_ugly_poster.jpg"},"director":{"id":"nGgM","type":"rich_text","rich_text":[{"type":"text","text":{"content":"Sergio
+      string: '{"object":"page","id":"8f2264ad-4a9a-4ff3-afef-c69f5626c440","created_time":"2022-02-19T23:29:00.000Z","last_edited_time":"2025-08-29T13:13:00.000Z","created_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"last_edited_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"cover":null,"icon":null,"parent":{"type":"database_id","database_id":"b264f9dd-76fd-45e3-a014-d7e7e069a5dc"},"archived":false,"in_trash":false,"properties":{"files":{"id":"CooI","type":"files","files":[{"name":"cattivo.md","type":"file","file":{"url":"https://prod-files-secure.s3.us-west-2.amazonaws.com/4783548e-2442-4bf3-bb3d-ed4ddd2dcdf0/3522723c-7b57-4b41-ab43-c344d86f86f4/cattivo.md?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466VR2LLMG4%2F20250829%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250829T132852Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGYaCXVzLXdlc3QtMiJHMEUCIQCbIhL117rdWYOEMNChJZBLtiQJxlY6%2FRMKCnzJ536qawIgKoJDPOH57Q3%2BZ8%2Bhe2ELO3ckT5Dg2pdwenSkNygWvZoqiAQIvv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw2Mzc0MjMxODM4MDUiDMIVJ9nKdvq%2FQ247oyrcA8ahu5NNMnpWP4AR8AqlPvZfkMSjQb7H5n7pAWaqNA4qzTKTGTQlilifEDI5BGpspj2SzBN3pyRg1MhPjOj%2Fa2safVhyKiC%2BC9WNpWV1mwZxTznWGxeQ5YNDVSesCgqQ%2BU%2FUSrBeXBH0FdNTnakgZVjRDZ9RoxpSEe5IV%2Fo9m4eREyKLqNi9oj5AZbSI1ixsKJ2efX%2Bt4uVCBzmc2bzCQdnEYJVITXfKNJeuOUyJ00NJ0T0FuImW2JMKL6M983ahzn2ho7MAonoazjAxezbmSwwMO9sC5cZWuYpicoMEqI3xn2fav9pkp7ZZfyabn61VJcSc9a7pKHjkKEOL3BI3Fx2D7vfdDxiIhbhTT%2FNBMczAM5HOlmHGfWkS5BNjPp85YqfjrzGoNu78PV6tSAdv5Sc%2BH1%2BukvNHkHsl09qgskEDJGgQHpAHeCiYI9xmqd2b9UXGvXkKDNoNKiLYvkiW67IMLMNfBeGpuNcPqucsYbU2gj1AkxzPxrNHo%2FICRHqGo4d0Lv%2F%2FmegdOiWgWAjAVlsKEIt0lAU8oIHUUmWY%2BlTtdGNB9hejPAjcqZrkh6hYckv%2FEw9Cnb4AfiS54MBPmTO8734fSaxgI%2FrH2JDprVajz8owfoHq0%2FkTpGqbMKbRxsUGOqUBxrw9iSHC35fjHPXyCST3J1m2jTCI22SolmcK0MH%2FWQzo2SanLAW1ncZ4dyap6n9kbVzN5ylAVbMP9x0yBHS5ue%2F6ivdRMC%2F12pNdLPMbdI9rRqQizVJkVlOHGqm2gIBETLgCyqysq6QRrb%2FuLj8kFWF6tjjLYp8WZ8xX1IXC7ncIRlooADtIsl5g0TKf350bQ9F9Ap4fYxD2Oyze88N%2FIs4zIu7S&X-Amz-Signature=6062293f2a5da460389050cda84c417e204e12687c333a2ee0db190f1038db90&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject","expiry_time":"2025-08-29T14:28:52.910Z"}}]},"Created":{"id":"OoEJ","type":"created_time","created_time":"2022-02-19T23:29:00.000Z"},"year":{"id":"QhPM","type":"number","number":1966},"poster":{"id":"SZe%3B","type":"url","url":"https://upload.wikimedia.org/wikipedia/en/4/45/Good_the_bad_and_the_ugly_poster.jpg"},"director":{"id":"nGgM","type":"rich_text","rich_text":[{"type":"text","text":{"content":"Sergio
         Leone","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Sergio
         Leone","href":null}]},"Name":{"id":"title","type":"title","title":[{"type":"text","text":{"content":"Il
         buono, il brutto, il cattivo","link":null},"annotations":{"bold":false,"italic":true,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Il
-        buono, il brutto, il cattivo","href":null}]}},"url":"https://www.notion.so/Il-buono-il-brutto-il-cattivo-8f2264ad4a9a4ff3afefc69f5626c440","public_url":null,"request_id":"857b5704-36df-40d1-89cc-713096c69411"}'
-  recorded_at: Fri, 29 Aug 2025 13:13:40 GMT
+        buono, il brutto, il cattivo","href":null}]}},"url":"https://www.notion.so/Il-buono-il-brutto-il-cattivo-8f2264ad4a9a4ff3afefc69f5626c440","public_url":null,"request_id":"42fe14da-fb47-4139-8ae3-ec0214af6330"}'
+  recorded_at: Fri, 29 Aug 2025 13:28:37 GMT
 - request:
     method: get
     uri: https://api.notion.com/v1/blocks/8f2264ad-4a9a-4ff3-afef-c69f5626c440/children
@@ -254,7 +254,7 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Fri, 29 Aug 2025 13:13:57 GMT
+      - Fri, 29 Aug 2025 13:28:53 GMT
       content-type:
       - application/json; charset=utf-8
       transfer-encoding:
@@ -264,11 +264,11 @@ http_interactions:
       content-encoding:
       - gzip
       cf-ray:
-      - 976c4f02ac45e1b5-MRS
+      - 976c64e458db0c20-MRS
       cf-cache-status:
       - DYNAMIC
       etag:
-      - W/"90-YMqEWokVKjajMnDFI4DPhno+5S4"
+      - W/"90-GiaMirgXfZLqU31RE3CUldPO7JQ"
       strict-transport-security:
       - max-age=31536000; includeSubDomains; preload
       vary:
@@ -286,15 +286,15 @@ http_interactions:
       x-frame-options:
       - SAMEORIGIN
       x-notion-request-id:
-      - 3108b975-c897-4169-b9f4-9d7ba6fee7e8
+      - d8e486aa-c908-432c-95d7-584fac45798e
       x-permitted-cross-domain-policies:
       - none
       x-xss-protection:
       - '0'
       set-cookie:
-      - __cf_bm=OC2oXF3Jevm.j1rSibDsmYXe.8g9oIX6wNmfj8wuoqg-1756473237-1.0.1.1-w4OtjiGzPOcsXTe2CLEbrt9o623YhON7S.7AHWCel0VdGgFlqtkiEHYhWvstrAE48c_6hcCTYjVApdIHrvzYJ.QoXOFUV.zEEbTRHwvsCZ4;
-        path=/; expires=Fri, 29-Aug-25 13:43:57 GMT; domain=.notion.com; HttpOnly;
-        Secure; SameSite=None, _cfuvid=dlcGxKjl1Ntk38bJho9ETWvXPGFCzVqGCC7BoauQ77o-1756473237331-0.0.1.1-604800000;
+      - __cf_bm=aZJoNO1a_dhHgUjgc_4KEb3bAEcFHd7Bj0J0NPdigSQ-1756474133-1.0.1.1-evqYWzJw0Tj2.0kiVSBPe7UVde2Fj7yvPaEf.u3GvDCwftcsBMuAmiLINhvxSmbBj07cYF.4j3D.vPPnN9k_AX_xZ9OZ1diS1mT4P4MXfbw;
+        path=/; expires=Fri, 29-Aug-25 13:58:53 GMT; domain=.notion.com; HttpOnly;
+        Secure; SameSite=None, _cfuvid=TLFLU0LnYI9qV6NfzwfIPplVkk0EvL3o7b4a1chjwYw-1756474133426-0.0.1.1-604800000;
         path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None
       server:
       - cloudflare
@@ -302,8 +302,8 @@ http_interactions:
       - h3=":443"; ma=86400
     body:
       encoding: UTF-8
-      string: '{"object":"list","results":[],"next_cursor":null,"has_more":false,"type":"block","block":{},"request_id":"3108b975-c897-4169-b9f4-9d7ba6fee7e8"}'
-  recorded_at: Fri, 29 Aug 2025 13:13:41 GMT
+      string: '{"object":"list","results":[],"next_cursor":null,"has_more":false,"type":"block","block":{},"request_id":"d8e486aa-c908-432c-95d7-584fac45798e"}'
+  recorded_at: Fri, 29 Aug 2025 13:28:37 GMT
 - request:
     method: get
     uri: https://api.notion.com/v1/pages/0ace4cc3-4974-4c5f-a3b2-b4338a19b678
@@ -325,7 +325,7 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Fri, 29 Aug 2025 13:13:58 GMT
+      - Fri, 29 Aug 2025 13:28:53 GMT
       content-type:
       - application/json; charset=utf-8
       transfer-encoding:
@@ -335,13 +335,13 @@ http_interactions:
       server:
       - cloudflare
       cf-ray:
-      - 976c4f066b24e1a8-MRS
+      - 976c64e65e29e214-MRS
       cf-cache-status:
       - DYNAMIC
       content-encoding:
       - gzip
       etag:
-      - W/"ca6-l08/ZPz3llZkwQD6XnZQcD7rW7c"
+      - W/"caa-T9VzZbjX2hfjNlOBkMwudig098I"
       strict-transport-security:
       - max-age=31536000; includeSubDomains; preload
       vary:
@@ -359,26 +359,26 @@ http_interactions:
       x-frame-options:
       - SAMEORIGIN
       x-notion-request-id:
-      - 512ff874-d360-488f-8849-caeae2a50003
+      - 152eca84-acdf-41e3-b485-82216422305b
       x-permitted-cross-domain-policies:
       - none
       x-xss-protection:
       - '0'
       set-cookie:
-      - __cf_bm=9ZOVPBjKrR04CHz9trlbUhchaTx4gVtTBF1oBdwj_Ww-1756473238-1.0.1.1-EzhEo8oOZ.CAI2GZkt26ZveudpyJzADdCHur8bHJb6K5mKYTfF1hfyc2Evkby3Zq9yR13hqNECbI7FMayVp7XNhBjKs7o0Yh4fUH5E6oo4g;
-        path=/; expires=Fri, 29-Aug-25 13:43:58 GMT; domain=.notion.com; HttpOnly;
-        Secure; SameSite=None, _cfuvid=4Js9NAkmhb1W5Ti7k3zk7.4uu_A3f3m7hwGROruE.8E-1756473238244-0.0.1.1-604800000;
+      - __cf_bm=I2dLsremmWP9BEw6IyOR9RM6PxoVJQO6UBI9z6_bnLg-1756474133-1.0.1.1-39nTGIs9TIJRk99VjBJaaegEAEIlhWYz1eg9psCl39CJohsikKvxRS1vAqNwUZL3IST_d06DCqWuQ9JdOudF0Rz5OVsrVdjrl423eBEOXqc;
+        path=/; expires=Fri, 29-Aug-25 13:58:53 GMT; domain=.notion.com; HttpOnly;
+        Secure; SameSite=None, _cfuvid=Hzv1xbmdfbhOKbCGpKUcE4KWhQrZZPRCgwEuXI2BgQM-1756474133840-0.0.1.1-604800000;
         path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None
       alt-svc:
       - h3=":443"; ma=86400
     body:
       encoding: UTF-8
-      string: '{"object":"page","id":"0ace4cc3-4974-4c5f-a3b2-b4338a19b678","created_time":"2022-02-19T23:29:00.000Z","last_edited_time":"2025-08-29T13:13:00.000Z","created_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"last_edited_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"cover":null,"icon":null,"parent":{"type":"database_id","database_id":"b264f9dd-76fd-45e3-a014-d7e7e069a5dc"},"archived":false,"in_trash":false,"properties":{"files":{"id":"CooI","type":"files","files":[{"name":"piu.md","type":"file","file":{"url":"https://prod-files-secure.s3.us-west-2.amazonaws.com/4783548e-2442-4bf3-bb3d-ed4ddd2dcdf0/fef232a6-8266-4c05-b00a-dc92327b9eb9/piu.md?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466SNICXOZ6%2F20250829%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250829T131358Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCXVzLXdlc3QtMiJIMEYCIQDaaNuA0YSGeTHkk2whM2peR2ytwva0TNATvtrLW394mAIhANiz4mdk02NHTjnBitOBDzdj0QTNgeDIjOMsENvW1vusKogECL3%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMNjM3NDIzMTgzODA1Igw51EvRfqf3ACIfjrcq3ANx4qX2E1uTu%2Fy1qYgnl0%2FbkpaaqJw3LR1AX%2Fz5DYET2tavZNF6Xpvd7uA7%2F8aig%2FRU6Fy8NKf%2FSJo%2B%2BVTiYEt1HS2Wfki4U%2Br%2BseYkhyYQLFqYm%2FjFI%2B0iBTpUXFKm7Z5hh%2FWBJPIVwmxr6rISHNi2j1E2PLBVTp3tQbydnKHGEujFx8sMhNBhNoQzq0ktvQ%2FsQUtjdOUWzrXdG%2BZmX54nF7E%2BlVsysXNBEQ8k0yESzlwFT5IizkiMCk8E6OxwmXGYKVNk5eixarvIQ4owCrRJQ63jLTQtTpQa7UU%2FWmdSrQTpJhWYXIOkV9lyd5g2LqDJ5FQ48aUccbnct%2FNZlST%2FklFP2D%2F21MhXDN9I9UoN9aeyaeOtWK%2ByQJyMGJA0P%2BUE2Dv5JiTEOaApY7I3yuS8QKSGyxXOO6oVmFoiO8cby8VlA4mYOzxrxqbG5Qn6NEJm7wGM2IrM8rPNdzTyoJQV5ya9KgSPfI9eDWIWpnKzYbvrM4o9bPkoODKA76KFM8OMiqL25pcWPPg2rRp5ZILaRpSEbbvx%2BoskMcGoygG47q%2BwK%2BXHUn12yjfwWT6q8a1vjJwIZaQJmqsh%2BVCcGhDHSoGvrgrD7pHM1oaBl6fPqLhq8ArPiVHWubwDZDCPqcbFBjqkAfk8R4ShwlRoivqv6xSbCKydn3VEzDfSh%2F0KaX%2FHSKVqBgNkjY4J6cF2IJbQA1UqqtPIlsDtP087ShYlPsHGoZah2s5ENA7uS4RPdCBdQE3CmyzSL8JWTkZs32ZWz8KFSkR6LFItZZeMBO5PJyqBqebocUj0Amx0ghFuzZkjFZCnpAfmOi1e%2Fg6RboSqcwtyDB0pNeMvTnPXgBohHrIubqVXg4VF&X-Amz-Signature=74864f3c1140a6a760cb1706bf4eb0554826b21b13e5a178e9995aa4e5ecd09e&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject","expiry_time":"2025-08-29T14:13:58.145Z"}}]},"Created":{"id":"OoEJ","type":"created_time","created_time":"2022-02-19T23:29:00.000Z"},"year":{"id":"QhPM","type":"number","number":1965},"poster":{"id":"SZe%3B","type":"url","url":"https://upload.wikimedia.org/wikipedia/en/0/09/For_a_Few_Dollars_More-ita-poster.jpg"},"director":{"id":"nGgM","type":"rich_text","rich_text":[{"type":"text","text":{"content":"Sergio
+      string: '{"object":"page","id":"0ace4cc3-4974-4c5f-a3b2-b4338a19b678","created_time":"2022-02-19T23:29:00.000Z","last_edited_time":"2025-08-29T13:13:00.000Z","created_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"last_edited_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"cover":null,"icon":null,"parent":{"type":"database_id","database_id":"b264f9dd-76fd-45e3-a014-d7e7e069a5dc"},"archived":false,"in_trash":false,"properties":{"files":{"id":"CooI","type":"files","files":[{"name":"piu.md","type":"file","file":{"url":"https://prod-files-secure.s3.us-west-2.amazonaws.com/4783548e-2442-4bf3-bb3d-ed4ddd2dcdf0/fef232a6-8266-4c05-b00a-dc92327b9eb9/piu.md?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466646QQSEW%2F20250829%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250829T132853Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGYaCXVzLXdlc3QtMiJHMEUCIQDlG8saKlQ9v%2FRuSZmVPOPugwBH0rGbhH54P%2BxQRotHSgIgOM5IUpt%2BH7NJdxkQNq5ahClTBQAi7qRxchjb2sL%2BgdcqiAQIvv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw2Mzc0MjMxODM4MDUiDLHzqKtgjnim%2BfXstyrcA91%2BnK9oq%2BNEj%2BfX7UrNLetQC2IbfM9w%2FMK2Vn6mp3zD4F%2FXEXTObO5fc3qW42XmUDiG8hDU4edTUnGvyRJjF8brwCVRDLUCcqPygTr%2FrHoCdYnWa3riJkCAdB43v%2BVcrtcm74rK56ijJe2sLEYrDkm22ppwuh08RPQGOCxWAOPlR%2FK1HuBxSMkEXmpKMeIfO9Gi4Idi36vsSNAJi9Rsx0lDk3o%2Bbx9ZX800J1wZqD%2BeOx5lxh7VuEo4yBSruPftOthusIPQDJn6b5cPiMv1fhZ%2B8D8TwV7E9xu8h6CLKc0iVmV33YAsiYoUoQJRMw9Hy3ttQWfj7vhWGQ4koQf4F76%2Fvb%2FtkJ%2FNW2vdfRBCGvSXJyJ8Fh65fvZZX9Tbak9WkVN%2FaUOnUvtxuKIBBOwz5Y8xSdwHVXlrP5XCA7Pr98Gxa6K6gicixDTUO6iKHHcWxeT3cOT8s9QigtJzOUe2CDFqmQgqJj3BYNANuijyNHtEyJOrZBkpXkJ%2B7AGu43af6SsJdCGkKCujnEzEPm1Cc3Z8v00PfQ9LksBOH3Nnx5B3VClfeH0cBxAoSiIJfAFu%2FB%2FQ1zDjvdev77qoOGwzHtwbPeaWkhqryWmRZqhqQHSc5DE0MJIMhB5pxyYdMI%2FRxsUGOqUBmzN8qr2013pwpfrkTEknUkC44vZoIUPZjZ8TTNEZMpjk4Kditpj0bJ1YheTcVd8LQ5LmN%2F8Ghvt%2FxMwPOBocYWJqVWNRkwl5w5R6lX%2Bz34mZTIbitz7Dz7t6LcIZaBMDO5ws32l8P89Fvst8A55W%2BVFWBUIGa8nqaJ9amf9jE1ofMXc1JCnygyCbo7Cb9ZzX%2FQuWeT%2FYTGs8dZtBC68P%2Bvlyl7KY&X-Amz-Signature=6388681b851f30e191c9967a57201b0106d9413f063385754f388cabab5e8366&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject","expiry_time":"2025-08-29T14:28:53.744Z"}}]},"Created":{"id":"OoEJ","type":"created_time","created_time":"2022-02-19T23:29:00.000Z"},"year":{"id":"QhPM","type":"number","number":1965},"poster":{"id":"SZe%3B","type":"url","url":"https://upload.wikimedia.org/wikipedia/en/0/09/For_a_Few_Dollars_More-ita-poster.jpg"},"director":{"id":"nGgM","type":"rich_text","rich_text":[{"type":"text","text":{"content":"Sergio
         Leone","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Sergio
         Leone","href":null}]},"Name":{"id":"title","type":"title","title":[{"type":"text","text":{"content":"Per
         qualche dollaro in più","link":null},"annotations":{"bold":false,"italic":true,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Per
-        qualche dollaro in più","href":null}]}},"url":"https://www.notion.so/Per-qualche-dollaro-in-pi-0ace4cc349744c5fa3b2b4338a19b678","public_url":null,"request_id":"512ff874-d360-488f-8849-caeae2a50003"}'
-  recorded_at: Fri, 29 Aug 2025 13:13:42 GMT
+        qualche dollaro in più","href":null}]}},"url":"https://www.notion.so/Per-qualche-dollaro-in-pi-0ace4cc349744c5fa3b2b4338a19b678","public_url":null,"request_id":"152eca84-acdf-41e3-b485-82216422305b"}'
+  recorded_at: Fri, 29 Aug 2025 13:28:37 GMT
 - request:
     method: get
     uri: https://api.notion.com/v1/blocks/0ace4cc3-4974-4c5f-a3b2-b4338a19b678/children
@@ -400,7 +400,7 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Fri, 29 Aug 2025 13:13:58 GMT
+      - Fri, 29 Aug 2025 13:28:54 GMT
       content-type:
       - application/json; charset=utf-8
       transfer-encoding:
@@ -410,11 +410,11 @@ http_interactions:
       content-encoding:
       - gzip
       cf-ray:
-      - 976c4f0c2eaa1412-MRS
+      - 976c64e8f8c5e187-MRS
       cf-cache-status:
       - DYNAMIC
       etag:
-      - W/"90-MvmVUsV3ojV8cqSJMFLpo3dGQE8"
+      - W/"90-kbijZMirY974JSUQ3W399CxBWgw"
       strict-transport-security:
       - max-age=31536000; includeSubDomains; preload
       vary:
@@ -432,15 +432,15 @@ http_interactions:
       x-frame-options:
       - SAMEORIGIN
       x-notion-request-id:
-      - 2f1a4fd8-b721-4986-a12a-cea9174ae30b
+      - 21db8c2c-4383-4c99-a179-4fe3a1291ad1
       x-permitted-cross-domain-policies:
       - none
       x-xss-protection:
       - '0'
       set-cookie:
-      - __cf_bm=9LliuOUO32ztDkXy0CAZpkHT6IpWYtQ2QHNU2jnL3n4-1756473238-1.0.1.1-XJaYVW46yRCU.VGJx91tOBsIaaP_gz1Kslxnxbc07meXmMKqcCDF3ZKo9FrUARr1qWQel3W7_Qr3V9vuVy3vvH1CjrKPQ2dOpY9jsO8Tfc8;
-        path=/; expires=Fri, 29-Aug-25 13:43:58 GMT; domain=.notion.com; HttpOnly;
-        Secure; SameSite=None, _cfuvid=aClhk6HNltYjVpV0K2_FR2FTcm6_INe6IS9huAKwS5o-1756473238686-0.0.1.1-604800000;
+      - __cf_bm=ayxJc3QDGNn64k0zLh_DMyJ15ngtWVWIgVKla.3fqeg-1756474134-1.0.1.1-LJJXW9UKWSrewQLbgtw4fyigVo.6C3DQ5Vrlx63Y4VMB3WLZwviNfaFtgaPy7ITE_Cbq56FHDhj7O4zBvlJ2iRwXwpgXAUDOmCroa0PUSHo;
+        path=/; expires=Fri, 29-Aug-25 13:58:54 GMT; domain=.notion.com; HttpOnly;
+        Secure; SameSite=None, _cfuvid=E8FnqJFqHLPdFqsefUjGhE1XFPiijoxM61MJpn_ykYo-1756474134775-0.0.1.1-604800000;
         path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None
       server:
       - cloudflare
@@ -448,8 +448,8 @@ http_interactions:
       - h3=":443"; ma=86400
     body:
       encoding: UTF-8
-      string: '{"object":"list","results":[],"next_cursor":null,"has_more":false,"type":"block","block":{},"request_id":"2f1a4fd8-b721-4986-a12a-cea9174ae30b"}'
-  recorded_at: Fri, 29 Aug 2025 13:13:42 GMT
+      string: '{"object":"list","results":[],"next_cursor":null,"has_more":false,"type":"block","block":{},"request_id":"21db8c2c-4383-4c99-a179-4fe3a1291ad1"}'
+  recorded_at: Fri, 29 Aug 2025 13:28:38 GMT
 - request:
     method: get
     uri: https://api.notion.com/v1/pages/5cfed4de-3bdc-4f43-ae8b-a653a7a2219b
@@ -471,7 +471,7 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Fri, 29 Aug 2025 13:13:59 GMT
+      - Fri, 29 Aug 2025 13:28:55 GMT
       content-type:
       - application/json; charset=utf-8
       transfer-encoding:
@@ -481,13 +481,13 @@ http_interactions:
       server:
       - cloudflare
       cf-ray:
-      - 976c4f0e38fd97df-MRS
+      - 976c64eed8a411b9-MRS
       cf-cache-status:
       - DYNAMIC
       content-encoding:
       - gzip
       etag:
-      - W/"c9c-1L2tUJvgeJG0UKRdtO3zvYyxrL4"
+      - W/"cb2-lrQwJn4nVFntjB2PT1rBGZIWC/M"
       strict-transport-security:
       - max-age=31536000; includeSubDomains; preload
       vary:
@@ -505,26 +505,26 @@ http_interactions:
       x-frame-options:
       - SAMEORIGIN
       x-notion-request-id:
-      - 8c21cbfe-4beb-469b-a3fe-1f965a85f75b
+      - f6173b34-e3d5-41ab-a169-3fbeefbba1ba
       x-permitted-cross-domain-policies:
       - none
       x-xss-protection:
       - '0'
       set-cookie:
-      - __cf_bm=AzdQLhFn_bsNBelBViDs.7pVBrpGQIKsTEGBc_lXlac-1756473239-1.0.1.1-.gb9SpzR.rxFONVWG4bCR_P8D5oC5WxsA3dTEO1WhDQbJpu1Va.pLRZevKJDCXTCCNlWOYwHR.4psiHAKXa2LuSnJvMYj3MORAv8Xu4S8L0;
-        path=/; expires=Fri, 29-Aug-25 13:43:59 GMT; domain=.notion.com; HttpOnly;
-        Secure; SameSite=None, _cfuvid=1JchfhHZ1pcSCBXgC7idElPkne7ggmtxXpU81RLqS.g-1756473239149-0.0.1.1-604800000;
+      - __cf_bm=13YebLWUQAqkCOD8Nb74KgS2PUtdegPVXL6wIn_VbY8-1756474135-1.0.1.1-1VYkEC.W7pqwxyQRIM8GCmmExqECZsDDiPaoGqObrlBQb4kc3K5UzyDc8KBfI2QF533zK2.3yQWRGbCTlsl5eGcKODAhYTf.yvxAzgzvy8k;
+        path=/; expires=Fri, 29-Aug-25 13:58:55 GMT; domain=.notion.com; HttpOnly;
+        Secure; SameSite=None, _cfuvid=PE3pUr_zoWYAbSTY7Y1Ixhk4Ixr3MLedhL6pccuoA.o-1756474135276-0.0.1.1-604800000;
         path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None
       alt-svc:
       - h3=":443"; ma=86400
     body:
       encoding: UTF-8
-      string: '{"object":"page","id":"5cfed4de-3bdc-4f43-ae8b-a653a7a2219b","created_time":"2022-02-05T16:31:00.000Z","last_edited_time":"2025-08-29T13:13:00.000Z","created_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"last_edited_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"cover":null,"icon":null,"parent":{"type":"database_id","database_id":"b264f9dd-76fd-45e3-a014-d7e7e069a5dc"},"archived":false,"in_trash":false,"properties":{"files":{"id":"CooI","type":"files","files":[{"name":"dollari.md","type":"file","file":{"url":"https://prod-files-secure.s3.us-west-2.amazonaws.com/4783548e-2442-4bf3-bb3d-ed4ddd2dcdf0/46c827d0-603d-4edd-9a46-b703f5b7efc7/dollari.md?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466W3MFKQEV%2F20250829%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250829T131359Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCXVzLXdlc3QtMiJIMEYCIQDjviKRzCreOCjy9YsqzqUWkWDTevBC17AjEUkoecZBDQIhANHZaKd6IJ60uabAjT3aKl3MSwneZru9rwT98YC5sXVdKogECL3%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMNjM3NDIzMTgzODA1IgxhKiOND2kUuDXu6Wgq3ANxLw4FmbPe7l0qN7jNOPFHbyC%2FesDTbzWhgtjHK%2BjFu4ulMMFEqh1svWOuX2fYT%2BTNxRQVGWjjiVZVKlPcY7FdAaG0W1Fkb%2BicQ1BaaFg2zmB64nrdr81xwp3eYvu%2BfPEwo6oRsU4zIfGIOxdhKg3aEKlTk9XPO0RQp%2Bzr6zSOUcm1owK6BtekW0KEBnK5hMskkByvVfHje4LTpmcmveMj034dchFC4NNLfqLzYq%2B7c4Lhr86Z%2FcRieUYKlkRcv%2BbE42NOf%2BGMlGJxHKqxuuQHIiGs%2FYZSvb6WAOboGihsP%2FDvt0PnQEzWmzGpvWco5J5UUfQaSPMuDdO43oa321Hlg6k7eey3jds5hkR8P%2BRXTjsaUSdr8HcJoi%2FLe3Ei7%2BvAx1ci8N18s4WJx1l41gaoPXe6XZ9ts%2Bl9sw3F1k2dpCzisbUp%2FMoUb2AcNcsauIY08l4a1uIRGrmG%2F3ldrYPYCMsjVe%2Brm1xSj98AV40QzI3D8cPu6MP%2FbEvg3jlPqF%2FoB6ZAIAcfi8o5ghuNKz%2FNCjWk%2BR6gzqvVe%2FgWbEOuQ6TmDkGZbMyFHCAcz42vXMZeR98GaC6nIrrXEbeOOxTjo2IaUnugHTNC5m6wqFatGFsHnJtacdztP21dRzCGqcbFBjqkAVrpRYEUjMBVqL8RXat9qvEgwbR0xLXpdlMxbDiwvG3r0B7%2BvpAkEqVJtVdVrkNFfppsqqxerZY5ZyBggfcxQ%2BuGewDpqjajVUFKplF5PjdGEF1hW4A6L3G5ldPXy11ps5PikQatyHwYSr%2BMp9hpGK9Gz6bjXhBruPkCBtWKvKTwEL1GxWpkm31a2IY%2BB7QOHER6yFV696R4O0f8U4a8rSJsi4T%2B&X-Amz-Signature=9063d582519bba7fad4998472a0362a8a099153e53da2bf912ffa0ff985b9ddb&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject","expiry_time":"2025-08-29T14:13:59.046Z"}}]},"Created":{"id":"OoEJ","type":"created_time","created_time":"2022-02-05T16:31:00.000Z"},"year":{"id":"QhPM","type":"number","number":1964},"poster":{"id":"SZe%3B","type":"url","url":"https://upload.wikimedia.org/wikipedia/en/f/f0/Fistful-of-Dollars-poster.jpg"},"director":{"id":"nGgM","type":"rich_text","rich_text":[{"type":"text","text":{"content":"Sergio
+      string: '{"object":"page","id":"5cfed4de-3bdc-4f43-ae8b-a653a7a2219b","created_time":"2022-02-05T16:31:00.000Z","last_edited_time":"2025-08-29T13:13:00.000Z","created_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"last_edited_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"cover":null,"icon":null,"parent":{"type":"database_id","database_id":"b264f9dd-76fd-45e3-a014-d7e7e069a5dc"},"archived":false,"in_trash":false,"properties":{"files":{"id":"CooI","type":"files","files":[{"name":"dollari.md","type":"file","file":{"url":"https://prod-files-secure.s3.us-west-2.amazonaws.com/4783548e-2442-4bf3-bb3d-ed4ddd2dcdf0/46c827d0-603d-4edd-9a46-b703f5b7efc7/dollari.md?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466YJRNEVQY%2F20250829%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250829T132855Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGYaCXVzLXdlc3QtMiJGMEQCIHsapyzR6cC5%2FTLtg3LR4Dv6ncx4udx0FrsRRDkilhIwAiAjknKoFtSmehktemNb12W%2FjEdG5TSdjb6k%2BCZeEqn%2FBCqIBAi%2B%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDYzNzQyMzE4MzgwNSIMzoYGvnCJeGsiwy2bKtwD6Qw39O4K%2BZrrf9t08hPtK8r8rUeUkqWoNZNnvPZgFHBNzaXhKbqJEzYwmHKZGZYaH%2FdU5gi44hm27Bco%2F%2BvF%2FJOBmEbcJOopJx158I%2FCecXjfD0KCHyTY00dYxplPnD2QKzIPkRaS7SSLFhg1Ip1gFqqXscpgsgnyVdGrau5ZClDDf%2FQ7E5i%2B8zNJIFr%2FMjHqIF4AbcG%2Fr0PimMlJi%2FTOTkIWAmCUHYSPQG2ezCX0dgdIzEW%2FeiwQlAYDpH4qF3BoNgi96YE8Ufb52z2AeViZEMEqmR1MaWGQeddtT4w2Knt17e0GzCqqQ6PlK3gqKVOh1bJM4r7baTjx1o2pEyr4tbJKIkJJBEpOlT5OH%2BOQBipHOQ62ZSZcwZ8jp4R0jgumgoBfGSZJEy%2FnLN16O9gVBghYjyyAtLnxJAzE7JQfoeyYGF9TZpXDSdOA83eP8tOT%2BzmU%2BrphnWVxMRIEKeGS3%2B%2BvvUNxYLkbf47%2B8CvPdmyuN80NeOhR0AGwHUnFer1aEN%2FogRqnGMV5%2BoZHOa8UtUpXNAemb%2BZiX6rlCkWpWfqdZeOk9l9K3y%2BU0%2BOK16hMzIFqC61U3vYXYYvizs%2FW3WedGpozikfFQ2Kj2byoQ4PR%2BNwOuBnp3kzwJYw59HGxQY6pgEaKpq9Ns%2FSWdDx9XpZbUcUFOI8KWSSUkE3ZFfakfDtIbc5hVDauHuSkU1tQG4KUnXfE%2FY2h60NXhfUj9%2BPyvQT67LoXR1ZQGR9m%2F42FIkdTctbu%2Be1%2FGiJG%2FNdn3tFOVwu6zjbdblvlADNK%2BJJq2t1daSCZVOU%2FeLh4vuwYyTdc9LXgab7ocBmlzRqOJHa80QZr5N1XhW9hIvAOHmXEK70zmq1KIlT&X-Amz-Signature=ef3f893fe110fede7fb6161c7f57af2b00f6ec089127783914462146d821dc85&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject","expiry_time":"2025-08-29T14:28:55.164Z"}}]},"Created":{"id":"OoEJ","type":"created_time","created_time":"2022-02-05T16:31:00.000Z"},"year":{"id":"QhPM","type":"number","number":1964},"poster":{"id":"SZe%3B","type":"url","url":"https://upload.wikimedia.org/wikipedia/en/f/f0/Fistful-of-Dollars-poster.jpg"},"director":{"id":"nGgM","type":"rich_text","rich_text":[{"type":"text","text":{"content":"Sergio
         Leone","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Sergio
         Leone","href":null}]},"Name":{"id":"title","type":"title","title":[{"type":"text","text":{"content":"Per
         un pugno di dollari","link":null},"annotations":{"bold":true,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Per
-        un pugno di dollari","href":null}]}},"url":"https://www.notion.so/Per-un-pugno-di-dollari-5cfed4de3bdc4f43ae8ba653a7a2219b","public_url":null,"request_id":"8c21cbfe-4beb-469b-a3fe-1f965a85f75b"}'
-  recorded_at: Fri, 29 Aug 2025 13:13:43 GMT
+        un pugno di dollari","href":null}]}},"url":"https://www.notion.so/Per-un-pugno-di-dollari-5cfed4de3bdc4f43ae8ba653a7a2219b","public_url":null,"request_id":"f6173b34-e3d5-41ab-a169-3fbeefbba1ba"}'
+  recorded_at: Fri, 29 Aug 2025 13:28:39 GMT
 - request:
     method: get
     uri: https://api.notion.com/v1/blocks/5cfed4de-3bdc-4f43-ae8b-a653a7a2219b/children
@@ -546,7 +546,7 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Fri, 29 Aug 2025 13:14:00 GMT
+      - Fri, 29 Aug 2025 13:28:55 GMT
       content-type:
       - application/json; charset=utf-8
       transfer-encoding:
@@ -556,11 +556,11 @@ http_interactions:
       content-encoding:
       - gzip
       cf-ray:
-      - 976c4f112942531c-MRS
+      - 976c64f1e91ee17f-MRS
       cf-cache-status:
       - DYNAMIC
       etag:
-      - W/"90-nfr4cbEdWW5AYhbTmISyiDG2Dt4"
+      - W/"90-fyh6GivGLAju9oTwzKXwvUqYVoE"
       strict-transport-security:
       - max-age=31536000; includeSubDomains; preload
       vary:
@@ -578,15 +578,15 @@ http_interactions:
       x-frame-options:
       - SAMEORIGIN
       x-notion-request-id:
-      - c562be68-dba5-4438-85f2-be8ddcfb6f83
+      - c9d3204b-5e7d-489e-bcb1-351ad4e2fe0a
       x-permitted-cross-domain-policies:
       - none
       x-xss-protection:
       - '0'
       set-cookie:
-      - __cf_bm=L1kgXVDxkOiUFHwAYt7XsaSzq.pz0LQc_JEmrMrGYvA-1756473240-1.0.1.1-Qg3WnkVC8eRUGmLuldUq4Udi9sDur5qFZSxs2SSC5ry3ybs6vwi1FyLMgsE1HaCpbZNgywS8rclano.QKROJ.DofT44_58SW0XcCtPC5U7s;
-        path=/; expires=Fri, 29-Aug-25 13:44:00 GMT; domain=.notion.com; HttpOnly;
-        Secure; SameSite=None, _cfuvid=pBGDaOM0ewwDvaAOSFG61ApSshOL92XBiQnqdB8Gkq0-1756473240591-0.0.1.1-604800000;
+      - __cf_bm=w_WG4D079zbpH9rReQSTxeo0gIa8IjyWWblappDPPAo-1756474135-1.0.1.1-V73W8_moB4zteKoQBZpwYEFwGkgIQW7jDaahxmtAAnu3KYMjyNh92CqqJ5LbGXFznutQ92qlLk4.i5BTCTlKyaiQCWFrVwLLq5IN1_EB2vM;
+        path=/; expires=Fri, 29-Aug-25 13:58:55 GMT; domain=.notion.com; HttpOnly;
+        Secure; SameSite=None, _cfuvid=fak6bI_1mPQ5kn5LWf4.3nFCQKNSgbco4TBhdOrH.8s-1756474135621-0.0.1.1-604800000;
         path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None
       server:
       - cloudflare
@@ -594,6 +594,6 @@ http_interactions:
       - h3=":443"; ma=86400
     body:
       encoding: UTF-8
-      string: '{"object":"list","results":[],"next_cursor":null,"has_more":false,"type":"block","block":{},"request_id":"c562be68-dba5-4438-85f2-be8ddcfb6f83"}'
-  recorded_at: Fri, 29 Aug 2025 13:13:44 GMT
+      string: '{"object":"list","results":[],"next_cursor":null,"has_more":false,"type":"block","block":{},"request_id":"c9d3204b-5e7d-489e-bcb1-351ad4e2fe0a"}'
+  recorded_at: Fri, 29 Aug 2025 13:28:39 GMT
 recorded_with: VCR 6.3.1
