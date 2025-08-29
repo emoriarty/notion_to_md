@@ -5,26 +5,26 @@ class NotionToMd
   #
   # This class represents Notion Database object.
   class Database
-    extend Forwardable
+    include Support::MetadataProperties
 
     class << self
-      def call(database_id:, notion_client:, filter: nil, sorts: nil)
-        metadata = notion_client.database(database_id: database_id)
-        pages = Builder.call(database_id: database_id, notion_client: notion_client, filter: filter, sorts: sorts)
+      def call(id:, notion_client:, filter: nil, sorts: nil)
+        metadata = notion_client.database(database_id: id)
+        pages = Builder.call(database_id: id, notion_client: notion_client, filter: filter, sorts: sorts)
 
-        new(metadata: metadata, pages: pages)
+        new(metadata: metadata, children: pages)
       end
 
       alias build call
     end
 
-    attr_reader :metadata, :pages
+    attr_reader :metadata, :children
 
-    def_delegators :@metadata, :properties
+    alias pages children
 
-    def initialize(metadata:, pages:)
+    def initialize(metadata:, children:)
       @metadata = metadata
-      @pages = pages
+      @children = children
     end
   end
 end

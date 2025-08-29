@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class NotionToMd
-  class PageProperty
+  class MetadataType
     class << self
       include Helpers::YamlSanitizer
 
