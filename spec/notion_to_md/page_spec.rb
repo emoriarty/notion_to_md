@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe(NotionToMd::Page) do
-  subject(:page) { described_class.new(metadata: metadata, blocks: blocks) }
+  subject(:page) { described_class.new(metadata: metadata, children: blocks) }
 
   let(:metadata) { nil }
   let(:blocks) { nil }
