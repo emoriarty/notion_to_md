@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 RSpec.describe NotionToMd::Database do
-  subject(:db) { described_class.call(database_id: database_id, notion_client: notion_client, filter: filter, sorts: sorts) }
+  subject(:db) { described_class.call(id: database_id, notion_client: notion_client, filter: filter, sorts: sorts) }
 
   let(:database_id) { '1ae33dd5f3314402948069517fa40ae2' }
   let(:notion_client) { Notion::Client.new(token: ENV.fetch('NOTION_TOKEN', nil)) }
@@ -12,6 +12,8 @@ RSpec.describe NotionToMd::Database do
 
   before { VCR.insert_cassette('a_database') }
   after  { VCR.eject_cassette('a_database') }
+
+  it_behaves_like 'metadata container'
 
   describe '.call' do
     it 'returns a NotionToMd::Database' do
@@ -60,6 +62,14 @@ RSpec.describe NotionToMd::Database do
       it 'has Hash values' do
         expect(db.properties.values).to all(be_a(Hash))
       end
+    end
+
+    describe '#title' do
+      it { expect(db.title).to eq('jekyll-notion test 🇪🇦') }
+    end
+
+    describe '#id' do
+      it { expect(db.id).to eq('1ae33dd5-f331-4402-9480-69517fa40ae2') }
     end
   end
 

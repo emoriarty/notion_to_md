@@ -22,7 +22,7 @@ class NotionToMd
 
       def call
         fetch_pages.map do |page|
-          NotionToMd::Page.call(page_id: page.id, notion_client: notion_client)
+          NotionToMd::Page.call(id: page.id, notion_client: notion_client)
         end
       end
 

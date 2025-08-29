@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe(NotionToMd::PageProperty) do
+describe(NotionToMd::MetadataType) do
   subject(:page) { described_class.new(page: notion_page, blocks: notion_blocks) }
 
   let(:notion_page) { nil }
