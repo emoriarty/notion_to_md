@@ -13,8 +13,8 @@ describe(NotionToMd::Blocks::Block) do
 
     before do
       stub_const(
-        'NotionToMd::Blocks::Types',
-        instance_double('Types', dummy_type: block_value)
+        'NotionToMd::Blocks::Renderer',
+        instance_double('Renderer', dummy_type: block_value)
       )
     end
 
