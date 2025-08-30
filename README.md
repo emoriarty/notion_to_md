@@ -2,9 +2,15 @@
 
 # notion_to_md
 
-A Ruby library to export Notion pages to Markdown.
+A Ruby library to export [Notion](https://www.notion.so/) pages and databases to Markdown.
+The output is fully compliant with the [GitHub Flavored Markdown specification](https://github.github.com/gfm/).
 
-The generated Markdown is fully compliant with the [GitHub Flavored Markdown specification](https://github.github.com/gfm/).
+[![Gem Version](https://badge.fury.io/rb/notion_to_md.svg)](https://badge.fury.io/rb/notion_to_md)
+[![CI](https://github.com/emoriarty/notion_to_md/actions/workflows/ci.yml/badge.svg)](https://github.com/emoriarty/notion_to_md/actions)
+
+> [!NOTE]
+> You are reading the documentation for the latest development branch.
+> For the stable **v2.x.x** documentation, see [the v2.x.x branch](https://github.com/emoriarty/notion_to_md/tree/v2.x.x).
 
 ## Installation
 
@@ -17,119 +23,83 @@ gem install notion_to_md
 Or add it to your `Gemfile`:
 
 ```ruby
-# Gemfile
 gem 'notion_to_md'
+```
+
+## Quick Start
+
+```ruby
+# Convert a Notion page to Markdown
+md = NotionToMd.call(:page, id: 'b91d5...', token: ENV['NOTION_TOKEN'])
+File.write("page.md", md)
 ```
 
 ## Usage
 
-Before using the gem, create a Notion integration and generate a secret token. See the [Notion Getting Started Guide](https://developers.notion.com/docs/getting-started) for details.
+Before using the gem, create a Notion integration and obtain a secret token.
+See the [Notion Getting Started Guide](https://developers.notion.com/docs/getting-started) for details.
 
-Pass the page ID and secret token to the constructor and call `convert`:
-
-```ruby
-require 'notion_to_md'
-
-notion_converter = NotionToMd::Converter.new(page_id: 'b91d5...', token: 'secret_...')
-md = notion_converter.convert
-```
-
-Since v2.3, you can also use the convenient shorthand:
+### Pages
 
 ```ruby
-md = NotionToMd.convert(page_id: 'b91d5...', token: 'secret_...')
+md = NotionToMd.call(:page, id: 'b91d5...', token: 'secret_...')
+# or equivalently
+md = NotionToMd.convert(:page, id: 'b91d5...', token: 'secret_...')
 ```
 
-### Using environment variables
+`md` is a string containing the page content in Markdown format.
 
-If your secret token is stored in the `NOTION_TOKEN` environment variable, you don’t need to pass it explicitly:
+### Databases
+
+```ruby
+mds = NotionToMd.call(:database, id: 'b91d5...')
+```
+
+`mds` is an array of strings, one per page.
+
+### Environment Variables
+
+If your token is stored in `NOTION_TOKEN`, you don’t need to pass it explicitly:
 
 ```bash
 export NOTION_TOKEN=<secret_...>
 ```
 
 ```ruby
-notion_converter = NotionToMd::Converter.new(page_id: 'b91d5...')
-md = notion_converter.convert
-# or
-md = NotionToMd.convert(page_id: 'b91d5...')
+md = NotionToMd.call(:page, id: 'b91d5...')
 ```
 
-The result (`md`) is a string containing the page content formatted in Markdown.
+## Supported Blocks
 
-### Callable interface
+Everything in Notion is a [block object](https://developers.notion.com/reference/block#block-object-keys).
 
-As of v2.5.0, the `call` method is available as an alias for `convert`:
+| Block type                        | Nested children supported? |
+|-----------------------------------|----------------------------|
+| paragraph                         | ✅ |
+| heading_1 / heading_2 / heading_3 | ❌ |
+| bulleted_list_item                | ✅ |
+| numbered_list_item                | ✅ |
+| to_do                             | ✅ |
+| image, file, pdf, video           | ❌ |
+| bookmark, embed, link_preview     | ❌ |
+| callout                           | ❌ |
+| quote                             | ❌ |
+| divider                           | ❌ |
+| table                             | ❌ |
+| code                              | ❌ |
+| equation                          | ❌ |
+
+## Front Matter
+
+By default, front matter is **disabled**. Enable it with:
 
 ```ruby
-md = NotionToMd.call(page_id: 'b91d5...')
+NotionToMd.call(:page, id: 'b91d5...', frontmatter: true)
 ```
 
-The `call` method also accepts a block:
+### Examples
 
-```ruby
-NotionToMd.call(page_id: 'b91d5...') { puts _1 }
-```
-
-## Supported blocks
-
-Everything in a Notion page is a [block object](https://developers.notion.com/reference/block#block-object-keys). Not all block types map directly to Markdown, but the following are supported:
-
-- `paragraph`
-- `heading_1`
-- `heading_2`
-- `heading_3`
-- `bulleted_list_item`
-- `numbered_list_item` (added in v2.3; previously rendered as `bulleted_list_item`)
-- `to_do`
-- `image`
-- `bookmark`
-- `callout`
-- `quote`
-- `divider`
-- `table`
-- `embed`
-- `code`
-- `link_preview`
-- `file`
-- `pdf`
-- `video`
-- `equation`
-
-### Nested blocks
-
-Since v2, nested blocks are supported. The following block types may contain children:
-
-- `paragraph`
-- `bulleted_list_item`
-- `numbered_list_item`
-- `to_do`
-
-## Front matter
-
-Since v0.2.0, `notion_to_md` supports YAML front matter in exported Markdown.
-
-By default, front matter is not included. To enable it, pass the `frontmatter: true` option:
-
-```ruby
-NotionToMd::Converter.new(page_id: 'b91d5...').convert(frontmatter: true)
-# or (since v2.3)
-NotionToMd.convert(page_id: 'b91d5...', frontmatter: true)
-```
-
-### Default properties
-
-By default, the following [Notion page properties](https://developers.notion.com/reference/page#all-pages) are exported:
-
-- `id`
-- `title`
-- `created_time`
-- `last_edited_time`
-- `icon`
-- `archived`
-- `cover`
-
-Example:
+**Default properties:**
 
 ```yml
 ---
@@ -147,11 +117,7 @@ last_edited_by_object: user
 ---
 ```
 
-### Custom properties
-
-Custom properties are also supported. Their names are [parameterized](https://api.rubyonrails.org/classes/ActiveSupport/Inflector.html#method-i-parameterize) and [underscored](https://api.rubyonrails.org/classes/ActiveSupport/Inflector.html#method-i-underscore) before being added to front matter.
-
-For example, Notion properties named `Multiple Options` and `Tags` would become:
+**Custom properties:**
 
 ```yml
 ---
@@ -160,7 +126,9 @@ multiple_options: option1, option2
 ---
 ```
 
-Supported property types include:
+Custom property names are [parameterized](https://api.rubyonrails.org/classes/ActiveSupport/Inflector.html#method-i-parameterize) and [underscored](https://api.rubyonrails.org/classes/ActiveSupport/Inflector.html#method-i-underscore).
+
+Supported property types:
 
 - `number`
 - `select`
@@ -174,9 +142,11 @@ Supported property types include:
 - `phone_number`
 - `rich_text` (plain text only)
 
-Advanced types such as `formula`, `relation`, and `rollup` are not supported. See the [Notion property value documentation](https://developers.notion.com/reference/property-value-object#all-property-values) for details.
+> [!NOTE]
+> Advanced types such as `formula`, `relation`, and `rollup` are **not supported**.
+> See the [Notion property value docs](https://developers.notion.com/reference/property-value-object#all-property-values).
 
-## Testing
+## Development
 
 Run the test suite with:
 

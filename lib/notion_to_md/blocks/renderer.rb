@@ -2,7 +2,23 @@
 
 class NotionToMd
   module Blocks
-    class Types
+    # === NotionToMd::Blocks::Renderer
+    #
+    # Stateless renderer for individual Notion block payloads into
+    # GitHub-Flavored Markdown (GFM). Each public class method expects a
+    # simplified block hash (already focused on the inner block content)
+    # and returns a Markdown string.
+    #
+    # This class is used by {NotionToMd::Blocks::Block#to_md}.
+    #
+    # @example Render a paragraph block
+    #   md = NotionToMd::Blocks::Renderer.paragraph({ rich_text: [{ type: :text, plain_text: "Hello" }] })
+    #   # => "Hello"
+    #
+    # @see NotionToMd::Blocks::Block
+    # @see NotionToMd::Blocks::Text
+    # @see NotionToMd::Blocks::TextAnnotation
+    class Renderer
       class << self
         def paragraph(block)
           return blank if block[:rich_text].empty?
