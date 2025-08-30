@@ -13,17 +13,7 @@ RSpec.describe NotionToMd::Database do
   before { VCR.insert_cassette('a_database') }
   after  { VCR.eject_cassette('a_database') }
 
-  describe '.call' do
-    it 'returns a NotionToMd::Database' do
-      expect(db).to be_a(described_class)
-    end
-  end
-
-  describe '.build' do
-    it 'is an alias of .call' do
-      expect(described_class.method(:build)).to eq(described_class.method(:call))
-    end
-  end
+  it_behaves_like 'a callable interface'
 
   describe '#pages' do
     it 'returns an Array' do

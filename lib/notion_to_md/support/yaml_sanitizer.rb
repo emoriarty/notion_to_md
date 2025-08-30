@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class NotionToMd
-  module Helpers
+  module Support
     module YamlSanitizer
       # Escape the frontmatter value if it contains a colon or a dash followed by a space
       # @param value [String] the value to escape

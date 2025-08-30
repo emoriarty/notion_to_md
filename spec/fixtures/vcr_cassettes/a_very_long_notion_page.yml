@@ -2,83 +2,6 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.notion.com/v1/pages/25adb135281c80828cb1dc59437ae243
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - application/json; charset=utf-8
-      User-Agent:
-      - Notion Ruby Client/1.2.2
-      Authorization:
-      - "<REDACTED>"
-      Notion-Version:
-      - '2022-02-22'
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      date:
-      - Tue, 26 Aug 2025 07:41:55 GMT
-      content-type:
-      - application/json; charset=utf-8
-      transfer-encoding:
-      - chunked
-      connection:
-      - keep-alive
-      server:
-      - cloudflare
-      cf-ray:
-      - 9751b07f79703d70-MRS
-      cf-cache-status:
-      - DYNAMIC
-      content-encoding:
-      - gzip
-      etag:
-      - W/"6ed-sypERveqwqs29Q8ZFetTA5D7C30"
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains; preload
-      vary:
-      - Accept-Encoding
-      content-security-policy:
-      - default-src 'none'
-      referrer-policy:
-      - strict-origin-when-cross-origin
-      x-content-type-options:
-      - nosniff
-      x-dns-prefetch-control:
-      - 'off'
-      x-download-options:
-      - noopen
-      x-frame-options:
-      - SAMEORIGIN
-      x-notion-request-id:
-      - 68dece4a-495a-4634-85d5-14d5e2c678a6
-      x-permitted-cross-domain-policies:
-      - none
-      x-xss-protection:
-      - '0'
-      set-cookie:
-      - __cf_bm=ajhPSTz.Pqh5fZb8AK_NqdxGTZfxUjxHktfddxWaXKY-1756194115-1.0.1.1-9p6Wzl.DTheaLt7U9870tBTApzURDBHhnCVx4aFY3OT9szT3sOYRwW3C.7Zk9uRJzF9T8DMbLd1l8JDgdCQhvOYW7XHf27buda7xmxujmpU;
-        path=/; expires=Tue, 26-Aug-25 08:11:55 GMT; domain=.notion.com; HttpOnly;
-        Secure; SameSite=None, _cfuvid=2CnFgiAt2DQc3zpf2ubjUHMcMQaazqnYk9nrS76djqY-1756194115118-0.0.1.1-604800000;
-        path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None
-      alt-svc:
-      - h3=":443"; ma=86400
-    body:
-      encoding: UTF-8
-      string: '{"object":"page","id":"25adb135-281c-8082-8cb1-dc59437ae243","created_time":"2025-08-25T18:14:00.000Z","last_edited_time":"2025-08-25T18:16:00.000Z","created_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"last_edited_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"cover":null,"icon":null,"parent":{"type":"database_id","database_id":"1ae33dd5-f331-4402-9480-69517fa40ae2"},"archived":false,"in_trash":false,"properties":{"empty
-        date":{"id":"%3A%7BfH","type":"date","date":null},"Multi Select":{"id":"%3C%7Bn%7B","type":"multi_select","multi_select":[]},"Select":{"id":"%3EzjF","type":"select","select":null},"date
-        with time":{"id":"CUEj","type":"date","date":null},"Person":{"id":"TFSp","type":"people","people":[]},"Date":{"id":"T~YB","type":"date","date":null},"Tags":{"id":"UT%3Fx","type":"multi_select","multi_select":[]},"Numbers":{"id":"a~dg","type":"number","number":null},"Rich
-        Text":{"id":"jJWo","type":"rich_text","rich_text":[]},"Phone":{"id":"k%5DEi","type":"phone_number","phone_number":null},"File":{"id":"x%60rF","type":"files","files":[]},"empty
-        rich text":{"id":"xtDO","type":"rich_text","rich_text":[]},"Email":{"id":"x%7Bcw","type":"email","email":null},"Checkbox":{"id":"%7CMPu","type":"checkbox","checkbox":false},"empty_select":{"id":"%7DSr%3F","type":"select","select":null},"Name":{"id":"title","type":"title","title":[{"type":"text","text":{"content":"A
-        very long document","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"A
-        very long document","href":null}]}},"url":"https://www.notion.so/A-very-long-document-25adb135281c80828cb1dc59437ae243","public_url":null,"request_id":"68dece4a-495a-4634-85d5-14d5e2c678a6"}'
-  recorded_at: Tue, 26 Aug 2025 07:41:42 GMT
-- request:
-    method: get
     uri: https://api.notion.com/v1/blocks/25adb135281c80828cb1dc59437ae243/children
     body:
       encoding: US-ASCII
@@ -98,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Tue, 26 Aug 2025 07:41:56 GMT
+      - Sat, 30 Aug 2025 05:35:11 GMT
       content-type:
       - application/json; charset=utf-8
       transfer-encoding:
@@ -108,13 +31,13 @@ http_interactions:
       server:
       - cloudflare
       cf-ray:
-      - 9751b083ebe6e28d-MRS
+      - 9771ec5cdfb711a0-MRS
       cf-cache-status:
       - DYNAMIC
       content-encoding:
       - gzip
       etag:
-      - W/"2ea74-AHfU0C85dYk88FOEKXXSllh2+WM"
+      - W/"2ea74-Ty6uOE8dIb2a2t7kchxa1d91Gmg"
       strict-transport-security:
       - max-age=31536000; includeSubDomains; preload
       vary:
@@ -132,15 +55,15 @@ http_interactions:
       x-frame-options:
       - SAMEORIGIN
       x-notion-request-id:
-      - 06fdd150-d19b-4e12-9bf3-58666cb1852f
+      - 87b93e4f-b552-4c9e-9fd3-27d131975f21
       x-permitted-cross-domain-policies:
       - none
       x-xss-protection:
       - '0'
       set-cookie:
-      - __cf_bm=FTXUz3ailglEOLeBwTVjOZUJFDvGuNUh82v2UpA25yY-1756194116-1.0.1.1-QMdyuqkbrnvS0.sVhrP1wp0lJbQDeOJtKJeh.9mZQAxtJymbX6wCygy1jMElu7Jk3J30VEoUAxP71sXynwBBbvrlpxVo9assDQAHwarlago;
-        path=/; expires=Tue, 26-Aug-25 08:11:56 GMT; domain=.notion.com; HttpOnly;
-        Secure; SameSite=None, _cfuvid=G9CmjjOFyDCpCTsZejSxcNTMzkGuZ1Sgx2jLS530FUA-1756194116470-0.0.1.1-604800000;
+      - __cf_bm=e871Q4dJ5vhiJUAZOZlk8eRGXf0pWvBf1Tp11aT2puk-1756532111-1.0.1.1-9BxwSMwgZ.9epyuCteMwzbDijgIqUKkFL2Tjxuraqc11sO0DqbxQmLLu04gz9FCBpl6wBm_1x99tyaD.wuz7.UUpWOLWWTF6K62rAxAYdDY;
+        path=/; expires=Sat, 30-Aug-25 06:05:11 GMT; domain=.notion.com; HttpOnly;
+        Secure; SameSite=None, _cfuvid=5LS20089mzO435XTk8ESnb4YK1IQSkL1DkVE056vFKI-1756532111609-0.0.1.1-604800000;
         path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None
       alt-svc:
       - h3=":443"; ma=86400
@@ -1790,8 +1713,8 @@ http_interactions:
         ac purus ut eros bibendum aliquam ut sit amet erat. Praesent iaculis sem luctus
         tellus hendrerit, ultrices pretium arcu fringilla. Ut eget luctus arcu. Pellentesque
         fermentum ornare laoreet. Aliquam eu justo ut nibh blandit sodales quis sed
-        risus. Etiam at odio id quam rutrum bibendum.","href":null}],"color":"default"}}],"next_cursor":"25adb135-281c-80c5-8f7b-e51852bd47af","has_more":true,"type":"block","block":{},"request_id":"06fdd150-d19b-4e12-9bf3-58666cb1852f"}'
-  recorded_at: Tue, 26 Aug 2025 07:41:43 GMT
+        risus. Etiam at odio id quam rutrum bibendum.","href":null}],"color":"default"}}],"next_cursor":"25adb135-281c-80c5-8f7b-e51852bd47af","has_more":true,"type":"block","block":{},"request_id":"87b93e4f-b552-4c9e-9fd3-27d131975f21"}'
+  recorded_at: Sat, 30 Aug 2025 05:34:55 GMT
 - request:
     method: get
     uri: https://api.notion.com/v1/blocks/25adb135281c80828cb1dc59437ae243/children?start_cursor=25adb135-281c-80c5-8f7b-e51852bd47af
@@ -1813,7 +1736,7 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Tue, 26 Aug 2025 07:53:23 GMT
+      - Sat, 30 Aug 2025 05:35:11 GMT
       content-type:
       - application/json; charset=utf-8
       transfer-encoding:
@@ -1823,13 +1746,13 @@ http_interactions:
       server:
       - cloudflare
       cf-ray:
-      - 9751c151a8ad1d43-MRS
+      - 9771ec621931e289-MRS
       cf-cache-status:
       - DYNAMIC
       content-encoding:
       - gzip
       etag:
-      - W/"67e-I2kc2aU1Qk0ST02gXvxp2a+3NyM"
+      - W/"67e-UT6/ehB5qkcyz2nIg6buzs39ku0"
       strict-transport-security:
       - max-age=31536000; includeSubDomains; preload
       vary:
@@ -1847,15 +1770,15 @@ http_interactions:
       x-frame-options:
       - SAMEORIGIN
       x-notion-request-id:
-      - b1de5dac-c9bf-4abb-af3a-d253358d012a
+      - 7cd20e23-4dcd-4f64-9c11-b428b7e63e3e
       x-permitted-cross-domain-policies:
       - none
       x-xss-protection:
       - '0'
       set-cookie:
-      - __cf_bm=zEF094gmHRqMb2RP0KOHsuqKVH5qb1iiZO4Di8FDUng-1756194803-1.0.1.1-GIXvyTV9XEzKUTEyXUEX22D6LklAnkpe7jUHvy1GfeBjnaxISPb9740CAAIQLzWYrjpyZxsw4ph6eqXeuOKVKDNt.oE5wiIr6sxn6yJuwro;
-        path=/; expires=Tue, 26-Aug-25 08:23:23 GMT; domain=.notion.com; HttpOnly;
-        Secure; SameSite=None, _cfuvid=nQRrzoK_85EFenLx3SNBPOuIO0_RkkCDiEk_vHCHU10-1756194803801-0.0.1.1-604800000;
+      - __cf_bm=WgH6HXq.SUdvcM3y2oACcujaBNRu1upT1T_P9kpplps-1756532111-1.0.1.1-mhPXJM59GXLkKmKCXs_nRHTwAvjD1ojISKuGGSzL5bqxeRJzdxTW51sO1tWd7rBxJfLGPPiwnsQVU21okRRfXW1VnCyoKM3BDdbKIGW_vX4;
+        path=/; expires=Sat, 30-Aug-25 06:05:11 GMT; domain=.notion.com; HttpOnly;
+        Secure; SameSite=None, _cfuvid=EDCbE0T6njbv3nBSbVKI9U5YN392MeA7QBIMbKEGuoY-1756532111988-0.0.1.1-604800000;
         path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None
       alt-svc:
       - h3=":443"; ma=86400
@@ -1873,11 +1796,11 @@ http_interactions:
         vulputate, nunc urna varius sem, non ullamcorper erat arcu ut leo. Duis luctus
         elit imperdiet, vulputate quam in, pretium ex. Ut odio metus, tempor vitae
         tellus et, iaculis hendrerit metus. Nunc mi enim, aliquam eu vehicula eu,
-        tempor nec odio.","href":null}],"color":"default"}}],"next_cursor":null,"has_more":false,"type":"block","block":{},"request_id":"b1de5dac-c9bf-4abb-af3a-d253358d012a"}'
-  recorded_at: Tue, 26 Aug 2025 07:53:10 GMT
+        tempor nec odio.","href":null}],"color":"default"}}],"next_cursor":null,"has_more":false,"type":"block","block":{},"request_id":"7cd20e23-4dcd-4f64-9c11-b428b7e63e3e"}'
+  recorded_at: Sat, 30 Aug 2025 05:34:56 GMT
 - request:
     method: get
-    uri: https://api.notion.com/v1/blocks/dummy_id/children
+    uri: https://api.notion.com/v1/pages/25adb135281c80828cb1dc59437ae243
     body:
       encoding: US-ASCII
       string: ''
@@ -1892,25 +1815,27 @@ http_interactions:
       - '2022-02-22'
   response:
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
     headers:
       date:
-      - Wed, 27 Aug 2025 15:06:37 GMT
+      - Sat, 30 Aug 2025 05:35:12 GMT
       content-type:
       - application/json; charset=utf-8
-      content-length:
-      - '211'
+      transfer-encoding:
+      - chunked
       connection:
       - keep-alive
       server:
       - cloudflare
       cf-ray:
-      - 975c794edbd8e27d-MRS
+      - 9771ec649ec411c2-MRS
       cf-cache-status:
       - DYNAMIC
+      content-encoding:
+      - gzip
       etag:
-      - W/"d3-9b3iBxUgAco1+pMo+Vag9E3ufcU"
+      - W/"771-nRXmyOPSBtkQxos7gf79tnOyq8w"
       strict-transport-security:
       - max-age=31536000; includeSubDomains; preload
       vary:
@@ -1928,21 +1853,26 @@ http_interactions:
       x-frame-options:
       - SAMEORIGIN
       x-notion-request-id:
-      - 4e300b4a-709f-40b5-901d-b2470c28ac59
+      - 214f2720-7815-4607-a7f4-43558ce67996
       x-permitted-cross-domain-policies:
       - none
       x-xss-protection:
       - '0'
       set-cookie:
-      - __cf_bm=Wxfpd6.wv5DMQBiWReMj7TNz6Eblmeb2xaEjthxHHx8-1756307197-1.0.1.1-3vtjgVTmBmyO3V8W0xAnuNmKDPRFYHZgIDoExu6RK6ASg6a68CLdHU4Gv0tdhOKlgp03E0hssRhEL91asCjmb_3Z27yBiPl97g.wttyRKag;
-        path=/; expires=Wed, 27-Aug-25 15:36:37 GMT; domain=.notion.com; HttpOnly;
-        Secure; SameSite=None, _cfuvid=DpzQ8j.NM0VrX3k9aB_oG_7AUtUxynV3TfMhuCKy7dY-1756307197572-0.0.1.1-604800000;
+      - __cf_bm=9TLTcrtJmA15MUY3Vme1cSKFnzjmXUdBYiCfrzQt3bQ-1756532112-1.0.1.1-ZPjJwyepR8vhvdLq81AtWZh.whAEI5AiZ1UgRT49yWAuAVJCrvZ43bPvzKMY.RyhvebGwUuk7ZvzOigbLjbwztp22WlGPYD5ktaTbkZvBn8;
+        path=/; expires=Sat, 30-Aug-25 06:05:12 GMT; domain=.notion.com; HttpOnly;
+        Secure; SameSite=None, _cfuvid=W8LAS.AF09Q2lR_UScmlOEmXyvBROWEnIAdjZe5uaUE-1756532112372-0.0.1.1-604800000;
         path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None
       alt-svc:
       - h3=":443"; ma=86400
     body:
       encoding: UTF-8
-      string: '{"object":"error","status":400,"code":"validation_error","message":"path
-        failed validation: path.block_id should be a valid uuid, instead was `\"dummy_id\"`.","request_id":"4e300b4a-709f-40b5-901d-b2470c28ac59"}'
-  recorded_at: Wed, 27 Aug 2025 15:06:22 GMT
+      string: '{"object":"page","id":"25adb135-281c-8082-8cb1-dc59437ae243","created_time":"2025-08-25T18:14:00.000Z","last_edited_time":"2025-08-30T05:11:00.000Z","created_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"last_edited_by":{"object":"user","id":"db313571-0280-411f-a6de-70e826421d12"},"cover":{"type":"external","external":{"url":"https://www.notion.so/images/page-cover/rijksmuseum_jansz_1641.jpg"}},"icon":{"type":"emoji","emoji":"✈️"},"parent":{"type":"database_id","database_id":"1ae33dd5-f331-4402-9480-69517fa40ae2"},"archived":false,"in_trash":false,"properties":{"empty
+        date":{"id":"%3A%7BfH","type":"date","date":null},"Multi Select":{"id":"%3C%7Bn%7B","type":"multi_select","multi_select":[]},"Select":{"id":"%3EzjF","type":"select","select":null},"date
+        with time":{"id":"CUEj","type":"date","date":null},"Person":{"id":"TFSp","type":"people","people":[]},"Date":{"id":"T~YB","type":"date","date":null},"Tags":{"id":"UT%3Fx","type":"multi_select","multi_select":[]},"Numbers":{"id":"a~dg","type":"number","number":null},"Rich
+        Text":{"id":"jJWo","type":"rich_text","rich_text":[]},"Phone":{"id":"k%5DEi","type":"phone_number","phone_number":null},"File":{"id":"x%60rF","type":"files","files":[]},"empty
+        rich text":{"id":"xtDO","type":"rich_text","rich_text":[]},"Email":{"id":"x%7Bcw","type":"email","email":null},"Checkbox":{"id":"%7CMPu","type":"checkbox","checkbox":false},"empty_select":{"id":"%7DSr%3F","type":"select","select":null},"Name":{"id":"title","type":"title","title":[{"type":"text","text":{"content":"A
+        very long document","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"A
+        very long document","href":null}]}},"url":"https://www.notion.so/A-very-long-document-25adb135281c80828cb1dc59437ae243","public_url":null,"request_id":"214f2720-7815-4607-a7f4-43558ce67996"}'
+  recorded_at: Sat, 30 Aug 2025 05:34:56 GMT
 recorded_with: VCR 6.3.1
