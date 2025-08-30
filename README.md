@@ -8,7 +8,7 @@ The output is fully compliant with the [GitHub Flavored Markdown specification](
 [![Gem Version](https://badge.fury.io/rb/notion_to_md.svg)](https://badge.fury.io/rb/notion_to_md)
 [![CI](https://github.com/emoriarty/notion_to_md/actions/workflows/ci.yml/badge.svg)](https://github.com/emoriarty/notion_to_md/actions)
 
-> ⚠️ **Version notice:**
+> [!NOTE]
 > You are reading the documentation for the latest development branch.
 > For the stable **v2.x.x** documentation, see [the v2.x.x branch](https://github.com/emoriarty/notion_to_md/tree/v2.x.x).
 
@@ -142,8 +142,9 @@ Supported property types:
 - `phone_number`
 - `rich_text` (plain text only)
 
-⚠️ Advanced types such as `formula`, `relation`, and `rollup` are **not supported**.
-See the [Notion property value docs](https://developers.notion.com/reference/property-value-object#all-property-values).
+> [!NOTE]
+> ⚠️ Advanced types such as `formula`, `relation`, and `rollup` are **not supported**.
+> See the [Notion property value docs](https://developers.notion.com/reference/property-value-object#all-property-values).
 
 ## Development
 
