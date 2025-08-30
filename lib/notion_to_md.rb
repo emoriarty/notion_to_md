@@ -12,6 +12,8 @@ loader.setup
 
 # The NotionToMd class allows to transform notion pages to markdown documents.
 class NotionToMd
+  TYPES = { database: :database, page: :page }.freeze
+
   class << self
     # === Parameters
     # page_id::
@@ -24,8 +26,16 @@ class NotionToMd
     # === Returns
     # The string that represent the markdown document.
     #
-    def call(page_id:, token: nil, frontmatter: false)
-      md = Converter.call(page_id: page_id, token: token || ENV.fetch('NOTION_TOKEN', nil), frontmatter: frontmatter)
+    def call(type, id:, token: nil, frontmatter: false)
+      raise "#{type} is not supported. Use :database or :page" unless TYPES.values.include?(type)
+
+      notion_client = Notion::Client.new(token: token || ENV.fetch('NOTION_TOKEN', nil))
+      md = case type
+           when TYPES[:database]
+             Database.call(id: id, notion_client: notion_client, frontmatter: frontmatter).to_md
+           when TYPES[:page]
+             Page.call(id: id, notion_client: notion_client, frontmatter: frontmatter).to_md
+           end
 
       yield md if block_given?
 
