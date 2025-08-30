@@ -2,22 +2,21 @@
 
 require 'spec_helper'
 
-RSpec.describe NotionToMd::Support::Frontmatter do
-  # spec support dummy
-  class DummyClass
-    include NotionToMd::Support::MetadataProperties
-    include NotionToMd::Support::Frontmatter
+# spec support dummy
+class DummyClass
+  include NotionToMd::Support::MetadataProperties
+  include NotionToMd::Support::Frontmatter
 
-    attr_reader :metadata, :children
-    alias blocks children
+  attr_reader :metadata, :children
+  alias blocks children
 
-    def initialize(metadata:, children:)
-      @metadata = metadata
-      @children = children
-    end
+  def initialize(metadata:, children:)
+    @metadata = metadata
+    @children = children
   end
+end
 
-
+RSpec.describe NotionToMd::Support::Frontmatter do
   subject(:dummy) { DummyClass.new(metadata: metadata, children: blocks) }
 
   let(:metadata) { nil }
