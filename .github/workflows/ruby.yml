@@ -33,6 +33,8 @@ jobs:
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - name: Run tests
       run: bundle exec rspec
+    - name: Run lint
+      run: bundle exec rubocop
     - name: Archive code coverage results
       uses: actions/upload-artifact@v4
       with:
