@@ -3,10 +3,13 @@
 require 'spec_helper'
 
 describe(NotionToMd) do
+  let(:resource_type) { :page }
+  let(:resource_id) { '9dc17c9c9d2e469dbbf0f9648f3288d3' }
+
   describe('#convert') do
     subject(:md) do
       VCR.use_cassette('notion_page') do
-        described_class.convert(page_id: '9dc17c9c9d2e469dbbf0f9648f3288d3')
+        described_class.convert(resource_type, id: resource_id)
       end
     end
 
@@ -130,7 +133,7 @@ describe(NotionToMd) do
     context('with frontmatter') do
       subject(:md) do
         VCR.use_cassette('notion_page') do
-          described_class.convert(page_id: '9dc17c9c9d2e469dbbf0f9648f3288d3', frontmatter: frontmatter)
+          described_class.convert(resource_type, id: resource_id, frontmatter: frontmatter)
         end
       end
 
@@ -231,9 +234,11 @@ describe(NotionToMd) do
       context 'with conflicting properties' do
         subject(:md) do
           VCR.use_cassette('notion_page_with_conflicting_properties') do
-            described_class.convert(page_id: '9349e5108c0e4c0ea772b187d63ecfe1', frontmatter: frontmatter)
+            described_class.convert(resource_type, id: resource_id, frontmatter: frontmatter)
           end
         end
+
+        let(:resource_id) { '9349e5108c0e4c0ea772b187d63ecfe1' }
 
         it 'sets title in frontmatter' do
           expect(md).to matching(/^title: "Title: with “double quotes” and ‘single quotes’ and :colons: but forget àccénts: àáâãäāăȧǎȁȃ"$/)
@@ -242,9 +247,11 @@ describe(NotionToMd) do
     end
 
     context('with a very long page') do
+      let(:resource_id) { '25adb135281c80828cb1dc59437ae243' }
+
       it 'paginates the blocks' do
         VCR.use_cassette('a_very_long_notion_page') do
-          md = described_class.call(page_id: '25adb135281c80828cb1dc59437ae243')
+          md = described_class.call(resource_type, id: resource_id)
           expect(md).to matching(/Nunc mi enim, aliquam eu vehicula eu, tempor nec odio.$/)
         end
       end
@@ -254,7 +261,7 @@ describe(NotionToMd) do
   describe('.call') do
     it 'returns the markdown document' do
       VCR.use_cassette('notion_page') do
-        md = described_class.call(page_id: '9dc17c9c9d2e469dbbf0f9648f3288d3')
+        md = described_class.call(resource_type, id: resource_id)
         expect(md).to be_a(String)
       end
     end
@@ -264,7 +271,7 @@ describe(NotionToMd) do
         output = nil
 
         VCR.use_cassette('notion_page') do
-          described_class.call(page_id: '9dc17c9c9d2e469dbbf0f9648f3288d3') { output = _1 }
+          described_class.call(resource_type, id: resource_id) { output = _1 }
         end
 
         expect(output).to be_a(String)
