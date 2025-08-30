@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe(NotionToMd::Blocks::Builder) do
+describe(NotionToMd::Page::Builder) do
   let(:notion_client) { Notion::Client.new(token: ENV.fetch('NOTION_TOKEN', nil)) }
   let(:page_id) { '25adb135281c80828cb1dc59437ae243' }
 
