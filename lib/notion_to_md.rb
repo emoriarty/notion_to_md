@@ -15,17 +15,6 @@ class NotionToMd
   TYPES = { database: :database, page: :page }.freeze
 
   class << self
-    # === Parameters
-    # page_id::
-    #   A string representing the notion page id.
-    # token::
-    #   The notion API secret token. The token can replaced by the environment variable NOTION_TOKEN.
-    # frontmatter::
-    #   A boolean indicating whether to include the page properties as frontmatter.
-    #
-    # === Returns
-    # The string that represent the markdown document.
-    #
     def call(type, id:, token: nil, frontmatter: false)
       raise "#{type} is not supported. Use :database or :page" unless TYPES.values.include?(type)
 
