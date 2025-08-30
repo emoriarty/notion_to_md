@@ -9,11 +9,11 @@ class NotionToMd
     include Support::Frontmatter
 
     class << self
-      def call(id:, notion_client:)
+      def call(id:, notion_client:, frontmatter: false)
         metadata = notion_client.page(page_id: id)
         blocks = Blocks::Builder.call(block_id: id, notion_client: notion_client)
 
-        new(metadata: metadata, children: blocks)
+        new(metadata: metadata, children: blocks, frontmatter: frontmatter)
       end
 
       alias build call
@@ -23,13 +23,27 @@ class NotionToMd
 
     alias blocks children
 
-    def initialize(metadata:, children:)
+    def initialize(metadata:, children:, frontmatter: false)
       @metadata = metadata
       @children = children
+      @config = { frontmatter: frontmatter }
     end
 
     def body
       @body ||= blocks.map(&:to_md).compact.join
     end
+
+    def frontmatter?
+      @config[:frontmatter]
+    end
+
+    def to_s
+      <<~MD
+        #{frontmatter if frontmatter?}
+        #{body}
+      MD
+    end
+
+    alias to_md to_s
   end
 end
