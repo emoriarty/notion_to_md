@@ -44,11 +44,7 @@ class NotionToMd
     # The string that represent the markdown document.
     #
     def call
-      md_page = Page.build(id: page_id, notion_client: notion_client)
-      <<~MD
-        #{md_page.frontmatter if frontmatter}
-        #{md_page.body}
-      MD
+      Page.build(id: page_id, notion_client: notion_client, frontmatter: frontmatter).to_s
     end
 
     alias convert call

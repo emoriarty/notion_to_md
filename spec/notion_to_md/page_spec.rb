@@ -3,10 +3,11 @@
 require 'spec_helper'
 
 RSpec.describe NotionToMd::Page do
-  subject(:page) { described_class.call(id: page_id, notion_client: notion_client) }
+  subject(:page) { described_class.call(id: page_id, notion_client: notion_client, frontmatter: frontmatter) }
 
   let(:page_id) { '25adb135281c80828cb1dc59437ae243' }
   let(:notion_client) { Notion::Client.new(token: ENV.fetch('NOTION_TOKEN', nil)) }
+  let(:frontmatter) { false }
 
   before { VCR.insert_cassette('a_very_long_notion_page') }
   after  { VCR.eject_cassette('a_very_long_notion_page') }
@@ -30,6 +31,50 @@ RSpec.describe NotionToMd::Page do
 
     it 'is not empty for this long page cassette' do
       expect(page.body).not_to be_empty
+    end
+  end
+
+  describe '#to_s' do
+    it 'returns the markdown content' do
+      expect(page.to_s)
+        .to start_with("\nLorem ipsum dolor sit amet")
+        .and end_with("tempor nec odio.\n\n\n")
+    end
+
+    it 'does not include frontmatter' do
+      expect(page.to_s).to start_with("\n")
+    end
+
+    context('with frontmatter enabled') do
+      let(:frontmatter) { true }
+
+      it 'returns the markdown content with frontmatter' do
+        expect(page.to_s)
+          .to start_with('---')
+          .and end_with("tempor nec odio.\n\n\n")
+      end
+    end
+  end
+
+  describe '#to_md' do
+    it 'returns the markdown content' do
+      expect(page.to_md)
+        .to start_with("\nLorem ipsum dolor sit amet")
+        .and end_with("tempor nec odio.\n\n\n")
+    end
+
+    it 'does not include frontmatter' do
+      expect(page.to_md).to start_with("\n")
+    end
+
+    context('with frontmatter enabled') do
+      let(:frontmatter) { true }
+
+      it 'returns the markdown content with frontmatter' do
+        expect(page.to_md)
+          .to start_with('---')
+          .and end_with("tempor nec odio.\n\n\n")
+      end
     end
   end
 
