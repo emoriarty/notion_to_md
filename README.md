@@ -143,7 +143,7 @@ Supported property types:
 - `rich_text` (plain text only)
 
 > [!NOTE]
-> ⚠️ Advanced types such as `formula`, `relation`, and `rollup` are **not supported**.
+> Advanced types such as `formula`, `relation`, and `rollup` are **not supported**.
 > See the [Notion property value docs](https://developers.notion.com/reference/property-value-object#all-property-values).
 
 ## Development
