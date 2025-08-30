@@ -3,7 +3,7 @@
 class NotionToMd
   class MetadataType
     class << self
-      include Helpers::YamlSanitizer
+      include Support::YamlSanitizer
 
       def file(prop)
         prop.dig(:file, :url)
