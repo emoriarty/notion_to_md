@@ -67,4 +67,3 @@ class NotionToMd
     end
   end
 end
-
