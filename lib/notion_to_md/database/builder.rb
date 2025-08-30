@@ -4,25 +4,26 @@ class NotionToMd
   class Database
     class Builder
       class << self
-        def call(database_id:, notion_client:, filter: nil, sorts: nil)
-          new(database_id: database_id, notion_client: notion_client, filter: filter, sorts: sorts).call
+        def call(database_id:, notion_client:, filter: nil, sorts: nil, frontmatter: false)
+          new(database_id: database_id, notion_client: notion_client, filter: filter, sorts: sorts, frontmatter: frontmatter).call
         end
 
         alias build call
       end
 
-      attr_reader :database_id, :notion_client, :filter, :sorts
+      attr_reader :database_id, :notion_client, :filter, :sorts, :page_options
 
-      def initialize(database_id:, notion_client:, filter: nil, sorts: nil)
+      def initialize(database_id:, notion_client:, filter: nil, sorts: nil, frontmatter: false)
         @database_id = database_id
         @notion_client = notion_client
         @filter = filter
         @sorts = sorts
+        @page_options = { frontmatter: frontmatter }
       end
 
       def call
         fetch_pages.map do |page|
-          NotionToMd::Page.call(id: page.id, notion_client: notion_client)
+          NotionToMd::Page.call(id: page.id, notion_client: notion_client, **page_options)
         end
       end
 

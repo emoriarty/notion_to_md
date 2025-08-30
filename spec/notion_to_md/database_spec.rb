@@ -3,12 +3,13 @@
 require 'spec_helper'
 
 RSpec.describe NotionToMd::Database do
-  subject(:db) { described_class.call(id: database_id, notion_client: notion_client, filter: filter, sorts: sorts) }
+  subject(:db) { described_class.call(id: database_id, notion_client: notion_client, filter: filter, sorts: sorts, frontmatter: frontmatter) }
 
   let(:database_id) { '1ae33dd5f3314402948069517fa40ae2' }
   let(:notion_client) { Notion::Client.new(token: ENV.fetch('NOTION_TOKEN', nil)) }
   let(:filter) { nil }
   let(:sorts) { nil }
+  let(:frontmatter) { false }
 
   before { VCR.insert_cassette('a_database') }
   after  { VCR.eject_cassette('a_database') }
@@ -168,6 +169,42 @@ RSpec.describe NotionToMd::Database do
     it 'orders pages by year ascending' do
       years = db.pages.map { |page| page.properties['year'].number }
       expect(years).to eq(years.sort)
+    end
+  end
+
+  describe '#to_s' do
+    it 'returns all the pages converted to string' do
+      expect(db.to_s).to all(be_a(String))
+    end
+
+    it 'does not include frontmatter' do
+      expect(db.to_s).to all(start_with("\n"))
+    end
+
+    context('with frontmatter enabled') do
+      let(:frontmatter) { true }
+
+      it 'returns all the pages converted to markdown with frontmatter' do
+        expect(db.to_s).to all(start_with('---'))
+      end
+    end
+  end
+
+  describe '#to_md' do
+    it 'returns all the pages converted to string' do
+      expect(db.to_md).to all(be_a(String))
+    end
+
+    it 'does not include frontmatter' do
+      expect(db.to_md).to all(start_with("\n"))
+    end
+
+    context('with frontmatter enabled') do
+      let(:frontmatter) { true }
+
+      it 'returns all the pages converted to markdown with frontmatter' do
+        expect(db.to_md).to all(start_with('---'))
+      end
     end
   end
 end
