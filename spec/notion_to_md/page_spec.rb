@@ -2,220 +2,99 @@
 
 require 'spec_helper'
 
-describe(NotionToMd::Page) do
-  subject(:page) { described_class.new(metadata: metadata, children: blocks) }
+RSpec.describe NotionToMd::Page do
+  subject(:page) { described_class.call(id: page_id, notion_client: notion_client) }
 
-  let(:metadata) { nil }
-  let(:blocks) { nil }
+  let(:page_id) { '25adb135281c80828cb1dc59437ae243' }
+  let(:notion_client) { Notion::Client.new(token: ENV.fetch('NOTION_TOKEN', nil)) }
 
-  describe('#custom_props') do
-    context 'with a null select prop' do
-      let(:metadata) do
-        Notion::Messages::Message.new(
-          properties: {
-            nil_select: { id: 'xxxx', type: 'select', select: nil }
-          }
-        )
-      end
+  before { VCR.insert_cassette('a_very_long_notion_page') }
+  after  { VCR.eject_cassette('a_very_long_notion_page') }
 
-      it 'excludes the prop from the return' do
-        expect(page.custom_props).not_to include('nil_select')
-      end
+  it_behaves_like 'a callable interface'
+
+  describe '#blocks (alias: #children)' do
+    it 'returns an Array' do
+      expect(page.blocks).to be_a(Array)
+    end
+
+    it 'contains elements that respond to #to_md' do
+      expect(page.blocks).to all(respond_to(:to_md))
     end
   end
 
-  describe('#title') do
-    let(:title) { 'Dummy title' }
-
-    context('when the title is in the Name property') do
-      let(:metadata) do
-        {
-          properties: {
-            Name: {
-              type: 'title',
-              title: [
-                { plain_text: title }
-              ]
-            }
-          }
-        }
-      end
-
-      it { expect(page.title).to eq(title) }
+  describe '#body' do
+    it 'returns a String' do
+      expect(page.body).to be_a(String)
     end
 
-    context('when the title is in the title property') do
-      let(:metadata) do
-        {
-          properties: {
-            title: {
-              type: 'text',
-              title: [
-                { plain_text: title }
-              ]
-            }
-          }
-        }
-      end
-
-      it { expect(page.title).to eq(title) }
+    it 'is not empty for this long page cassette' do
+      expect(page.body).not_to be_empty
     end
   end
 
-  describe('#frontmatter') do
-    let(:metadata) do
-      Notion::Messages::Message.new(
-        id: 'xxxx',
-        cover: {
-          type: 'external',
-          external: {
-            url: 'https://s3.us-west-2.amazonaws.com/secure.notion-static.com/X3f70b1X-2331-4012-99bc-24gcbd1c85sb/test.jpeg',
-            expiry_time: '2022-07-30T10:12:33.218Z'
-          }
-        },
-        icon: {
-          type: 'emoji',
-          emoji: '\U0001F4A5'
-        },
-        created_time: Time.now,
-        last_edited_time: Time.now,
-        archived: false,
-        properties: {
-          title: {
-            type: 'text',
-            title: [
-              { plain_text: 'Title: with "double quotes" and \'single quotes\' and: :colons:' }
-            ]
-          },
-          rich_text: {
-            type: 'rich_text',
-            rich_text: [
-              { plain_text: 'Rich text with "double quotes" and \'single quotes\' and: :colons:' }
-            ]
-          },
-          select: {
-            type: 'select',
-            select: {
-              name: 'Select with "double quotes" and \'single quotes\' and: :colons:'
-            }
-          },
-          multi_select: {
-            type: 'multi_select',
-            multi_select: [
-              {
-                name: 'Multi select with "double quotes" and \'single quotes\' and: :colons:'
-              }
-            ]
-          }
-        }
-      )
-    end
-
-    it 'validates frontmatter' do
-      expect { YAML.safe_load(page.frontmatter, permitted_classes: [Time]) }.not_to raise_error
-    end
-
-    it 'includes the title' do
-      expect(YAML.safe_load(page.frontmatter,
-                            permitted_classes: [Time])['title']).to eq('Title: with "double quotes" and \'single quotes\' and: :colons:')
-    end
-
-    it 'includes the cover' do
-      expect(YAML.safe_load(page.frontmatter, permitted_classes: [Time])['cover']).to eq('https://s3.us-west-2.amazonaws.com/secure.notion-static.com/X3f70b1X-2331-4012-99bc-24gcbd1c85sb/test.jpeg')
-    end
-
-    it 'includes the icon' do
-      expect(YAML.safe_load(page.frontmatter, permitted_classes: [Time])['icon']).to eq('\U0001F4A5')
-    end
-
-    it 'includes the created_time' do
-      expect(YAML.safe_load(page.frontmatter, permitted_classes: [Time])['created_time']).to be_within(1).of(Time.now)
-    end
-
-    it 'includes the last_edited_time' do
-      expect(YAML.safe_load(page.frontmatter,
-                            permitted_classes: [Time])['last_edited_time']).to be_within(1).of(Time.now)
-    end
-
-    it 'includes the archived' do
-      expect(YAML.safe_load(page.frontmatter, permitted_classes: [Time])['archived']).to be(false)
-    end
-
-    context 'when the title contains colons' do
-      let(:metadata) do
-        Notion::Messages::Message.new(
-          properties: {
-            title: {
-              type: 'text',
-              title: [
-                { plain_text: 'Title: with: :colons : :' }
-              ]
-            }
-          }
-        )
+  describe 'delegated/read-through metadata methods' do
+    describe '#properties' do
+      it 'responds to #properties (delegated)' do
+        expect(page).to respond_to(:properties)
       end
 
-      it 'escapes the colons' do
-        expect(YAML.safe_load(page.frontmatter, permitted_classes: [Time])['title']).to eq('Title: with: :colons : :')
+      it 'returns a Hash with String keys and Hash values' do
+        expect(page.properties).to be_a(Hash)
+        expect(page.properties.keys).to all(be_a(String))
+        expect(page.properties.values).to all(be_a(Hash))
       end
     end
 
-    context 'when the title contains double quotes' do
-      let(:metadata) do
-        Notion::Messages::Message.new(
-          properties: {
-            title: {
-              type: 'text',
-              title: [
-                { plain_text: 'Title with "double quotes"' }
-              ]
-            }
-          }
-        )
-      end
-
-      it 'escapes the double quotes' do
-        expect(YAML.safe_load(page.frontmatter, permitted_classes: [Time])['title']).to eq('Title with "double quotes"')
-      end
+    describe '#title' do
+      it { expect(page.title).to eq('A very long document') }
     end
 
-    context 'when the title contains hyphens' do
-      let(:metadata) do
-        Notion::Messages::Message.new(
-          properties: {
-            title: {
-              type: 'text',
-              title: [
-                { plain_text: '- Title with -hyphens- -' }
-              ]
-            }
-          }
-        )
-      end
-
-      it 'does not escape the hyphens' do
-        expect(YAML.safe_load(page.frontmatter, permitted_classes: [Time])['title']).to eq('- Title with -hyphens- -')
-      end
+    describe '#id' do
+      it { expect(page.id).to eq('25adb135-281c-8082-8cb1-dc59437ae243') }
     end
 
-    context 'when the title contains diacritics' do
-      let(:metadata) do
-        Notion::Messages::Message.new(
-          properties: {
-            title: {
-              type: 'text',
-              title: [
-                { plain_text: 'Title with diacritics àáâãäāăȧǎȁȃ' }
-              ]
-            }
-          }
-        )
-      end
+    describe '#created_time' do
+      it { expect(page.created_time).to eq('2025-08-25T18:14:00.000Z') }
+    end
 
-      it 'does not escape the diacritics' do
-        expect(YAML.safe_load(page.frontmatter,
-                              permitted_classes: [Time])['title']).to eq('Title with diacritics àáâãäāăȧǎȁȃ')
-      end
+    describe '#url' do
+      it { expect(page.url).to eq('https://www.notion.so/A-very-long-document-25adb135281c80828cb1dc59437ae243') }
+    end
+
+    describe '#archived' do
+      it { expect(page.archived).to be(false) }
+    end
+
+    describe '#cover' do
+      it { expect(page.cover).to eq('https://www.notion.so/images/page-cover/rijksmuseum_jansz_1641.jpg') }
+    end
+
+    describe '#icon' do
+      it { expect(page.icon).to eq('✈️') }
+    end
+
+    describe '#last_edited_time' do
+      it { expect(page.last_edited_time).to eq('2025-08-30T05:11:00.000Z') }
+    end
+
+    describe '#last_edited_by_object' do
+      it { expect(page.last_edited_by_object).to eq('user') }
+    end
+
+    describe '#last_edited_by_id' do
+      it { expect(page.last_edited_by_id).to eq('db313571-0280-411f-a6de-70e826421d12') }
+    end
+  end
+
+  context 'when page does not exist' do
+    let(:page_id) { 'unknown' }
+
+    before { VCR.insert_cassette('unknown_page') }
+    after  { VCR.eject_cassette('unknown_page') }
+
+    it 'raises a Notion API error' do
+      expect { page }.to raise_error(Notion::Api::Errors::NotionError)
     end
   end
 end
