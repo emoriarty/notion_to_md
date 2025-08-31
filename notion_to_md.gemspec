@@ -18,5 +18,9 @@ Gem::Specification.new do |s|
   s.add_dependency('notion-ruby-client', '~> 1')
   s.add_dependency('zeitwerk', '~> 2.6')
 
-  s.metadata['rubygems_mfa_required'] = 'true'
+  s.metadata = (s.metadata || {}).merge(
+    'rubygems_mfa_required' => 'true',
+    'status' => 'beta',
+    'source_code_uri' => 'https://github.com/emoriarty/notion_to_md'
+  )
 end
