@@ -27,11 +27,6 @@ class NotionToMd
         base.def_delegators :metadata, :properties
       end
 
-      # @return [String] The Notion record ID.
-      def id
-        metadata[:id]
-      end
-
       # Extract the page or database title.
       #
       # @return [String] Plain text concatenated from `title` property.
