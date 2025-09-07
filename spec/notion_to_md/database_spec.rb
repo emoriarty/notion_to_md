@@ -58,7 +58,7 @@ RSpec.describe NotionToMd::Database do
     end
 
     describe '#id' do
-      it { expect(db.id).to eq('1ae33dd5-f331-4402-9480-69517fa40ae2') }
+      it { expect(db.id).to eq('1ae33dd5f3314402948069517fa40ae2') }
     end
 
     describe '#created_time' do

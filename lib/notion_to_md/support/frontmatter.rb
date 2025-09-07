@@ -43,14 +43,14 @@ class NotionToMd
         CONTENT
       end
 
-      private
-
       # Merge custom and default properties into the final set of frontmatter properties.
       #
       # @return [Hash{String => Object}]
       def frontmatter_properties
         @frontmatter_properties ||= frontmatter_custom_properties.deep_merge(frontmatter_default_properties)
       end
+
+      private
 
       # Retrieve sanitized custom properties.
       #
@@ -101,7 +101,7 @@ class NotionToMd
       # @return [Hash{String => Object}]
       def frontmatter_default_properties
         @frontmatter_default_properties ||= {
-          'id' => id,
+          'id' => metadata['id'],
           'title' => escape_frontmatter_value(title),
           'created_time' => created_time,
           'cover' => cover,
