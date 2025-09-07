@@ -35,22 +35,22 @@ class NotionToMd
       #
       # @see .build
       def call(id:, notion_client:, filter: nil, sorts: nil, frontmatter: false)
-        metadata = notion_client.database(database_id: id)
-        pages = Builder.call(
-          database_id: id,
-          notion_client: notion_client,
-          filter: filter,
-          sorts: sorts,
-          frontmatter: frontmatter
-        )
-
-        new(metadata: metadata, children: pages)
+        new(id: id, notion_client: notion_client, filter: filter, sorts: sorts, frontmatter: frontmatter).call
       end
 
       # @!method build(...)
       #   Alias of {.call}.
       alias build call
     end
+
+    # @return [String] The Notion id database.
+    attr_reader :id
+
+    # @param jNotion::Client] The Notion API client.
+    attr_reader :notion_client
+
+    # @return [Hash] The database configuration options.
+    attr_reader :config
 
     # @return [Object] The metadata associated with the database.
     attr_reader :metadata
@@ -64,12 +64,41 @@ class NotionToMd
 
     # Initialize a new database representation.
     #
-    # @param metadata [Object] The Notion database metadata.
-    # @param children [Array<NotionToMd::Page>] The pages belonging to the database.
-    def initialize(metadata:, children:)
-      @metadata = metadata
-      @children = children
+    # @param id [String] The Notion database ID.
+    # @param notion_client [Notion::Client] The Notion API client.
+    # @param filter [Hash, nil] Optional filter criteria to pass to the Notion API.
+    # @param sorts [Array<Hash>, nil] Optional sort criteria.
+    # @param frontmatter [Boolean] Whether to include frontmatter in each page’s Markdown output.
+    def initialize(id:, notion_client:, filter:, sorts:, frontmatter: false)
+      @id = id
+      @notion_client = notion_client
+      @config = {
+        frontmatter: frontmatter,
+        filter: filter,
+        sorts: sorts
+      }
     end
+
+    # Fetch database metadata and contained pages from the Notion API.
+    #
+    # This method populates the database's metadata and children by making API calls
+    # to retrieve the database structure and all pages contained within it, applying
+    # any configured filters and sorting criteria.
+    #
+    # @return [NotionToMd::Database] returns self to allow method chaining.
+    def call
+      @metadata = notion_client.database(database_id: id)
+      @children = Builder.call(
+        database_id: id,
+        notion_client: notion_client,
+        filter: config[:filter],
+        sorts: config[:sorts],
+        frontmatter: config[:frontmatter]
+      )
+      self
+    end
+
+    alias build call
 
     # Convert all database pages into Markdown.
     #

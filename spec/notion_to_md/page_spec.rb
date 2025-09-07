@@ -96,7 +96,7 @@ RSpec.describe NotionToMd::Page do
     end
 
     describe '#id' do
-      it { expect(page.id).to eq('25adb135-281c-8082-8cb1-dc59437ae243') }
+      it { expect(page.id).to eq('25adb135281c80828cb1dc59437ae243') }
     end
 
     describe '#created_time' do

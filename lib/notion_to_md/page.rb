@@ -28,16 +28,22 @@ class NotionToMd
       #
       # @see .build
       def call(id:, notion_client:, frontmatter: false)
-        metadata = notion_client.page(page_id: id)
-        blocks = Builder.call(block_id: id, notion_client: notion_client)
-
-        new(metadata: metadata, children: blocks, frontmatter: frontmatter)
+        new(id: id, notion_client: notion_client, frontmatter: frontmatter).call
       end
 
       # @!method build(...)
       #   Alias of {.call}.
       alias build call
     end
+
+    # @return [String] The Notion id page.
+    attr_reader :id
+
+    # @param jNotion::Client] The Notion API client.
+    attr_reader :notion_client
+
+    # @param [Hash] The page configuration options.
+    attr_reader :config
 
     # @return [Object] The metadata associated with the page.
     attr_reader :metadata
@@ -51,14 +57,28 @@ class NotionToMd
 
     # Initialize a new Page.
     #
-    # @param metadata [Object] The Notion page metadata.
-    # @param children [Array<#to_md>] The block children belonging to the page.
+    # @param id [String] The Notion page ID.
+    # @param notion_client [Notion::Client] The Notion API client.
     # @param frontmatter [Boolean] Whether to include frontmatter in the Markdown output.
-    def initialize(metadata:, children:, frontmatter: false)
-      @metadata = metadata
-      @children = children
+    def initialize(id:, notion_client:, frontmatter: false)
+      @id = id
+      @notion_client = notion_client
       @config = { frontmatter: frontmatter }
     end
+
+    # Fetch page data and child blocks from the Notion API.
+    #
+    # This method populates the page's metadata and children by making API calls
+    # to retrieve the page content and its nested blocks.
+    #
+    # @return [NotionToMd::Page] returns self to allow method chaining.
+    def call
+      @metadata = notion_client.page(page_id: id)
+      @children = Builder.call(block_id: id, notion_client: notion_client)
+      self
+    end
+
+    alias build call
 
     # Render the body of the page (Markdown representation of its blocks).
     #
@@ -71,7 +91,7 @@ class NotionToMd
     #
     # @return [Boolean]
     def frontmatter?
-      @config[:frontmatter]
+      config[:frontmatter]
     end
 
     # Render the page as a Markdown string, including optional frontmatter.
