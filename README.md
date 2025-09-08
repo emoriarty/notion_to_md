@@ -26,7 +26,7 @@ Or add it to your `Gemfile`:
 gem 'notion_to_md'
 ```
 
-### Beta version (3.0.0.beta1)
+### Beta version (3.0.0.beta2)
 
 If you want to try the **beta release**, install with the `--pre` flag:
 
