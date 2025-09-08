@@ -26,7 +26,7 @@ Or add it to your `Gemfile`:
 gem 'notion_to_md'
 ```
 
-### Beta version (3.0.0.beta2)
+### Beta version
 
 If you want to try the **beta release**, install with the `--pre` flag:
 
@@ -37,7 +37,7 @@ gem install notion_to_md --pre
 Or pin the beta in your Gemfile:
 
 ```ruby
-gem "notion_to_md", "3.0.0.beta1"
+gem "notion_to_md", "3.0.0.beta2"
 ```
 
 ⚠️ This version is under active development. For stable usage, prefer the latest `2.x.x` release.
