@@ -28,6 +28,8 @@ gem 'notion_to_md'
 
 ### Beta version
 
+Learn about the new changes in the following [post](https://enrq.me/dev/2025/09/09/jekyll-notion-notion-to-md-3-0-0-beta/).
+
 If you want to try the **beta release**, install with the `--pre` flag:
 
 ```bash
