@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 2.7.0'
   s.license = 'MIT'
 
-  s.add_dependency('activesupport', '~> 7')
+  s.add_dependency('activesupport', '~> 8')
   s.add_dependency('notion-ruby-client', '~> 1')
   s.add_dependency('zeitwerk', '~> 2.6')
 
